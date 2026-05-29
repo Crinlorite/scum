@@ -1,0 +1,62 @@
+---
+// Slim banner shown on pages whose language is still a Beta translation.
+// Sets expectations and offers the two stable languages (en, es).
+import { useTranslations, alternateHref } from '../i18n/utils';
+import { STABLE_LANGS, getLanguageMeta, type LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const here = Astro.url.pathname;
+
+const stable = STABLE_LANGS.map((code) => ({
+  code,
+  label: getLanguageMeta(code).native,
+  href: alternateHref(here, lang, code),
+}));
+---
+<aside class="beta-notice" role="note">
+  <div class="container beta-inner">
+    <span class="beta-tag">{tr('beta.badge')}</span>
+    <span class="beta-msg">{tr('beta.notice')}</span>
+    <span class="beta-links">
+      {tr('beta.readIn')}:
+      {stable.map((s, i) => (
+        <>{i > 0 && <span aria-hidden="true"> · </span>}<a href={s.href} lang={s.code}>{s.label}</a></>
+      ))}
+    </span>
+  </div>
+</aside>
+
+<style>
+  .beta-notice {
+    background: rgba(217, 164, 65, 0.10);
+    border-bottom: 1px solid rgba(217, 164, 65, 0.30);
+    font-size: 0.85rem;
+  }
+  .beta-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 0.5rem 0;
+  }
+  .beta-tag {
+    flex: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #8a5a12;
+    background: rgba(217, 164, 65, 0.25);
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+  }
+  .beta-msg { color: var(--c-ink-soft); }
+  .beta-links { margin-left: auto; color: var(--c-ink-muted); white-space: nowrap; }
+  .beta-links a { color: var(--c-rust); text-decoration: none; font-weight: 600; }
+  .beta-links a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .beta-links { margin-left: 0; }
+  }
+</style>

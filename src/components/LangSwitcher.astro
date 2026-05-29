@@ -11,8 +11,9 @@ const here = Astro.url.pathname;
   {locales.map((l) => (
     <a
       href={alternateHref(here, lang, l.code)}
-      class={l.code === lang ? 'active' : ''}
+      class={`${l.code === lang ? 'active' : ''}${l.beta ? ' beta' : ''}`}
       hreflang={l.code}
+      title={l.beta ? `${l.label} · Beta` : l.label}
       aria-current={l.code === lang ? 'true' : undefined}
     >{l.code.toUpperCase()}</a>
   ))}
@@ -39,5 +40,14 @@ const here = Astro.url.pathname;
   .lang-switcher a.active {
     color: var(--c-rust-bright);
     background: rgba(176, 74, 42, 0.12);
+  }
+  /* Marcador Beta: β en superíndice, ámbar, sutil. */
+  .lang-switcher a.beta::after {
+    content: 'β';
+    font-size: 0.62em;
+    vertical-align: super;
+    margin-left: 1px;
+    color: #d9a441;
+    opacity: 0.85;
   }
 </style>
