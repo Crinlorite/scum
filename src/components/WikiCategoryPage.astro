@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { loadWikiByLangCategory, type WikiCategory } from '../i18n/wiki';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; category: WikiCategory; }
+const { lang, category } = Astro.props;
+const tr = useTranslations(lang);
+
+const entries = await loadWikiByLangCategory(lang, category);
+entries.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+<BaseLayout
+  lang={lang}
+  title={tr(`cat.${category}.title` as const)}
+  description={tr(`cat.${category}.desc` as const)}
+>
+  <section class="cat-page">
+    <div class="container container-prose">
+      <a class="back" href={localizedPath('/wiki', lang)}>{tr('wiki.backToWiki')}</a>
+      <span class="eyebrow">{tr('wiki.title')}</span>
+      <h1>{tr(`cat.${category}.title` as const)}</h1>
+      <p class="intro">{tr(`cat.${category}.desc` as const)}</p>
+    </div>
+    <div class="container">
+      {entries.length === 0 ? (
+        <p class="empty">{tr('wiki.empty')}</p>
+      ) : (
+        <ul class="article-list">
+          {entries.map((e) => (
+            <li>
+              <a href={localizedPath(`/wiki/${category}/${e.parsed.slug}`, lang)}>
+                <h3>{e.data.title}</h3>
+                {e.data.description && <p>{e.data.description}</p>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cat-page { padding: 3rem 0 4rem; }
+  .back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--c-ink-muted);
+    text-decoration: none;
+  }
+  .back:hover { color: var(--c-link); }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 2rem; }
+  .empty {
+    padding: 2rem;
+    background: var(--c-paper-soft);
+    border: 1px dashed var(--c-rule);
+    border-radius: var(--radius-lg);
+    color: var(--c-ink-muted);
+    text-align: center;
+  }
+  .article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+  .article-list a {
+    display: block;
+    padding: 1.25rem;
+    background: var(--c-paper);
+    border: 1px solid var(--c-rule);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .article-list a:hover { border-color: var(--c-rust); transform: translateY(-2px); }
+  .article-list h3 { margin: 0 0 0.4rem; color: var(--c-ink); }
+  .article-list p { margin: 0; color: var(--c-ink-soft); font-size: 0.95rem; }
+</style>

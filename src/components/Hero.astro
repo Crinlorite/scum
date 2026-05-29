@@ -1,0 +1,74 @@
+---
+import { useTranslations, localizedPath } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+---
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow">{tr('hero.eyebrow')}</span>
+    <h1>{tr('hero.title')}</h1>
+    <p class="hero-sub">{tr('hero.subtitle')}</p>
+    <div class="hero-cta">
+      <a href={localizedPath('/wiki', lang)} class="btn btn-primary">{tr('hero.ctaPrimary')}</a>
+      <a href={localizedPath('/server', lang)} class="btn btn-ghost">{tr('hero.ctaSecondary')}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--c-bg-deep);
+    color: var(--c-bone);
+    overflow: hidden;
+    padding: clamp(4rem, 12vw, 8rem) 0 clamp(4rem, 10vw, 7rem);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(176, 74, 42, 0.18), transparent 60%),
+      radial-gradient(ellipse at 100% 100%, rgba(74, 82, 56, 0.25), transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        rgba(232, 227, 216, 0.015) 0 2px,
+        transparent 2px 6px
+      ),
+      linear-gradient(180deg, #0f1311 0%, #161b18 100%);
+    z-index: 0;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(15, 19, 17, 0.4) 50%, transparent 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 50rem;
+  }
+  .hero h1 {
+    margin: 1rem 0 1.25rem;
+    color: var(--c-bone);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    color: var(--c-ash);
+    max-width: 38rem;
+    margin: 0 auto 2rem;
+  }
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+</style>

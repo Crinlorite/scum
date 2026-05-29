@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { LANGUAGES, type LangCode } from '../i18n/languages';
+import { itemName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
+
+interface Props { lang: LangCode; item: ScumItem; }
+const { lang, item } = Astro.props;
+const tr = useTranslations(lang);
+
+const name = itemName(item, lang);
+const desc = itemDescription(item, lang);
+const cat = categoryLabel(item.category, lang);
+
+// Names in the other supported languages (skip current + empties).
+const others = LANGUAGES
+  .filter((l) => l.code !== lang && item.name[l.code])
+  .map((l) => ({ native: l.native, code: l.code, value: item.name[l.code]! }));
+---
+<BaseLayout
+  lang={lang}
+  title={name}
+  description={desc ?? `${name} · ${cat} · SCUM`}
+>
+  <article class="item-page">
+    <div class="container container-prose">
+      <a class="back" href={localizedPath('/items', lang)}>{tr('items.backToItems')}</a>
+
+      <span class="eyebrow">{cat}</span>
+      <h1>{name}</h1>
+
+      {desc
+        ? <p class="desc">{desc}</p>
+        : <p class="desc muted">{tr('items.noDescription')}</p>}
+
+      <dl class="meta">
+        <div>
+          <dt>{tr('items.category')}</dt>
+          <dd>{cat}</dd>
+        </div>
+        <div>
+          <dt>{tr('items.officialName')}</dt>
+          <dd>{item.name[lang] ?? name}</dd>
+        </div>
+        <div>
+          <dt>ID</dt>
+          <dd><code>{item.asset}</code></dd>
+        </div>
+      </dl>
+
+      {others.length > 0 && (
+        <section class="other-langs">
+          <h2>{tr('items.otherLanguages')}</h2>
+          <ul>
+            {others.map((o) => (
+              <li>
+                <span class="lang-name" lang={o.code}>{o.native}</span>
+                <span class="lang-value" lang={o.code}>{o.value}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .item-page { padding: 3rem 0 4rem; }
+  .back {
+    display: inline-block; margin-bottom: 1.5rem;
+    color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem;
+  }
+  .back:hover { color: var(--c-rust); }
+  h1 { margin: 0.3rem 0 1rem; }
+  .desc { font-size: 1.15rem; color: var(--c-ink); line-height: 1.6; }
+  .desc.muted { color: var(--c-ink-muted); font-style: italic; }
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1rem 1.5rem;
+    margin: 2rem 0;
+    padding: 1.25rem 0;
+    border-block: 1px solid var(--c-rule);
+  }
+  .meta dt {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--c-ink-muted); margin-bottom: 0.2rem;
+  }
+  .meta dd { margin: 0; color: var(--c-ink); }
+  .meta code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .other-langs h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .other-langs ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; }
+  .other-langs li {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: 0.45rem 0; border-bottom: 1px solid var(--c-rule);
+  }
+  .lang-name { color: var(--c-ink-muted); font-size: 0.9rem; }
+  .lang-value { color: var(--c-ink); text-align: right; }
+</style>

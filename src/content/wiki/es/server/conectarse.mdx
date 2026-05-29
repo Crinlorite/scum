@@ -1,0 +1,25 @@
+---
+title: Conectarse al servidor de Crintech
+description: Cómo unirte al servidor comunitario de SCUM alojado por Crintech.
+updated: 2026-05-28
+---
+
+El servidor está alojado en un VPS de Hetzner y se ejecuta en Docker bajo Wine. La conexión es estable; lo único que falla a veces es el listado público.
+
+## Por nombre
+
+1. Abre SCUM → **Multiplayer** → **Community**.
+2. Busca `Crintech Community SCUM` en la barra de filtro.
+3. Doble click para conectar.
+
+Si no aparece en el listado, ve directo al siguiente método.
+
+## Por IP directa
+
+1. Abre SCUM → **Multiplayer** → **Direct**.
+2. Introduce la IP y puerto cuando se publiquen aquí.
+3. Click en **Join**.
+
+## Por qué a veces no aparece en el listado
+
+El servidor corre bajo **Wine** (compatibilidad Windows en Linux) y el query A2S — el mecanismo que Steam usa para listar servers — está roto en esa configuración. La conexión real funciona perfecto, pero el master server de Steam puede tardar en refrescar la entrada.

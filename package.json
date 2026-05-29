@@ -1,0 +1,27 @@
+{
+  "name": "scum-crintech",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wiki y fuente de información de SCUM — sin anuncios, sostenible. scumwiki.crintech.pro",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@fontsource/oswald": "^5.1.0",
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "typescript": "^5.6.0"
+  }
+}

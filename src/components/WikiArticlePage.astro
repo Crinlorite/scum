@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { getLanguageMeta, type LangCode } from '../i18n/languages';
+import type { WikiCategory, WikiEntry } from '../i18n/wiki';
+
+interface Props {
+  lang: LangCode;
+  category: WikiCategory;
+  entry: WikiEntry;
+}
+const { lang, category, entry } = Astro.props;
+const tr = useTranslations(lang);
+const { Content } = await entry.render();
+const updated = entry.data.updated
+  ? new Intl.DateTimeFormat(getLanguageMeta(lang).bcp47, { dateStyle: 'long' }).format(entry.data.updated)
+  : null;
+const editUrl = `https://github.com/Crinlorite/scum-crintech/edit/main/site/src/content/wiki/${entry.id}`;
+---
+<BaseLayout
+  lang={lang}
+  title={entry.data.title}
+  description={entry.data.description}
+>
+  <article class="article">
+    <div class="container container-prose">
+      <a class="back" href={localizedPath(`/wiki/${category}`, lang)}>{tr('wiki.backToCategory')}</a>
+      <span class="eyebrow">{tr(`cat.${category}.title` as const)}</span>
+      <h1>{entry.data.title}</h1>
+      {entry.data.description && <p class="lede">{entry.data.description}</p>}
+      <div class="prose">
+        <Content />
+      </div>
+      <footer class="article-foot">
+        {updated && <p class="updated">{tr('common.lastUpdated')}: {updated}</p>}
+        <a href={editUrl} class="edit-link">{tr('wiki.contributeLink')}</a>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding: 3rem 0 5rem; }
+  .back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--c-ink-muted);
+    text-decoration: none;
+  }
+  .back:hover { color: var(--c-link); }
+  .lede {
+    font-size: 1.15rem;
+    color: var(--c-ink-soft);
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--c-rule);
+  }
+  .article-foot {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--c-rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .updated { color: var(--c-ink-muted); margin: 0; }
+  .edit-link { font-family: var(--font-mono); font-size: 0.85rem; }
+</style>

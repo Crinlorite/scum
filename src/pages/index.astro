@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CategoryGrid from '../components/CategoryGrid.astro';
+import ServerStatus from '../components/ServerStatus.astro';
+import Contribute from '../components/Contribute.astro';
+import type { LangCode } from '../i18n/languages';
+
+const lang: LangCode = 'es';
+---
+<BaseLayout lang={lang}>
+  <Hero lang={lang} />
+  <CategoryGrid lang={lang} />
+  <ServerStatus lang={lang} />
+  <Contribute lang={lang} />
+</BaseLayout>

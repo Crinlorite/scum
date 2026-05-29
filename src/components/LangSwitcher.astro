@@ -1,0 +1,43 @@
+---
+import { getAllLocales, alternateHref } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const locales = getAllLocales();
+const here = Astro.url.pathname;
+---
+<div class="lang-switcher" role="group" aria-label="Language">
+  {locales.map((l) => (
+    <a
+      href={alternateHref(here, lang, l.code)}
+      class={l.code === lang ? 'active' : ''}
+      hreflang={l.code}
+      aria-current={l.code === lang ? 'true' : undefined}
+    >{l.code.toUpperCase()}</a>
+  ))}
+</div>
+
+<style>
+  .lang-switcher {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+  .lang-switcher a {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--c-steel);
+    padding: 0.3rem 0.55rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: color 120ms ease, background 120ms ease;
+  }
+  .lang-switcher a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.05); }
+  .lang-switcher a.active {
+    color: var(--c-rust-bright);
+    background: rgba(176, 74, 42, 0.12);
+  }
+</style>

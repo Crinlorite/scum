@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { DEFAULT_LANG } from '../i18n/languages';
+
+const lang = DEFAULT_LANG;
+const tr = useTranslations(lang);
+---
+<BaseLayout lang={lang} title={tr('common.404title')} description={tr('common.404body')}>
+  <section class="notfound">
+    <div class="container container-prose">
+      <span class="eyebrow">404</span>
+      <h1>{tr('common.404title')}</h1>
+      <p>{tr('common.404body')}</p>
+      <a class="btn btn-primary" href={localizedPath('/', lang)}>{tr('common.404cta')}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound { padding: 6rem 0; text-align: center; }
+  .notfound .btn { margin-top: 1.5rem; }
+</style>

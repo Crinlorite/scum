@@ -1,0 +1,41 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+---
+<section class="contribute" id="contribute">
+  <div class="container contribute-inner">
+    <div>
+      <span class="eyebrow">{tr('nav.contribute')}</span>
+      <h2>{tr('contribute.title')}</h2>
+      <p>{tr('contribute.body')}</p>
+    </div>
+    <div>
+      <h3>{tr('contribute.howTitle')}</h3>
+      <p>{tr('contribute.howBody')}</p>
+      <a class="btn btn-primary" href="https://github.com/Crinlorite/scum-crintech">
+        {tr('contribute.cta')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contribute { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .contribute-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+  .contribute h2 { margin: 0.5rem 0 0.75rem; }
+  .contribute h3 { margin: 0 0 0.5rem; color: var(--c-ink); }
+  .contribute p { color: var(--c-ink-soft); }
+  @media (max-width: 720px) {
+    .contribute-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>

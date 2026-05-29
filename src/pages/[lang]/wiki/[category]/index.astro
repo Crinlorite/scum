@@ -1,0 +1,16 @@
+---
+import WikiCategoryPage from '../../../../components/WikiCategoryPage.astro';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../../i18n/languages';
+import { WIKI_CATEGORIES, type WikiCategory } from '../../../../i18n/wiki';
+
+export async function getStaticPaths() {
+  const langs = LANGUAGES.filter((l) => l.code !== DEFAULT_LANG);
+  return langs.flatMap((l) =>
+    WIKI_CATEGORIES.map((category) => ({ params: { lang: l.code, category } }))
+  );
+}
+
+const lang = Astro.params.lang as LangCode;
+const category = Astro.params.category as WikiCategory;
+---
+<WikiCategoryPage lang={lang} category={category} />

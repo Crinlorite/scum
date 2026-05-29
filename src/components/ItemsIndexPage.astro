@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { itemsGroupedByCategory, itemName, ITEMS } from '../data/items';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+
+const groups = itemsGroupedByCategory(lang);
+const total = ITEMS.length;
+const countKey = total === 1 ? 'items.countOne' : 'items.countOther';
+---
+<BaseLayout lang={lang} title={tr('items.title')} description={tr('items.intro')}>
+  <section class="items-index">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr('items.title')}</span>
+      <h1>{tr('items.title')}</h1>
+      <p class="intro">{tr('items.intro')} <span class="total">{tr(countKey, { n: total })}</span></p>
+
+      <label class="search">
+        <span class="sr-only">{tr('items.search')}</span>
+        <input
+          id="item-search"
+          type="search"
+          autocomplete="off"
+          placeholder={tr('items.search')}
+          aria-controls="items-list"
+        />
+      </label>
+      <p id="no-results" class="no-results" hidden>{tr('items.searchNoResults')}</p>
+    </div>
+
+    <div class="container">
+      <nav class="cat-jump" aria-label={tr('items.category')}>
+        {groups.map((g) => (
+          <a href={`#cat-${g.category}`} data-cat={g.category}>{g.label} <span>{g.items.length}</span></a>
+        ))}
+      </nav>
+
+      <div id="items-list">
+        {groups.map((g) => (
+          <section class="cat-group" id={`cat-${g.category}`} data-cat={g.category}>
+            <h2>{g.label} <span class="cat-count">{g.items.length}</span></h2>
+            <ul class="item-grid">
+              {g.items.map((it) => (
+                <li>
+                  <a class="item-link" href={localizedPath(`/items/${it.slug}`, lang)} data-name={itemName(it, lang).toLowerCase()}>
+                    {itemName(it, lang)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Client-side filter: hides non-matching items, empty categories, and shows
+  // a "no results" note. Progressive enhancement — page works without JS.
+  const input = document.getElementById('item-search') as HTMLInputElement | null;
+  const list = document.getElementById('items-list');
+  const noResults = document.getElementById('no-results');
+  if (input && list) {
+    const links = Array.from(list.querySelectorAll<HTMLElement>('.item-link'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('.cat-group'));
+    const jump = Array.from(document.querySelectorAll<HTMLElement>('.cat-jump a'));
+    const norm = (s: string) =>
+      s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const run = () => {
+      const q = norm(input.value.trim());
+      let anyVisible = false;
+      for (const link of links) {
+        const hay = norm(link.dataset.name || link.textContent || '');
+        const show = q === '' || hay.includes(q);
+        (link.parentElement as HTMLElement).hidden = !show;
+        if (show) anyVisible = true;
+      }
+      for (const g of groups) {
+        const visible = g.querySelectorAll('li:not([hidden])').length;
+        g.hidden = visible === 0;
+        const j = jump.find((a) => a.dataset.cat === g.dataset.cat);
+        if (j) j.hidden = visible === 0;
+      }
+      if (noResults) noResults.hidden = anyVisible;
+    };
+    input.addEventListener('input', run);
+  }
+</script>
+
+<style>
+  .items-index { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .total { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-muted); white-space: nowrap; }
+  .search { display: block; margin-bottom: 0.5rem; }
+  .search input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    color: var(--c-ink);
+    background: var(--c-paper);
+    border: 1px solid var(--c-rule);
+    border-radius: var(--radius);
+  }
+  .search input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .no-results { color: var(--c-ink-soft); font-style: italic; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .cat-jump {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 2rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--c-rule);
+  }
+  .cat-jump a {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    color: var(--c-ink-soft);
+    background: var(--c-paper-soft);
+    border: 1px solid var(--c-rule);
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .cat-jump a:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .cat-jump a span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+  .cat-group { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+  .cat-group h2 { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1rem; }
+  .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .item-grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0.4rem;
+  }
+  .item-link {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    color: var(--c-ink);
+    background: var(--c-paper);
+    border: 1px solid var(--c-rule);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: border-color 120ms ease, color 120ms ease;
+  }
+  .item-link:hover { border-color: var(--c-rust); color: var(--c-rust); }
+</style>

@@ -1,0 +1,19 @@
+---
+import WikiArticlePage from '../../../../components/WikiArticlePage.astro';
+import { DEFAULT_LANG, type LangCode } from '../../../../i18n/languages';
+import { loadWiki, type WikiCategory } from '../../../../i18n/wiki';
+
+export async function getStaticPaths() {
+  const entries = await loadWiki();
+  return entries
+    .filter((e) => e.parsed.lang !== DEFAULT_LANG)
+    .map((e) => ({
+      params: { lang: e.parsed.lang, category: e.parsed.category, slug: e.parsed.slug },
+      props: { entry: e, category: e.parsed.category },
+    }));
+}
+
+const lang = Astro.params.lang as LangCode;
+const { entry, category } = Astro.props as { entry: Awaited<ReturnType<typeof loadWiki>>[number]; category: WikiCategory };
+---
+<WikiArticlePage lang={lang} category={category} entry={entry} />
