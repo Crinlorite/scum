@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import { cookingByCategory, cookName, slotTitle, optName, COOKING, type CookRecipe } from '../data/cooking';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const groups = cookingByCategory(lang);
+
+function searchText(r: CookRecipe): string {
+  const parts = [cookName(r, lang)];
+  for (const s of [...(r.mainIngredients ?? []), ...(r.optionalIngredients ?? [])]) {
+    parts.push(slotTitle(s, lang));
+    for (const o of s.options ?? []) parts.push(optName(o, lang));
+  }
+  return parts.join(' ').toLowerCase();
+}
+---
+<BaseLayout lang={lang} title={tr('recipes.title')} description={tr('recipes.intro')}>
+  <section class="recipes">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr('recipes.title')}</span>
+      <h1>{tr('recipes.title')}</h1>
+      <p class="intro">{tr('recipes.intro')} <span class="count">{COOKING.length}</span></p>
+      <label class="search"><span class="sr-only">{tr('recipes.search')}</span>
+        <input id="rx-search" type="search" autocomplete="off" placeholder={tr('recipes.search')} aria-controls="rx-list" /></label>
+      <p id="rx-nores" class="no-results" hidden>{tr('recipes.searchNoResults')}</p>
+    </div>
+    <div class="container">
+      <nav class="cat-jump" aria-label={tr('recipes.title')}>
+        {groups.map((g) => (<a href={`#rc-${g.category}`} data-cat={g.category}>{g.category} <span>{g.recipes.length}</span></a>))}
+      </nav>
+      <div id="rx-list">
+        {groups.map((g) => (
+          <section class="cat-group" id={`rc-${g.category}`} data-cat={g.category}>
+            <h2>{g.category} <span class="cat-count">{g.recipes.length}</span></h2>
+            <div class="card-grid">
+              {g.recipes.map((r) => (
+                <article class="rcard" data-text={searchText(r)}>
+                  <h3>{cookName(r, lang)}</h3>
+                  <ul class="ing">
+                    {(r.mainIngredients ?? []).map((s) => (
+                      <li>{slotTitle(s, lang) || (s.options ?? []).map((o) => optName(o, lang)).filter(Boolean).join(' / ')}</li>
+                    ))}
+                  </ul>
+                  {(r.optionalIngredients ?? []).length > 0 && (
+                    <p class="opt">+ {(r.optionalIngredients ?? []).map((s) => slotTitle(s, lang)).filter(Boolean).join(', ')}</p>
+                  )}
+                  <p class="rmeta">
+                    {r.utility && r.utility.length > 0 && <span>{r.utility.join(' / ')}</span>}
+                    {typeof r.cookingTime === 'number' && <span>{tr('recipes.time')}: {Math.round(r.cookingTime)} s</span>}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('rx-search') as HTMLInputElement | null;
+  const list = document.getElementById('rx-list');
+  const nores = document.getElementById('rx-nores');
+  if (input && list) {
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('.rcard'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('.cat-group'));
+    const jump = Array.from(document.querySelectorAll<HTMLElement>('.cat-jump a'));
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const minLen = (q: string) => /[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(q) ? 1 : 2;
+    input.addEventListener('input', () => {
+      const q = norm(input.value.trim()); const active = q.length >= minLen(q); let any = false;
+      for (const c of cards) { const show = !active || norm(c.dataset.text || '').includes(q); c.hidden = !show; if (show) any = true; }
+      for (const g of groups) { const v = g.querySelectorAll('.rcard:not([hidden])').length; g.hidden = v === 0; const j = jump.find((a) => a.dataset.cat === g.dataset.cat); if (j) j.hidden = v === 0; }
+      if (nores) nores.hidden = any;
+    });
+  }
+</script>
+
+<style>
+  .recipes { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-muted); }
+  .search { display: block; margin-bottom: 0.5rem; }
+  .search input { width: 100%; padding: 0.7rem 0.9rem; font-size: 1rem; color: var(--c-ink); background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
+  .search input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .no-results { color: var(--c-ink-soft); font-style: italic; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cat-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--c-rule); }
+  .cat-jump a { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.6rem; font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
+  .cat-jump a:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .cat-jump a span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+  .cat-group { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+  .cat-group h2 { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1rem; }
+  .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
+  .rcard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
+  .rcard h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .ing { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); font-size: 0.9rem; }
+  .ing li { margin: 0.1rem 0; }
+  .opt { margin: 0 0 0.4rem; font-size: 0.82rem; color: var(--c-ink-soft); }
+  .rmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.78rem; color: var(--c-ink-muted); }
+</style>
