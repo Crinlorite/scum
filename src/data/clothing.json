@@ -1,0 +1,1466 @@
+[
+ {
+  "slug": "angel-s-flight-pants",
+  "warmth": 3,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "animal-skin-jacket",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "animal-skin-pants",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "animal-skin-quiver",
+  "waterRes": 3,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "ankle-boots",
+  "warmth": 2,
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "antler-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 15,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "arm-guard",
+  "warmth": 2,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "armor-tactical-vest",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 10,
+  "sharp": 40,
+  "blunt": 60,
+  "ballistic": 25000,
+  "armor": 4
+ },
+ {
+  "slug": "backpack",
+  "warmth": 1,
+  "waterRes": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "backpack-2",
+  "warmth": 1,
+  "waterRes": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "balaclava",
+  "warmth": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "balaclava-2",
+  "warmth": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "bamboo-hat",
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "baseball-cap",
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "beanie",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "beanie-2",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "bear-gloves",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 2200
+ },
+ {
+  "slug": "bear-head-hat",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 10,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "bear-shoes",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "beijing-shoes",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "biker-leather-jacket",
+  "warmth": 4,
+  "waterRes": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "biker-leather-jacket-2",
+  "warmth": 4,
+  "waterRes": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "birthday-hat",
+  "waterRes": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "boar-head-hat",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 10,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "boxer-briefs",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "bra",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "breathing-tube",
+  "waterRes": 3,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "brogue-shoe",
+  "warmth": 1,
+  "waterRes": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1500
+ },
+ {
+  "slug": "bulletproof-vest",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 15,
+  "sharp": 35,
+  "blunt": 50,
+  "ballistic": 14000,
+  "armor": 4
+ },
+ {
+  "slug": "bycoket",
+  "warmth": 1,
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "camo-hiking-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 500
+ },
+ {
+  "slug": "camouflage-jacket",
+  "warmth": 3,
+  "waterRes": 2,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "christmas-pants",
+  "warmth": 5,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "christmas-slippers",
+  "warmth": 1,
+  "waterRes": 1
+ },
+ {
+  "slug": "christmas-sweater",
+  "warmth": 3,
+  "camo": 6
+ },
+ {
+  "slug": "combat-boots",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 2250,
+  "armor": 1
+ },
+ {
+  "slug": "combined-jacket",
+  "warmth": 4,
+  "waterRes": 1,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "construction-boots",
+  "warmth": 2,
+  "waterRes": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "construction-gloves",
+  "warmth": 1,
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "construction-pants",
+  "warmth": 4,
+  "waterRes": 1,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "cotton-hoodie",
+  "warmth": 3,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "cotton-shirt",
+  "warmth": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "cursed-puppet-suit",
+  "warmth": 5,
+  "waterRes": 1,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "danny-trejo-boots",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "danny-trejo-gloves",
+  "warmth": 2,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "danny-trejo-pants",
+  "warmth": 5,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "danny-trejo-vest",
+  "warmth": 3,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "disposable-mask",
+  "waterRes": 3,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "diving-mask",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "diving-mask-with-breathing-tube",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "driving-gloves",
+  "warmth": 1,
+  "waterRes": 1,
+  "camo": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "earmuffs",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "extreme-helmet",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 2000,
+  "armor": 4
+ },
+ {
+  "slug": "feudal-s-polished-helmet",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 3500,
+  "armor": 5
+ },
+ {
+  "slug": "fire-helmet",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 5,
+  "sharp": 90,
+  "blunt": 30,
+  "ballistic": 500,
+  "armor": 3
+ },
+ {
+  "slug": "fishing-hat",
+  "waterRes": 3,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "gas-mask",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "ghillie-suit-bottom",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 50,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "ghillie-suit-top",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 50,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "goat-skull-hat",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 10,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "guy-fawkes-mask",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-10",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-2",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-3",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-4",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-5",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-6",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-7",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-8",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "halloween-mask-9",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "head-sack",
+  "warmth": 2,
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "high-heel-ankle-boots",
+  "warmth": 3,
+  "waterRes": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "high-heel-pumps",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "high-heel-sandals",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "hiking-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 500
+ },
+ {
+  "slug": "hiking-boots",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "hippie-pants",
+  "warmth": 3,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "hippie-shirt",
+  "warmth": 1,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "hospital-pants",
+  "warmth": 2,
+  "camo": -20,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "hospital-shirt",
+  "warmth": 1,
+  "camo": -20,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "improvised-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 15,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "improvised-boots",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1500
+ },
+ {
+  "slug": "improvised-bulletproof-armor",
+  "waterRes": 2,
+  "sharp": 65,
+  "blunt": 30,
+  "ballistic": 4000
+ },
+ {
+  "slug": "improvised-courier-backpack",
+  "warmth": 2,
+  "waterRes": 1,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "improvised-mask",
+  "warmth": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "improvised-raincoat",
+  "warmth": 2,
+  "waterRes": 4,
+  "camo": -20,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "insulating-rubber-glove",
+  "warmth": 1,
+  "waterRes": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "jeans",
+  "warmth": 3,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "jeans-2",
+  "warmth": 3,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "jersey-shirt",
+  "warmth": 1,
+  "camo": 9,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "jock-jacket",
+  "warmth": 2,
+  "waterRes": 1,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "k6-3-helmet",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 80,
+  "blunt": 30,
+  "ballistic": 8000,
+  "armor": 5
+ },
+ {
+  "slug": "kilt",
+  "warmth": 1,
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "kroks",
+  "warmth": 2,
+  "camo": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1500
+ },
+ {
+  "slug": "leather-belt-pistol-holster",
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "luis-moncada-boots",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 2250,
+  "armor": 1
+ },
+ {
+  "slug": "luis-moncada-pants",
+  "warmth": 3,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "luis-moncada-suit",
+  "warmth": 2,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "m1-medical-helmet",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 3000,
+  "armor": 5
+ },
+ {
+  "slug": "marine-cap",
+  "waterRes": 2,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "medical-gloves",
+  "warmth": 2,
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1400,
+  "armor": 2
+ },
+ {
+  "slug": "mid-heel-sandals",
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "military-ballistic-vest-event",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": -10,
+  "sharp": 10,
+  "blunt": 10,
+  "ballistic": 100000,
+  "armor": 4
+ },
+ {
+  "slug": "military-boots",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 2250,
+  "armor": 1
+ },
+ {
+  "slug": "military-cap",
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "military-goggles",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "military-helmet",
+  "warmth": 3,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 4500,
+  "armor": 5
+ },
+ {
+  "slug": "military-shirt",
+  "warmth": 1,
+  "camo": 18,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "mirdas-shoes",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1500
+ },
+ {
+  "slug": "mma-gloves",
+  "warmth": 2,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1950
+ },
+ {
+  "slug": "modern-hazmat-suit",
+  "warmth": 5,
+  "waterRes": 5,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "night-vision-goggles",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "open-finger-gloves",
+  "warmth": 1,
+  "camo": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "over-the-knee-boots",
+  "warmth": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "pajama-pants",
+  "warmth": 2,
+  "camo": -20,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pajama-shirt",
+  "warmth": 1,
+  "camo": -20,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pantyhose",
+  "warmth": 1,
+  "camo": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1000
+ },
+ {
+  "slug": "party-glasses",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "party-glasses-2",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pilot-glasses",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pilot-hat",
+  "warmth": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pilot-jacket",
+  "warmth": 5,
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pirate-s-eye-patch",
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pirate-s-hat",
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "pirate-s-hat-2",
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-assault-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 15,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-backpack",
+  "warmth": 1,
+  "waterRes": 3,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-beanie",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-bulletproof-vest",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 15,
+  "sharp": 35,
+  "blunt": 50,
+  "ballistic": 14000,
+  "armor": 4
+ },
+ {
+  "slug": "police-cap",
+  "waterRes": 1,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-fishing-hat",
+  "waterRes": 3,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-gloves",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1950,
+  "armor": 2
+ },
+ {
+  "slug": "police-hat",
+  "waterRes": 2,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-hiking-backpack",
+  "warmth": 2,
+  "waterRes": 3,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-jacket",
+  "warmth": 4,
+  "waterRes": 2,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-open-finger-gloves",
+  "warmth": 1,
+  "camo": 3,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "police-shirt",
+  "warmth": 1,
+  "camo": 18,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-sweater",
+  "warmth": 3,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "police-tactical-vest",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 10,
+  "sharp": 40,
+  "blunt": 60,
+  "ballistic": 25000,
+  "armor": 4
+ },
+ {
+  "slug": "rag-shoes",
+  "warmth": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1500
+ },
+ {
+  "slug": "raincoat",
+  "warmth": 2,
+  "waterRes": 5,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "raykit-beanie",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "reindeer-ears",
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "respirator",
+  "waterRes": 3,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "retro-helmet",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 1500,
+  "armor": 4
+ },
+ {
+  "slug": "rider-helmet",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 1500,
+  "armor": 4
+ },
+ {
+  "slug": "safety-goggles",
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "santa-hat",
+  "warmth": 3,
+  "waterRes": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "santa-jacket",
+  "warmth": 5,
+  "waterRes": 2,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "santa-pants",
+  "warmth": 5,
+  "camo": 6,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "school-backpack",
+  "waterRes": 2,
+  "camo": 4,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "shemagh-scarf",
+  "warmth": 1,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "shimoro-vest",
+  "warmth": 2,
+  "waterRes": 1,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "shirt",
+  "warmth": 1,
+  "camo": 9,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "short-pants",
+  "warmth": 1,
+  "camo": 9,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "short-trousers",
+  "warmth": 1,
+  "waterRes": 1,
+  "camo": 10,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "slippers",
+  "warmth": 1,
+  "waterRes": 1
+ },
+ {
+  "slug": "small-improvised-backpack",
+  "warmth": 2,
+  "waterRes": 2,
+  "camo": 11,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "small-oxygen-bottle",
+  "waterRes": 5,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "socks",
+  "warmth": 1,
+  "camo": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1000
+ },
+ {
+  "slug": "socks-2",
+  "warmth": 1,
+  "camo": 1,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1000
+ },
+ {
+  "slug": "spitfire-jacket",
+  "warmth": 4,
+  "waterRes": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "spitfire-jacket-2",
+  "warmth": 4,
+  "waterRes": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "sporran-bag",
+  "waterRes": 2,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "straitjacket",
+  "warmth": 3,
+  "waterRes": 4,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "sweater",
+  "warmth": 2,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "sweatpants",
+  "warmth": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "sweatpants-2",
+  "warmth": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tactical-handgun-holster-2",
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tactical-jacket",
+  "warmth": 4,
+  "waterRes": 2,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tactical-sweater",
+  "warmth": 3,
+  "camo": 25,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tang-pants",
+  "warmth": 2,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tang-shirt",
+  "warmth": 1,
+  "camo": 9,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tights",
+  "warmth": 3,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "trainer-shoes",
+  "warmth": 2,
+  "waterRes": 1,
+  "camo": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1975
+ },
+ {
+  "slug": "trucker-jacket",
+  "warmth": 4,
+  "waterRes": 1,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "trucker-jacket-2",
+  "warmth": 4,
+  "waterRes": 1,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "tyrone-shoelacez-mask",
+  "camo": 5,
+  "sharp": 6,
+  "blunt": 6,
+  "armor": 1
+ },
+ {
+  "slug": "underpants",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "undershirt",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "undershirt-2",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "undershirt-3",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "undershirt-4",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "vintage-hazmat-suit",
+  "warmth": 5,
+  "waterRes": 5,
+  "camo": 12,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "vision-glasses",
+  "waterRes": 3,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "waist-bag",
+  "waterRes": 2,
+  "camo": 8,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "willy-warmer",
+  "warmth": 1,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "wolf-head-mask",
+  "warmth": 3,
+  "waterRes": 3,
+  "camo": 10,
+  "sharp": 6,
+  "blunt": 6
+ },
+ {
+  "slug": "wool-gloves",
+  "warmth": 1,
+  "waterRes": 2,
+  "sharp": 6,
+  "blunt": 6,
+  "ballistic": 1750
+ },
+ {
+  "slug": "ww2-german-helmet",
+  "warmth": 1,
+  "waterRes": 5,
+  "camo": 10,
+  "sharp": 70,
+  "blunt": 30,
+  "ballistic": 3000,
+  "armor": 4
+ },
+ {
+  "slug": "yoga-leggings",
+  "warmth": 3,
+  "camo": 19,
+  "sharp": 6,
+  "blunt": 6
+ }
+]
