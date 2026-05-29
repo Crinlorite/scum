@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
-import { LANGUAGES, type LangCode } from '../i18n/languages';
+import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
 import { itemName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
+import { itemDetail } from '../data/details';
 
 interface Props { lang: LangCode; item: ScumItem; }
 const { lang, item } = Astro.props;
@@ -11,21 +12,56 @@ const tr = useTranslations(lang);
 const name = itemName(item, lang);
 const desc = itemDescription(item, lang);
 const cat = categoryLabel(item.category, lang);
+const d = itemDetail(item.slug);
 
-// Names in the other supported languages (skip current + empties).
 const others = LANGUAGES
   .filter((l) => l.code !== lang && item.name[l.code])
   .map((l) => ({ native: l.native, code: l.code, value: item.name[l.code]! }));
+
+// Localized field with EN→ES fallback (for crafting/recipe names).
+const loc = (m?: Partial<Record<LangCode, string>>) => m?.[lang] ?? m?.[FALLBACK_LANG] ?? (m && Object.values(m)[0]) ?? '';
+
+// In-component label maps keep i18n keys bounded; fall back to the raw key.
+const L: Record<string, Partial<Record<LangCode, string>>> = {
+  weight: { es: 'Peso', en: 'Weight' },
+  rarity: { es: 'Rareza', en: 'Rarity' },
+  maxHealth: { es: 'Durabilidad', en: 'Durability' },
+  gridSlots: { es: 'Tamaño', en: 'Size' },
+  warmth: { es: 'Calor', en: 'Warmth' },
+  waterResistance: { es: 'Resist. agua', en: 'Water resist.' },
+  camouflageBonus: { es: 'Camuflaje', en: 'Camouflage' },
+  shelfLife: { es: 'Caducidad', en: 'Shelf life' },
+  capacity: { es: 'Capacidad', en: 'Capacity' },
+  Water: { es: 'Agua', en: 'Water' }, Alcohol: { es: 'Alcohol', en: 'Alcohol' },
+  Protein: { es: 'Proteína', en: 'Protein' }, TotalFat: { es: 'Grasa', en: 'Fat' },
+  TotalCarbohydrate: { es: 'Carbohidratos', en: 'Carbs' }, Sugars: { es: 'Azúcares', en: 'Sugars' },
+  Fiber: { es: 'Fibra', en: 'Fiber' }, Sodium: { es: 'Sodio', en: 'Sodium' },
+};
+const lbl = (k: string) => L[k]?.[lang] ?? L[k]?.[FALLBACK_LANG] ?? k;
+
+// Curated stats to show (with value formatting).
+const st = d.stats?.stats ?? {};
+const statRows: { k: string; v: string }[] = [];
+const pushStat = (k: string, v: string) => statRows.push({ k: lbl(k), v });
+if (typeof st.weight === 'number') pushStat('weight', `${Math.round(st.weight)} g`);
+if (st.rarity) pushStat('rarity', String(st.rarity));
+if (typeof st.gridSlots === 'number') pushStat('gridSlots', `${st.gridRows ?? ''}×${st.gridColumns ?? ''} (${st.gridSlots})`);
+if (typeof st.maxHealth === 'number') pushStat('maxHealth', String(st.maxHealth));
+if (typeof st.warmth === 'number') pushStat('warmth', String(st.warmth));
+if (typeof st.shelfLife === 'number') pushStat('shelfLife', String(st.shelfLife));
+
+// Nutrition (curated macros present).
+const nutr = d.stats?.food?.nutrients ?? {};
+const NUTR_ORDER = ['Water', 'Alcohol', 'Protein', 'TotalFat', 'TotalCarbohydrate', 'Sugars', 'Fiber', 'Sodium'];
+const nutrRows = NUTR_ORDER.filter((k) => typeof nutr[k] === 'number').map((k) => ({ k: lbl(k), v: nutr[k] }));
+const kcal = d.stats?.food?.kcalPer100gDerived;
+
+const w = d.weapon;
 ---
-<BaseLayout
-  lang={lang}
-  title={name}
-  description={desc ?? `${name} · ${cat} · SCUM`}
->
+<BaseLayout lang={lang} title={name} description={desc ?? `${name} · ${cat} · SCUM`}>
   <article class="item-page">
     <div class="container container-prose">
       <a class="back" href={localizedPath('/items', lang)}>{tr('items.backToItems')}</a>
-
       <span class="eyebrow">{cat}</span>
       <h1>{name}</h1>
 
@@ -33,19 +69,76 @@ const others = LANGUAGES
         ? <p class="desc">{desc}</p>
         : <p class="desc muted">{tr('items.noDescription')}</p>}
 
+      {statRows.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.statsTitle')}</h2>
+          <dl class="stat-grid">
+            {statRows.map((r) => (<div><dt>{r.k}</dt><dd>{r.v}</dd></div>))}
+          </dl>
+        </section>
+      )}
+
+      {w && (
+        <section class="block">
+          <h2>{tr('item.weaponTitle')}</h2>
+          <dl class="stat-grid">
+            {typeof (w.damagePerShot ?? w.melee?.damage) === 'number' && (
+              <div><dt>{tr('item.damage')}</dt><dd>{w.melee?.damage ?? w.damagePerShot}</dd></div>)}
+            {w.fireModes && w.fireModes.length > 0 && (
+              <div><dt>{tr('item.fireModes')}</dt><dd>{w.fireModes.join(', ')}</dd></div>)}
+            {w.ammunition?.labels && w.ammunition.labels.length > 0 && (
+              <div><dt>{tr('item.ammo')}</dt><dd>{w.ammunition.labels.join(', ')}</dd></div>)}
+            {typeof w.magazine?.capacity === 'number' && (
+              <div><dt>{tr('item.magazine')}</dt><dd>{w.magazine.capacity}</dd></div>)}
+            {typeof w.maxRange === 'number' && (
+              <div><dt>{tr('item.range')}</dt><dd>{w.maxRange} m</dd></div>)}
+            {typeof w.rof === 'number' && w.rof > 0 && (
+              <div><dt>{tr('item.rof')}</dt><dd>{w.rof}</dd></div>)}
+          </dl>
+        </section>
+      )}
+
+      {(kcal != null || nutrRows.length > 0) && (
+        <section class="block">
+          <h2>{tr('item.nutritionTitle')}</h2>
+          <dl class="stat-grid">
+            {kcal != null && (<div><dt>{tr('item.calories')}</dt><dd>{kcal} kcal</dd></div>)}
+            {nutrRows.map((r) => (<div><dt>{r.k}</dt><dd>{r.v}</dd></div>))}
+          </dl>
+        </section>
+      )}
+
+      {d.craftedBy.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.howToCraft')}</h2>
+          {d.craftedBy.slice(0, 4).map((c) => (
+            <div class="recipe">
+              <ul class="ingredients">
+                {(c.ingredients ?? []).map((ing) => (
+                  <li>{(ing.options ?? []).map((o) => loc(o.name)).filter(Boolean).join(' / ')}</li>
+                ))}
+              </ul>
+              <p class="recipe-meta">
+                {c.skill && <span>{tr('item.skill')}: {c.skill}</span>}
+                {typeof c.duration === 'number' && <span>{tr('item.craftTime')}: {Math.round(c.duration)} s</span>}
+                {typeof c.productQuantity === 'number' && c.productQuantity > 1 && <span>×{c.productQuantity}</span>}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {d.cookingUsing.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.usedInCooking')}</h2>
+          <p class="cooking-list">{d.cookingUsing.slice(0, 20).map((r) => loc(r.name)).filter(Boolean).join(' · ')}</p>
+        </section>
+      )}
+
       <dl class="meta">
-        <div>
-          <dt>{tr('items.category')}</dt>
-          <dd>{cat}</dd>
-        </div>
-        <div>
-          <dt>{tr('items.officialName')}</dt>
-          <dd>{item.name[lang] ?? name}</dd>
-        </div>
-        <div>
-          <dt>ID</dt>
-          <dd><code>{item.asset}</code></dd>
-        </div>
+        <div><dt>{tr('items.category')}</dt><dd>{cat}</dd></div>
+        <div><dt>{tr('items.officialName')}</dt><dd>{item.name[lang] ?? name}</dd></div>
+        <div><dt>ID</dt><dd><code>{item.asset}</code></dd></div>
       </dl>
 
       {others.length > 0 && (
@@ -67,34 +160,29 @@ const others = LANGUAGES
 
 <style>
   .item-page { padding: 3rem 0 4rem; }
-  .back {
-    display: inline-block; margin-bottom: 1.5rem;
-    color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem;
-  }
+  .back { display: inline-block; margin-bottom: 1.5rem; color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem; }
   .back:hover { color: var(--c-rust); }
   h1 { margin: 0.3rem 0 1rem; }
   .desc { font-size: 1.15rem; color: var(--c-ink); line-height: 1.6; }
   .desc.muted { color: var(--c-ink-muted); font-style: italic; }
-  .meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    gap: 1rem 1.5rem;
-    margin: 2rem 0;
-    padding: 1.25rem 0;
-    border-block: 1px solid var(--c-rule);
-  }
-  .meta dt {
-    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
-    color: var(--c-ink-muted); margin-bottom: 0.2rem;
-  }
+  .block { margin: 1.75rem 0; }
+  .block h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.6rem 1rem; margin: 0; }
+  .stat-grid > div { display: flex; flex-direction: column; }
+  .stat-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); }
+  .stat-grid dd { margin: 0; color: var(--c-ink); font-weight: 600; }
+  .recipe { padding: 0.75rem 0.9rem; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); margin-bottom: 0.6rem; }
+  .ingredients { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); }
+  .ingredients li { margin: 0.1rem 0; }
+  .recipe-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--c-ink-muted); }
+  .cooking-list { margin: 0; color: var(--c-ink-soft); line-height: 1.7; }
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem 1.5rem; margin: 2rem 0; padding: 1.25rem 0; border-block: 1px solid var(--c-rule); }
+  .meta dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); margin-bottom: 0.2rem; }
   .meta dd { margin: 0; color: var(--c-ink); }
   .meta code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-soft); }
   .other-langs h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
   .other-langs ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; }
-  .other-langs li {
-    display: flex; justify-content: space-between; gap: 1rem;
-    padding: 0.45rem 0; border-bottom: 1px solid var(--c-rule);
-  }
+  .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--c-rule); }
   .lang-name { color: var(--c-ink-muted); font-size: 0.9rem; }
   .lang-value { color: var(--c-ink); text-align: right; }
 </style>
