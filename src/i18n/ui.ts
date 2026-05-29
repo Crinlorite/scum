@@ -116,6 +116,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.buyPrice': 'Precio compra',
     'item.sellPrice': 'Precio venta',
     'item.fame': 'Fama requerida',
+    'item.questNeeded': 'Necesario para misiones',
+    'item.questReward': 'Recompensa de misiones',
 
     'beta.badge': 'Beta',
     'beta.notice': 'Traducción en Beta: parte del contenido puede estar incompleto o aparecer en inglés.',
@@ -285,6 +287,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.buyPrice': 'Buy price',
     'item.sellPrice': 'Sell price',
     'item.fame': 'Fame required',
+    'item.questNeeded': 'Needed for missions',
+    'item.questReward': 'Mission reward',
 
     'beta.badge': 'Beta',
     'beta.notice': 'Beta translation: some content may be incomplete or shown in English.',
