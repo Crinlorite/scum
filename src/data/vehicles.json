@@ -1,0 +1,1197 @@
+[
+  {
+    "asset": "BPC_Kinglet_Duster",
+    "type": "airplane",
+    "slug": "kinglet-duster",
+    "esFile": "Vehicles/Airplane/Duster/Kinglet_Duster_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Airplane/Duster/BPC_Kinglet_Duster.BPC_Kinglet_Duster_C",
+    "nameKey": "AFA75F7141D41919EAE109B0AE4463CF",
+    "name": {
+      "es": "Kinglet Duster",
+      "en": "Kinglet Duster",
+      "de": "Kinglet Duster",
+      "ru": "Аэроплан «Королёк»",
+      "zh": "戴菊防尘罩",
+      "fr": "Kinglet Duster",
+      "pt": "Kinglet Duster",
+      "zh-tw": "戴菊飛機",
+      "th": "Kinglet Duster",
+      "pl": "Samolot Kinglet Duster"
+    },
+    "descKey": "126C456344615C90F1480E838F9A160E",
+    "descName": {
+      "es": "Pequeño avión de hélice utilizado en la agricultura, aunque también sirve para hacer algunas acrobacias.",
+      "en": "Small farming propeller airplane that is also good for some acrobatics",
+      "de": "Kleines Propellerflugzeug für die Landwirtschaft, aber auch gut für ein bisschen Akrobatik",
+      "ru": "Небольшой сельскохозяйственный пропеллерный самолёт. Также хорошо подходит для выполнения фигур высшего пилотажа.",
+      "zh": "小型农用螺旋桨飞机，也可以用来做一些杂技表演",
+      "fr": "Un petit avion à hélice agricole, mais qui convient également pour faire quelques acrobaties.",
+      "pt": "Pequeno avião agrícola a hélice que também é bom para algumas manobras.",
+      "zh-tw": "小型的農用螺旋槳飛機，也很適合特技表演",
+      "th": "เครื่องบินใบพัดขนาดเล็กสำหรับการเกษตรที่ใช้แสดงผาดโผนได้ดีอีกด้วย",
+      "pl": "Niewielki, śmigłowy samolot lotniczy nadający się również do akrobacji."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 5000.0,
+      "engineRpmLimiter": 4000.0
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": 0.0,
+      "chassisMass": 51.0
+    },
+    "seats": 2,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Kinglet_Duster_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 1500.0,
+      "engine": null,
+      "totalAttachmentHealth": 4100.0,
+      "attachmentsWithHealth": 3,
+      "damageRegions": 6
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_Kinglet_Mariner",
+    "type": "airplane",
+    "slug": "kinglet-mariner",
+    "esFile": "Vehicles/Airplane/Mariner/Kinglet_Mariner_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Airplane/Mariner/BPC_Kinglet_Mariner.BPC_Kinglet_Mariner_C",
+    "nameKey": "7004FE58413EAEB006DB19B090EBB715",
+    "name": {
+      "es": "Kinglet Mariner",
+      "en": "Kinglet Mariner",
+      "de": "Kinglet Mariner",
+      "ru": "Аэроплан «Маринер»",
+      "zh": "戴菊水手号",
+      "fr": "Kinglet Mariner",
+      "pt": "Kinglet Mariner",
+      "zh-tw": "戴菊水上飛機",
+      "th": "เครื่องบิน Kinglet Mariner",
+      "pl": "Samolot Kinglet Mariner"
+    },
+    "descKey": "126C456344615C90F1480E838F9A160E",
+    "descName": {
+      "es": "Pequeño avión de hélice utilizado en la agricultura, aunque también sirve para hacer algunas acrobacias.",
+      "en": "Small farming propeller airplane that is also good for some acrobatics",
+      "de": "Kleines Propellerflugzeug für die Landwirtschaft, aber auch gut für ein bisschen Akrobatik",
+      "ru": "Небольшой сельскохозяйственный пропеллерный самолёт. Также хорошо подходит для выполнения фигур высшего пилотажа.",
+      "zh": "小型农用螺旋桨飞机，也可以用来做一些杂技表演",
+      "fr": "Un petit avion à hélice agricole, mais qui convient également pour faire quelques acrobaties.",
+      "pt": "Pequeno avião agrícola a hélice que também é bom para algumas manobras.",
+      "zh-tw": "小型的農用螺旋槳飛機，也很適合特技表演",
+      "th": "เครื่องบินใบพัดขนาดเล็กสำหรับการเกษตรที่ใช้แสดงผาดโผนได้ดีอีกด้วย",
+      "pl": "Niewielki, śmigłowy samolot lotniczy nadający się również do akrobacji."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 5000.0,
+      "engineRpmLimiter": 4000.0
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": 0.0,
+      "chassisMass": 43.0
+    },
+    "seats": 2,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Kinglet_Mariner_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 1500.0,
+      "engine": null,
+      "totalAttachmentHealth": 4100.0,
+      "attachmentsWithHealth": 3,
+      "damageRegions": 6
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_RIS",
+    "type": "atv",
+    "slug": "ris",
+    "esFile": "Vehicles/ATV/RIS/RIS_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/ATV/RIS/BPC_RIS.BPC_RIS_C",
+    "nameKey": "C6CA839D4CCEED42B81FEB85384E9941",
+    "name": {
+      "es": "RIS",
+      "en": "RIS",
+      "de": "RIS",
+      "ru": "RIS",
+      "zh": "RIS",
+      "fr": "RIS",
+      "pt": "RIS",
+      "zh-tw": "RIS",
+      "th": "RIS",
+      "pl": "RIS"
+    },
+    "descKey": "129D3EB84F10467134AB0ABBC043A455",
+    "descName": {
+      "es": "Es el hermano mayor de la moto de cross, con cuatro ruedas. Un vehículo ideal para lanzarse a la aventura campo a través.",
+      "en": "The dirtbike's big brother on four wheels, and a go-to vehicle for any offroad adventure.",
+      "de": "Der große Bruder des Geländemotorrads auf vier Rädern. Das ideale Fahrzeug, für jedes Geländeabenteuer.",
+      "ru": "Большой четырёхколёсный брат кроссового мотоцикла. Идеальный спутник для приключений на бездорожье.",
+      "zh": "四轮越野摩托车的老大哥，也是任何越野探险的首选车型。",
+      "fr": "Grand frère à quatre roues de la moto tout-terrain, ce véhicule est un must pour s'aventurer en dehors des sentiers battus.",
+      "pt": "O irmão mais velho da moto de trilha, com quatro rodas e essencial para qualquer aventura.",
+      "zh-tw": "這款四輪越野車的老大哥是任何越野冒險的首選載具。",
+      "th": "พี่ใหญ่ของมอเตอร์ไซค์วิบากสี่ล้อ และพาหนะคู่ใจสำหรับการผจญภัยแบบออฟโรด",
+      "pl": "Starszy brat motocykla terenowego o czterech kołach i najczęściej wybierany pojazd do przygód poza utartym szlakiem."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": 4,
+      "topGearRatio": 1.2,
+      "reverseGearRatio": -5.0,
+      "chassisMass": 378.0
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "RIS_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 350.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 4925.0,
+      "attachmentsWithHealth": 11,
+      "damageRegions": 13
+    },
+    "extras": {
+      "maxPushForce": 1200.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_CityBike",
+    "type": "bike",
+    "slug": "city-bike",
+    "esFile": "Vehicles/Bike/Bicycle/CityBike/CityBike_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Bicycle/CityBike/BPC_CityBike.BPC_CityBike_C",
+    "nameKey": "2DE1D48040CBFBA717DEDC9B80015EED",
+    "name": {
+      "es": "Bicicleta urbana",
+      "en": "City Bike",
+      "de": "City-Bike",
+      "ru": "Городской велосипед",
+      "zh": "城市自行车",
+      "fr": "Vélo de ville",
+      "pt": "Bicicleta urbana",
+      "zh-tw": "城市單車",
+      "th": "จักรยานเมือง",
+      "pl": "Rower miejski"
+    },
+    "descKey": "A4AF83414D284326F9FD3EB84831B6F1",
+    "descName": {
+      "es": "Es normal verla apoyada contra postes o vallas. Esta bicicleta de peso ligero es ideal para viajes cortos al mercado, visitar al comerciante o ir a la base de un amigo.",
+      "en": "Often seen leaning against posts and fences, this lightweight bicycle is great for short trips to the market, trader, or a friend's base.",
+      "de": "Ein leichtes Fahrrad, das oft an Pfosten und Zäunen angelehnt zu finden ist und sich ideal für kurze Fahrten zum Markt, zum Händler oder zum Stützpunkt von Freunden eignet.",
+      "ru": "Лёгкий велосипед, который отлично подходит для коротких поездок на рынок, к торговцу или на базу к другу. Такие часто можно заметить у столбов и заборов.",
+      "zh": "靠在柱子和栅栏上随处可见的自行车，这种轻便的自行车非常适合短途旅行到市场、贸易商或朋友的基地。 ",
+      "fr": "Souvent adossé à des poteaux ou des clôtures, ce vélo léger est idéal pour les petits trajets jusqu'au marché, négociant ou la base d'un ami.",
+      "pt": "Normalmente vista apoiada em postes e cercas, esta bicicleta leve é ótima para idas rápidas ao mercado, comerciantes ou à base de um amigo.",
+      "zh-tw": "這種輕便的腳踏車常會靠在欄杆和圍牆旁，非常適合騎著前往市場、商店或朋友家等短途行程。",
+      "th": "มักจะเห็นพิงอยู่กับเสาและรั้ว จักรยานน้ำหนักเบานี้เหมาะสำหรับการเดินทางระยะใกล้ไปยังตลาด คนขายของ และฐานของเพื่อน",
+      "pl": "Często widywany oparty o słupki i płoty, ten lekki rower doskonale nadaje się na krótkie wycieczki na bazarek, do handlarza albo do zaprzyjaźnionej bazy."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": 1,
+      "topGearRatio": 3.0,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "CityBike_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 200.0,
+      "engine": null,
+      "totalAttachmentHealth": 200.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": 2
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_Cruiser",
+    "type": "bike",
+    "slug": "cruiser",
+    "esFile": "Vehicles/Bike/Motorcycle/Cruiser/Cruiser_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Motorcycle/Cruiser/BPC_Cruiser.BPC_Cruiser_C",
+    "nameKey": "E43967F64AE31EC7C28450B08066675E",
+    "name": {
+      "es": "Cruiser",
+      "en": "Cruiser",
+      "de": "Cruiser",
+      "ru": "«Ракета»",
+      "zh": "巡航摩托",
+      "fr": "Cruiser",
+      "pt": "Cruiser",
+      "zh-tw": "巡航車",
+      "th": "ครูเซอร์",
+      "pl": "Cruiser"
+    },
+    "descKey": "AC2EBEE34FF6FDB2E87060A26556B91E",
+    "descName": {
+      "es": "Una moto clásica diseñada para ir derrochando estilazo, pero sin renunciar por ello a la comodidad. Disfruta de la carretera con toda la pachorra y la melena ondeando al viento.",
+      "en": "A classic motorcycle designed for comfort and style. Feel the wind in your hair as you enjoy a laid-back ride on the open road.",
+      "de": "Ein klassisches Motorrad, das sowohl bequem als auch stylish ist. Spüre, wie der Wind durch dein Haar weht, während du entspannt die Freiheit der Straße genießt.",
+      "ru": "Классический мотоцикл, стильный и комфортабельный. Садитесь в седло, выезжайте на трассу, и пусть ветер развевает ваши волосы.",
+      "zh": "骑行舒适、外观出众的经典摩托车。驾驶它在公路上惬意地感受风吹过你的头发。",
+      "fr": "Une moto classique conçue pour être à la fois confortable et stylée. Profitez d'une agréable balade sur la route, le vent dans les cheveux.",
+      "pt": "Uma motocicleta clássica que oferece conforto e estilo. Sinta a brisa nos cabelos enquanto aproveita uma viagem tranquila estrada afora.",
+      "zh-tw": "專為舒適和風格設計的經典摩托車，讓你在寬敞的道路上悠閒騎行時，享受微風吹拂你的頭髮。",
+      "th": "มอเตอร์ไซค์รุ่นคลาสสิกที่ออกแบบมาเพื่อความสะดวกสบายและสไตล์ คุณจะสัมผัสได้ถึงสายลมผ่านเส้นผมของคุณขณะซิ่งสบายๆ บนถนนอันโล่งกว้าง",
+      "pl": "Klasyczny motocykl zaprojektowany z myślą o komforcie i wyjątkowym stylu. Poczuj wiatr we włosach, ciesząc się relaksującą przejażdżką na otwartej drodze."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7000.0,
+      "engineRpmLimiter": 7000.0
+    },
+    "drivetrain": {
+      "gearCount": 5,
+      "topGearRatio": 1.2,
+      "reverseGearRatio": 0.0,
+      "chassisMass": 216.5
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "Cruiser_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 200.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 700.0,
+      "attachmentsWithHealth": 2,
+      "damageRegions": 3
+    },
+    "extras": {
+      "maxPushForce": 1300.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_Dirtbike",
+    "type": "bike",
+    "slug": "dirtbike",
+    "esFile": "Vehicles/Bike/Motorcycle/Dirtbike/Dirtbike_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Motorcycle/Dirtbike/BPC_Dirtbike.BPC_Dirtbike_C",
+    "nameKey": "A9B9D9164E9A86F4C97FA3B3FE4B3AFA",
+    "name": {
+      "es": "Moto de cross",
+      "en": "Dirtbike",
+      "de": "Geländemotorrad",
+      "ru": "Кроссовый мотоцикл",
+      "zh": "越野摩托车",
+      "fr": "Moto tout-terrain",
+      "pt": "Moto de trilha",
+      "zh-tw": "越野車",
+      "th": "มอเตอร์ไซค์วิบาก",
+      "pl": "Motocykl terenowy"
+    },
+    "descKey": "2F6D9A8B4677D07F212F9D9B2560B9D1",
+    "descName": {
+      "es": "De peso ligero e impulsada por un motor monocilíndrico de 2 tiempos de 125 c. c., esta pequeña tronadora te llevará rápido y sin problema por terrenos irregulares así como por bosques frondosos.",
+      "en": "Lightweight, powered by a 125cc single-cylinder 2 stroke engine, these little mosquitoes will take you over fast rough terrain and dense forest with ease.",
+      "de": "Diese kleinen Mosquitos sind leicht und werden von einem 125 ccm Einzylinder-2-Takt-Motor angetrieben. Sie bringen dich mit Leichtigkeit und schnell durch unwegsames Gelände und dichte Wälder.",
+      "ru": "Этот лёгкий жужжащий мотоцикл с одноцилиндровым двухтактным двигателем объёмом 125 куб. см быстро и легко провезёт вас по пересечённой местности и густым лесам.",
+      "zh": "轻量化，由 125cc 单缸二冲程发动机提供动力，这些小蚊子将带您轻松穿越崎岖不平的地形和茂密的森林。",
+      "fr": "Légère, propulsée par un moteur monocylindre 2 temps de 125 cm3, elle vous permet de rouler sur terrain accidenté et dans les forêts denses.",
+      "pt": "Leves, alimentados por um motor monocilíndrico de 2 tempos de 125 cc, estes mosquitinhos passarão facilmente por terrenos acidentados e florestas densas.",
+      "zh-tw": "重量輕便，由 125cc 單缸二行程循環引擎驅動，這些小蚊子能輕鬆帶你穿越崎嶇的地形和茂密的森林。",
+      "th": "น้ำหนักเบา ขับเคลื่อนด้วยเครื่องยนต์ 2 จังหวะ กระบอกสูบเดียว 125cc เจ้าจิ๋วสมรรถนะเยี่ยมคันนี้จะพาคุณข้ามภูมิประเทศที่ขรุขระอย่างรวดเร็วและป่าทึบอย่างง่ายดาย",
+      "pl": "Lekki motocykl napędzany jednocylindrowym silnikiem 2-suwowym o pojemności 125 cm3. Z pomocą tych małych komarów szybko i z łatwością przeprawisz się przez trudny teren i gęsty las."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7000.0,
+      "engineRpmLimiter": 7000.0
+    },
+    "drivetrain": {
+      "gearCount": 4,
+      "topGearRatio": 1.9,
+      "reverseGearRatio": 0.0,
+      "chassisMass": 100.0
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "Dirtbike_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 200.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 1700.0,
+      "attachmentsWithHealth": 4,
+      "damageRegions": 3
+    },
+    "extras": {
+      "maxPushForce": 1700.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_MountainBike",
+    "type": "bike",
+    "slug": "mountain-bike",
+    "esFile": "Vehicles/Bike/Bicycle/MountainBike/MountainBike_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Bicycle/MountainBike/BPC_MountainBike.BPC_MountainBike_C",
+    "nameKey": "46F4FA374E8D4E6C09D490BFD899A1B8",
+    "name": {
+      "es": "Bicicleta de montaña",
+      "en": "Mountain Bike",
+      "de": "Mountainbike",
+      "ru": "Горный велосипед",
+      "zh": "山地车",
+      "fr": "VTT",
+      "pt": "Bicicleta de montanha",
+      "zh-tw": "登山車",
+      "th": "จักรยานเสือภูเขา",
+      "pl": "Rower górski"
+    },
+    "descKey": "9BCD3CA94652AAD0DE216FB69986D27F",
+    "descName": {
+      "es": "Esta bicicleta, ideal para reclusos aventureros y deportistas, permite desenvolverse con facilidad por casi cualquier terreno.",
+      "en": "Favored by adventurous and athletic prisoners, this bicycle will cross almost any terrain with ease.",
+      "de": "Dieses Fahrrad wird von abenteuerlustigen und sportlichen Gefangenen bevorzugt, weil man damit fast jedes Gelände leicht durchqueren kann.",
+      "ru": "Этот велосипед для авантюрных и атлетичных заключённых с лёгкостью преодолеет практически любую местность.",
+      "zh": "这种车型几乎可以轻松穿越任何地形，因此受到冒险家和运动型囚犯的青睐。",
+      "fr": "Apprécié des détenus aventureux et sportifs, ce vélo peut rouler à peu près n'importe où.",
+      "pt": "Preferida por prisioneiros aventureiros e atléticos, essa bicicleta vai passar por quase qualquer terreno com facilidade.",
+      "zh-tw": "深受喜歡冒險和運動的囚犯喜愛，可以輕鬆跨越任何地形。",
+      "th": "เป็นที่ชื่นชอบของนักโทษผู้ชอบการผจญภัยและกีฬา จักรยานนี้สามารถขี่ข้ามผ่านสภาพพื้นที่ต่างๆ ได้อย่างง่ายดาย",
+      "pl": "Ulubiony pojazd żądnych przygód i lubiących sport więźniów, dzięki któremu z łatwością pokonasz niemal każdy teren."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": 1,
+      "topGearRatio": 4.0,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 1,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "MountainBike_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 200.0,
+      "engine": null,
+      "totalAttachmentHealth": 200.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": 2
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_SidecarBike",
+    "type": "bike",
+    "slug": "sidecar-bike",
+    "esFile": "Vehicles/Bike/Motorcycle/SidecarBike/SidecarBike_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Motorcycle/SidecarBike/BPC_SidecarBike.BPC_SidecarBike_C",
+    "nameKey": "Sidecar_Vehicle",
+    "name": {
+      "en": "Sidecar Bike"
+    },
+    "descKey": "TooltipDesc_Sidecar_Vehicle",
+    "descName": {
+      "en": "A robust and precision-engineered motorcycle-sidecar combination built for demanding terrain and potential for high capacity cargo. Attachable weapons on side car are: RPK-74, M249"
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7000.0,
+      "engineRpmLimiter": 7000.0
+    },
+    "drivetrain": {
+      "gearCount": 4,
+      "topGearRatio": 2.0,
+      "reverseGearRatio": -12.0,
+      "chassisMass": 347.5
+    },
+    "seats": 3,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "SidecarBike_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 1000.0,
+      "attachmentsWithHealth": 2,
+      "damageRegions": 4
+    },
+    "extras": {
+      "maxPushForce": 1200.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_Sportbike",
+    "type": "bike",
+    "slug": "sportbike",
+    "esFile": "Vehicles/Bike/Motorcycle/Sportbike/Sportbike_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Bike/Motorcycle/Sportbike/BPC_Sportbike.BPC_Sportbike_C",
+    "nameKey": "1211FA924ED855BB12264A802C6FAD1C",
+    "name": {
+      "es": "Moto deportiva",
+      "en": "Sportbike",
+      "de": "Sportbike",
+      "ru": "Спортивный мотоцикл",
+      "zh": "运动自行车",
+      "fr": "Moto de sport",
+      "pt": "Motocicleta esportiva",
+      "zh-tw": "運動型機車",
+      "th": "สปอร์ตไบค์",
+      "pl": "Motocykl sportowy"
+    },
+    "descKey": "48E715AA4D161C6C3FC24596FC3B2806",
+    "descName": {
+      "es": "Motocicleta optimizada para conseguir la máxima velocidad, aceleración, capacidad de frenado y toma de curvas en carreteras pavimentadas, generalmente a expensas de la comodidad y el ahorro de combustible en comparación con otras motocicletas.",
+      "en": "Motorcycle optimized for speed, acceleration, braking, and cornering on paved roads, typically at the expense of comfort and fuel economy when compared to other motorcycles.",
+      "de": "Ein Motorrad, das für Geschwindigkeit, Beschleunigung, Bremsen und Kurvenfahrten auf befestigten Straßen optimiert ist, was im Vergleich zu anderen Motorrädern in der Regel zu Lasten des Komforts und des Kraftstoffverbrauchs geht.",
+      "ru": "У этого мотоцикла отличные показатели скорости, ускорения, торможения и прохождения поворотов на дорогах с асфальтовым покрытием, однако в комфорте и экономии топлива он проигрывает другим моделям.",
+      "zh": "为了在铺装道路上加速、制动和转弯而优化的摩托车，与其他摩托车相比，通常牺牲了舒适性和燃油经济性。",
+      "fr": "Une moto optimisée pour la vitesse, l'accélération, le freinage et les virages sur routes pavées, généralement au détriment du confort et du carburant par rapport aux autres motos.",
+      "pt": "Motocicleta otimizada para velocidade, aceleração, frenagem e curvas em estradas pavimentadas, normalmente sacrificando conforto e economia de combustível quando comparada a outras motocicletas.",
+      "zh-tw": "這款摩托車改良了速度、加速、煞車和轉彎的性能，非常適合在鋪裝道路上騎乘，但犧牲了與其他摩托車相比的舒適性和燃料價格。",
+      "th": "มอเตอร์ไซค์ที่ปรับให้ทำความเร็ว ความเร่ง การเบรก และการเข้าโค้งบนถนนลาดยางได้อย่างเต็มศักยภาพ โดยต้องแลกมาด้วยความสบายในการขี่และการใช้เชื้อเพลิงเมื่อเทียบกับมอเตอร์ไซค์แบบอื่นๆ",
+      "pl": "Motocykl stworzony z myślą o szybkości, przyspieszeniu, hamowaniu i ostrych zakrętach na utwardzonych drogach. Zwykle w porównaniu z innymi motocyklami traci przez to na wygodzie i spalaniu."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": 6,
+      "topGearRatio": 1.9,
+      "reverseGearRatio": 0.0,
+      "chassisMass": 153.0
+    },
+    "seats": null,
+    "seatsSource": null,
+    "storage": {
+      "containerClass": "Sportbike_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": null,
+      "engine": null,
+      "totalAttachmentHealth": null,
+      "attachmentsWithHealth": 0,
+      "damageRegions": 3
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_BigRaft",
+    "type": "boat",
+    "slug": "big-raft",
+    "esFile": "Vehicles/Boat/BigRaft/BigRaft_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Boat/BigRaft/BPC_BigRaft.BPC_BigRaft_C",
+    "nameKey": "E2DD1BEA4421C715D3E83CABCC88846C",
+    "name": {
+      "es": "Balsa grande",
+      "en": "Big Raft",
+      "de": "Großes Floß",
+      "ru": "Большой плот",
+      "zh": "大木筏",
+      "fr": "Grand radeau",
+      "pt": "Jangada grande",
+      "zh-tw": "大型筏艇",
+      "th": "แพใหญ่",
+      "pl": "Duża tratwa"
+    },
+    "descKey": "03BE0B7942273F23E6D0E2A1E9788A21",
+    "descName": {
+      "es": "Una balsa grande y resistente con la que hacerse a la mar.",
+      "en": "Big and sturdy vessel for sailing the great seas.",
+      "de": "Ein großes und robustes Gefährt für die großen Meere.",
+      "ru": "Большое и прочное судно для покорения морей.",
+      "zh": "坚固耐用的木筏，适合在大海上航行。",
+      "fr": "Une grande embarcation solide pour naviguer en haute mer.",
+      "pt": "Embarcação grande e resistente para navegar nos grandes mares.",
+      "zh-tw": "可以在大海上航行的堅固大船。",
+      "th": "เรือขนาดใหญ่และทนทานสำหรับล่องไปในทะเลกว้าง",
+      "pl": "Duża i wytrzymała jednostka do żeglowania po otwartym morzu."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 7,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "BigRaft_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": null,
+      "totalAttachmentHealth": 500.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_Dinghy",
+    "type": "boat",
+    "slug": "dinghy",
+    "esFile": "Vehicles/Boat/Dinghy/Dinghy_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Boat/Dinghy/BPC_Dinghy.BPC_Dinghy_C",
+    "nameKey": "Dinghy",
+    "name": {
+      "en": "Dinghy"
+    },
+    "descKey": "TooltipDesc_Dinghy",
+    "descName": {
+      "en": "Small inflatable boat that’s lightweight, portable, and easy to store. It can be quickly inflated and deflated for compact transport and storage, making it perfect for recreation, fishing, or short trips."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 6000.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "Dinghy_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": null,
+      "totalAttachmentHealth": 500.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_Barba",
+    "type": "boat",
+    "slug": "motorboat",
+    "esFile": "Vehicles/Boat/Barba/Barba_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Boat/Barba/BPC_Barba.BPC_Barba_C",
+    "nameKey": "E27B5B2D4EDB89ABAD97BB93229AFF5F",
+    "name": {
+      "es": "Lancha motora",
+      "en": "Motorboat",
+      "de": "Motorboot",
+      "ru": "Моторная лодка",
+      "zh": "摩托艇",
+      "fr": "Bateau à moteur",
+      "pt": "Lancha",
+      "zh-tw": "機動船",
+      "th": "เรือยนต์",
+      "pl": "Motorówka"
+    },
+    "descKey": "45D5BE4E4A1FD957C709029BEDA939CD",
+    "descName": {
+      "es": "Un bote de madera.",
+      "en": "A wooden boat",
+      "de": "Holzboot",
+      "ru": "Деревянная лодка",
+      "zh": "一条木制船",
+      "fr": "Un bateau en bois.",
+      "pt": "Um barco de madeira",
+      "zh-tw": "木製船隻",
+      "th": "เรือไม้",
+      "pl": "Drewniana łódź"
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 3,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "Barba_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": null,
+      "totalAttachmentHealth": 500.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_SmallRaft",
+    "type": "boat",
+    "slug": "small-raft",
+    "esFile": "Vehicles/Boat/SmallRaft/SmallRaft_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Boat/SmallRaft/BPC_SmallRaft.BPC_SmallRaft_C",
+    "nameKey": "29AE05474AE8DD09E1D75B915BBF0FFF",
+    "name": {
+      "es": "Balsa pequeña",
+      "en": "Small Raft",
+      "de": "Kleines Floß",
+      "ru": "Маленький плот",
+      "zh": "小木筏",
+      "fr": "Petit radeau",
+      "pt": "Jangada pequena",
+      "zh-tw": "小型筏艇",
+      "th": "แพเล็ก",
+      "pl": "Mała tratwa"
+    },
+    "descKey": "AFE57A2A45FA7E3DF73F02A54D315CC8",
+    "descName": {
+      "es": "Una pequeña embarcación hecha con troncos.",
+      "en": "A small wooden boat made of logs.",
+      "de": "Eine kleine Holzplattform aus Baumstämmen.",
+      "ru": "Небольшое деревянное судно из брёвен.",
+      "zh": "用原木制成的小木船。",
+      "fr": "Une petite embarcation fabriquée à partir de rondins de bois.",
+      "pt": "Um barco pequeno de madeira feito de toras.",
+      "zh-tw": "用木頭做成的小木筏。",
+      "th": "เรือไม้ขนาดเล็กที่ทำจากท่อนซุง",
+      "pl": "Mała drewniana jednostka wykonana z pali."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 1,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "SmallRaft_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": null,
+      "totalAttachmentHealth": 500.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_SUP",
+    "type": "boat",
+    "slug": "sup",
+    "esFile": "Vehicles/Boat/SUP/SUP_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Boat/SUP/BPC_SUP.BPC_SUP_C",
+    "nameKey": "A79BFFAA415B3EFF3C7ED688247FC358",
+    "name": {
+      "es": "Tabla de paddle surf",
+      "en": "SUP",
+      "de": "SUP",
+      "ru": "SUP-доска",
+      "zh": "桨板",
+      "fr": "PADDLE",
+      "pt": "SUP",
+      "zh-tw": "槳板",
+      "th": "เรือยืนพาย",
+      "pl": "Deska SUP"
+    },
+    "descKey": "B62C62154B073DB408C31AAD7B6595D9",
+    "descName": {
+      "es": "Una tabla para desplazarse de pie por la superficie acuática. Hace falta un remo para avanzar.",
+      "en": "Standup paddle board. Requires a paddle to operate.",
+      "de": "Standup Paddle Board. Zur Verwendung ist ein Paddel erforderlich.",
+      "ru": "Доска для гребли стоя. Чтобы управлять ей, требуется весло.",
+      "zh": "立式桨板。需要使用桨来操作。",
+      "fr": "Une planche de stand-up paddle. Une pagaie est nécessaire pour l'utiliser.",
+      "pt": "Prancha para surfar em pé. É necessário ter um remo para utilizá-la.",
+      "zh-tw": "需要槳才能操作的立式槳版。",
+      "th": "เรือพายแบบยืน ต้องใช้ไม้พายเพื่อการเคลื่อนที่",
+      "pl": "Tak zwany paddleboard, czyli deska, na której porusza się na stojąco, przy użyciu wiosła."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 1,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "SUP_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": null,
+      "totalAttachmentHealth": 500.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BPC_Laika",
+    "type": "car",
+    "slug": "laika",
+    "esFile": "Vehicles/Car/Laika/Laika_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Car/Laika/BPC_Laika.BPC_Laika_C",
+    "nameKey": "3A5087D5457E41CBB65BB5959867C4D3",
+    "name": {
+      "es": "Laika",
+      "en": "Laika",
+      "de": "Laika",
+      "ru": "«Лайка»",
+      "zh": "莱卡",
+      "fr": "Laika",
+      "pt": "Laika",
+      "zh-tw": "萊卡",
+      "th": "Laika",
+      "pl": "Łajka"
+    },
+    "descKey": "816D87784522E09B8C5F32B9954451D7",
+    "descName": {
+      "es": "Como vehículo favorito de los lugareños, con Laika a menudo se llevaban a cabo las tareas más duras. Resulta ideal para ir a cazar, pescar y buscar residuos nucleares.",
+      "en": "As a local favorite, Laika was often given the hardest of tasks. Ideal for going hunting, fishing, and searching for nuclear waste.",
+      "de": "Als Liebling der Einheimischen wurde Laika oft mit den schwierigsten Aufgaben betraut. Ideal zum Jagen, Fischen und für die Suche nach Atommüll.",
+      "ru": "Все обожают «Лайку», поэтому её используют для выполнения самых разных задач — в том числе и самых сложных. Она идеально подходит для охоты, рыбалки и поиска ядерных отходов.",
+      "zh": "作为本地人最爱的座驾，莱卡总是被委以重任。打猎、钓鱼和寻找核废料时的理想选择。",
+      "fr": "Voiture locale la plus appréciée, la Laika n'a pas eu les tâches les plus faciles. Elle est idéale pour partir à la chasse, à la pêche ou en quête de déchets nucléaires.",
+      "pt": "Veículo preferido da região, o Laika normalmente dava conta das tarefas mais difíceis. Ótimo para ir caçar, pescar e buscar resíduos radioativos.",
+      "zh-tw": "萊卡是當地人的最愛，常用來執行最艱鉅的事務，非常適合打獵、釣魚和搜尋核廢料。",
+      "th": "Laika เป็นรถยนต์ที่ชาวท้องถิ่นโปรดปราน และมักจะได้ไปออกงานหนักอยู่บ่อยๆ เหมาะสำหรับการออกล่าสัตว์ ตกปลา และค้นหากากนิวเคลียร์",
+      "pl": "Jako lokalna ulubienica Łajka często musiała podejmować się najtrudniejszych z zadań. Idealna na wyprawy łowieckie, wędkarskie czy też poszukiwania odpadów nuklearnych."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": 4,
+      "topGearRatio": 0.78,
+      "reverseGearRatio": -5.0,
+      "chassisMass": 431.0
+    },
+    "seats": 4,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Laika_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 750.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 15250.0,
+      "attachmentsWithHealth": 30,
+      "damageRegions": 13
+    },
+    "extras": {
+      "maxPushForce": 900.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_Rager",
+    "type": "car",
+    "slug": "rager",
+    "esFile": "Vehicles/Car/Rager/Rager_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Car/Rager/BPC_Rager.BPC_Rager_C",
+    "nameKey": "RagerItemContainer",
+    "name": {
+      "en": "Rager"
+    },
+    "descKey": "2E8732B047F9BF9244051FB465254C3C",
+    "descName": {
+      "es": "A este mamotreto no se le resiste ningún tipo de terreno, cuenta con espacio para seis personas y aplastará casi cualquier cosa que se cruce en su camino.",
+      "en": "This mammoth of a vehicle can cover any terrain, has enough space for 6 people, and will crush almost anything in its path.",
+      "de": "Dieses Mammut von einem Fahrzeug kann jedes Terrain bezwingen, hat genug Platz für 6 Personen und zermalmt fast alles, was ihm in den Weg kommt.",
+      "ru": "В этой огромной машине легко разместятся шесть человек. Она пройдёт по любой местности, снося почти любые преграды на пути.",
+      "zh": "这辆巨大的载具有足够的空间容纳6名乘客，可以覆盖任何地形，并且几乎可以碾碎任何挡在它前面的东西。",
+      "fr": "Cet énorme véhicule peut rouler sur tout type de terrain, accueillir jusqu'à 6 personnes et écraser tout ce qui se trouve sur son chemin ou presque.",
+      "pt": "Esse monstro de veículo pode passar em qualquer terreno, tem espaço para seis pessoas e vai destruir quase tudo no caminho.",
+      "zh-tw": "這款龐大的載具可以克服任何地形，空間足以容納 6 人，還能輾壓路上的任何東西。",
+      "th": "พาหนะขนาดมหึมาคันนี้สามารถลุยได้ทุกสภาพพื้นผิว มีพื้นที่เพียงพอสำหรับ 6 คน และสามารถบดขยี้ได้เกือบทุกสิ่งที่ขวางหน้า",
+      "pl": "Mamut to pojazd zdolny do poruszania się w dowolnym terenie. Pomieści 6 osób i zmiażdży niemal wszystko na swojej drodze."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": 8,
+      "topGearRatio": 0.63,
+      "reverseGearRatio": -5.0,
+      "chassisMass": 1311.0
+    },
+    "seats": 6,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Rager_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 750.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 18500.0,
+      "attachmentsWithHealth": 39,
+      "damageRegions": 13
+    },
+    "extras": {
+      "maxPushForce": 900.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_WolfsWagen",
+    "type": "car",
+    "slug": "wolfswagen",
+    "esFile": "Vehicles/Car/WolfsWagen/WolfsWagen_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Car/WolfsWagen/BPC_WolfsWagen.BPC_WolfsWagen_C",
+    "nameKey": "6E34E1ED4DB007703AB5019BC29F9DCF",
+    "name": {
+      "es": "WolfsWagen",
+      "en": "WolfsWagen",
+      "de": "Wolfswagen",
+      "ru": "«Волксваген»",
+      "zh": "太众",
+      "fr": "WolfsWagen",
+      "pt": "WolfsWagen",
+      "zh-tw": "沃斯",
+      "th": "WolfsWagen",
+      "pl": "WolfsWagen"
+    },
+    "descKey": "D33E762D4EC67DB3A127FC9CA8C1DC2F",
+    "descName": {
+      "es": "Un coche tan resistente que antes se rompe el conductor que él. Hay ejemplares de este vehículo clásico repartidos por toda la isla, a menudo desguazados. En caso de duda, consulta al mecánico del puesto fronterizo más cercano.",
+      "en": "A car so sturdy that the first thing that will break is the driver. A classic vehicle that can be found on a lot of locations around The Island, often in parts. If in doubt, go consult your local mechanic in the nearest outpost.",
+      "de": "Ein Auto, das so robust ist, dass das erste, was kaputt geht, der Fahrer ist. Ein klassisches Fahrzeug, das man an vielen Orten auf der Insel findet, oft in Einzelteilen. Im Zweifelsfall wende dich an deinen Mechaniker im nächsten Außenposten.",
+      "ru": "Настолько прочный автомобиль, что первым всегда ломается водитель. Живая классика, которую можно найти во всех уголках острова, нередко по частям. Если подумываете прокатиться, обратитесь к местному механику на ближайшем аванпосте.",
+      "zh": "坚固无比的汽车，比司机还能苟。一辆经典载具，在岛上四处可见，但经常只剩残骸。如果有疑问，请咨询最近的前哨站中的当地机械师。",
+      "fr": "Une voiture tellement robuste qu'elle est incassable. Vous pouvez la trouver à de nombreux endroits de l'île, la plupart du temps en pièces détachées. En cas de doute, consultez le garagiste de l'avant-poste le plus proche.",
+      "pt": "Um carro tão resistente que a primeira coisa que quebrará é o motorista. Um veículo tradicional que pode ser encontrado em diversas regiões da Ilha, normalmente em peças. Em caso de dúvidas, consulte o mecânico do entreposto mais próximo.",
+      "zh-tw": "這輛車款非常堅固，即使發生事故也只有駕駛員會受傷。這輛經典車款可以在島上的許多地方找到，但通常只剩下零件。如果有任何疑問，不妨去最近的哨站諮詢當地的機械師。",
+      "th": "รถสุดทนทานที่ถ้าจะมีอะไรพังก่อนก็คงจะเป็นคนขับนั่นแหละ มันคือพาหนะสุดคลาสสิกที่หาได้ทั่วไปในเกาะแต่อยู่ในสภาพของอะไหล่ ถ้าไม่รู้หาอะไหล่ที่ไหน ก็ลองไปถามช่างเครื่องท้องถิ่นที่อยู่ในด่านหน้าที่ใกล้ที่สุดดู",
+      "pl": "Samochód tak wytrzymały, że zepsuciu prędzej ulegnie jego kierowca. Klasyczny pojazd, który można znaleźć w wielu miejscach na wyspie, często jednak w częściach. W razie wątpliwości skonsultuj się z lokalnym mechanikiem w najbliższej placówce."
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": 4,
+      "topGearRatio": 0.78,
+      "reverseGearRatio": -5.0,
+      "chassisMass": 385.0
+    },
+    "seats": 4,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Wolfswagen_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 500.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 16250.0,
+      "attachmentsWithHealth": 35,
+      "damageRegions": 13
+    },
+    "extras": {
+      "maxPushForce": 900.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BPC_Tractor",
+    "type": "tractor",
+    "slug": "tractor",
+    "esFile": "Vehicles/Tractor/Tractor_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/Tractor/BPC_Tractor.BPC_Tractor_C",
+    "nameKey": "EA4FF2724D83E9BB857D8CAC0261B19B",
+    "name": {
+      "es": "Tractor",
+      "en": "Tractor",
+      "de": "Traktor",
+      "ru": "Трактор",
+      "zh": "拖拉机",
+      "fr": "Tracteur",
+      "pt": "Trator",
+      "zh-tw": "拖拉機",
+      "th": "รถไถ",
+      "pl": "Traktor"
+    },
+    "descKey": "18D6BB7A4BAE1B3F77B536B415C7A623",
+    "descName": {
+      "es": "Un tractor es un vehículo de ingeniería diseñado específicamente para ofrecer una alta fuerza de tracción (o par) a bajas velocidades, con el propósito de transportar un remolque o maquinaria como la que se usa en la agricultura o la construcción. ",
+      "en": "A tractor is an engineering vehicle specifically designed to deliver a high tractive effort (or torque) at slow speeds, for the purposes of hauling a trailer or machinery such as that used in agriculture or construction. ",
+      "de": "Ein Traktor ist ein technisches Fahrzeug, das speziell für eine hohe Zugkraft (oder ein hohes Drehmoment) bei niedrigen Geschwindigkeiten ausgelegt ist, um einen Anhänger oder Maschinen zu ziehen, die beispielsweise in der Landwirtschaft oder im Baugewerbe eingesetzt werden. ",
+      "ru": "Трактор — это транспортное средство, разработанное для обеспечения высокого тягового усилия (или крутящего момента). Передвигается на низких скоростях, способен буксировать прицеп или оборудование, используемое в сельском хозяйстве или строительстве. ",
+      "zh": "拖拉机是一种工程车辆，专门设计用于在低速时提供高牵引力（或扭矩），以拖动拖车或机械，例如在农业或建筑业中使用的器械。 ",
+      "fr": "Un tracteur est un véhicule d'ingénierie spécifiquement conçu pour fournir un effort de traction élevé (ou un couple) à des vitesses lentes, pour le transport d'une remorque ou d'une machine comme celles utilisées dans l'agriculture ou la construction. ",
+      "pt": "Um trator é um veículo de engenharia especificamente projetado para fornecer um grande esforço de tração (ou torque) em baixas velocidades, para fins de transporte de carretas ou maquinário usados em agricultura ou construção. ",
+      "zh-tw": "拖拉機是一種工程載具，專門用於低速提供高牽引力（或扭力），以便拉動拖車或農業與建築等用途的機具。 ",
+      "th": "รถไถเป็นรถวิศวกรรมที่ถูกออกแบบมาเพื่อทำงานที่มีแรงดึงสูง (หรือแรงบิด) ในความเร็วต่ำ สำหรับใช้ในการลากจูงรถพ่วงหรือเครื่องจักรที่ใช้ในเกษตรกรรมและงานก่อสร้าง ",
+      "pl": "Ciągnik to pojazd zaprojektowany do zapewnienia dużej siły pociągowej (lub momentu obrotowego) przy niskich prędkościach w celu ciągnięcia przyczepy lub maszyny, takich jak te używane w rolnictwie lub budownictwie. "
+    },
+    "fuel": {
+      "type": "Gasoline",
+      "engineRpmMax": 7500.0,
+      "engineRpmLimiter": 6000.0
+    },
+    "drivetrain": {
+      "gearCount": 3,
+      "topGearRatio": 2.0,
+      "reverseGearRatio": null,
+      "chassisMass": 1262.6
+    },
+    "seats": 3,
+    "seatsSource": "_mountSlotsBySwitchSeatIndex",
+    "storage": {
+      "containerClass": "Tractor_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 750.0,
+      "engine": 500.0,
+      "totalAttachmentHealth": 11750.0,
+      "attachmentsWithHealth": 23,
+      "damageRegions": 11
+    },
+    "extras": {
+      "maxPushForce": 900.0,
+      "inWaterDestructionSeconds": 600.0
+    }
+  },
+  {
+    "asset": "BP_WheelBarrow_Improvised",
+    "type": "wheelbarrow",
+    "slug": "improvised-wheelbarrow",
+    "esFile": "Vehicles/WheelBarrow/Improvised/WheelBarrow_Improvised_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/WheelBarrow/Improvised/BP_WheelBarrow_Improvised.BP_WheelBarrow_Improvised_C",
+    "nameKey": "8D3163DB4C2E85997CC8BCB8C6AB8923",
+    "name": {
+      "es": "Carretilla improvisada",
+      "en": "Improvised Wheelbarrow",
+      "de": "Improvisierte Schubkarre",
+      "ru": "Самодельная тачка",
+      "zh": "简易手推车",
+      "fr": "Brouette artisanale",
+      "pt": "Carriola improvisada",
+      "zh-tw": "簡易獨輪手推車",
+      "th": "รถเข็นล้อเดียวประดิษฐ์",
+      "pl": "Improwizowana taczka"
+    },
+    "descKey": "1CC7B62A42A132AA4C831092F0640181",
+    "descName": {
+      "es": "Pequeño vehículo de propulsión manual con una rueda delantera y dos mangos traseros que permiten su manejo por parte de una sola persona. Sumamente útil para transportar materiales en distancias cortas.",
+      "en": "A small hand-propelled vehicle designed to be pushed and guided by a single person using two handles at the rear. Very useful for short-distance transportation of materials.",
+      "de": "Kleines, handgetriebenes Fahrzeug, das von einer Person mit Hilfe von zwei Handgriffen am Heck geschoben und gelenkt werden kann. Sehr nützlich für den Materialtransport über kurze Strecken.",
+      "ru": "Небольшая ручная тележка, которую толкает перед собой один человек. Конструкция позволяет легко менять направление движения. Незаменимая вещь для транспортировки грузов на короткие расстояния.",
+      "zh": "一种小型手推车，一个人推动后部的两个把手就能操控。对于短距离运输材料非常有用。",
+      "fr": "Un petit véhicule propulsé à la main conçu pour être poussé et guidé par une seule personne à l'aide de deux poignées à l'arrière. Très utile pour le transport de matériaux à courte distance.",
+      "pt": "Pequeno veículo de propulsão manual projetado para ser empurrado e guiado por uma só pessoa usando duas alças na parte traseira. Muito útil para o transporte de materiais em curtas distâncias.",
+      "zh-tw": "一種手推的小型載具，由單人使用後側的兩個把手進行推動和引導，非常適合短程的材料運輸。",
+      "th": "พาหนะขนาดเล็กที่ขับเคลื่อนด้วยมือ ถูกออกแบบมาให้เข็นได้โดยคนเพียงคนเดียวโดยการใช้ที่จับที่อยู่ด้านหลัง มีประโยชน์เป็นอย่างมากสำหรับการลำเลียงวัสดุในระยะใกล้",
+      "pl": "Mały pojazd napędzany siłą rąk, przeznaczony do pchania i prowadzenia przez jedną osobę za pomocą dwóch uchwytów z tyłu. Bardzo przydatny do transportu różnego rodzaju materiałów na krótkie odległości."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "WheelBarrow_Improvised_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 50.0,
+      "engine": null,
+      "totalAttachmentHealth": 50.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  },
+  {
+    "asset": "BP_WheelBarrow_Metal",
+    "type": "wheelbarrow",
+    "slug": "metal-wheelbarrow",
+    "esFile": "Vehicles/WheelBarrow/Metal/WheelBarrow_Metal_ES.json",
+    "bpAsset": "/Game/ConZ_Files/Vehicles/WheelBarrow/Metal/BP_WheelBarrow_Metal.BP_WheelBarrow_Metal_C",
+    "nameKey": "6074D51D46649ADFBE5BC09E85992B59",
+    "name": {
+      "es": "Carretilla de metal",
+      "en": "Metal Wheelbarrow",
+      "de": "Metallschubkarre",
+      "ru": "Металлическая тачка",
+      "zh": "金属手推车",
+      "fr": "Brouette en métal",
+      "pt": "Carriola de metal",
+      "zh-tw": "金屬獨輪手推車",
+      "th": "รถเข็นล้อเดียวโลหะ",
+      "pl": "Metalowa taczka"
+    },
+    "descKey": "1CC7B62A42A132AA4C831092F0640181",
+    "descName": {
+      "es": "Pequeño vehículo de propulsión manual con una rueda delantera y dos mangos traseros que permiten su manejo por parte de una sola persona. Sumamente útil para transportar materiales en distancias cortas.",
+      "en": "A small hand-propelled vehicle designed to be pushed and guided by a single person using two handles at the rear. Very useful for short-distance transportation of materials.",
+      "de": "Kleines, handgetriebenes Fahrzeug, das von einer Person mit Hilfe von zwei Handgriffen am Heck geschoben und gelenkt werden kann. Sehr nützlich für den Materialtransport über kurze Strecken.",
+      "ru": "Небольшая ручная тележка, которую толкает перед собой один человек. Конструкция позволяет легко менять направление движения. Незаменимая вещь для транспортировки грузов на короткие расстояния.",
+      "zh": "一种小型手推车，一个人推动后部的两个把手就能操控。对于短距离运输材料非常有用。",
+      "fr": "Un petit véhicule propulsé à la main conçu pour être poussé et guidé par une seule personne à l'aide de deux poignées à l'arrière. Très utile pour le transport de matériaux à courte distance.",
+      "pt": "Pequeno veículo de propulsão manual projetado para ser empurrado e guiado por uma só pessoa usando duas alças na parte traseira. Muito útil para o transporte de materiais em curtas distâncias.",
+      "zh-tw": "一種手推的小型載具，由單人使用後側的兩個把手進行推動和引導，非常適合短程的材料運輸。",
+      "th": "พาหนะขนาดเล็กที่ขับเคลื่อนด้วยมือ ถูกออกแบบมาให้เข็นได้โดยคนเพียงคนเดียวโดยการใช้ที่จับที่อยู่ด้านหลัง มีประโยชน์เป็นอย่างมากสำหรับการลำเลียงวัสดุในระยะใกล้",
+      "pl": "Mały pojazd napędzany siłą rąk, przeznaczony do pchania i prowadzenia przez jedną osobę za pomocą dwóch uchwytów z tyłu. Bardzo przydatny do transportu różnego rodzaju materiałów na krótkie odległości."
+    },
+    "fuel": {
+      "type": null,
+      "engineRpmMax": null,
+      "engineRpmLimiter": null
+    },
+    "drivetrain": {
+      "gearCount": null,
+      "topGearRatio": null,
+      "reverseGearRatio": null,
+      "chassisMass": null
+    },
+    "seats": 2,
+    "seatsSource": "mountslot_files",
+    "storage": {
+      "containerClass": "WheelBarrow_Metal_Item_Container_C",
+      "maxCarryWeight": null,
+      "storageExpansionSlots": null
+    },
+    "health": {
+      "chassis": 50.0,
+      "engine": null,
+      "totalAttachmentHealth": 50.0,
+      "attachmentsWithHealth": 1,
+      "damageRegions": null
+    },
+    "extras": {
+      "maxPushForce": null,
+      "inWaterDestructionSeconds": null
+    }
+  }
+]
