@@ -1,0 +1,63 @@
+---
+import { useTranslations, localizedPath } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+
+const categories = [
+  { slug: 'guides',    icon: '◇' },
+  { slug: 'mechanics', icon: '✚' },
+  { slug: 'maps',      icon: '◈' },
+  { slug: 'items',     icon: '✦' },
+  { slug: 'bases',     icon: '▣' },
+  { slug: 'server',    icon: '◉' },
+] as const;
+---
+<section class="categories">
+  <div class="container">
+    <header class="cat-header">
+      <span class="eyebrow">Wiki</span>
+      <h2>{tr('categories.title')}</h2>
+      <p>{tr('categories.subtitle')}</p>
+    </header>
+    <div class="grid">
+      {categories.map((c) => (
+        <a class="card cat-card" href={localizedPath(`/wiki/${c.slug}`, lang)}>
+          <span class="cat-icon" aria-hidden="true">{c.icon}</span>
+          <h3>{tr(`cat.${c.slug}.title` as const)}</h3>
+          <p>{tr(`cat.${c.slug}.desc` as const)}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .categories { padding: clamp(4rem, 8vw, 6rem) 0; }
+  .cat-header {
+    text-align: center;
+    max-width: 38rem;
+    margin: 0 auto 2.5rem;
+  }
+  .cat-header h2 { margin: 0.5rem 0 0.75rem; }
+  .cat-header p { color: var(--c-ink-soft); margin: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+  .cat-card { position: relative; }
+  .cat-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: var(--c-paper-soft);
+    color: var(--c-rust);
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

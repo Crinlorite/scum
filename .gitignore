@@ -1,0 +1,14 @@
+node_modules
+dist
+.astro
+.env
+.env.production
+.DS_Store
+*.log
+
+# Python tooling
+__pycache__/
+*.pyc
+
+# Regenerable locres extraction output (canonical copy lives in src/data/items.json)
+tools/locres-import/out/

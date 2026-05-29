@@ -1,0 +1,105 @@
+---
+import { useTranslations, localizedPath } from '../i18n/utils';
+import LangSwitcher from './LangSwitcher.astro';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const here = Astro.url.pathname;
+const home = localizedPath('/', lang);
+const links = [
+  { href: home, label: tr('nav.home') },
+  { href: localizedPath('/wiki', lang), label: tr('nav.wiki') },
+  { href: localizedPath('/items', lang), label: tr('nav.items') },
+  { href: `${home}#server`, label: tr('nav.server') },
+  { href: `${home}#contribute`, label: tr('nav.contribute') },
+];
+function isActive(href: string): boolean {
+  if (href.includes('#')) return false;
+  if (href === home) return here === href;
+  return here === href || here.startsWith(href + '/');
+}
+---
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand" href={localizedPath('/', lang)}>
+      <span class="brand-mark" aria-hidden="true">SC</span>
+      <span class="brand-name">{tr('site.name')}</span>
+    </a>
+    <nav aria-label="primary">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <LangSwitcher lang={lang} />
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    background: var(--c-bg-deep);
+    color: var(--c-bone);
+    border-bottom: 1px solid rgba(232, 227, 216, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 64px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--c-bone);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--c-rust);
+    color: var(--c-rust-bright);
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  .brand-name { font-size: 1rem; text-transform: uppercase; }
+  nav { margin-left: auto; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+  }
+  nav a {
+    color: var(--c-ash);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  nav a:hover { color: var(--c-bone); }
+  nav a.active {
+    color: var(--c-bone);
+    border-bottom-color: var(--c-rust);
+  }
+  @media (max-width: 640px) {
+    .nav-inner { flex-wrap: wrap; min-height: 56px; padding-block: 0.5rem; }
+    .brand-name { display: none; }
+    nav { margin-left: 0; width: 100%; order: 3; }
+    nav ul { justify-content: space-between; gap: 0.75rem; }
+    nav a { font-size: 0.85rem; }
+  }
+</style>

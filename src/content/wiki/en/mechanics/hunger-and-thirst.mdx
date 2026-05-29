@@ -1,0 +1,31 @@
+---
+title: Hunger and thirst
+description: How hunger, thirst and nutrition stats actually work in SCUM.
+updated: 2026-05-28
+---
+
+SCUM does not have a simple "hunger" bar. It tracks **calories, hydration, vitamins, minerals and macronutrients** (proteins, carbs, fats) separately.
+
+## The basics
+
+- **Calories**: your body burns them constantly. At 0, you lose HP and stamina.
+- **Hydration**: drops faster than calories. At 0, you die quickly.
+
+## What the UI hides
+
+Eating only meat fills calories but leaves you without vitamins/minerals. In the medium term, your character **gets sick**, loses endurance and tires faster. The ideal mix includes:
+
+- **Meat** (protein + fat)
+- **Vegetables and fruit** (vitamins, minerals)
+- **Bread/cooked grain** (fast carbs)
+
+## Hunger states
+
+| State | Effect |
+| --- | --- |
+| Well fed | Slow stamina and HP regen. |
+| Mild hunger | No noticeable penalty. |
+| Strong hunger | You lose weight, max stamina drops. |
+| Starvation | Continuous damage. |
+
+Drink **boiled or purified water**. Drinking from puddles or rivers unfiltered gives you dysentery, which dehydrates you faster than you can drink.

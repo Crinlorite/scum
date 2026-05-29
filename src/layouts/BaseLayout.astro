@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, getLocaleFromUrl, alternateHref } from '../i18n/utils';
+import { LANGUAGES, DEFAULT_LANG, getLanguageMeta, type LangCode } from '../i18n/languages';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: LangCode;
+}
+
+const lang = (Astro.props.lang ?? getLocaleFromUrl(Astro.url)) as LangCode;
+const meta = getLanguageMeta(lang);
+const tr = useTranslations(lang);
+const siteName = tr('site.name');
+const title = Astro.props.title ? `${Astro.props.title} · ${siteName}` : `${siteName} · ${tr('site.tagline')}`;
+const description = Astro.props.description ?? tr('site.description');
+const siteBase = Astro.site ?? new URL('https://scumwiki.crintech.pro');
+const canonical = new URL(Astro.url.pathname, siteBase).href;
+const here = Astro.url.pathname;
+
+const alternates = LANGUAGES.map((l) => ({
+  hreflang: l.bcp47,
+  href: new URL(alternateHref(here, lang, l.code), siteBase).href,
+}));
+const xDefault = new URL(alternateHref(here, lang, DEFAULT_LANG), siteBase).href;
+---
+<!doctype html>
+<html lang={lang} dir={meta.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={meta.ogLocale} />
+    {LANGUAGES.filter((l) => l.code !== lang).map((l) => (
+      <meta property="og:locale:alternate" content={l.ogLocale} />
+    ))}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#0f1311" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{tr('nav.skipToContent')}</a>
+    <Nav lang={lang} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

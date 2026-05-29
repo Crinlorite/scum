@@ -1,0 +1,20 @@
+---
+import ItemPage from '../../../components/ItemPage.astro';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../i18n/languages';
+import { ITEMS } from '../../../data/items';
+
+export function getStaticPaths() {
+  const langs = LANGUAGES.filter((l) => l.code !== DEFAULT_LANG);
+  const paths = [];
+  for (const l of langs) {
+    for (const item of ITEMS) {
+      paths.push({ params: { lang: l.code, slug: item.slug }, props: { item } });
+    }
+  }
+  return paths;
+}
+
+const lang = Astro.params.lang as LangCode;
+const { item } = Astro.props;
+---
+<ItemPage lang={lang} item={item} />

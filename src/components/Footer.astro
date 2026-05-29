@@ -1,0 +1,49 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="disclaimer">{tr('footer.disclaimer')}</p>
+    <p class="credit">
+      © {year} · {tr('footer.builtBy')} <a href="https://crintech.pro">Crintech</a> ·
+      <a href="https://github.com/Crinlorite/scum-crintech">{tr('footer.opensource')}</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--c-bg-deep);
+    color: var(--c-ash);
+    padding: 2.5rem 0;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(232, 227, 216, 0.08);
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    max-width: 60ch;
+    color: var(--c-steel);
+    margin: 0;
+  }
+  .credit {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .credit a {
+    color: var(--c-bone);
+  }
+  .credit a:hover { color: var(--c-rust-bright); }
+</style>

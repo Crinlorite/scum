@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CategoryGrid from '../../components/CategoryGrid.astro';
+import ServerStatus from '../../components/ServerStatus.astro';
+import Contribute from '../../components/Contribute.astro';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../i18n/languages';
+
+export async function getStaticPaths() {
+  return LANGUAGES
+    .filter((l) => l.code !== DEFAULT_LANG)
+    .map((l) => ({ params: { lang: l.code } }));
+}
+
+const lang = Astro.params.lang as LangCode;
+---
+<BaseLayout lang={lang}>
+  <Hero lang={lang} />
+  <CategoryGrid lang={lang} />
+  <ServerStatus lang={lang} />
+  <Contribute lang={lang} />
+</BaseLayout>

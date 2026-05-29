@@ -1,0 +1,11 @@
+---
+import WikiCategoryPage from '../../../components/WikiCategoryPage.astro';
+import { WIKI_CATEGORIES, type WikiCategory } from '../../../i18n/wiki';
+
+export async function getStaticPaths() {
+  return WIKI_CATEGORIES.map((category) => ({ params: { category } }));
+}
+
+const category = Astro.params.category as WikiCategory;
+---
+<WikiCategoryPage lang="es" category={category} />
