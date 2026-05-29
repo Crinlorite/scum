@@ -138,6 +138,20 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         </section>
       )}
 
+      {d.clothing && (
+        <section class="block">
+          <h2>{tr('item.protection')}</h2>
+          <dl class="stat-grid">
+            {typeof d.clothing.ballistic === 'number' && (<div><dt>{tr('item.ballistic')}</dt><dd>{d.clothing.ballistic.toLocaleString(lang)}</dd></div>)}
+            {typeof d.clothing.sharp === 'number' && (<div><dt>{tr('item.sharpRed')}</dt><dd>−{d.clothing.sharp}%</dd></div>)}
+            {typeof d.clothing.blunt === 'number' && (<div><dt>{tr('item.bluntRed')}</dt><dd>−{d.clothing.blunt}%</dd></div>)}
+            {typeof d.clothing.warmth === 'number' && (<div><dt>{tr('item.warmth')}</dt><dd>{d.clothing.warmth}</dd></div>)}
+            {typeof d.clothing.waterRes === 'number' && (<div><dt>{tr('item.waterRes')}</dt><dd>{d.clothing.waterRes}</dd></div>)}
+            {typeof d.clothing.camo === 'number' && (<div><dt>{tr('item.camo')}</dt><dd>{d.clothing.camo > 0 ? '+' : ''}{d.clothing.camo}%</dd></div>)}
+          </dl>
+        </section>
+      )}
+
       {d.craftedBy.length > 0 && (
         <section class="block">
           <h2>{tr('item.howToCraft')}</h2>
