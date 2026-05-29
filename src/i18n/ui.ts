@@ -161,6 +161,9 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'sec.vehicles.title': 'Vehículos',
     'sec.vehicles.intro': 'Vehículos del juego y su combustible.',
     'sec.vehicles.search': 'Buscar vehículo…',
+    'sec.quests.title': 'Misiones',
+    'sec.quests.intro': 'Misiones de los comerciantes: recompensa de fama, dinero y nivel.',
+    'sec.quests.search': 'Buscar misión…',
 
     'common.readMore': 'Leer más',
     'common.lastUpdated': 'Última actualización',
@@ -325,6 +328,9 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'sec.vehicles.title': 'Vehicles',
     'sec.vehicles.intro': 'In-game vehicles and their fuel.',
     'sec.vehicles.search': 'Search vehicle…',
+    'sec.quests.title': 'Missions',
+    'sec.quests.intro': 'Trader missions: fame reward, money and tier.',
+    'sec.quests.search': 'Search mission…',
 
     'common.readMore': 'Read more',
     'common.lastUpdated': 'Last updated',
