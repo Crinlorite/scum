@@ -5,6 +5,7 @@ import skillsData from './skills.json';
 import medicalData from './medical.json';
 import vehiclesData from './vehicles.json';
 import questsData from './quests.json';
+import adminData from './admin.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath, useTranslations } from '../i18n/utils';
 
@@ -137,4 +138,20 @@ export function questsSection(lang: LangCode): Section {
     };
   });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => k) };
+}
+
+// ---- admin / server commands ----
+const ADMIN_LVL: Record<string, L> = {
+  SuperAdmin: { es: 'Super Admin', en: 'Super Admin' }, Admin: { es: 'Admin', en: 'Admin' },
+  Elevated: { es: 'Elevado', en: 'Elevated' }, Regular: { es: 'Normal', en: 'Regular' },
+  '': { es: 'Otros', en: 'Other' },
+};
+export function adminSection(lang: LangCode): Section {
+  const entries: (SecEntry & { _c: string })[] = (adminData as any[]).map((c) => ({
+    name: c.verb,
+    desc: loc(c.desc, lang),
+    meta: c.args ? [{ k: 'args', v: String(c.args) }] : [],
+    _c: c.level || '',
+  }));
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => ADMIN_LVL[k]?.[lang] ?? ADMIN_LVL[k]?.[FALLBACK_LANG] ?? k || 'Otros') };
 }
