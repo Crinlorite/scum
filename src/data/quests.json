@@ -35,6 +35,59 @@
   "rewardFame": 5,
   "rewardCurrency": 1300,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "12_Gauge_BirdShot_Ammobox",
+    "name": {
+     "es": "Caja de cartuchos de perdigones para escopeta",
+     "en": "Birdshot Shotgun Ammunition Box",
+     "de": "Munitionskiste mit Vogeldunst-Munition",
+     "ru": "Коробка патронов мелкой дроби для ружья",
+     "zh": "鸟弹霰弹弹药盒",
+     "fr": "Boîte de cartouches à grenaille",
+     "pt": "Caixa de munição de escopeta birdshot",
+     "zh-tw": "獵鳥散彈槍彈藥盒",
+     "th": "กล่องกระสุนลูกปรายเล็กปืนลูกซอง",
+     "pl": "Pudełko ze śrutem drobnoziarnistym"
+    },
+    "slug": "birdshot-shotgun-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "12_Gauge_Buckshot_Ammobox",
+    "name": {
+     "es": "Caja de cartuchos de postas para escopeta",
+     "en": "Buckshot Shotgun Ammunition Box",
+     "de": "Munitionskiste mit Posten-Munition",
+     "ru": "Коробка патронов крупной дроби для ружья",
+     "zh": "鹿弹霰弹弹药盒",
+     "fr": "Boîte de cartouches à chevrotine",
+     "pt": "Caixa de munição de escopeta buckshot",
+     "zh-tw": "獵鹿散彈槍彈藥盒",
+     "th": "กล่องกระสุนลูกปรายใหญ่ปืนลูกซอง",
+     "pl": "Pudełko ze śrutem gruboziarnistym"
+    },
+    "slug": "buckshot-shotgun-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "12_Gauge_Slug_Ammobox",
+    "name": {
+     "es": "Caja de cartuchos de balas para escopeta",
+     "en": "Slugs Shotgun Ammunition Box",
+     "de": "Munitionskiste mit Flintenmunition",
+     "ru": "Коробка патронов «жакан» для ружья",
+     "zh": "独头弹弹药盒",
+     "fr": "Boîte de cartouches à balle",
+     "pt": "Caixa de munição com balotes de escopeta",
+     "zh-tw": "獨頭散彈槍彈藥盒",
+     "th": "กล่องกระสุนลูกโดดปืนลูกซอง",
+     "pl": "Pudełko ze śrutem typu slug"
+    },
+    "slug": "slugs-shotgun-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -73,6 +126,59 @@
   "rewardFame": 5,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_357_Ammobox",
+    "name": {
+     "es": "Caja de munición .357",
+     "en": ".357 Ammunition Box",
+     "de": ".357-Munitionskiste",
+     "ru": "Коробка патронов .357",
+     "zh": ".357弹药盒",
+     "fr": "Boîte de cartouches de .357",
+     "pt": "Caixa de munição .357",
+     "zh-tw": ".357 彈藥盒",
+     "th": "กล่องกระสุน .357",
+     "pl": "Pudełko z amunicją .357"
+    },
+    "slug": "357-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_357_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora .357",
+     "en": ".357 Tracer Ammunition Box",
+     "de": "Munitionskiste mit Leuchtspurmunition im Kaliber .357",
+     "ru": "Коробка патронов .357 (трассирующий)",
+     "zh": ".357曳光弹弹药盒",
+     "fr": "Boîte de cartouches de .357 traçantes",
+     "pt": "Caixa de munição traçante .357",
+     "zh-tw": ".357 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี .357",
+     "pl": "Pudełko z amunicją smugową .357"
+    },
+    "slug": "357-tracer-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_357_Ammobox_AP",
+    "name": {
+     "es": "Caja de munición perforadora .357",
+     "en": ".357 Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender Munition im Kaliber .357",
+     "ru": "Коробка патронов .357 (бронебойный)",
+     "zh": ".357穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de .357 perforantes",
+     "pt": "Caixa de munição perfurante .357",
+     "zh-tw": ".357 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ .357",
+     "pl": "Pudełko z amunicją przeciwpancerną .357"
+    },
+    "slug": "357-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -111,6 +217,59 @@
   "rewardFame": 5,
   "rewardCurrency": 1350,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_38_Ammobox",
+    "name": {
+     "es": "Caja de munición .38",
+     "en": ".38 Ammunition Box",
+     "de": ".38-Munitionskiste",
+     "ru": "Коробка патронов .38",
+     "zh": ".38子弹弹药盒",
+     "fr": "Boîte de cartouches de .38",
+     "pt": "Caixa de munição .38",
+     "zh-tw": ".38 彈藥盒",
+     "th": "กล่องกระสุน .38",
+     "pl": "Pudełko z amunicją .38"
+    },
+    "slug": "38-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_38_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora .38",
+     "en": ".38 Ammunition Box Tracer Rounds",
+     "de": "Munitionskiste mit Leuchtspurgeschossen im Kaliber .38",
+     "ru": "Коробка патронов .38 (трассирующий)",
+     "zh": ".38毫米曳光弹弹药盒",
+     "fr": "Boîte de cartouches de .38 traçantes",
+     "pt": "Caixa de munição de projéteis traçantes .38",
+     "zh-tw": ".38 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี .38",
+     "pl": "Pudełko z amunicją smugową .38"
+    },
+    "slug": "38-ammunition-box-tracer-rounds",
+    "count": 3
+   },
+   {
+    "asset": "Cal_38_Ammobox_AP",
+    "name": {
+     "es": "Caja de munición perforadora .38",
+     "en": ".38 Ammunition Box Armor Piercing Rounds",
+     "de": "Munitionskiste mit panzerbrechender Munition im Kaliber .38",
+     "ru": "Коробка патронов .38 (бронебойный)",
+     "zh": ".38穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de .38 perforantes",
+     "pt": "Caixa de munição de projéteis perfurantes .38",
+     "zh-tw": ".38 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ .38",
+     "pl": "Pudełko z amunicją przeciwpancerną .38"
+    },
+    "slug": "38-ammunition-box-armor-piercing-rounds",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -149,6 +308,59 @@
   "rewardFame": 5,
   "rewardCurrency": 1800,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_44_Viper_Ammobox",
+    "name": {
+     "es": "Caja de munición .44",
+     "en": ".44 Ammunition Box",
+     "de": "Munitionskiste mit Munition im Kaliber .44",
+     "ru": "Коробка патронов .44",
+     "zh": ".44子弹弹药盒",
+     "fr": "Boîte de cartouches de .44",
+     "pt": "Caixa de munição .44",
+     "zh-tw": ".44 彈藥盒",
+     "th": "กล่องกระสุน .44",
+     "pl": "Pudełko z amunicją .44"
+    },
+    "slug": "44-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_44_Viper_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora .44",
+     "en": ".44 Tracer Ammunition Box",
+     "de": "Munitionskiste mit Leuchtspurmunition im Kaliber .44",
+     "ru": "Коробка патронов .44 (трассирующий)",
+     "zh": ".44曳光弹弹药盒",
+     "fr": "Boîte de cartouches de .44 traçantes",
+     "pt": "Caixa de munição traçante .44",
+     "zh-tw": ".44 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี .44",
+     "pl": "Pudełko z amunicją smugową .44"
+    },
+    "slug": "44-tracer-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_44_Viper_Ammobox_AP",
+    "name": {
+     "es": "Caja de munición perforadora .44",
+     "en": ".44 Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender Munition im Kaliber .44",
+     "ru": "Коробка патронов .44 (бронебойный)",
+     "zh": ".44穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de .44 perforantes",
+     "pt": "Caixa de munição perfurante .44",
+     "zh-tw": ".44 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ .44",
+     "pl": "Pudełko z amunicją przeciwpancerną .44"
+    },
+    "slug": "44-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -187,6 +399,25 @@
   "rewardFame": 5,
   "rewardCurrency": 2600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_45_AP_Ammobox",
+    "name": {
+     "es": "Caja de munición ACP perforadora .45",
+     "en": ".45 ACP Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender ACP-Munition im Kaliber 0,45",
+     "ru": "Коробка патронов .45 ACP (бронебойный)",
+     "zh": ".45 ACP穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de .45 ACP perforantes",
+     "pt": "Caixa de munição perfurante .45 ACP",
+     "zh-tw": ".45 ACP 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ .45 ACP",
+     "pl": "Pudełko z amunicją przeciwpancerną .45 ACP"
+    },
+    "slug": "45-acp-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -225,6 +456,59 @@
   "rewardFame": 5,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_50_AE_Ammobox",
+    "name": {
+     "es": "Caja de munición .50 AE",
+     "en": ".50 AE Ammunition Box",
+     "de": "Munitionskiste mit Action-Express-Munition im Kaliber .50",
+     "ru": "Коробка патронов .50 АЕ",
+     "zh": ".50 AE子弹弹药盒",
+     "fr": "Boîte de cartouches de .50 AE",
+     "pt": "Caixa de munição .50 AE",
+     "zh-tw": ".50 AE 彈藥盒",
+     "th": "กล่องกระสุน .50 AE",
+     "pl": "Pudełko z amunicją .50 AE"
+    },
+    "slug": "50-ae-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_50_AE_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora .50 AE",
+     "en": ".50 AE Tracer Ammunition Box",
+     "de": "Munitionskiste mit Action-Express-Leuchtspurmunition im Kaliber 0,50",
+     "ru": "Коробка патронов .50 АЕ калибра (трассирующий)",
+     "zh": ".50 AE曳光弹弹药盒",
+     "fr": "Boîte de cartouches de .50 AE traçantes",
+     "pt": "Caixa de munição traçante .50 AE",
+     "zh-tw": ".50 AE 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี .50 AE",
+     "pl": "Pudełko z amunicją smugową .50 AE"
+    },
+    "slug": "50-ae-tracer-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_50_AE_AP_Ammobox",
+    "name": {
+     "es": "Caja de munición perforadora .50 AE",
+     "en": ".50 AE Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender Action-Express-Munition im Kaliber .50",
+     "ru": "Коробка патронов .50 АЕ (бронебойный)",
+     "zh": ".50 AE穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de .50 AE perforantes",
+     "pt": "Caixa de munição perfurante .50 AE",
+     "zh-tw": ".50 AE 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ .50 AE",
+     "pl": "Pudełko z amunicją przeciwpancerną .50 AE"
+    },
+    "slug": "50-ae-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -263,6 +547,59 @@
   "rewardFame": 5,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_9mm_Ammobox",
+    "name": {
+     "es": "Caja de munición 9 mm",
+     "en": "9mm Ammunition Box",
+     "de": "Munitionskiste mit Munition im Kaliber 9 mm",
+     "ru": "Коробка патронов 9 мм",
+     "zh": "9毫米子弹弹药盒",
+     "fr": "Boîte de cartouches de 9 mm",
+     "pt": "Caixa de munição 9 mm",
+     "zh-tw": "9mm 彈藥盒",
+     "th": "กล่องกระสุน 9 มม.",
+     "pl": "Pudełko z amunicją 9 mm"
+    },
+    "slug": "9mm-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_9mm_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora 9 mm",
+     "en": "9mm Tracer Ammunition Box",
+     "de": "Munitionskiste mit Leuchtspurmunition im Kaliber 9 mm",
+     "ru": "Коробка патронов 9 мм (трассирующий)",
+     "zh": "9毫米曳光弹弹药盒",
+     "fr": "Boîte de cartouches de 9 mm traçantes",
+     "pt": "Caixa de munição traçante 9 mm",
+     "zh-tw": "9mm 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี 9 มม.",
+     "pl": "Pudełko z amunicją smugową 9 mm"
+    },
+    "slug": "9mm-tracer-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_9mm_AP_Ammobox",
+    "name": {
+     "es": "Caja de munición perforadora 9 mm",
+     "en": "9mm Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender Munition im Kaliber 9 mm",
+     "ru": "Коробка патронов 9 мм (бронебойный)",
+     "zh": "9毫米穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de 9 mm perforantes",
+     "pt": "Caixa de munição perfurante 9 mm",
+     "zh-tw": "9mm 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ 9 มม.",
+     "pl": "Pudełko z amunicją przeciwpancerną 9 mm"
+    },
+    "slug": "9mm-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -301,6 +638,59 @@
   "rewardFame": 5,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_9x39mm_Ammobox",
+    "name": {
+     "es": "Caja de munición 9 x 39 mm",
+     "en": "9x39mm Ammunition Box",
+     "de": "Munitionskiste mit Munition im Kaliber 9 x 39 mm",
+     "ru": "Коробка патронов 9x39 мм",
+     "zh": "9x39毫米子弹弹药盒",
+     "fr": "Boîte de cartouches de 9x39 mm",
+     "pt": "Caixa de munição 9x39 mm",
+     "zh-tw": "9x39mm 彈藥盒",
+     "th": "กล่องกระสุน 9x39 มม.",
+     "pl": "Pudełko z amunicją 9x39 mm"
+    },
+    "slug": "9x39mm-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_9x39mm_Ammobox_TR",
+    "name": {
+     "es": "Caja de munición trazadora 9 x 39 mm",
+     "en": "9x39mm Tracer Ammunition Box",
+     "de": "Munitionskiste mit Leuchtspurmunition im Kaliber 9 x 39 mm",
+     "ru": "Коробка патронов 9x39 мм (трассирующий)",
+     "zh": "9x39毫米曳光弹弹药",
+     "fr": "Boîte de cartouches de 9x39 mm traçantes",
+     "pt": "Caixa de munição traçante 9x39 mm",
+     "zh-tw": "9x39mm 曳光彈藥盒",
+     "th": "กล่องกระสุนส่องวิถี 9x39 มม.",
+     "pl": "Pudełko z amunicją smugową 9x39 mm"
+    },
+    "slug": "9x39mm-tracer-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_9x39mm_AP_Ammobox",
+    "name": {
+     "es": "Caja de munición perforadora 9 x 39 mm",
+     "en": "9x39mm Armor Piercing Ammunition Box",
+     "de": "Munitionskiste mit panzerbrechender Munition im Kaliber 9 x 39 mm",
+     "ru": "Коробка патронов 9x39 мм (бронебойный)",
+     "zh": "9x39毫米穿甲弹弹药盒",
+     "fr": "Boîte de cartouches de 9x39 mm perforantes",
+     "pt": "Caixa de munição perfurante 9x39 mm",
+     "zh-tw": "9x39mm 穿甲彈藥盒",
+     "th": "กล่องกระสุนเจาะเกราะ 9x39 มม.",
+     "pl": "Pudełko z amunicją przeciwpancerną 9x39 mm"
+    },
+    "slug": "9x39mm-armor-piercing-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -339,6 +729,25 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Weapon_Block21",
+    "name": {
+     "es": "Block 21",
+     "en": "Block 21",
+     "de": "Block 21",
+     "ru": "Block 21",
+     "zh": "Block 21",
+     "fr": "Block 21",
+     "pt": "Block 21",
+     "zh-tw": "布拉克 21",
+     "th": "Block 21",
+     "pl": "Block21"
+    },
+    "slug": "block-21",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -377,6 +786,7 @@
   "rewardFame": 5,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -415,6 +825,24 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Cal_22_Ammobox",
+    "name": {
+     "en": ".22 Ammunition Box"
+    },
+    "slug": "22-ammunition-box",
+    "count": 3
+   },
+   {
+    "asset": "Cal_22_Ammobox_TR",
+    "name": {
+     "en": ".22 Tracer Ammunition Box"
+    },
+    "slug": "22-tracer-ammunition-box",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -453,6 +881,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "WeaponFlashlight_M9",
+    "name": {
+     "es": "Linterna para M9",
+     "en": "M9 Flashlight",
+     "de": "M9-Taschenlampe",
+     "ru": "Фонарик для М9",
+     "zh": "M9枪灯",
+     "fr": "Lampe de M9",
+     "pt": "Lanterna de M9",
+     "zh-tw": "M9 槍燈",
+     "th": "ไฟฉาย M9",
+     "pl": "Latarka do M9"
+    },
+    "slug": "m9-flashlight",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -491,6 +938,25 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Weapon_M9",
+    "name": {
+     "es": "TEC01 M9",
+     "en": "TEC01 M9",
+     "de": "TEC01 M9",
+     "ru": "TEC01 M9",
+     "zh": "TEC01 M9",
+     "fr": "TEC01 M9",
+     "pt": "TEC01 M9",
+     "zh-tw": "TEC01 M9",
+     "th": "TEC01 M9",
+     "pl": "TEC01 M9"
+    },
+    "slug": "tec01-m9",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -529,6 +995,7 @@
   "rewardFame": 5,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -567,6 +1034,7 @@
   "rewardFame": 15,
   "rewardCurrency": 2500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -621,6 +1089,25 @@
     },
     "slug": "weapon-ghillie-3",
     "price": 1800
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_98k_Karabiner",
+    "name": {
+     "es": "Kar 98k",
+     "en": "Kar98",
+     "de": "Kar98k",
+     "ru": "Kar98k",
+     "zh": "Kar98",
+     "fr": "Kar98k",
+     "pt": "Kar98k",
+     "zh-tw": "Kar98",
+     "th": "Kar98",
+     "pl": "Kar98k"
+    },
+    "slug": "kar98",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -679,6 +1166,7 @@
     "price": 8000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -733,6 +1221,25 @@
     },
     "slug": "v3-holographic-sight",
     "price": 1200
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "WeaponSights_M1_ScopeAndSights",
+    "name": {
+     "es": "Mira M1",
+     "en": "M1 Scope",
+     "de": "M1-Zielfernrohr",
+     "ru": "Прицел для М1",
+     "zh": "M1狙击镜",
+     "fr": "Lunette de M1",
+     "pt": "Luneta de M1",
+     "zh-tw": "M1 瞄準鏡",
+     "th": "กล้องเล็ง M1",
+     "pl": "Luneta do M1"
+    },
+    "slug": "m1-scope",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -791,6 +1298,25 @@
     "price": 1700
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "WeaponScope_M82A1",
+    "name": {
+     "es": "Mira M82",
+     "en": "M82 Scope",
+     "de": "M82-Zielfernrohr",
+     "ru": "Прицел для М82",
+     "zh": "M82狙击镜",
+     "fr": "Lunette M82",
+     "pt": "Luneta de M82",
+     "zh-tw": "M82 瞄準鏡",
+     "th": "กล้องเล็ง M82",
+     "pl": "Luneta M82"
+    },
+    "slug": "m82-scope",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -847,6 +1373,25 @@
     "price": 1800
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_Cleaning_Kit",
+    "name": {
+     "es": "Kit de limpieza de armas",
+     "en": "Weapon Cleaning Kit",
+     "de": "Waffenreinigungsset",
+     "ru": "Набор для ухода за оружием",
+     "zh": "武器清洁工具",
+     "fr": "Kit d'entretien d'arme",
+     "pt": "Kit de limpeza de armas",
+     "zh-tw": "武器清潔套組",
+     "th": "ชุดอุปกรณ์ทำความสะอาดอาวุธ",
+     "pl": "Zestaw do czyszczenia broni"
+    },
+    "slug": "weapon-cleaning-kit",
+    "count": 2
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -885,6 +1430,25 @@
   "rewardFame": 10,
   "rewardCurrency": 2150,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Night_Vision_Goggles_01",
+    "name": {
+     "es": "Gafas de visión nocturna",
+     "en": "Night Vision Goggles",
+     "de": "Nachtsichtbrille",
+     "ru": "Очки ночного видения",
+     "zh": "夜视仪",
+     "fr": "Lunette de vision nocturne",
+     "pt": "Óculos de visão noturna",
+     "zh-tw": "夜視鏡",
+     "th": "แว่นมองกลางคืน",
+     "pl": "Gogle noktowizyjne"
+    },
+    "slug": "night-vision-goggles",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -966,6 +1530,25 @@
     "price": 100
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_AKS_74U",
+    "name": {
+     "es": "AKS-74U",
+     "en": "AKS-74U",
+     "de": "AKS-74U",
+     "ru": "АКС-74У",
+     "zh": "AKS-74U",
+     "fr": "AKS-74U",
+     "pt": "AKS-74U",
+     "zh-tw": "AKS-74U",
+     "th": "AKS-74U",
+     "pl": "AKS-74U"
+    },
+    "slug": "aks-74u",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -1039,6 +1622,25 @@
     "price": 2000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_MosinNagant",
+    "name": {
+     "es": "M1891",
+     "en": "M1891",
+     "de": "M1891",
+     "ru": "M1891",
+     "zh": "M1891",
+     "fr": "M1891",
+     "pt": "M1891",
+     "zh-tw": "M1891",
+     "th": "M1891",
+     "pl": "M1891"
+    },
+    "slug": "m1891",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -1093,6 +1695,25 @@
     },
     "slug": "red-dot-sight",
     "price": 1200
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "ScopeRail_AK47",
+    "name": {
+     "es": "Adaptador RIS",
+     "en": "RIS Adapter",
+     "de": "RIS-Adapter",
+     "ru": "Планка-адаптер",
+     "zh": "RIS连接器",
+     "fr": "Rail RIS",
+     "pt": "Adaptador para trilho RIS",
+     "zh-tw": "RIS 適配器",
+     "th": "อะแดปเตอร์ RIS",
+     "pl": "Adapter RIS"
+    },
+    "slug": "ris-adapter",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -1151,6 +1772,25 @@
     "price": 7000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_RPK-74",
+    "name": {
+     "es": "RPK",
+     "en": "RPK",
+     "de": "RPK",
+     "ru": "РПК",
+     "zh": "RPK",
+     "fr": "RPK",
+     "pt": "RPK",
+     "zh-tw": "RPK",
+     "th": "RPK",
+     "pl": "RPK"
+    },
+    "slug": "rpk",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -1207,6 +1847,7 @@
     "price": 1000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -1263,6 +1904,25 @@
     "price": 800
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_AKM",
+    "name": {
+     "es": "AKM",
+     "en": "AKM",
+     "de": "AKM",
+     "ru": "АКМ",
+     "zh": "AKM",
+     "fr": "AKM",
+     "pt": "AKM",
+     "zh-tw": "AKM",
+     "th": "AKM",
+     "pl": "AKM"
+    },
+    "slug": "akm",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -1301,6 +1961,7 @@
   "rewardFame": 30,
   "rewardCurrency": 7500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1339,6 +2000,7 @@
   "rewardFame": 30,
   "rewardCurrency": 7500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1377,6 +2039,7 @@
   "rewardFame": 30,
   "rewardCurrency": 7500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1415,6 +2078,7 @@
   "rewardFame": 30,
   "rewardCurrency": 7500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1488,6 +2152,25 @@
     "price": 1500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Depleted_Uranium",
+    "name": {
+     "es": "Uranio empobrecido",
+     "en": "Depleted Uranium",
+     "de": "Angereichertes Uran",
+     "ru": "Обогащённый уран",
+     "zh": "贫化铀",
+     "fr": "Uranium appauvri",
+     "pt": "Urânio exaurido",
+     "zh-tw": "貧鈾",
+     "th": "ยูเรเนียมเสื่อมสภาพ",
+     "pl": "Zubożony uran"
+    },
+    "slug": "depleted-uranium",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -1542,6 +2225,25 @@
     },
     "slug": "claymore",
     "price": 3500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "PromTrap",
+    "name": {
+     "es": "Mina PROM-1",
+     "en": "PROM-1 Mine",
+     "de": "PROM-1 Mine",
+     "ru": "Мина PROM-1",
+     "zh": "PROM-1地雷",
+     "fr": "Mine PROM-1",
+     "pt": "Mina PROM-1",
+     "zh-tw": "PROM-1 地雷",
+     "th": "กับระเบิด PROM-1",
+     "pl": "Mina PROM-1"
+    },
+    "slug": "prom-1-mine",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -1600,6 +2302,42 @@
     "price": 2500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Mine_01",
+    "name": {
+     "es": "Mina antipersona",
+     "en": "Anti-personnel mine",
+     "de": "Antipersonenmine",
+     "ru": "Противопехотная мина",
+     "zh": "反步兵地雷",
+     "fr": "Mine antipersonnel",
+     "pt": "Mina antipessoal",
+     "zh-tw": "反步兵地雷",
+     "th": "ทุ่นระเบิดสังหารบุคคล",
+     "pl": "Mina przeciwpiechotna"
+    },
+    "slug": "anti-personnel-mine",
+    "count": 1
+   },
+   {
+    "asset": "Mine_02",
+    "name": {
+     "es": "Mina antipersona pequeña",
+     "en": "Small anti-personnel mine",
+     "de": "Kleine Antipersonenmine",
+     "ru": "Малая противопехотная мина",
+     "zh": "小型反步兵地雷",
+     "fr": "Petite mine antipersonnel",
+     "pt": "Mina antipessoal pequena",
+     "zh-tw": "小型反步兵地雷",
+     "th": "ทุ่นระเบิดสังหารบุคคลขนาดเล็ก",
+     "pl": "Mała mina przeciwpiechotna"
+    },
+    "slug": "small-anti-personnel-mine",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -1638,6 +2376,7 @@
   "rewardFame": 50,
   "rewardCurrency": 8000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1711,6 +2450,7 @@
     "price": 750
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1784,6 +2524,7 @@
     "price": 400
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -1874,6 +2615,25 @@
     "price": 500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_VHS_BG",
+    "name": {
+     "es": "VHS BG",
+     "en": "VHS BG",
+     "de": "VHS BG",
+     "ru": "VHS BG",
+     "zh": "VHS BG",
+     "fr": "VHS BG",
+     "pt": "VHS BG",
+     "zh-tw": "VHS BG",
+     "th": "VHS BG",
+     "pl": "VHS BG"
+    },
+    "slug": "vhs-bg",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -1930,6 +2690,25 @@
     "price": 1200
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Graphite",
+    "name": {
+     "es": "Grafito",
+     "en": "Graphite",
+     "de": "Graphit",
+     "ru": "Графит",
+     "zh": "石墨",
+     "fr": "Graphite",
+     "pt": "Grafite",
+     "zh-tw": "石墨",
+     "th": "แกรไฟต์",
+     "pl": "Grafit"
+    },
+    "slug": "graphite",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -1968,6 +2747,25 @@
   "rewardFame": 30,
   "rewardCurrency": 6000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Depleted_Uranium",
+    "name": {
+     "es": "Uranio empobrecido",
+     "en": "Depleted Uranium",
+     "de": "Angereichertes Uran",
+     "ru": "Обогащённый уран",
+     "zh": "贫化铀",
+     "fr": "Uranium appauvri",
+     "pt": "Urânio exaurido",
+     "zh-tw": "貧鈾",
+     "th": "ยูเรเนียมเสื่อมสภาพ",
+     "pl": "Zubożony uran"
+    },
+    "slug": "depleted-uranium",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -2006,6 +2804,7 @@
   "rewardFame": 15,
   "rewardCurrency": 6500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -2044,6 +2843,7 @@
   "rewardFame": 15,
   "rewardCurrency": 6500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -2082,6 +2882,7 @@
   "rewardFame": 15,
   "rewardCurrency": 6500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -2120,6 +2921,7 @@
   "rewardFame": 15,
   "rewardCurrency": 6500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -2210,6 +3012,25 @@
     "price": 600
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_SVD_Dragunov",
+    "name": {
+     "es": "SVD",
+     "en": "SVD",
+     "de": "SVD",
+     "ru": "СВД",
+     "zh": "SVD狙击步枪",
+     "fr": "SVD",
+     "pt": "SVD",
+     "zh-tw": "SVD",
+     "th": "SVD",
+     "pl": "SVD"
+    },
+    "slug": "svd",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -2281,6 +3102,25 @@
     },
     "slug": "tnt",
     "price": 4000
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "C4",
+    "name": {
+     "es": "Bomba de C4",
+     "en": "C4 Bomb",
+     "de": "C4-Bombe",
+     "ru": "Бомба C4",
+     "zh": "C4炸弹",
+     "fr": "Bombe C4",
+     "pt": "Bomba C4",
+     "zh-tw": "C4 炸彈",
+     "th": "ระเบิด C4",
+     "pl": "Bomba C4"
+    },
+    "slug": "c4-bomb",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -2373,6 +3213,25 @@
     "price": 2500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Weapon_M82A1",
+    "name": {
+     "es": "M82A1",
+     "en": "M82A1",
+     "de": "M82A1",
+     "ru": "M82A1",
+     "zh": "M82A1",
+     "fr": "M82A1",
+     "pt": "M82A1",
+     "zh-tw": "M82A1",
+     "th": "M82A1",
+     "pl": "M82A1"
+    },
+    "slug": "m82a1",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -2427,6 +3286,25 @@
     },
     "slug": "308-ammunition-box",
     "price": 500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "TNT",
+    "name": {
+     "es": "TNT",
+     "en": "TNT",
+     "de": "TNT",
+     "ru": "Динамит",
+     "zh": "TNT",
+     "fr": "Dynamite",
+     "pt": "TNT",
+     "zh-tw": "TNT",
+     "th": "TNT",
+     "pl": "TNT"
+    },
+    "slug": "tnt",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -2502,6 +3380,7 @@
     "price": 350
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -2540,6 +3419,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Vitamins_01",
+    "name": {
+     "es": "Blíster de comprimidos vitamínicos",
+     "en": "Vitamin Pills - Blister",
+     "de": "Vitaminpillen – Blister",
+     "ru": "Витаминные таблетки (блистер)",
+     "zh": "维生素片 - 泡罩包装",
+     "fr": "Plaquette de gélules de vitamines",
+     "pt": "Comprimidos de vitaminas - cartela",
+     "zh-tw": "片裝維生素錠",
+     "th": "วิตามินชนิดเม็ด - แผง",
+     "pl": "Witaminy – blister"
+    },
+    "slug": "vitamin-pills-blister",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2578,6 +3476,7 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -2616,6 +3515,7 @@
   "rewardFame": 5,
   "rewardCurrency": 750,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -2654,6 +3554,42 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Hospital_Shirt_01",
+    "name": {
+     "es": "Camisa de hospital",
+     "en": "Hospital Shirt",
+     "de": "Krankenhaushemd",
+     "ru": "Больничная рубашка",
+     "zh": "医院衬衫",
+     "fr": "Blouse d'hôpital",
+     "pt": "Camiseta de hospital",
+     "zh-tw": "醫護衫",
+     "th": "เสื้อโรงพยาบาล",
+     "pl": "Koszula szpitalna"
+    },
+    "slug": "hospital-shirt",
+    "count": 1
+   },
+   {
+    "asset": "Hospital_Pants",
+    "name": {
+     "es": "Pantalones de hospital",
+     "en": "Hospital Pants",
+     "de": "Krankenhaushosen",
+     "ru": "Больничные штаны",
+     "zh": "医院长裤",
+     "fr": "Pantalon d'hôpital",
+     "pt": "Calças de hospital",
+     "zh-tw": "醫護褲",
+     "th": "กางเกงโรงพยาบาล",
+     "pl": "Spodnie szpitalne"
+    },
+    "slug": "hospital-pants",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2692,6 +3628,7 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -2730,6 +3667,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Antibiotics_01",
+    "name": {
+     "es": "Blíster de antibióticos de 1000 mg",
+     "en": "Antibiotics - Blister - 1000mg",
+     "de": "Antibiotika-Blister – 1.000 mg",
+     "ru": "Антибиотики (блистер) — 1000 мг",
+     "zh": "抗生素 - 泡罩包装 - 1000毫克",
+     "fr": "Plaquette d'antibiotiques 1000 mg",
+     "pt": "Antibiótico - cartela - 1.000 mg",
+     "zh-tw": "片裝抗生素 1000 毫克",
+     "th": "ยาปฏิชีวนะ- แผง - 1000 มิลลิกรัม",
+     "pl": "Antybiotyki – blister – 1000 mg"
+    },
+    "slug": "antibiotics-blister-1000mg",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2768,6 +3724,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "ActivatedCharcoal_01",
+    "name": {
+     "es": "Blíster de carbón activado",
+     "en": "Activated Charcoal - Blister",
+     "de": "Aktivkohle-Blister",
+     "ru": "Активированный уголь (блистер)",
+     "zh": "活性炭 - 泡罩包装",
+     "fr": "Plaquette de charbon actif",
+     "pt": "Carvão ativado - cartela",
+     "zh-tw": "片裝醫用活性炭",
+     "th": "แคปซูลผงถ่าน - แผง",
+     "pl": "Węgiel aktywny – blister"
+    },
+    "slug": "activated-charcoal-blister",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2806,6 +3781,25 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Medical_Glove_01",
+    "name": {
+     "es": "Guantes sanitarios",
+     "en": "Medical Gloves",
+     "de": "Medizinische Einweghandschuhe",
+     "ru": "Медицинские перчатки",
+     "zh": "医疗手套",
+     "fr": "Gants d'examen",
+     "pt": "Luvas médicas",
+     "zh-tw": "醫護手套",
+     "th": "ถุงมือการแพทย์",
+     "pl": "Rękawiczki medyczne"
+    },
+    "slug": "medical-gloves",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2844,6 +3838,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Painkillers_01",
+    "name": {
+     "es": "Blíster de analgésicos",
+     "en": "Painkillers - Blister",
+     "de": "Schmerzmittel-Blister",
+     "ru": "Обезболивающие (блистер)",
+     "zh": "止痛药 - 泡罩包装",
+     "fr": "Plaquette d'antalgiques",
+     "pt": "Analgésicos - cartela",
+     "zh-tw": "片裝止痛藥",
+     "th": "ยาแก้ปวด - แผง",
+     "pl": "Środki przeciwbólowe – blister"
+    },
+    "slug": "painkillers-blister",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2882,6 +3895,161 @@
   "rewardFame": 5,
   "rewardCurrency": 650,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Rags",
+    "name": {
+     "es": "Trapo",
+     "en": "Rags",
+     "de": "Lappen",
+     "ru": "Тряпки",
+     "zh": "碎布",
+     "fr": "Chiffon",
+     "pt": "Trapos",
+     "zh-tw": "破布",
+     "th": "เศษผ้า",
+     "pl": "Szmatka"
+    },
+    "slug": "rags",
+    "count": 3
+   },
+   {
+    "asset": "Long_wooden_stick",
+    "name": {
+     "es": "Palo de madera largo",
+     "en": "Long Wooden Stick",
+     "de": "Langer Holzstock",
+     "ru": "Длинная деревянная палка",
+     "zh": "长木棍",
+     "fr": "Grande branche",
+     "pt": "Graveto longo",
+     "zh-tw": "長木棍",
+     "th": "ท่อนไม้ยาว",
+     "pl": "Długi drewniany patyk"
+    },
+    "slug": "long-wooden-stick",
+    "count": 4
+   },
+   {
+    "asset": "Vodka",
+    "name": {
+     "es": "Vodka Majestic Bear",
+     "en": "Majestic Bear Vodka",
+     "de": "Wodka „Majestätischer Bär“",
+     "ru": "Водка «Величавый медведь»",
+     "zh": "威严野熊伏特加",
+     "fr": "Vodka Majestic Bear",
+     "pt": "Vodca Urso Majestoso",
+     "zh-tw": "猛熊伏特加",
+     "th": "วอดก้ามาเจสติกแบร์",
+     "pl": "Wódka marki „Majestatyczny niedźwiedź”"
+    },
+    "slug": "majestic-bear-vodka",
+    "count": 1
+   },
+   {
+    "asset": "Whiskey",
+    "name": {
+     "es": "Whisky",
+     "en": "Whiskey",
+     "de": "Whiskey",
+     "ru": "Виски",
+     "zh": "威士忌",
+     "fr": "Whisky",
+     "pt": "Uísque",
+     "zh-tw": "威士忌",
+     "th": "วิสกี้",
+     "pl": "Whiskey"
+    },
+    "slug": "whiskey",
+    "count": 1
+   },
+   {
+    "asset": "Tequila",
+    "name": {
+     "es": "Tequila",
+     "en": "Tequila",
+     "de": "Tequila",
+     "ru": "Текила",
+     "zh": "龙舌兰酒",
+     "fr": "Tequila",
+     "pt": "Tequila",
+     "zh-tw": "龍舌蘭酒",
+     "th": "เตกีล่า",
+     "pl": "Tequila"
+    },
+    "slug": "tequila",
+    "count": 1
+   },
+   {
+    "asset": "Kicmovaca",
+    "name": {
+     "es": "Kicmovaca",
+     "en": "Kicmovaca",
+     "de": "Kicmovaca",
+     "ru": "«Кичмовака»",
+     "zh": "奇莫维卡白兰地",
+     "fr": "Kicmovaca",
+     "pt": "Kicmovaca",
+     "zh-tw": "奇莫瓦卡酒",
+     "th": "คิกโมคาวา",
+     "pl": "Kicmovaca"
+    },
+    "slug": "kicmovaca",
+    "count": 1
+   },
+   {
+    "asset": "Absinthe",
+    "name": {
+     "es": "Absenta Fatahl",
+     "en": "Absinthe Father",
+     "de": "Absinth „Vater“",
+     "ru": "Абсент",
+     "zh": "老爹苦艾酒",
+     "fr": "Absinthe",
+     "pt": "Absinto Father",
+     "zh-tw": "老爹苦艾酒",
+     "th": "อัปแซ็งต์ฟาเธอร์",
+     "pl": "Absynt"
+    },
+    "slug": "absinthe-father",
+    "count": 1
+   },
+   {
+    "asset": "Isopropyl_alcohol",
+    "name": {
+     "es": "Alcohol isopropílico",
+     "en": "Isopropyl alcohol",
+     "de": "Isopropylalkohol",
+     "ru": "Изопропиловый спирт",
+     "zh": "异丙醇",
+     "fr": "Alcool isopropylique",
+     "pt": "Álcool isopropílico",
+     "zh-tw": "異丙醇",
+     "th": "แอลกอฮอล์ไอโซโพรพิล",
+     "pl": "Alkohol izopropylowy"
+    },
+    "slug": "isopropyl-alcohol",
+    "count": 1
+   },
+   {
+    "asset": "Hip_Flask",
+    "name": {
+     "es": "Petaca",
+     "en": "Hip Flask",
+     "de": "Flachmann",
+     "ru": "Карманная фляжка",
+     "zh": "便携酒壶",
+     "fr": "Flasque",
+     "pt": "Garrafa de bolso",
+     "zh-tw": "小扁瓶",
+     "th": "กระติกน้ำคาดเอว",
+     "pl": "Piersiówka"
+    },
+    "slug": "hip-flask",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2920,6 +4088,25 @@
   "rewardFame": 5,
   "rewardCurrency": 600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "PotassiumIodide_Pills_01",
+    "name": {
+     "es": "Blíster de comprimidos de yoduro de potasio",
+     "en": "Potassium Iodide Pills - Blister",
+     "de": "Kaliumiodidtabletten-Blister",
+     "ru": "Таблетки с йодидом калия (блистер)",
+     "zh": "碘化钾药片- 泡罩包装",
+     "fr": "Plaquette de gélules d'iodure de potassium",
+     "pt": "Comprimidos de iodeto de potássio - cartela",
+     "zh-tw": "片裝碘化鉀錠",
+     "th": "โพแทสเซียมไอโอไดด์ - แผง",
+     "pl": "Tabletki z jodkiem potasu – blister"
+    },
+    "slug": "potassium-iodide-pills-blister",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2958,6 +4145,25 @@
   "rewardFame": 5,
   "rewardCurrency": 500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Disposable_Mask",
+    "name": {
+     "es": "Mascarilla desechable",
+     "en": "Disposable Mask",
+     "de": "Einwegmaske",
+     "ru": "Медицинская маска",
+     "zh": "一次性口罩",
+     "fr": "Masque jetable",
+     "pt": "Máscara descartável",
+     "zh-tw": "拋棄式口罩",
+     "th": "หน้ากากใช้แล้วทิ้ง",
+     "pl": "Maseczka jednorazowa"
+    },
+    "slug": "disposable-mask",
+    "count": 5
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -2996,6 +4202,25 @@
   "rewardFame": 10,
   "rewardCurrency": 1480,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Isopropyl_alcohol",
+    "name": {
+     "es": "Alcohol isopropílico",
+     "en": "Isopropyl alcohol",
+     "de": "Isopropylalkohol",
+     "ru": "Изопропиловый спирт",
+     "zh": "异丙醇",
+     "fr": "Alcool isopropylique",
+     "pt": "Álcool isopropílico",
+     "zh-tw": "異丙醇",
+     "th": "แอลกอฮอล์ไอโซโพรพิล",
+     "pl": "Alkohol izopropylowy"
+    },
+    "slug": "isopropyl-alcohol",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3050,6 +4275,25 @@
     },
     "slug": "painkillers-blister",
     "price": 1500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Crutch",
+    "name": {
+     "es": "Muleta",
+     "en": "Crutch",
+     "de": "Gehhilfe",
+     "ru": "Костыль",
+     "zh": "拐杖",
+     "fr": "Béquille",
+     "pt": "Muleta",
+     "zh-tw": "拐杖",
+     "th": "ไม้ค้ำยัน",
+     "pl": "Kula"
+    },
+    "slug": "crutch",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -3108,6 +4352,42 @@
     "price": 700
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Painkillers_02",
+    "name": {
+     "es": "Caja de analgésicos",
+     "en": "Painkillers - Box",
+     "de": "Schmerzmittel-Box",
+     "ru": "Обезболивающие (коробка)",
+     "zh": "止痛药盒",
+     "fr": "Boîte d'antalgiques",
+     "pt": "Analgésicos - caixa",
+     "zh-tw": "盒裝止痛藥",
+     "th": "ยาแก้ปวด - กล่อง",
+     "pl": "Środki przeciwbólowe – pudełko"
+    },
+    "slug": "painkillers-box",
+    "count": 1
+   },
+   {
+    "asset": "Antibiotics_02",
+    "name": {
+     "es": "Caja de antibióticos de 1000 mg",
+     "en": "Antibiotics - Box - 1000mg",
+     "de": "Antibiotika-Box – 1.000 mg",
+     "ru": "Антибиотики (коробка) — 1000 мг",
+     "zh": "盒装抗生素- 1000毫克",
+     "fr": "Boîte d'antibiotiques 1000 mg",
+     "pt": "Antibiótico - caixa - 1.000 mg",
+     "zh-tw": "盒裝抗生素 1000 毫克",
+     "th": "ยาปฏิชีวนะ - กล่อง - 1000 มิลลิกรัม",
+     "pl": "Antybiotyki – pudełko – 1000 mg"
+    },
+    "slug": "antibiotics-box-1000mg",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3164,6 +4444,7 @@
     "price": 100
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -3202,6 +4483,42 @@
   "rewardFame": 10,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "PotassiumIodide_Pills_02",
+    "name": {
+     "es": "Caja de comprimidos de yoduro de potasio",
+     "en": "Potassium Iodide Pills - Box",
+     "de": "Kaliumiodidtabletten-Box",
+     "ru": "Таблетки с йодидом калия (коробка)",
+     "zh": "碘化钾药片- 盒装",
+     "fr": "Boîte de gélules d'iodure de potassium",
+     "pt": "Comprimidos de iodeto de potássio - caixa",
+     "zh-tw": "盒裝碘化鉀錠",
+     "th": "โพแทสเซียมไอโอไดด์ - กล่อง",
+     "pl": "Tabletki z jodkiem potasu – pudełko"
+    },
+    "slug": "potassium-iodide-pills-box",
+    "count": 1
+   },
+   {
+    "asset": "ActivatedCharcoal_02",
+    "name": {
+     "es": "Caja de carbón activado",
+     "en": "Activated Charcoal - Box",
+     "de": "Aktivkohle-Box",
+     "ru": "Активированный уголь (коробка)",
+     "zh": "活性炭盒",
+     "fr": "Boîte de charbon actif",
+     "pt": "Carvão ativado - caixa",
+     "zh-tw": "盒裝醫用活性炭",
+     "th": "แคปซูลผงถ่าน - กล่อง",
+     "pl": "Węgiel aktywny – pudełko"
+    },
+    "slug": "activated-charcoal-box",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3275,6 +4592,76 @@
     "price": 250
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Medical_Glove_01",
+    "name": {
+     "es": "Guantes sanitarios",
+     "en": "Medical Gloves",
+     "de": "Medizinische Einweghandschuhe",
+     "ru": "Медицинские перчатки",
+     "zh": "医疗手套",
+     "fr": "Gants d'examen",
+     "pt": "Luvas médicas",
+     "zh-tw": "醫護手套",
+     "th": "ถุงมือการแพทย์",
+     "pl": "Rękawiczki medyczne"
+    },
+    "slug": "medical-gloves",
+    "count": 1
+   },
+   {
+    "asset": "Hospital_Shirt_01",
+    "name": {
+     "es": "Camisa de hospital",
+     "en": "Hospital Shirt",
+     "de": "Krankenhaushemd",
+     "ru": "Больничная рубашка",
+     "zh": "医院衬衫",
+     "fr": "Blouse d'hôpital",
+     "pt": "Camiseta de hospital",
+     "zh-tw": "醫護衫",
+     "th": "เสื้อโรงพยาบาล",
+     "pl": "Koszula szpitalna"
+    },
+    "slug": "hospital-shirt",
+    "count": 1
+   },
+   {
+    "asset": "Hospital_Pants",
+    "name": {
+     "es": "Pantalones de hospital",
+     "en": "Hospital Pants",
+     "de": "Krankenhaushosen",
+     "ru": "Больничные штаны",
+     "zh": "医院长裤",
+     "fr": "Pantalon d'hôpital",
+     "pt": "Calças de hospital",
+     "zh-tw": "醫護褲",
+     "th": "กางเกงโรงพยาบาล",
+     "pl": "Spodnie szpitalne"
+    },
+    "slug": "hospital-pants",
+    "count": 1
+   },
+   {
+    "asset": "Disposable_Mask",
+    "name": {
+     "es": "Mascarilla desechable",
+     "en": "Disposable Mask",
+     "de": "Einwegmaske",
+     "ru": "Медицинская маска",
+     "zh": "一次性口罩",
+     "fr": "Masque jetable",
+     "pt": "Máscara descartável",
+     "zh-tw": "拋棄式口罩",
+     "th": "หน้ากากใช้แล้วทิ้ง",
+     "pl": "Maseczka jednorazowa"
+    },
+    "slug": "disposable-mask",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3313,6 +4700,93 @@
   "rewardFame": 5,
   "rewardCurrency": 1400,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Zombie_guts",
+    "name": {
+     "es": "Vísceras",
+     "en": "Guts",
+     "de": "Gedärme",
+     "ru": "Кишки",
+     "zh": "内脏",
+     "fr": "Viscères",
+     "pt": "Entranhas",
+     "zh-tw": "內臟",
+     "th": "เครื่องใน",
+     "pl": "Flaki"
+    },
+    "slug": "guts",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Left_Arm",
+    "name": {
+     "es": "Brazo de títere",
+     "en": "Puppet Arm",
+     "de": "Puppenarm",
+     "ru": "Рука марионетки",
+     "zh": "人偶手臂",
+     "fr": "Bras de pantin",
+     "pt": "Braço de fantoche",
+     "zh-tw": "傀儡手臂",
+     "th": "แขนซอมบี้",
+     "pl": "Ręka kukły"
+    },
+    "slug": "puppet-arm-2",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Right_Arm",
+    "name": {
+     "es": "Brazo de títere",
+     "en": "Puppet Arm",
+     "de": "Puppenarm",
+     "ru": "Рука марионетки",
+     "zh": "人偶手臂",
+     "fr": "Bras de pantin",
+     "pt": "Braço de fantoche",
+     "zh-tw": "傀儡手臂",
+     "th": "แขนซอมบี้",
+     "pl": "Ręka kukły"
+    },
+    "slug": "puppet-arm",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Left_Leg",
+    "name": {
+     "es": "Pierna de títere",
+     "en": "Puppet Leg",
+     "de": "Puppenbein",
+     "ru": "Нога марионетки",
+     "zh": "人偶腿",
+     "fr": "Jambe de pantin",
+     "pt": "Perna de fantoche",
+     "zh-tw": "傀儡腿",
+     "th": "ขาซอมบี้",
+     "pl": "Noga kukły"
+    },
+    "slug": "puppet-leg",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Right_Leg",
+    "name": {
+     "es": "Pierna de títere",
+     "en": "Puppet Leg",
+     "de": "Puppenbein",
+     "ru": "Нога марионетки",
+     "zh": "人偶腿",
+     "fr": "Jambe de pantin",
+     "pt": "Perna de fantoche",
+     "zh-tw": "傀儡腿",
+     "th": "ขาซอมบี้",
+     "pl": "Noga kukły"
+    },
+    "slug": "puppet-leg-2",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3351,6 +4825,25 @@
   "rewardFame": 10,
   "rewardCurrency": 1600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Hemostatic_Dressing",
+    "name": {
+     "es": "Apósito hemostático",
+     "en": "Hemostatic Dressing",
+     "de": "Blutstillender Druckverband",
+     "ru": "Гемостатическая повязка",
+     "zh": "止血敷料",
+     "fr": "Pansement hémostatique",
+     "pt": "Curativo hemostático",
+     "zh-tw": "止血繃帶",
+     "th": "ผ้าพันแผลห้ามเลือด",
+     "pl": "Opatrunek hemostatyczny"
+    },
+    "slug": "hemostatic-dressing",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3405,6 +4898,25 @@
     },
     "slug": "hemostatic-dressing",
     "price": 650
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Pressure_Dressing",
+    "name": {
+     "es": "Vendaje compresivo",
+     "en": "Pressure Dressing",
+     "de": "Druckverband",
+     "ru": "Эластичный бинт",
+     "zh": "压力敷料",
+     "fr": "Pansement compressif",
+     "pt": "Curativo de pressão",
+     "zh-tw": "施壓繃帶",
+     "th": "ผ้าพันแผลแบบกดทับ",
+     "pl": "Bandaż elastyczny"
+    },
+    "slug": "pressure-dressing",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -3463,6 +4975,25 @@
     "price": 700
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Vitamins_02",
+    "name": {
+     "es": "Caja de comprimidos vitamínicos",
+     "en": "Vitamin Pills - Box",
+     "de": "Vitaminpillenschachtel",
+     "ru": "Витаминные таблетки (коробка)",
+     "zh": "盒装维生素",
+     "fr": "Boîte de gélules de vitamines",
+     "pt": "Comprimidos de vitaminas - caixa",
+     "zh-tw": "盒裝維生素錠",
+     "th": "วิตามินชนิดเม็ด - แบบกล่อง",
+     "pl": "Witaminy – pudełko"
+    },
+    "slug": "vitamin-pills-box",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -3519,6 +5050,7 @@
     "price": 100
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -3592,6 +5124,7 @@
     "price": 750
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -3630,6 +5163,76 @@
   "rewardFame": 20,
   "rewardCurrency": 2200,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Hospital_Shirt_01",
+    "name": {
+     "es": "Camisa de hospital",
+     "en": "Hospital Shirt",
+     "de": "Krankenhaushemd",
+     "ru": "Больничная рубашка",
+     "zh": "医院衬衫",
+     "fr": "Blouse d'hôpital",
+     "pt": "Camiseta de hospital",
+     "zh-tw": "醫護衫",
+     "th": "เสื้อโรงพยาบาล",
+     "pl": "Koszula szpitalna"
+    },
+    "slug": "hospital-shirt",
+    "count": 1
+   },
+   {
+    "asset": "Hospital_Pants",
+    "name": {
+     "es": "Pantalones de hospital",
+     "en": "Hospital Pants",
+     "de": "Krankenhaushosen",
+     "ru": "Больничные штаны",
+     "zh": "医院长裤",
+     "fr": "Pantalon d'hôpital",
+     "pt": "Calças de hospital",
+     "zh-tw": "醫護褲",
+     "th": "กางเกงโรงพยาบาล",
+     "pl": "Spodnie szpitalne"
+    },
+    "slug": "hospital-pants",
+    "count": 1
+   },
+   {
+    "asset": "Medical_Glove_01",
+    "name": {
+     "es": "Guantes sanitarios",
+     "en": "Medical Gloves",
+     "de": "Medizinische Einweghandschuhe",
+     "ru": "Медицинские перчатки",
+     "zh": "医疗手套",
+     "fr": "Gants d'examen",
+     "pt": "Luvas médicas",
+     "zh-tw": "醫護手套",
+     "th": "ถุงมือการแพทย์",
+     "pl": "Rękawiczki medyczne"
+    },
+    "slug": "medical-gloves",
+    "count": 1
+   },
+   {
+    "asset": "Chainsaw",
+    "name": {
+     "es": "Motosierra",
+     "en": "Chainsaw",
+     "de": "Kettensäge",
+     "ru": "Бензопила",
+     "zh": "电锯",
+     "fr": "Tronçonneuse",
+     "pt": "Motosserra",
+     "zh-tw": "鏈鋸",
+     "th": "เลื่อยยนต์",
+     "pl": "Piła łańcuchowa"
+    },
+    "slug": "chainsaw",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -3703,6 +5306,25 @@
     "price": 2800
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Phoenix_Tears",
+    "name": {
+     "es": "Suero de recuperación rápida PT-29",
+     "en": "PT-29 Rapid Recovery Serum",
+     "de": "PT-29-Serum zur schnellen Erholung",
+     "ru": "Сыворотка быстрого восстановления PT-29",
+     "zh": "PT-29快速恢复血清",
+     "fr": "Sérum de récupération rapide PT-29",
+     "pt": "Soro de recuperação rápida PT-29",
+     "zh-tw": "PT-29 快速恢復血清",
+     "th": "ซีรั่มเร่งการฟื้นฟู PT-29",
+     "pl": "Serum szybkiego zdrowienia PT-29"
+    },
+    "slug": "pt-29-rapid-recovery-serum",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -3759,6 +5381,76 @@
     "price": 1000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Tourniquet",
+    "name": {
+     "es": "Torniquete",
+     "en": "Tourniquet",
+     "de": "Tourniquet",
+     "ru": "Жгут",
+     "zh": "止血带",
+     "fr": "Garrot",
+     "pt": "Torniquete",
+     "zh-tw": "止血帶",
+     "th": "สายรัดห้ามเลือด",
+     "pl": "Opaska uciskowa"
+    },
+    "slug": "tourniquet",
+    "count": 1
+   },
+   {
+    "asset": "Pressure_Dressing",
+    "name": {
+     "es": "Vendaje compresivo",
+     "en": "Pressure Dressing",
+     "de": "Druckverband",
+     "ru": "Эластичный бинт",
+     "zh": "压力敷料",
+     "fr": "Pansement compressif",
+     "pt": "Curativo de pressão",
+     "zh-tw": "施壓繃帶",
+     "th": "ผ้าพันแผลแบบกดทับ",
+     "pl": "Bandaż elastyczny"
+    },
+    "slug": "pressure-dressing",
+    "count": 1
+   },
+   {
+    "asset": "Hemostatic_Dressing",
+    "name": {
+     "es": "Apósito hemostático",
+     "en": "Hemostatic Dressing",
+     "de": "Blutstillender Druckverband",
+     "ru": "Гемостатическая повязка",
+     "zh": "止血敷料",
+     "fr": "Pansement hémostatique",
+     "pt": "Curativo hemostático",
+     "zh-tw": "止血繃帶",
+     "th": "ผ้าพันแผลห้ามเลือด",
+     "pl": "Opatrunek hemostatyczny"
+    },
+    "slug": "hemostatic-dressing",
+    "count": 1
+   },
+   {
+    "asset": "Isopropyl_alcohol",
+    "name": {
+     "es": "Alcohol isopropílico",
+     "en": "Isopropyl alcohol",
+     "de": "Isopropylalkohol",
+     "ru": "Изопропиловый спирт",
+     "zh": "异丙醇",
+     "fr": "Alcool isopropylique",
+     "pt": "Álcool isopropílico",
+     "zh-tw": "異丙醇",
+     "th": "แอลกอฮอล์ไอโซโพรพิล",
+     "pl": "Alkohol izopropylowy"
+    },
+    "slug": "isopropyl-alcohol",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -3813,6 +5505,93 @@
     },
     "slug": "tourniquet",
     "price": 1000
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Vitamins_03",
+    "name": {
+     "es": "Frasco de comprimidos vitamínicos",
+     "en": "Vitamin Pills - Jar",
+     "de": "Vitaminpillendose",
+     "ru": "Витаминные таблетки (банка)",
+     "zh": "罐装维生素",
+     "fr": "Pot de gélules de vitamines",
+     "pt": "Comprimidos de vitaminas - jarra",
+     "zh-tw": "罐裝維生素錠",
+     "th": "วิตามินชนิดเม็ด - แบบขวดโหล",
+     "pl": "Witaminy – słoik"
+    },
+    "slug": "vitamin-pills-jar",
+    "count": 1
+   },
+   {
+    "asset": "ActivatedCharcoal_03",
+    "name": {
+     "es": "Frasco de carbón activado",
+     "en": "Activated Charcoal - Jar",
+     "de": "Aktivkohle-Glas",
+     "ru": "Активированный уголь (банка)",
+     "zh": "活性炭罐",
+     "fr": "Pot de charbon actif",
+     "pt": "Carvão ativado - jarra",
+     "zh-tw": "罐裝醫用活性炭",
+     "th": "แคปซูลผงถ่าน - ขวดโหล",
+     "pl": "Węgiel aktywny – pojemnik"
+    },
+    "slug": "activated-charcoal-jar",
+    "count": 1
+   },
+   {
+    "asset": "PotassiumIodide_Pills_03",
+    "name": {
+     "es": "Frasco de comprimidos de yoduro de potasio",
+     "en": "Potassium Iodide Pills - Jar",
+     "de": "Kaliumiodidtabletten-Behälter",
+     "ru": "Таблетки с йодидом калия (банка)",
+     "zh": "碘化钾药片- 罐装",
+     "fr": "Pot de gélules d'iodure de potassium",
+     "pt": "Comprimidos de iodeto de potássio - jarra",
+     "zh-tw": "罐裝碘化鉀錠",
+     "th": "โพแทสเซียมไอโอไดด์ - ขวดโหล",
+     "pl": "Tabletki z jodkiem potasu – pojemnik"
+    },
+    "slug": "potassium-iodide-pills-jar",
+    "count": 1
+   },
+   {
+    "asset": "Antibiotics_03",
+    "name": {
+     "es": "Frasco de antibióticos de 1000 mg",
+     "en": "Antibiotics - Jar - 1000mg",
+     "de": "Antibiotika-Glas – 1.000 mg",
+     "ru": "Антибиотики (банка) — 1000 мг",
+     "zh": "罐装抗生素- 1000毫克",
+     "fr": "Pot d'antibiotiques 1000 mg",
+     "pt": "Antibiótico - jarra - 1.000 mg",
+     "zh-tw": "罐裝抗生素 1000 毫克",
+     "th": "ยาปฏิชีวนะ - ขวดโหล - 1000 มิลลิกรัม",
+     "pl": "Antybiotyki – słoiczek – 1000 mg"
+    },
+    "slug": "antibiotics-jar-1000mg",
+    "count": 1
+   },
+   {
+    "asset": "PainKillers_03",
+    "name": {
+     "es": "Frasco de analgésicos",
+     "en": "Painkillers - Jar",
+     "de": "Schmerzmittel-Behälter",
+     "ru": "Обезболивающие (банка)",
+     "zh": "止痛药罐",
+     "fr": "Pot d'antalgiques",
+     "pt": "Analgésicos - jarra",
+     "zh-tw": "罐裝止痛藥",
+     "th": "ยาแก้ปวด - ขวดโหล",
+     "pl": "Środki przeciwbólowe – pojemnik"
+    },
+    "slug": "painkillers-jar",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -3888,6 +5667,7 @@
     "price": 1400
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -3944,6 +5724,7 @@
     "price": 200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -3998,6 +5779,25 @@
     },
     "slug": "potassium-iodide-pills-jar",
     "price": 500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Depleted_Uranium_Container",
+    "name": {
+     "es": "Contenedor de uranio empobrecido",
+     "en": "Depleted Uranium Container",
+     "de": "Behälter für abgereichertes Uran",
+     "ru": "Контейнер для обогащённого урана",
+     "zh": "贫化铀容器",
+     "fr": "Réservoir d'uranium appauvri",
+     "pt": "Recipiente de urânio exaurido",
+     "zh-tw": "貧鈾容器",
+     "th": "ถังบรรจุยูเรเนียมเสื่อมสภาพ",
+     "pl": "Pojemnik ze zubożonym uranem"
+    },
+    "slug": "depleted-uranium-container",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -4056,6 +5856,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4112,6 +5913,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4168,6 +5970,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4224,6 +6027,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4262,6 +6066,7 @@
   "rewardFame": 20,
   "rewardCurrency": 2400,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4300,6 +6105,127 @@
   "rewardFame": 5,
   "rewardCurrency": 2250,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Puppet_Eye",
+    "name": {
+     "es": "Ojo de títere",
+     "en": "Puppet Eye",
+     "de": "Puppenauge",
+     "ru": "Глаз марионетки",
+     "zh": "人偶眼睛",
+     "fr": "Œil de pantin",
+     "pt": "Olho de fantoche",
+     "zh-tw": "傀儡眼睛",
+     "th": "ตาซอมบี้",
+     "pl": "Oko kukły"
+    },
+    "slug": "puppet-eye",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Left_Arm",
+    "name": {
+     "es": "Brazo de títere",
+     "en": "Puppet Arm",
+     "de": "Puppenarm",
+     "ru": "Рука марионетки",
+     "zh": "人偶手臂",
+     "fr": "Bras de pantin",
+     "pt": "Braço de fantoche",
+     "zh-tw": "傀儡手臂",
+     "th": "แขนซอมบี้",
+     "pl": "Ręka kukły"
+    },
+    "slug": "puppet-arm-2",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Right_Arm",
+    "name": {
+     "es": "Brazo de títere",
+     "en": "Puppet Arm",
+     "de": "Puppenarm",
+     "ru": "Рука марионетки",
+     "zh": "人偶手臂",
+     "fr": "Bras de pantin",
+     "pt": "Braço de fantoche",
+     "zh-tw": "傀儡手臂",
+     "th": "แขนซอมบี้",
+     "pl": "Ręka kukły"
+    },
+    "slug": "puppet-arm",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Right_Leg",
+    "name": {
+     "es": "Pierna de títere",
+     "en": "Puppet Leg",
+     "de": "Puppenbein",
+     "ru": "Нога марионетки",
+     "zh": "人偶腿",
+     "fr": "Jambe de pantin",
+     "pt": "Perna de fantoche",
+     "zh-tw": "傀儡腿",
+     "th": "ขาซอมบี้",
+     "pl": "Noga kukły"
+    },
+    "slug": "puppet-leg-2",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Left_Leg",
+    "name": {
+     "es": "Pierna de títere",
+     "en": "Puppet Leg",
+     "de": "Puppenbein",
+     "ru": "Нога марионетки",
+     "zh": "人偶腿",
+     "fr": "Jambe de pantin",
+     "pt": "Perna de fantoche",
+     "zh-tw": "傀儡腿",
+     "th": "ขาซอมบี้",
+     "pl": "Noga kukły"
+    },
+    "slug": "puppet-leg",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_guts",
+    "name": {
+     "es": "Vísceras",
+     "en": "Guts",
+     "de": "Gedärme",
+     "ru": "Кишки",
+     "zh": "内脏",
+     "fr": "Viscères",
+     "pt": "Entranhas",
+     "zh-tw": "內臟",
+     "th": "เครื่องใน",
+     "pl": "Flaki"
+    },
+    "slug": "guts",
+    "count": 3
+   },
+   {
+    "asset": "Zombie_01_Head",
+    "name": {
+     "es": "Cabeza de títere",
+     "en": "Puppet Head",
+     "de": "Puppenkopf",
+     "ru": "Голова марионетки",
+     "zh": "人偶头",
+     "fr": "Tête de pantin",
+     "pt": "Cabeça de fantoche",
+     "zh-tw": "傀儡頭",
+     "th": "หัวซอมบี้",
+     "pl": "Głowa kukły"
+    },
+    "slug": "puppet-head-2",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -4356,6 +6282,178 @@
     "price": 1000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Vodka",
+    "name": {
+     "es": "Vodka Majestic Bear",
+     "en": "Majestic Bear Vodka",
+     "de": "Wodka „Majestätischer Bär“",
+     "ru": "Водка «Величавый медведь»",
+     "zh": "威严野熊伏特加",
+     "fr": "Vodka Majestic Bear",
+     "pt": "Vodca Urso Majestoso",
+     "zh-tw": "猛熊伏特加",
+     "th": "วอดก้ามาเจสติกแบร์",
+     "pl": "Wódka marki „Majestatyczny niedźwiedź”"
+    },
+    "slug": "majestic-bear-vodka",
+    "count": 1
+   },
+   {
+    "asset": "Whiskey",
+    "name": {
+     "es": "Whisky",
+     "en": "Whiskey",
+     "de": "Whiskey",
+     "ru": "Виски",
+     "zh": "威士忌",
+     "fr": "Whisky",
+     "pt": "Uísque",
+     "zh-tw": "威士忌",
+     "th": "วิสกี้",
+     "pl": "Whiskey"
+    },
+    "slug": "whiskey",
+    "count": 1
+   },
+   {
+    "asset": "Tequila",
+    "name": {
+     "es": "Tequila",
+     "en": "Tequila",
+     "de": "Tequila",
+     "ru": "Текила",
+     "zh": "龙舌兰酒",
+     "fr": "Tequila",
+     "pt": "Tequila",
+     "zh-tw": "龍舌蘭酒",
+     "th": "เตกีล่า",
+     "pl": "Tequila"
+    },
+    "slug": "tequila",
+    "count": 1
+   },
+   {
+    "asset": "Kicmovaca",
+    "name": {
+     "es": "Kicmovaca",
+     "en": "Kicmovaca",
+     "de": "Kicmovaca",
+     "ru": "«Кичмовака»",
+     "zh": "奇莫维卡白兰地",
+     "fr": "Kicmovaca",
+     "pt": "Kicmovaca",
+     "zh-tw": "奇莫瓦卡酒",
+     "th": "คิกโมคาวา",
+     "pl": "Kicmovaca"
+    },
+    "slug": "kicmovaca",
+    "count": 1
+   },
+   {
+    "asset": "Absinthe",
+    "name": {
+     "es": "Absenta Fatahl",
+     "en": "Absinthe Father",
+     "de": "Absinth „Vater“",
+     "ru": "Абсент",
+     "zh": "老爹苦艾酒",
+     "fr": "Absinthe",
+     "pt": "Absinto Father",
+     "zh-tw": "老爹苦艾酒",
+     "th": "อัปแซ็งต์ฟาเธอร์",
+     "pl": "Absynt"
+    },
+    "slug": "absinthe-father",
+    "count": 1
+   },
+   {
+    "asset": "Isopropyl_alcohol",
+    "name": {
+     "es": "Alcohol isopropílico",
+     "en": "Isopropyl alcohol",
+     "de": "Isopropylalkohol",
+     "ru": "Изопропиловый спирт",
+     "zh": "异丙醇",
+     "fr": "Alcool isopropylique",
+     "pt": "Álcool isopropílico",
+     "zh-tw": "異丙醇",
+     "th": "แอลกอฮอล์ไอโซโพรพิล",
+     "pl": "Alkohol izopropylowy"
+    },
+    "slug": "isopropyl-alcohol",
+    "count": 1
+   },
+   {
+    "asset": "Hip_Flask",
+    "name": {
+     "es": "Petaca",
+     "en": "Hip Flask",
+     "de": "Flachmann",
+     "ru": "Карманная фляжка",
+     "zh": "便携酒壶",
+     "fr": "Flasque",
+     "pt": "Garrafa de bolso",
+     "zh-tw": "小扁瓶",
+     "th": "กระติกน้ำคาดเอว",
+     "pl": "Piersiówka"
+    },
+    "slug": "hip-flask",
+    "count": 1
+   },
+   {
+    "asset": "1H_Scalpel",
+    "name": {
+     "es": "Bisturí",
+     "en": "Scalpel",
+     "de": "Skalpell",
+     "ru": "Скальпель",
+     "zh": "解剖刀",
+     "fr": "Scalpel",
+     "pt": "Bisturi",
+     "zh-tw": "手術刀",
+     "th": "มีดผ่าตัด",
+     "pl": "Skalpel"
+    },
+    "slug": "scalpel",
+    "count": 1
+   },
+   {
+    "asset": "Scissors_01",
+    "name": {
+     "es": "Tijeras",
+     "en": "Scissors",
+     "de": "Schere",
+     "ru": "Ножницы",
+     "zh": "剪刀",
+     "fr": "Ciseaux",
+     "pt": "Tesoura",
+     "zh-tw": "剪刀",
+     "th": "กรรไกร",
+     "pl": "Nożyczki"
+    },
+    "slug": "scissors",
+    "count": 1
+   },
+   {
+    "asset": "Rags",
+    "name": {
+     "es": "Trapo",
+     "en": "Rags",
+     "de": "Lappen",
+     "ru": "Тряпки",
+     "zh": "碎布",
+     "fr": "Chiffon",
+     "pt": "Trapos",
+     "zh-tw": "破布",
+     "th": "เศษผ้า",
+     "pl": "Szmatka"
+    },
+    "slug": "rags",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -4394,6 +6492,7 @@
   "rewardFame": 20,
   "rewardCurrency": 6000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4484,6 +6583,7 @@
     "price": 4400
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -4511,6 +6611,7 @@
   "rewardFame": 50,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 17
  },
  {
@@ -4538,6 +6639,7 @@
   "rewardFame": 50,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 17
  },
  {
@@ -4576,6 +6678,7 @@
   "rewardFame": 50,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 17
  },
  {
@@ -4614,6 +6717,42 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Smartphone_Battery",
+    "name": {
+     "es": "Batería de móvil",
+     "en": "Smartphone Battery",
+     "de": "Smartphone-Akku",
+     "ru": "Аккумулятор для смартфона",
+     "zh": "手机电池",
+     "fr": "Batterie de smartphone",
+     "pt": "Bateria de celular",
+     "zh-tw": "手機電池",
+     "th": "แบตเตอรี่สมาร์ทโฟน",
+     "pl": "Bateria do smartfona"
+    },
+    "slug": "smartphone-battery",
+    "count": 2
+   },
+   {
+    "asset": "Batteries",
+    "name": {
+     "es": "Baterías",
+     "en": "Batteries",
+     "de": "Batterien",
+     "ru": "Аккумуляторы",
+     "zh": "电池组",
+     "fr": "Piles",
+     "pt": "Baterias",
+     "zh-tw": "電池",
+     "th": "แบตเตอรี่",
+     "pl": "Baterie"
+    },
+    "slug": "batteries",
+    "count": 2
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4652,6 +6791,25 @@
   "rewardFame": 5,
   "rewardCurrency": 790,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Tool_Box_SMall",
+    "name": {
+     "es": "Caja de herramientas pequeña",
+     "en": "Small Tool Box",
+     "de": "Kleine Werkzeugkiste",
+     "ru": "Маленький набор инструментов",
+     "zh": "小型工具箱",
+     "fr": "Petite boîte à outils",
+     "pt": "Caixa de ferramentas pequena",
+     "zh-tw": "小型工具箱",
+     "th": "กล่องเครื่องมือขนาดเล็ก",
+     "pl": "Mała skrzynka narzędziowa"
+    },
+    "slug": "small-tool-box",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4690,6 +6848,7 @@
   "rewardFame": 5,
   "rewardCurrency": 550,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -4728,6 +6887,25 @@
   "rewardFame": 5,
   "rewardCurrency": 680,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Glue",
+    "name": {
+     "es": "Pegamento",
+     "en": "Glue",
+     "de": "Kleber",
+     "ru": "Клей",
+     "zh": "胶水",
+     "fr": "Colle",
+     "pt": "Cola",
+     "zh-tw": "膠水",
+     "th": "กาว",
+     "pl": "Klej"
+    },
+    "slug": "glue",
+    "count": 5
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4766,6 +6944,25 @@
   "rewardFame": 5,
   "rewardCurrency": 620,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Soap",
+    "name": {
+     "es": "Jabón",
+     "en": "Soap",
+     "de": "Seife",
+     "ru": "Мыло",
+     "zh": "肥皂",
+     "fr": "Savon",
+     "pt": "Sabonete",
+     "zh-tw": "肥皂",
+     "th": "สบู่",
+     "pl": "Mydło"
+    },
+    "slug": "soap",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4804,6 +7001,7 @@
   "rewardFame": 5,
   "rewardCurrency": 550,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -4842,6 +7040,7 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -4880,6 +7079,7 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -4918,6 +7118,25 @@
   "rewardFame": 5,
   "rewardCurrency": 500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Needle",
+    "name": {
+     "es": "Aguja",
+     "en": "Needle",
+     "de": "Nadel",
+     "ru": "Игла",
+     "zh": "针",
+     "fr": "Aiguille",
+     "pt": "Agulha",
+     "zh-tw": "針",
+     "th": "เข็ม",
+     "pl": "Igła"
+    },
+    "slug": "needle",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4956,6 +7175,25 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Sewing_kit",
+    "name": {
+     "es": "Kit de costura",
+     "en": "Sewing Kit",
+     "de": "Nähset",
+     "ru": "Швейный набор",
+     "zh": "缝纫工具",
+     "fr": "Kit de couture",
+     "pt": "Kit de costura",
+     "zh-tw": "縫紉套組",
+     "th": "ชุดเย็บปักถักร้อย",
+     "pl": "Zestaw do szycia"
+    },
+    "slug": "sewing-kit",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -4994,6 +7232,42 @@
   "rewardFame": 5,
   "rewardCurrency": 740,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Grinding_Stone_01",
+    "name": {
+     "es": "Piedra de afilar",
+     "en": "Grinding Stone",
+     "de": "Schleifstein",
+     "ru": "Точильный камень",
+     "zh": "磨刀石",
+     "fr": "Pierre à aiguiser",
+     "pt": "Pedra de amolar",
+     "zh-tw": "磨石",
+     "th": "หินลับมีด",
+     "pl": "Kamień szlifierski"
+    },
+    "slug": "grinding-stone-2",
+    "count": 1
+   },
+   {
+    "asset": "Grinding_Stone_02",
+    "name": {
+     "es": "Piedra de afilar",
+     "en": "Grinding Stone",
+     "de": "Schleifstein",
+     "ru": "Точильный камень",
+     "zh": "磨刀石",
+     "fr": "Pierre à aiguiser",
+     "pt": "Pedra de amolar",
+     "zh-tw": "磨石",
+     "th": "หินลับมีด",
+     "pl": "Kamień szlifierski"
+    },
+    "slug": "grinding-stone",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -5032,6 +7306,7 @@
   "rewardFame": 5,
   "rewardCurrency": 580,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -5070,6 +7345,25 @@
   "rewardFame": 5,
   "rewardCurrency": 500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Bobby_pin",
+    "name": {
+     "es": "Horquilla",
+     "en": "Bobby Pin",
+     "de": "Haarklammer",
+     "ru": "Шпилька",
+     "zh": "发夹",
+     "fr": "Épingle à cheveux",
+     "pt": "Grampo de cabelo",
+     "zh-tw": "髮夾",
+     "th": "กิ๊บหนีบผม",
+     "pl": "Wsuwka"
+    },
+    "slug": "bobby-pin",
+    "count": 10
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -5124,6 +7418,25 @@
     },
     "slug": "grinding-stone",
     "price": 1200
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Portable_Electric_Stove",
+    "name": {
+     "es": "Hornillo eléctrico portátil",
+     "en": "Portable Electric Stove",
+     "de": "Tragbarer Elektrokocher",
+     "ru": "Переносная электроплитка",
+     "zh": "便携式电子炉",
+     "fr": "Cuisinière électrique portative",
+     "pt": "Fogão portátil elétrico",
+     "zh-tw": "便攜電磁爐",
+     "th": "เตาแก๊สไฟฟ้าแบบพกพา",
+     "pl": "Przenośna kuchenka elektryczna"
+    },
+    "slug": "portable-electric-stove",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -5182,6 +7495,7 @@
     "price": 2000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -5236,6 +7550,25 @@
     },
     "slug": "canteen",
     "price": 200
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Energy_Drink_Red_Ghoul",
+    "name": {
+     "es": "Bebida energética Red Ghoul",
+     "en": "Red Ghoul Energy Drink",
+     "de": "Red-Ghoul-Energy-Drink",
+     "ru": "Энергетик «Красный упырь»",
+     "zh": "红色食尸鬼能量饮料",
+     "fr": "Boisson énergisante Red Ghoul",
+     "pt": "Energético Red Ghoul",
+     "zh-tw": "紅鬼能量飲料",
+     "th": "เครื่องดื่มชูกำลังเรดกูล",
+     "pl": "Napój energetyczny Red Ghoul"
+    },
+    "slug": "red-ghoul-energy-drink",
+    "count": 2
    }
   ],
   "timeLimitMin": 72
@@ -5294,6 +7627,7 @@
     "price": 50
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -5350,6 +7684,25 @@
     "price": 3000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Rebar_Cutter",
+    "name": {
+     "es": "Cortadora de acero corrugado",
+     "en": "Rebar Cutter",
+     "de": "Armierungsschneider",
+     "ru": "Резак для арматуры",
+     "zh": "钢筋切割机",
+     "fr": "Coupe-barres d'armature",
+     "pt": "Cortador de aço",
+     "zh-tw": "鋼筋切割器",
+     "th": "เครื่องตัดเหล็ก",
+     "pl": "Przecinarka do prętów"
+    },
+    "slug": "rebar-cutter",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -5388,6 +7741,25 @@
   "rewardFame": 10,
   "rewardCurrency": 1550,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Drill",
+    "name": {
+     "es": "Taladro",
+     "en": "Drill",
+     "de": "Bohrmaschine",
+     "ru": "Дрель",
+     "zh": "电钻",
+     "fr": "Perceuse",
+     "pt": "Furadeira",
+     "zh-tw": "鑽頭",
+     "th": "สว่าน",
+     "pl": "Wiertarka"
+    },
+    "slug": "drill",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -5444,6 +7816,7 @@
     "price": 15000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -5498,6 +7871,25 @@
     },
     "slug": "small-spade",
     "price": 100
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "2H_Pickaxe",
+    "name": {
+     "es": "Pico",
+     "en": "Pickaxe",
+     "de": "Spitzhacke",
+     "ru": "Кирка",
+     "zh": "鹤嘴锄",
+     "fr": "Pioche",
+     "pt": "Picareta",
+     "zh-tw": "十字鎬",
+     "th": "อีเต้อ",
+     "pl": "Kilof"
+    },
+    "slug": "pickaxe",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -5556,6 +7948,7 @@
     "price": 1500
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -5629,6 +8022,7 @@
     "price": 50
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -5685,6 +8079,7 @@
     "price": 700
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -5739,6 +8134,25 @@
     },
     "slug": "barbed-wire",
     "price": 150
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Bedroll",
+    "name": {
+     "es": "Saco de dormir",
+     "en": "Bedroll",
+     "de": "Schlafsack",
+     "ru": "Походный матрас",
+     "zh": "铺盖",
+     "fr": "Sac de couchage",
+     "pt": "Saco de dormir",
+     "zh-tw": "睡袋",
+     "th": "ถุงนอน",
+     "pl": "Karimata"
+    },
+    "slug": "bedroll",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -5797,6 +8211,25 @@
     "price": 400
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Radio",
+    "name": {
+     "es": "Radio",
+     "en": "Radio",
+     "de": "Radio",
+     "ru": "Радио",
+     "zh": "收音机",
+     "fr": "Radio",
+     "pt": "Rádio",
+     "zh-tw": "收音機",
+     "th": "วิทยุ",
+     "pl": "Radio"
+    },
+    "slug": "radio",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -5824,6 +8257,7 @@
   "rewardFame": 15,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 17
  },
  {
@@ -5878,6 +8312,25 @@
     },
     "slug": "tool-box",
     "price": 800
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "1H_Dildo",
+    "name": {
+     "es": "Consolador",
+     "en": "Dildo",
+     "de": "Dildo",
+     "ru": "Дилдо",
+     "zh": "假屌",
+     "fr": "Gode",
+     "pt": "Dildo",
+     "zh-tw": "假陽具",
+     "th": "ดิลโด้",
+     "pl": "Dildo"
+    },
+    "slug": "dildo",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -5936,6 +8389,7 @@
     "price": 50
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -5990,6 +8444,25 @@
     },
     "slug": "crowbar",
     "price": 600
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Chainsaw",
+    "name": {
+     "es": "Motosierra",
+     "en": "Chainsaw",
+     "de": "Kettensäge",
+     "ru": "Бензопила",
+     "zh": "电锯",
+     "fr": "Tronçonneuse",
+     "pt": "Motosserra",
+     "zh-tw": "鏈鋸",
+     "th": "เลื่อยยนต์",
+     "pl": "Piła łańcuchowa"
+    },
+    "slug": "chainsaw",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -6063,6 +8536,25 @@
     },
     "slug": "portable-refrigerator",
     "price": 800
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "ElectricityGenerator",
+    "name": {
+     "es": "Generador de electricidad",
+     "en": "Electricity Generator",
+     "de": "Stromgenerator",
+     "ru": "Электрогенератор",
+     "zh": "发电机",
+     "fr": "Générateur d'électricité",
+     "pt": "Gerador de eletricidade",
+     "zh-tw": "發電機",
+     "th": "เครื่องปั่นไฟ",
+     "pl": "Agregat prądotwórczy"
+    },
+    "slug": "electricity-generator",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -6155,6 +8647,25 @@
     "price": 1000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "CementBag",
+    "name": {
+     "es": "Saco de cemento",
+     "en": "Cement Bag",
+     "de": "Zementsack",
+     "ru": "Мешок цемента",
+     "zh": "水泥袋",
+     "fr": "Sac de ciment",
+     "pt": "Saco de cimento",
+     "zh-tw": "水泥袋",
+     "th": "ถุงปูนซีเมนต์",
+     "pl": "Worek cementu"
+    },
+    "slug": "cement-bag",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -6228,6 +8739,25 @@
     "price": 500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Refrigerator_Portable_Small",
+    "name": {
+     "es": "Frigorífico portátil",
+     "en": "Portable Refrigerator",
+     "de": "Tragbarer Kühlschrank",
+     "ru": "Переносной холодильник",
+     "zh": "便携式冰箱",
+     "fr": "Réfrigérateur portatif",
+     "pt": "Geladeira portátil",
+     "zh-tw": "便攜冰箱",
+     "th": "ตู้เย็นแบบพกพา",
+     "pl": "Przenośna lodówka"
+    },
+    "slug": "portable-refrigerator",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -6284,6 +8814,7 @@
     "price": 30000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -6338,6 +8869,25 @@
     },
     "slug": "crowbar",
     "price": 500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Banjo",
+    "name": {
+     "es": "Banjo",
+     "en": "Banjo",
+     "de": "Banjo",
+     "ru": "Банджо",
+     "zh": "班卓琴",
+     "fr": "Banjo",
+     "pt": "Banjo",
+     "zh-tw": "斑鳩琴",
+     "th": "แบนโจ",
+     "pl": "Banjo"
+    },
+    "slug": "banjo",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -6396,6 +8946,7 @@
     "price": 1500
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -6469,6 +9020,25 @@
     "price": 1500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Guitar",
+    "name": {
+     "es": "Guitarra",
+     "en": "Guitar",
+     "de": "Gitarre",
+     "ru": "Гитара",
+     "zh": "吉他",
+     "fr": "Guitare",
+     "pt": "Violão",
+     "zh-tw": "吉他",
+     "th": "กีต้าร์",
+     "pl": "Gitara"
+    },
+    "slug": "guitar",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -6525,6 +9095,25 @@
     "price": 25000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Compass_Advanced",
+    "name": {
+     "es": "Brújula avanzada",
+     "en": "Advanced Compass",
+     "de": "Verbesserter Kompass",
+     "ru": "Улучшенный компас",
+     "zh": "高级指南针",
+     "fr": "Boussole avancée",
+     "pt": "Bússola avançada",
+     "zh-tw": "高級指南針",
+     "th": "เข็มทิศระดับสูง",
+     "pl": "Zaawansowany kompas"
+    },
+    "slug": "advanced-compass",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -6579,6 +9168,25 @@
     },
     "slug": "chainsaw",
     "price": 2500
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "1H_Crowbar",
+    "name": {
+     "es": "Palanca",
+     "en": "Crowbar",
+     "de": "Brecheisen",
+     "ru": "Лом",
+     "zh": "撬棍",
+     "fr": "Pied-de-biche",
+     "pt": "Pé de cabra",
+     "zh-tw": "撬棍",
+     "th": "ชะแลง",
+     "pl": "Łom"
+    },
+    "slug": "crowbar",
+    "count": 1
    }
   ],
   "timeLimitMin": 96
@@ -6671,6 +9279,7 @@
     "price": 900
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -6744,6 +9353,7 @@
     "price": 500
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -6800,6 +9410,25 @@
     "price": 15000
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "MetalDetector",
+    "name": {
+     "es": "Detector de metales",
+     "en": "Metal Detector",
+     "de": "Metalldetektor",
+     "ru": "Металлоискатель",
+     "zh": "金属探测器",
+     "fr": "Détecteur de métaux",
+     "pt": "Detector de metais",
+     "zh-tw": "金屬探測器",
+     "th": "เครื่องตรวจจับโลหะ",
+     "pl": "Wykrywacz metali"
+    },
+    "slug": "metal-detector",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -6838,6 +9467,25 @@
   "rewardFame": 5,
   "rewardCurrency": 750,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Bone",
+    "name": {
+     "es": "Hueso",
+     "en": "Bone",
+     "de": "Knochen",
+     "ru": "Кость",
+     "zh": "骨头",
+     "fr": "Os",
+     "pt": "Osso",
+     "zh-tw": "骨頭",
+     "th": "กระดูก",
+     "pl": "Kość"
+    },
+    "slug": "bone",
+    "count": 5
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -6876,6 +9524,25 @@
   "rewardFame": 5,
   "rewardCurrency": 1000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Rabbit_Skinned",
+    "name": {
+     "es": "Conejo despellejado",
+     "en": "Skinned Rabbit",
+     "de": "Gehäutetes Kaninchen",
+     "ru": "Освежёванный кролик",
+     "zh": "剥过皮的兔子",
+     "fr": "Lapin dépecé",
+     "pt": "Coelho esfolado",
+     "zh-tw": "去皮兔子",
+     "th": "กระต่ายถลกหนัง",
+     "pl": "Oskórowany królik"
+    },
+    "slug": "skinned-rabbit",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -6914,6 +9581,7 @@
   "rewardFame": 5,
   "rewardCurrency": 1000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -6952,6 +9620,42 @@
   "rewardFame": 5,
   "rewardCurrency": 750,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Big_Animal_Fat",
+    "name": {
+     "es": "Grasa de animal grande",
+     "en": "Big Animal Fat",
+     "de": "Große Menge Tierfett",
+     "ru": "Жир крупного животного",
+     "zh": "大型动物油脂",
+     "fr": "Graisse animale (L)",
+     "pt": "Gordura de animal grande",
+     "zh-tw": "大型動物脂肪",
+     "th": "ไขมันสัตว์ขนาดใหญ่",
+     "pl": "Tłuszcz dużego zwierzęcia"
+    },
+    "slug": "big-animal-fat",
+    "count": 3
+   },
+   {
+    "asset": "Small_Animal_Fat",
+    "name": {
+     "es": "Grasa animal",
+     "en": "Animal Fat",
+     "de": "Tierfett",
+     "ru": "Жир мелкого животного",
+     "zh": "动物油脂",
+     "fr": "Graisse animale",
+     "pt": "Gordura animal",
+     "zh-tw": "動物脂肪",
+     "th": "ไขมันสัตว์",
+     "pl": "Tłuszcz zwierzęcy"
+    },
+    "slug": "animal-fat",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -6990,6 +9694,7 @@
   "rewardFame": 5,
   "rewardCurrency": 1200,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -7028,6 +9733,7 @@
   "rewardFame": 5,
   "rewardCurrency": 1000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -7066,6 +9772,25 @@
   "rewardFame": 5,
   "rewardCurrency": 1000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Hen_Torso",
+    "name": {
+     "es": "Gallina desplumada",
+     "en": "Plucked Chicken",
+     "de": "Gerupftes Hühnchen",
+     "ru": "Ощипанная курица",
+     "zh": "拔毛的鸡",
+     "fr": "Poulet plumé",
+     "pt": "Galinha depenada",
+     "zh-tw": "拔毛的雞",
+     "th": "ไก่ถอนขน",
+     "pl": "Oskubany kurczak"
+    },
+    "slug": "plucked-chicken",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -7104,6 +9829,25 @@
   "rewardFame": 5,
   "rewardCurrency": 1200,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Donkey_Head",
+    "name": {
+     "es": "Cabeza de burro",
+     "en": "Donkey Head",
+     "de": "Eselskopf",
+     "ru": "Ослиная голова",
+     "zh": "驴头",
+     "fr": "Tête d'âne",
+     "pt": "Cabeça de asno",
+     "zh-tw": "驢子頭",
+     "th": "หัวลา",
+     "pl": "Głowa osła"
+    },
+    "slug": "donkey-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -7142,6 +9886,7 @@
   "rewardFame": 5,
   "rewardCurrency": 850,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -7198,6 +9943,7 @@
     "price": 750
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -7254,6 +10000,7 @@
     "price": 5
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -7310,6 +10057,7 @@
     "price": 800
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -7348,6 +10096,25 @@
   "rewardFame": 10,
   "rewardCurrency": 1500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Bone",
+    "name": {
+     "es": "Hueso",
+     "en": "Bone",
+     "de": "Knochen",
+     "ru": "Кость",
+     "zh": "骨头",
+     "fr": "Os",
+     "pt": "Osso",
+     "zh-tw": "骨頭",
+     "th": "กระดูก",
+     "pl": "Kość"
+    },
+    "slug": "bone",
+    "count": 10
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -7386,6 +10153,42 @@
   "rewardFame": 10,
   "rewardCurrency": 1750,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Big_Animal_guts",
+    "name": {
+     "es": "Vísceras de animal grande",
+     "en": "Big Animal Guts",
+     "de": "Großtiergedärme",
+     "ru": "Кишки крупного животного",
+     "zh": "内脏",
+     "fr": "Viscères (L)",
+     "pt": "Entranhas de animal grande",
+     "zh-tw": "大型動物內臟",
+     "th": "เครื่องในสัตว์ขนาดใหญ่",
+     "pl": "Flaki dużego zwierzęcia"
+    },
+    "slug": "big-animal-guts",
+    "count": 3
+   },
+   {
+    "asset": "Small_Animal_guts",
+    "name": {
+     "es": "Vísceras de animal pequeño",
+     "en": "Small Animal Guts",
+     "de": "Kleintiergedärme",
+     "ru": "Кишки мелкого животного",
+     "zh": "内脏",
+     "fr": "Viscères (petit animal)",
+     "pt": "Entranhas de animal pequeno",
+     "zh-tw": "小型動物內臟",
+     "th": "เครื่องในสัตว์ขนาดเล็ก",
+     "pl": "Flaki małego zwierzęcia"
+    },
+    "slug": "small-animal-guts",
+    "count": 3
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -7424,6 +10227,42 @@
   "rewardFame": 10,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Buck_Head",
+    "name": {
+     "es": "Cabeza de venado",
+     "en": "Buck Head",
+     "de": "Hirschkopf",
+     "ru": "Оленья голова",
+     "zh": "公鹿头",
+     "fr": "Tête de cerf",
+     "pt": "Cabeça de veado",
+     "zh-tw": "雄鹿頭",
+     "th": "หัวกวางตัวผู้",
+     "pl": "Głowa jelenia"
+    },
+    "slug": "buck-head",
+    "count": 1
+   },
+   {
+    "asset": "Doe_Head",
+    "name": {
+     "es": "Cabeza de cierva",
+     "en": "Doe Head",
+     "de": "Rehkopf",
+     "ru": "Голова лани",
+     "zh": "母鹿头",
+     "fr": "Tête de biche",
+     "pt": "Cabeça de corça",
+     "zh-tw": "雌鹿頭",
+     "th": "หัวกวางตัวเมีย",
+     "pl": "Głowa łani"
+    },
+    "slug": "doe-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -7462,6 +10301,25 @@
   "rewardFame": 10,
   "rewardCurrency": 2000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Goat_Head",
+    "name": {
+     "es": "Cabeza de cabra",
+     "en": "Goat Head",
+     "de": "Ziegenkopf",
+     "ru": "Козлиная голова",
+     "zh": "山羊头",
+     "fr": "Tête de chèvre",
+     "pt": "Cabeça de cabra",
+     "zh-tw": "山羊頭",
+     "th": "หัวแพะ",
+     "pl": "Głowa kozy"
+    },
+    "slug": "goat-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -7518,6 +10376,7 @@
     "price": 1250
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -7591,6 +10450,25 @@
     "price": 200
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Horse_Head",
+    "name": {
+     "es": "Cabeza de caballo",
+     "en": "Horse Head",
+     "de": "Pferdekopf",
+     "ru": "Лошадиная голова",
+     "zh": "马头",
+     "fr": "Tête de cheval",
+     "pt": "Cabeça de cavalo",
+     "zh-tw": "馬頭",
+     "th": "หัวม้า",
+     "pl": "Głowa konia"
+    },
+    "slug": "horse-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -7645,6 +10523,42 @@
     },
     "slug": "binoculars",
     "price": 1000
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Big_Animal_Fat",
+    "name": {
+     "es": "Grasa de animal grande",
+     "en": "Big Animal Fat",
+     "de": "Große Menge Tierfett",
+     "ru": "Жир крупного животного",
+     "zh": "大型动物油脂",
+     "fr": "Graisse animale (L)",
+     "pt": "Gordura de animal grande",
+     "zh-tw": "大型動物脂肪",
+     "th": "ไขมันสัตว์ขนาดใหญ่",
+     "pl": "Tłuszcz dużego zwierzęcia"
+    },
+    "slug": "big-animal-fat",
+    "count": 5
+   },
+   {
+    "asset": "Small_Animal_Fat",
+    "name": {
+     "es": "Grasa animal",
+     "en": "Animal Fat",
+     "de": "Tierfett",
+     "ru": "Жир мелкого животного",
+     "zh": "动物油脂",
+     "fr": "Graisse animale",
+     "pt": "Gordura animal",
+     "zh-tw": "動物脂肪",
+     "th": "ไขมันสัตว์",
+     "pl": "Tłuszcz zwierzęcy"
+    },
+    "slug": "animal-fat",
+    "count": 5
    }
   ],
   "timeLimitMin": 72
@@ -7720,6 +10634,25 @@
     "price": 300
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Bear_Head",
+    "name": {
+     "es": "Cabeza de oso",
+     "en": "Bear Head",
+     "de": "Bärenkopf",
+     "ru": "Медвежья голова",
+     "zh": "熊头",
+     "fr": "Tête d'ours",
+     "pt": "Cabeça de urso",
+     "zh-tw": "熊頭",
+     "th": "หัวหมี",
+     "pl": "Niedźwiedzia głowa"
+    },
+    "slug": "bear-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -7774,6 +10707,25 @@
     },
     "slug": "hunter-suppressor",
     "price": 750
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Bone",
+    "name": {
+     "es": "Hueso",
+     "en": "Bone",
+     "de": "Knochen",
+     "ru": "Кость",
+     "zh": "骨头",
+     "fr": "Os",
+     "pt": "Osso",
+     "zh-tw": "骨頭",
+     "th": "กระดูก",
+     "pl": "Kość"
+    },
+    "slug": "bone",
+    "count": 20
    }
   ],
   "timeLimitMin": 96
@@ -7849,6 +10801,7 @@
     "price": 17
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -7922,6 +10875,25 @@
     "price": 200
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Wolf_Head",
+    "name": {
+     "es": "Cabeza de lobo",
+     "en": "Wolf Head",
+     "de": "Wolfskopf",
+     "ru": "Волчья голова",
+     "zh": "狼头",
+     "fr": "Tête de loup",
+     "pt": "Cabeça de lobo",
+     "zh-tw": "狼頭",
+     "th": "หัวหมาป่า",
+     "pl": "Głowa wilka"
+    },
+    "slug": "wolf-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -7960,6 +10932,42 @@
   "rewardFame": 20,
   "rewardCurrency": 3500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Small_Animal_guts",
+    "name": {
+     "es": "Vísceras de animal pequeño",
+     "en": "Small Animal Guts",
+     "de": "Kleintiergedärme",
+     "ru": "Кишки мелкого животного",
+     "zh": "内脏",
+     "fr": "Viscères (petit animal)",
+     "pt": "Entranhas de animal pequeno",
+     "zh-tw": "小型動物內臟",
+     "th": "เครื่องในสัตว์ขนาดเล็ก",
+     "pl": "Flaki małego zwierzęcia"
+    },
+    "slug": "small-animal-guts",
+    "count": 5
+   },
+   {
+    "asset": "Big_Animal_guts",
+    "name": {
+     "es": "Vísceras de animal grande",
+     "en": "Big Animal Guts",
+     "de": "Großtiergedärme",
+     "ru": "Кишки крупного животного",
+     "zh": "内脏",
+     "fr": "Viscères (L)",
+     "pt": "Entranhas de animal grande",
+     "zh-tw": "大型動物內臟",
+     "th": "เครื่องในสัตว์ขนาดใหญ่",
+     "pl": "Flaki dużego zwierzęcia"
+    },
+    "slug": "big-animal-guts",
+    "count": 5
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -8033,6 +11041,7 @@
     "price": 16
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -8089,6 +11098,7 @@
     "price": 750
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -8162,6 +11172,7 @@
     "price": 175
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -8216,6 +11227,42 @@
     },
     "slug": "cal-30-06-suppressor",
     "price": 850
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Big_Animal_Fat",
+    "name": {
+     "es": "Grasa de animal grande",
+     "en": "Big Animal Fat",
+     "de": "Große Menge Tierfett",
+     "ru": "Жир крупного животного",
+     "zh": "大型动物油脂",
+     "fr": "Graisse animale (L)",
+     "pt": "Gordura de animal grande",
+     "zh-tw": "大型動物脂肪",
+     "th": "ไขมันสัตว์ขนาดใหญ่",
+     "pl": "Tłuszcz dużego zwierzęcia"
+    },
+    "slug": "big-animal-fat",
+    "count": 8
+   },
+   {
+    "asset": "Small_Animal_Fat",
+    "name": {
+     "es": "Grasa animal",
+     "en": "Animal Fat",
+     "de": "Tierfett",
+     "ru": "Жир мелкого животного",
+     "zh": "动物油脂",
+     "fr": "Graisse animale",
+     "pt": "Gordura animal",
+     "zh-tw": "動物脂肪",
+     "th": "ไขมันสัตว์",
+     "pl": "Tłuszcz zwierzęcy"
+    },
+    "slug": "animal-fat",
+    "count": 8
    }
   ],
   "timeLimitMin": 96
@@ -8291,6 +11338,25 @@
     "price": 10
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Boar_Head",
+    "name": {
+     "es": "Cabeza de jabalí",
+     "en": "Boar Head",
+     "de": "Wildschweinkopf",
+     "ru": "Кабанья голова",
+     "zh": "野猪头",
+     "fr": "Tête de sanglier",
+     "pt": "Cabeça de javali",
+     "zh-tw": "野豬頭",
+     "th": "หัวหมูป่า",
+     "pl": "Głowa dzika"
+    },
+    "slug": "boar-head",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -8329,6 +11395,25 @@
   "rewardFame": 5,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Aeroplane_Repair_Kit",
+    "name": {
+     "es": "Kit de reparación de aviones",
+     "en": "Aeroplane Repair Kit",
+     "de": "Flugzeug-Reparaturset",
+     "ru": "Ремонтный набор для самолётов",
+     "zh": "飞行器修理工具",
+     "fr": "Kit de réparation d'avion",
+     "pt": "Kit de reparo de avião",
+     "zh-tw": "飛機修理套組",
+     "th": "ชุดซ่อมแซมเครื่องบิน",
+     "pl": "Zestaw naprawczy do samolotów"
+    },
+    "slug": "aeroplane-repair-kit",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8367,6 +11452,25 @@
   "rewardFame": 5,
   "rewardCurrency": 660,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Car_Repair_Kit",
+    "name": {
+     "es": "Kit de reparación de coches",
+     "en": "Car Repair Kit",
+     "de": "Fahrzeug-Reparaturset",
+     "ru": "Ремонтный набор для автомобилей",
+     "zh": "汽车修理工具",
+     "fr": "Kit de réparation de véhicule",
+     "pt": "Kit de reparo de automóveis",
+     "zh-tw": "汽車修理套組",
+     "th": "ชุดอุปกรณ์ซ่อมรถ",
+     "pl": "Zestaw naprawczy do samochodów"
+    },
+    "slug": "car-repair-kit",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8405,6 +11509,25 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Gasoline_Canister_Small",
+    "name": {
+     "es": "Bidón de gasolina pequeño",
+     "en": "Small Gasoline Canister",
+     "de": "Kleiner Kraftstoffkanister",
+     "ru": "Маленькая канистра для бензина",
+     "zh": "小型油桶",
+     "fr": "Petit jerrican",
+     "pt": "Galão de gasolina pequeno",
+     "zh-tw": "小汽油桶",
+     "th": "ถังน้ำมันเชื้อเพลิงขนาดเล็ก",
+     "pl": "Mały kanister"
+    },
+    "slug": "small-gasoline-canister",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8443,6 +11566,7 @@
   "rewardFame": 5,
   "rewardCurrency": 500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -8481,6 +11605,7 @@
   "rewardFame": 5,
   "rewardCurrency": 800,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 48
  },
  {
@@ -8519,6 +11644,25 @@
   "rewardFame": 5,
   "rewardCurrency": 700,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Car_Jack",
+    "name": {
+     "es": "Gato mecánico",
+     "en": "Car Jack",
+     "de": "Wagenheber",
+     "ru": "Домкрат",
+     "zh": "汽车千斤顶",
+     "fr": "Cric",
+     "pt": "Macaco",
+     "zh-tw": "千斤頂",
+     "th": "แม่แรงยกรถ",
+     "pl": "Lewarek"
+    },
+    "slug": "car-jack",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8557,6 +11701,25 @@
   "rewardFame": 5,
   "rewardCurrency": 630,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Car_Battery_Cables",
+    "name": {
+     "es": "Cables de arranque",
+     "en": "Car Battery Cables",
+     "de": "Autobatteriekabel",
+     "ru": "Провода для аккумулятора",
+     "zh": "汽车蓄电池电瓶线",
+     "fr": "Câbles de démarrage",
+     "pt": "Cabos de bateria de carro",
+     "zh-tw": "汽車電瓶線",
+     "th": "สายแบตเตอรี่รถยนต์",
+     "pl": "Kable rozruchowe"
+    },
+    "slug": "car-battery-cables",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8595,6 +11758,25 @@
   "rewardFame": 5,
   "rewardCurrency": 650,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Oil_Filter",
+    "name": {
+     "es": "Filtro de aceite",
+     "en": "Oil Filter",
+     "de": "Ölfilter",
+     "ru": "Масляный фильтр",
+     "zh": "滤油器",
+     "fr": "Filtre à huile",
+     "pt": "Filtro de óleo",
+     "zh-tw": "濾油器",
+     "th": "กรองน้ำมันเครื่อง",
+     "pl": "Filtr oleju"
+    },
+    "slug": "oil-filter",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8633,6 +11815,25 @@
   "rewardFame": 5,
   "rewardCurrency": 550,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Brake_Oil",
+    "name": {
+     "es": "Líquido de frenos",
+     "en": "Brake Oil",
+     "de": "Bremsflüssigkeit",
+     "ru": "Тормозная жидкость",
+     "zh": "刹车油",
+     "fr": "Liquide de frein",
+     "pt": "Fluido de freio",
+     "zh-tw": "煞車油",
+     "th": "น้ำมันเบรก",
+     "pl": "Olej hamulcowy"
+    },
+    "slug": "brake-oil",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8671,6 +11872,25 @@
   "rewardFame": 5,
   "rewardCurrency": 550,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "1H_Pipe_Wrench",
+    "name": {
+     "es": "Llave de grifa",
+     "en": "Pipe Wrench",
+     "de": "Rohrzange",
+     "ru": "Трубный ключ",
+     "zh": "水管扳手",
+     "fr": "Clé serre-tube",
+     "pt": "Chave de grifo",
+     "zh-tw": "管鉗扳手",
+     "th": "ประแจเลื่อน",
+     "pl": "Klucz hydrauliczny"
+    },
+    "slug": "pipe-wrench",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 48
  },
  {
@@ -8709,6 +11929,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1580,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8747,6 +11968,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1200,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8803,6 +12025,7 @@
     "price": 800
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8841,6 +12064,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1580,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8879,6 +12103,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1480,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8935,6 +12160,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -8973,6 +12199,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1600,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -9029,6 +12256,7 @@
     "price": 1000
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -9085,6 +12313,25 @@
     "price": 1500
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Car_Battery",
+    "name": {
+     "es": "Batería de coche",
+     "en": "Car Battery",
+     "de": "Autobatterie",
+     "ru": "Автомобильный аккумулятор",
+     "zh": "汽车蓄电池",
+     "fr": "Batterie automobile",
+     "pt": "Bateria de carro",
+     "zh-tw": "汽車電瓶",
+     "th": "แบตเตอรี่รถยนต์",
+     "pl": "Akumulator samochodowy"
+    },
+    "slug": "car-battery",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 72
  },
  {
@@ -9123,6 +12370,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1450,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -9161,6 +12409,7 @@
   "rewardFame": 10,
   "rewardCurrency": 1400,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 72
  },
  {
@@ -9215,6 +12464,25 @@
     },
     "slug": "small-gasoline-canister",
     "price": 150
+   }
+  ],
+  "requiredItems": [
+   {
+    "asset": "Gasoline_Canister",
+    "name": {
+     "es": "Bidón de gasolina",
+     "en": "Gasoline Canister",
+     "de": "Kraftstoffkanister",
+     "ru": "Канистра для бензина",
+     "zh": "油桶",
+     "fr": "Jerrican",
+     "pt": "Galão de gasolina",
+     "zh-tw": "汽油桶",
+     "th": "ถังน้ำมันเชื้อเพลิง",
+     "pl": "Kanister"
+    },
+    "slug": "gasoline-canister",
+    "count": 1
    }
   ],
   "timeLimitMin": 72
@@ -9290,6 +12558,7 @@
     "price": 1200
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9363,6 +12632,25 @@
     "price": 600
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "WW_Engine_Alternator_Item",
+    "name": {
+     "es": "Alternador de WW",
+     "en": "WW Alternator",
+     "de": "WW-Lichtmaschine",
+     "ru": "«Волксваген» — генератор",
+     "zh": "太众发电机",
+     "fr": "Alternateur WW",
+     "pt": "Alternador de WW",
+     "zh-tw": "沃斯交流發電機",
+     "th": "ไดชาร์จ WW",
+     "pl": "Alternator WW"
+    },
+    "slug": "ww-alternator",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -9401,6 +12689,42 @@
   "rewardFame": 20,
   "rewardCurrency": 3500,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Laika_Bumper_Back_Item",
+    "name": {
+     "es": "Parachoques trasero de Laika",
+     "en": "Laika Bumper Back",
+     "de": "Laika Stoßstange, hinten",
+     "ru": "«Лайка» — бампер (задний)",
+     "zh": "莱卡后保险杠",
+     "fr": "Pare-chocs arrière Laika",
+     "pt": "Para-choque de Laika - trás",
+     "zh-tw": "萊卡後保險桿",
+     "th": "กันชนหลัง Laika",
+     "pl": "Tylny zderzak Łajki"
+    },
+    "slug": "laika-bumper-back",
+    "count": 1
+   },
+   {
+    "asset": "Laika_Bumper_Front_Item",
+    "name": {
+     "es": "Parachoques delantero de Laika",
+     "en": "Laika Bumper Front",
+     "de": "Laika Stoßstange, vorne",
+     "ru": "«Лайка» — бампер (передний)",
+     "zh": "莱卡前保险杠",
+     "fr": "Pare-chocs avant Laika",
+     "pt": "Para-choque de Laika - frente",
+     "zh-tw": "萊卡前保險桿",
+     "th": "กันชนหน้า Laika",
+     "pl": "Przedni zderzak Łajki"
+    },
+    "slug": "laika-bumper-front",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -9457,6 +12781,42 @@
     "price": 900
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "WW_Bumper_Back_Item",
+    "name": {
+     "es": "Parachoques trasero de WW",
+     "en": "WW Back Bumper",
+     "de": "WW-Stoßstange, hinten",
+     "ru": "«Волксваген» — бампер (задний)",
+     "zh": "太众后保险杠",
+     "fr": "Pare-chocs arrière WW",
+     "pt": "Para-choque de WW - trás",
+     "zh-tw": "沃斯後保險桿",
+     "th": "กันชนหลัง WW",
+     "pl": "Tylny zderzak WW"
+    },
+    "slug": "ww-back-bumper",
+    "count": 1
+   },
+   {
+    "asset": "WW_Bumper_Front_Item",
+    "name": {
+     "es": "Parachoques delantero de WW",
+     "en": "WW Front Bumper",
+     "de": "WW-Stoßstange, vorne",
+     "ru": "«Волксваген» — бампер (передний)",
+     "zh": "太众前保险杠",
+     "fr": "Pare-chocs avant WW",
+     "pt": "Para-choque de WW - frente",
+     "zh-tw": "沃斯前保險桿",
+     "th": "กันชนหน้า WW",
+     "pl": "Przedni zderzak WW"
+    },
+    "slug": "ww-front-bumper",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -9495,6 +12855,7 @@
   "rewardFame": 20,
   "rewardCurrency": 3600,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9568,6 +12929,7 @@
     "price": 500
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9624,6 +12986,7 @@
     "price": 300
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9697,6 +13060,7 @@
     "price": 600
    }
   ],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9735,6 +13099,7 @@
   "rewardFame": 20,
   "rewardCurrency": 5000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9773,6 +13138,25 @@
   "rewardFame": 20,
   "rewardCurrency": 3600,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Wheel_255_55_R16_Item",
+    "name": {
+     "es": "Rueda 215/65 R16",
+     "en": "Wheel 215 65 R16",
+     "de": "Rad 215 65 R16",
+     "ru": "Колесо 215 65 R16",
+     "zh": "215 65 R16车轮",
+     "fr": "Roue 215 65 R16",
+     "pt": "Roda 215 65 R16",
+     "zh-tw": "215 65 R16 輪胎",
+     "th": "ล้อ 215 65 R16",
+     "pl": "Koło 215 65 R16"
+    },
+    "slug": "wheel-215-65-r16",
+    "count": 2
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -9811,6 +13195,7 @@
   "rewardFame": 20,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9884,6 +13269,25 @@
     "price": 600
    }
   ],
+  "requiredItems": [
+   {
+    "asset": "Laika_Engine_Alternator_Item",
+    "name": {
+     "es": "Alternador de Laika",
+     "en": "Laika Alternator",
+     "de": "Laika Lichtmaschine",
+     "ru": "«Лайка» — генератор",
+     "zh": "莱卡发电机",
+     "fr": "Alternateur Laika",
+     "pt": "Alternador de Laika",
+     "zh-tw": "萊卡交流發電機",
+     "th": "ไดชาร์จ Laika",
+     "pl": "Alternator Łajki"
+    },
+    "slug": "laika-alternator",
+    "count": 1
+   }
+  ],
   "timeLimitMin": 96
  },
  {
@@ -9922,6 +13326,7 @@
   "rewardFame": 20,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9960,6 +13365,7 @@
   "rewardFame": 20,
   "rewardCurrency": 3500,
   "rewardItems": [],
+  "requiredItems": [],
   "timeLimitMin": 96
  },
  {
@@ -9998,6 +13404,25 @@
   "rewardFame": 20,
   "rewardCurrency": 3000,
   "rewardItems": [],
+  "requiredItems": [
+   {
+    "asset": "Wheel_155_R65_Item",
+    "name": {
+     "es": "Rueda 205/55 R16",
+     "en": "Wheel 205 55 R16",
+     "de": "Rad 205 55 R16",
+     "ru": "Колесо 205 55 R16",
+     "zh": "205 55 R16车轮",
+     "fr": "Roue 205 55 R16",
+     "pt": "Roda 205 55 R16",
+     "zh-tw": "205 55 R16 輪胎",
+     "th": "ล้อ 205 55 R16",
+     "pl": "Koło 205 55 R16"
+    },
+    "slug": "wheel-205-55-r16",
+    "count": 2
+   }
+  ],
   "timeLimitMin": 96
  }
 ]

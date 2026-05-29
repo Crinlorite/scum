@@ -7,6 +7,7 @@ import recipesData from './recipes.json';
 import craftingData from './crafting.json';
 import economyData from './economy.json';
 import lootData from './loot.json';
+import questsData from './quests.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -52,6 +53,11 @@ export interface EconomyRec {
   buyPrice?: number | null; sellPrice?: number | null; currency?: string | null;
 }
 export interface LootRec { slug: string; spawns?: { location: string; rarity?: string }[]; }
+export interface QuestLite { slug: string; title: Localized; trader?: string; tier?: number | null; }
+interface QuestRec extends QuestLite {
+  requiredItems?: { slug?: string | null }[];
+  rewardItems?: { slug?: string | null }[];
+}
 
 const STATS = itemStats as unknown as ItemStatRec[];
 const WEAPONS = weaponsData as unknown as WeaponRec[];
@@ -59,6 +65,7 @@ const RECIPES = recipesData as unknown as CookRec[];
 const CRAFTING = craftingData as unknown as CraftRec[];
 const ECONOMY = economyData as unknown as EconomyRec[];
 const LOOT = lootData as unknown as LootRec[];
+const QUESTS = questsData as unknown as QuestRec[];
 
 function push<K, V>(m: Map<K, V[]>, k: K, v: V) {
   const a = m.get(k);
@@ -91,6 +98,16 @@ for (const e of ECONOMY) if (e.slug && !economyBySlug.has(e.slug)) economyBySlug
 const lootBySlug = new Map<string, LootRec>();
 for (const l of LOOT) if (l.slug && !lootBySlug.has(l.slug)) lootBySlug.set(l.slug, l);
 
+const questsNeedingSlug = new Map<string, QuestLite[]>();
+const questsRewardingSlug = new Map<string, QuestLite[]>();
+for (const q of QUESTS) {
+  const lite: QuestLite = { slug: q.slug, title: q.title, trader: q.trader, tier: q.tier };
+  const seenR = new Set<string>();
+  for (const r of q.requiredItems ?? []) if (r.slug && !seenR.has(r.slug)) { seenR.add(r.slug); push(questsNeedingSlug, r.slug, lite); }
+  const seenW = new Set<string>();
+  for (const r of q.rewardItems ?? []) if (r.slug && !seenW.has(r.slug)) { seenW.add(r.slug); push(questsRewardingSlug, r.slug, lite); }
+}
+
 export interface ItemDetail {
   stats?: ItemStatRec;
   weapon?: WeaponRec;
@@ -98,6 +115,8 @@ export interface ItemDetail {
   cookingUsing: CookRec[];
   economy?: EconomyRec;
   loot?: LootRec;
+  questsNeeding: QuestLite[];
+  questsRewarding: QuestLite[];
 }
 
 export function itemDetail(slug: string): ItemDetail {
@@ -108,9 +127,12 @@ export function itemDetail(slug: string): ItemDetail {
     cookingUsing: cookingUsingSlug.get(slug) ?? [],
     economy: economyBySlug.get(slug),
     loot: lootBySlug.get(slug),
+    questsNeeding: questsNeedingSlug.get(slug) ?? [],
+    questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
 }
 
 export function hasDetail(d: ItemDetail): boolean {
-  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length || d.economy || d.loot?.spawns?.length);
+  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length ||
+    d.economy || d.loot?.spawns?.length || d.questsNeeding.length || d.questsRewarding.length);
 }

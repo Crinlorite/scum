@@ -84,6 +84,18 @@ for fp in sorted(glob.glob(os.path.join(QDIR, "**", "*.json"), recursive=True)):
         for ri in rw.get("RewardItems", []) or []:
             r = item_name((ri.get("ItemClass") or ri.get("Item") or {}).get("AssetPathName", "") if isinstance(ri, dict) else "")
             if r: rewards_items.append(r)
+    # required items (Fetch objectives: QuestCondition_ItemSet → AcceptedItems)
+    required = []
+    for o in doc:
+        if not (isinstance(o, dict) and o.get("Type") == "QuestCondition_ItemSet"):
+            continue
+        for s in ((o.get("Properties", {}).get("ItemSetData") or {}).get("Items") or []):
+            cnt = s.get("Count") or s.get("RequiredCount")
+            for ai in s.get("AcceptedItems", []) or []:
+                r = item_name(ai.get("AssetPathName", ""))
+                if r:
+                    r["count"] = cnt
+                    required.append(r)
     title = lf(p.get("Title"))
     quests.append({
         "slug": re.sub(r"[^a-z0-9]+", "-", (title.get("en") or os.path.basename(fp)[:-5]).lower()).strip("-"),
@@ -93,6 +105,7 @@ for fp in sorted(glob.glob(os.path.join(QDIR, "**", "*.json"), recursive=True)):
         "description": lf((p.get("DescriptionSegments") or [{}])[0]),
         "rewardFame": rfame, "rewardCurrency": rcur,
         "rewardItems": rewards_items,
+        "requiredItems": required,
         "timeLimitMin": round(p.get("TimeLimit") / 60) if isinstance(p.get("TimeLimit"), (int, float)) else None,
     })
 

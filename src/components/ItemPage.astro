@@ -159,6 +159,20 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         </section>
       )}
 
+      {d.questsNeeding.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.questNeeded')}</h2>
+          <p class="cooking-list">{d.questsNeeding.slice(0, 15).map((q) => loc(q.title)).filter(Boolean).join(' · ')}</p>
+        </section>
+      )}
+
+      {d.questsRewarding.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.questReward')}</h2>
+          <p class="cooking-list">{d.questsRewarding.slice(0, 15).map((q) => loc(q.title)).filter(Boolean).join(' · ')}</p>
+        </section>
+      )}
+
       <dl class="meta">
         <div><dt>{tr('items.category')}</dt><dd>{cat}</dd></div>
         <div><dt>{tr('items.officialName')}</dt><dd>{item.name[lang] ?? name}</dd></div>
