@@ -4,5 +4,5 @@ export const SERVER_INFO = {
   name: 'Crintech Community SCUM',
   // Set to null to render "Sin datos" / "No data"
   status: 'online' as 'online' | 'offline' | null,
-  rulesUrl: 'https://github.com/Crinlorite/scum-crintech',
+  rulesUrl: 'https://github.com/Crinlorite/scum',
 } as const;
