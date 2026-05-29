@@ -1,0 +1,37 @@
+---
+// Private panel home (HTTP Basic Auth protected via nginx). Hub for admin-only
+// tools: command reference now, live map next.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const tools = [
+  { href: '/panel/comandos', title: 'Comandos de servidor', desc: 'Referencia de comandos admin por nivel de permiso.', ready: true },
+  { href: '#', title: 'Mapa en vivo', desc: 'Posición tuya y de los jugadores sobre el mapa del juego.', ready: false },
+];
+---
+<BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>
+  <section class="panel">
+    <div class="container container-prose">
+      <span class="eyebrow">Privado</span>
+      <h1>Panel del servidor</h1>
+      <p class="intro">Herramientas de administración. Esta zona está protegida y no aparece en la wiki pública.</p>
+      <div class="grid">
+        {tools.map((t) => (
+          t.ready
+            ? <a class="tool" href={t.href}><h2>{t.title}</h2><p>{t.desc}</p></a>
+            : <div class="tool soon"><h2>{t.title} <span class="badge">pronto</span></h2><p>{t.desc}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .panel { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.9rem; }
+  .tool { display: block; padding: 1rem 1.1rem; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); text-decoration: none; color: var(--c-ink); transition: border-color 120ms ease; }
+  .tool:hover { border-color: var(--c-rust); }
+  .tool h2 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+  .tool p { margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
+  .tool.soon { opacity: 0.6; }
+  .badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-rust-bright); border: 1px solid var(--c-rust); border-radius: 999px; padding: 0.05rem 0.4rem; vertical-align: middle; }
+</style>

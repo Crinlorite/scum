@@ -11,6 +11,8 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
+      // Keep the private /panel/ out of the public sitemap.
+      filter: (page) => !new URL(page).pathname.startsWith('/panel'),
       i18n: {
         defaultLocale: DEFAULT_LANG,
         locales: sitemapLocales,

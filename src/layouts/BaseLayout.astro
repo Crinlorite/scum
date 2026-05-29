@@ -10,6 +10,7 @@ interface Props {
   title?: string;
   description?: string;
   lang?: LangCode;
+  noindex?: boolean;
 }
 
 const lang = (Astro.props.lang ?? getLocaleFromUrl(Astro.url)) as LangCode;
@@ -37,6 +38,7 @@ const xDefault = new URL(alternateHref(here, lang, DEFAULT_LANG), siteBase).href
     <meta name="color-scheme" content="light" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {Astro.props.noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 

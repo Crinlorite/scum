@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /panel/
 
 Sitemap: https://scumwiki.crintech.pro/sitemap-index.xml
