@@ -12,3 +12,6 @@ __pycache__/
 
 # Regenerable locres extraction output (canonical copy lives in src/data/items.json)
 tools/locres-import/out/
+
+# Private server-side map tool (reads the game save DB) — not part of the public wiki
+tools/map/
