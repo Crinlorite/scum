@@ -1,0 +1,102 @@
+{
+ "awards": [
+  {
+   "action": "VehicleSold",
+   "fame": 2.5
+  },
+  {
+   "action": "EscapedSharkBite",
+   "fame": 1.0
+  },
+  {
+   "action": "WheelBarrowSold",
+   "fame": 0.5
+  },
+  {
+   "action": "UnlockedDoorKillbox",
+   "fame": 0.5
+  },
+  {
+   "action": "GoldLockLockpick",
+   "fame": 0.25
+  },
+  {
+   "action": "BombDefuse",
+   "fame": 0.25
+  },
+  {
+   "action": "SilverLockLockpick",
+   "fame": 0.05
+  },
+  {
+   "action": "IronLockLockpick",
+   "fame": 0.025
+  },
+  {
+   "action": "TreatedWoundC1",
+   "fame": 0.025
+  },
+  {
+   "action": "SuccessfulHarvest",
+   "fame": 0.025
+  },
+  {
+   "action": "MovingFlying",
+   "fame": 0.01
+  },
+  {
+   "action": "BuiltGarden",
+   "fame": 0.00625
+  },
+  {
+   "action": "RustyLockLockpick",
+   "fame": 0.005
+  },
+  {
+   "action": "AppliedPesticideOrFungicide",
+   "fame": 0.0025
+  },
+  {
+   "action": "SeedsPlanted",
+   "fame": 0.001
+  },
+  {
+   "action": "WeedsPlucked",
+   "fame": 0.001
+  },
+  {
+   "action": "BaseOvertakeMultiplier",
+   "fame": 0.0005
+  },
+  {
+   "action": "MovingDriving",
+   "fame": 0.00025
+  },
+  {
+   "action": "CollectedSeeds",
+   "fame": 0.00025
+  },
+  {
+   "action": "OwningTheBase",
+   "fame": 5e-05
+  }
+ ],
+ "penalties": [
+  {
+   "action": "IronLockLockpick",
+   "fame": 0.25
+  },
+  {
+   "action": "SilverLockLockpick",
+   "fame": 0.142
+  },
+  {
+   "action": "GoldLockLockpick",
+   "fame": 0.1
+  },
+  {
+   "action": "DialLockLockpick",
+   "fame": 0.025
+  }
+ ]
+}

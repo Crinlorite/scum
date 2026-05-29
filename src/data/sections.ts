@@ -6,6 +6,7 @@ import medicalData from './medical.json';
 import vehiclesData from './vehicles.json';
 import questsData from './quests.json';
 import adminData from './admin.json';
+import fameData from './fame.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath, useTranslations } from '../i18n/utils';
 
@@ -154,4 +155,15 @@ export function adminSection(lang: LangCode): Section {
     _c: c.level || '',
   }));
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => ADMIN_LVL[k]?.[lang] ?? ADMIN_LVL[k]?.[FALLBACK_LANG] ?? (k || 'Otros')) };
+}
+
+// ---- fame system ----
+const FAME_KIND: Record<string, L> = {
+  award: { es: 'Ganancias', en: 'Gains' }, pen: { es: 'Penalizaciones', en: 'Penalties' },
+};
+export function fameSection(lang: LangCode): Section {
+  const mk = (arr: any[], kind: string, sign: string) =>
+    arr.map((a) => ({ name: pretty(a.action), meta: [{ k: 'fame', v: `${sign}${a.fame}` }], _c: kind }));
+  const entries = [...mk(fameData.awards as any[], 'award', '+'), ...mk(fameData.penalties as any[], 'pen', '−')];
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => FAME_KIND[k]?.[lang] ?? FAME_KIND[k]?.[FALLBACK_LANG] ?? k) };
 }
