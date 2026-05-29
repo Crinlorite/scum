@@ -147,9 +147,9 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         <section class="block">
           <h2>{tr('item.trade')}</h2>
           <dl class="stat-grid">
+            {typeof d.economy.buyPrice === 'number' && (<div><dt>{tr('item.buyPrice')}</dt><dd>{d.economy.buyPrice.toLocaleString(lang)} ¥</dd></div>)}
+            {typeof d.economy.sellPrice === 'number' && (<div><dt>{tr('item.sellPrice')}</dt><dd>{d.economy.sellPrice.toLocaleString(lang)} ¥</dd></div>)}
             {d.economy.traders && d.economy.traders.length > 0 && (<div><dt>{tr('item.traders')}</dt><dd>{d.economy.traders.map(pretty).join(', ')}</dd></div>)}
-            <div><dt>{tr('item.canBuy')}</dt><dd>{d.economy.canBuy ? '✓' : '—'}</dd></div>
-            <div><dt>{tr('item.canSell')}</dt><dd>{d.economy.canSell ? '✓' : '—'}</dd></div>
             {typeof d.economy.requiredFame === 'number' && d.economy.requiredFame > 0 && (<div><dt>{tr('item.fame')}</dt><dd>{d.economy.requiredFame}</dd></div>)}
           </dl>
         </section>

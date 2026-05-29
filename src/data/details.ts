@@ -49,6 +49,7 @@ export interface CookRec {
 export interface EconomyRec {
   slug?: string | null; category?: string | null; traders?: string[];
   canBuy?: boolean; canSell?: boolean; requiredFame?: number | null;
+  buyPrice?: number | null; sellPrice?: number | null; currency?: string | null;
 }
 export interface LootRec { slug: string; spawns?: { location: string; rarity?: string }[]; }
 

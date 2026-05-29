@@ -113,6 +113,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.traders': 'Comerciantes',
     'item.canBuy': 'Se compra',
     'item.canSell': 'Se vende',
+    'item.buyPrice': 'Precio compra',
+    'item.sellPrice': 'Precio venta',
     'item.fame': 'Fama requerida',
 
     'beta.badge': 'Beta',
@@ -280,6 +282,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.traders': 'Traders',
     'item.canBuy': 'Buyable',
     'item.canSell': 'Sellable',
+    'item.buyPrice': 'Buy price',
+    'item.sellPrice': 'Sell price',
     'item.fame': 'Fame required',
 
     'beta.badge': 'Beta',
