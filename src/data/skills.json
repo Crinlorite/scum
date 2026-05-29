@@ -1,0 +1,3929 @@
+[
+ {
+  "asset": "EnduranceSkill",
+  "slug": "endurance",
+  "attribute": "Constitution",
+  "name": {
+   "es": "Aguante",
+   "en": "Endurance",
+   "de": "Ausdauer",
+   "ru": "Стойкость",
+   "zh": "忍耐",
+   "fr": "Endurance",
+   "pt": "Resiliência",
+   "zh-tw": "忍耐",
+   "th": "ความอึด",
+   "pl": "Wytrwałość"
+  },
+  "description": {
+   "es": "El aguante es una habilidad que te permite soportar el dolor conservando la fuerza y la energía.\r\nAumenta al moverse mientras se carga de peso.\r\nInfluye en el ritmo de recuperación de resistencia y el ritmo de consumo de energía y agua.",
+   "en": "Endurance is a skill that enables you to withstand pain by conserving strength and energy.\r\nIs raised by: moving under a weight load.\r\nIt influences: stamina recovery rate, energy and water consumption rates.",
+   "de": "„Ausdauer“ ist eine Fertigkeit, Schmerzen zu ertragen und dabei Kraft und Energie zu sparen.\r\nWird erhöht durch: Bewegung unter Gewichtsbelastung.\r\nBeeinflusst: die Erholungsrate der Ausdauer, den Energie- und Wasserverbrauch.",
+   "ru": "Стойкость — это умение противостоять боли, сохраняя силу и энергию.\r\nОт чего улучшается: движение под грузом.\r\nНа что влияет: темп восстановления запаса сил, расхода энергии и воды.",
+   "zh": "忍耐是让你可以忍受疼痛，保存体力的技能。\r\n提升方式：在超重状态下移动。\r\n影响效果：耐力回复速率，能量和饮水消耗速率。",
+   "fr": "L'endurance est une compétence qui vous permet de conserver votre force et votre énergie malgré la douleur.\r\nElle est améliorée : en vous déplaçant en portant beaucoup de poids.\r\nElle influence : le taux de récupération de l'endurance, les taux de consommation d'énergie et d'eau.",
+   "pt": "Resiliência é uma habilidade que permite que você resista à dor ao conservar força e energia.\r\nAumenta ao: movimentar-se com bastante peso.\r\nInfluencia em: taxa de recuperação de vigor, energia e taxas de consumo de água.",
+   "zh-tw": "忍耐是能讓你保存力氣和能量來承受痛苦的技能。\r\n提升方式：在背負重物的情況下移動。\r\n影響：耐力恢復率、能量和水分的消耗率。",
+   "th": "ความอึดคือทักษะที่จะทำให้คุณทนต่อความเจ็บปวดด้วยการสะสมความแข็งแกร่งและพลังงาน\r\nจะเพิ่มขึ้นโดย: การเคลื่อนไหวพร้อมน้ำหนักบรรทุก\r\nจะส่งผลต่อ: อัตราการฟื้นฟูพลังกาย อัตราการสูญเสียพลังงาน และอัตราการบริโภคน้ำ",
+   "pl": "Wytrwałość to umiejętność, która pozwala wytrzymać ból, oszczędzać siłę i energię.\r\nJest podnoszona przez: poruszanie się pod obciążeniem.\r\nWpływa na: tempo odzyskiwania wytrzymałości, zużycie energii i wody."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfWalking": 15.0,
+     "PointsPerMinuteOfJogging": 30.0,
+     "PointsPerMinuteOfRunning": 50.0
+    },
+    "effects": {
+     "EnergyConsumptionMultiplier": {
+      "ValueWhenExperienceIsMaximal": 0.95
+     },
+     "WaterConsumptionMultiplier": {
+      "ValueWhenExperienceIsMaximal": 0.95
+     },
+     "StaminaRecoveryMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.9
+     }
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfWalking": 30.0,
+     "PointsPerMinuteOfJogging": 60.0,
+     "PointsPerMinuteOfRunning": 120.0
+    },
+    "effects": {
+     "EnergyConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.95,
+      "ValueWhenExperienceIsMaximal": 0.9
+     },
+     "WaterConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.95,
+      "ValueWhenExperienceIsMaximal": 0.9
+     },
+     "StaminaRecoveryMultiplier": {
+      "ValueWhenExperienceIsMaximal": 1.1
+     }
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfWalking": 60.0,
+     "PointsPerMinuteOfJogging": 120.0,
+     "PointsPerMinuteOfRunning": 240.0
+    },
+    "effects": {
+     "EnergyConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.9,
+      "ValueWhenExperienceIsMaximal": 0.85
+     },
+     "WaterConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.9,
+      "ValueWhenExperienceIsMaximal": 0.85
+     },
+     "StaminaRecoveryMultiplier": {
+      "ValueWhenExperienceIsMinimal": 1.1,
+      "ValueWhenExperienceIsMaximal": 1.2
+     }
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfWalking": 120.0,
+     "PointsPerMinuteOfJogging": 240.0,
+     "PointsPerMinuteOfRunning": 480.0
+    },
+    "effects": {
+     "EnergyConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.85,
+      "ValueWhenExperienceIsMaximal": 0.8
+     },
+     "WaterConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.85,
+      "ValueWhenExperienceIsMaximal": 0.8
+     },
+     "StaminaRecoveryMultiplier": {
+      "ValueWhenExperienceIsMinimal": 1.2,
+      "ValueWhenExperienceIsMaximal": 1.3
+     }
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfWalking": 240.0,
+     "PointsPerMinuteOfJogging": 480.0,
+     "PointsPerMinuteOfRunning": 960.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_endurance"
+ },
+ {
+  "asset": "RunningSkill",
+  "slug": "running",
+  "attribute": "Constitution",
+  "name": {
+   "es": "Carrera",
+   "en": "Running",
+   "de": "Laufen",
+   "ru": "Бег",
+   "zh": "奔跑",
+   "fr": "Course",
+   "pt": "Corrida",
+   "zh-tw": "奔跑",
+   "th": "การวิ่ง",
+   "pl": "Bieganie"
+  },
+  "description": {
+   "es": "La habilidad de carrera indica tu nivel de competencia atlética y lo bien que se te da correr.\r\nAumenta al trotar o correr.\r\nInfluye en la velocidad de trote o carrera.",
+   "en": "Running is a skill that shows how athletic you are and how proficient you are at running.\r\nIs raised by: jogging or running.\r\nIt influences: jogging and running speed.",
+   "de": "Laufen ist eine Fertigkeit, die zeigt, wie sportlich man ist und wie gut man rennen kann.\r\nWird erhöht durch: Joggen oder Rennen.\r\nBeeinflusst: die Geschwindigkeit beim Joggen oder Rennen.",
+   "ru": "Бег — это умение бегать в целом. Отражает, насколько заключённый спортивен.\r\nОт чего улучшается: бег трусцой или ускорение.\r\nНа что влияет: темп бега трусцой и ускорения.",
+   "zh": "奔跑是让你能够健步如飞的技能。\r\n提升方式：慢跑或快跑。\r\n影响效果：慢跑和快跑速度。",
+   "fr": "La course est une compétence qui démontre votre niveau d'athlétisme et votre maîtrise de la course à pied.\r\nElle est améliorée : en joggant ou en courant.\r\nElle influence : la vitesse de jogging et de course.",
+   "pt": "Corrida é uma habilidade que mostra suas capacidades atléticas e sua proficiência ao correr.\r\nAumenta ao: trotar ou correr.\r\nInfluencia em: velocidade de trote e corrida.",
+   "zh-tw": "奔跑技能代表你運動能力和奔跑熟練度。\r\n提升方式：慢跑或奔跑。\r\n影響：慢跑和奔跑速度。",
+   "th": "การวิ่งเป็นทักษะที่แสดงให้เห็นว่าคุณปราดเปรียวแค่ไหนและคุณเชี่ยวชาญแค่ไหนในการวิ่ง\r\nจะเพิ่มขึ้นโดย: การวิ่งเหยาะๆ หรือการวิ่ง\r\nจะส่งผลต่อ: ความเร็วในการวิ่งเหยาะๆ และการวิ่ง",
+   "pl": "Umiejętność biegania wskazuje poziom wysportowania oraz sprawności w bieganiu.\r\nJest podnoszona przez: truchtanie lub bieganie.\r\nWpływa na: prędkość truchtu i biegu."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfJogging": 15.0,
+     "PointsPerMinuteOfRunning": 24.0
+    },
+    "effects": {
+     "MaxSpeedMultiplier": {
+      "ValueWhenExperienceIsMaximal": 1.05
+     },
+     "StaminaConsumptionMultiplier": {
+      "ValueWhenExperienceIsMaximal": 0.9
+     }
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfJogging": 30.0,
+     "PointsPerMinuteOfRunning": 48.0
+    },
+    "effects": {
+     "MaxSpeedMultiplier": {
+      "ValueWhenExperienceIsMinimal": 1.05,
+      "ValueWhenExperienceIsMaximal": 1.1
+     },
+     "StaminaConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.9,
+      "ValueWhenExperienceIsMaximal": 0.8
+     }
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfJogging": 90.0,
+     "PointsPerMinuteOfRunning": 144.0
+    },
+    "effects": {
+     "MaxSpeedMultiplier": {
+      "ValueWhenExperienceIsMinimal": 1.1,
+      "ValueWhenExperienceIsMaximal": 1.15
+     },
+     "StaminaConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.8,
+      "ValueWhenExperienceIsMaximal": 0.7
+     }
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfJogging": 360.0,
+     "PointsPerMinuteOfRunning": 576.0
+    },
+    "effects": {
+     "MaxSpeedMultiplier": {
+      "ValueWhenExperienceIsMinimal": 1.15,
+      "ValueWhenExperienceIsMaximal": 1.2
+     },
+     "StaminaConsumptionMultiplier": {
+      "ValueWhenExperienceIsMinimal": 0.7,
+      "ValueWhenExperienceIsMaximal": 0.6
+     }
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerMinuteOfJogging": 1800.0,
+     "PointsPerMinuteOfRunning": 2880.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_running"
+ },
+ {
+  "asset": "AviationSkill",
+  "slug": "aviation",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Aviación",
+   "en": "Aviation",
+   "de": "Luftfahrt",
+   "ru": "Авиатехника",
+   "zh": "航空",
+   "fr": "Aviation",
+   "pt": "Aviação",
+   "zh-tw": "航空",
+   "th": "การบิน",
+   "pl": "Lotnictwo"
+  },
+  "description": {
+   "es": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "en": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "de": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "ru": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "zh": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "fr": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "pt": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "zh-tw": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "th": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions.",
+   "pl": "Aviation is a skill that determines a pilot’s ability to safely and effectively operate aircraft.\r\nIs raised by: piloting aircraft for extended periods of time.\r\nIt influences: overall aircraft handling, stability, responsiveness, and the ability to maintain control during demanding flight conditions."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "effects": {
+     "ShouldHaveMouseInput": false,
+     "ThrottleLerpMultiplier": 3.0,
+     "BrakeLerpMultiplier": 1.5,
+     "RollLerpMultiplier": 0.6,
+     "YawLerpMultiplier": 0.7,
+     "PitchLerpMultiplier": 0.7,
+     "ControlResetLerpMultiplier": 0.1,
+     "WindInfluenceMultiplier": 1.4
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 200.0
+    },
+    "effects": {
+     "ShouldHaveMouseInput": false,
+     "ThrottleLerpMultiplier": 3.0,
+     "BrakeLerpMultiplier": 1.5,
+     "RollLerpMultiplier": 0.8,
+     "YawLerpMultiplier": 0.7,
+     "PitchLerpMultiplier": 0.9,
+     "ControlResetLerpMultiplier": 0.1,
+     "WindInfluenceMultiplier": 1.2
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 800.0
+    },
+    "effects": {
+     "ShouldHaveMouseInput": false,
+     "ThrottleLerpMultiplier": 3.0,
+     "BrakeLerpMultiplier": 1.5,
+     "YawLerpMultiplier": 0.8,
+     "ControlResetLerpMultiplier": 0.1
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "ThrottleLerpMultiplier": 3.0,
+     "BrakeLerpMultiplier": 1.5,
+     "YawLerpMultiplier": 0.8,
+     "ControlResetLerpMultiplier": 0.1,
+     "WindInfluenceMultiplier": 0.8
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "ThrottleLerpMultiplier": 3.0,
+     "BrakeLerpMultiplier": 1.5,
+     "ControlResetLerpMultiplier": 0.1,
+     "WindInfluenceMultiplier": 0.6
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": null
+ },
+ {
+  "asset": "DemolitionSkill",
+  "slug": "demolition",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Demolición",
+   "en": "Demolition",
+   "de": "Demolierung",
+   "ru": "Взрывотехника",
+   "zh": "拆解",
+   "fr": "Démolition",
+   "pt": "Demolição",
+   "zh-tw": "爆破",
+   "th": "การทำลายล้าง",
+   "pl": "Wyburzanie"
+  },
+  "description": {
+   "es": "La demolición es una habilidad que muestra el conocimiento que se tiene sobre el uso de explosivos.\r\nAumenta al activar y desactivar explosivos o trampas de práctica.\r\nInfluye en el número de materiales necesarios para fabricar explosivos, el tiempo de desactivación de un explosivo, los intentos de desactivación, la calidad de los explosivos activados, el daño explosivo, el alcance de accionamiento y el desbloqueo de recetas de fabricación.",
+   "en": "Demolition is a skill that indicates how knowledgeable you are about the use of explosives.\r\nIs raised by: arming and disarming explosives / practice traps.\r\nIt influences: number of materials needed for crafting explosives,explosive defuse time, defuse attempts, quality of armed explosives, explosive damage, trigger radius and unlocks crafting recipes.",
+   "de": "Die Fertigkeit „Demolierung“ gibt an, wie gut du dich mit der Verwendung von Sprengstoffen auskennst.\r\nWird erhöht durch: Scharfmachen und Entschärfen von Sprengstoffen/Fallen (auch Übungsfallen).\r\nBeeinflusst: die Anzahl der Materialien, die zum Crafting von Sprengstoff benötigt werden, die Entschärfungszeit von Sprengstoff, die Entschärfungsversuche, die Qualität von gezündetem Sprengstoff, den Explosionsschaden, den Auslöseradius und schaltet Crafting-Rezepte für Sprengstoff frei.",
+   "ru": "Взрывотехника — это умение обращаться со взрывчаткой.\r\nОт чего улучшается: установка и обезвреживание взрывчатых веществ, а также тренировочных ловушек.\r\nНа что влияет: количество материалов для создания взрывчатки, время её обезвреживания, количество попыток обезвреживания, качество заряженной взрывчатки, наносимый урон от взрывов, радиус срабатывания и разблокирование рецептов для создания.",
+   "zh": "拆解是使用爆炸物的技能。\r\n提升方式：设置或拆除爆炸物/陷阱。\r\n影响效果：制造爆炸物需要的物品数量，爆炸物拆除时间，拆除尝试次数，设置爆炸物的质量，爆炸伤害，触发范围，解锁更多制作配方。",
+   "fr": "La démolition est une compétence qui indique votre degré de connaissance en explosifs.\r\nElle est améliorée : en armant et en désarmant des explosifs ou des pièges d'entraînement.\r\nElle influence : le nombre de matériaux nécessaires pour fabriquer des explosifs, le temps de désamorçage des explosifs, les tentatives de désamorçage, la qualité des explosifs armés, les dégâts des explosifs, le rayon de déclenchement et le déblocage des recettes de fabrication.",
+   "pt": "Demolição é uma habilidade que indica o seu conhecimento sobre o uso de explosivos.\r\nAumenta ao: armar e desarmar explosivos e armadilhas de prática.\r\nInfluencia em: quantidade de materiais necessários para criar explosivos, tempo de desarmamento de explosivos, tentativas de desarmamento, qualidade de explosivos armados, dano explosivo, raio de acionamento e desbloqueia receitas de criação.",
+   "zh-tw": "爆破技能代表你對炸藥的使用有多了解。\r\n提升方式：安裝和解除炸藥/陷阱。\r\n影響：製作炸藥所需的材料數量、拆除炸藥時間、拆除的嘗試次數、炸藥的安裝品質、爆炸傷害、觸發範圍、解鎖製作藍圖。",
+   "th": "การทำลายล้างคือทักษะที่บ่งบอกว่าคุณมีความรู้มากแค่ไหนในเรื่องการใช้วัตถุระเบิด\r\nจะเพิ่มขึ้นโดย: การติดตั้งและปลดชนวนระเบิด/การใช้กับดัก\r\nจะส่งผลต่อ: จำนวนวัตถุที่ต้องใช้ในการประดิษฐ์ระเบิด เวลาปลดชนวน จำนวนโอกาสปลดชนวน คุณภาพของระเบิดที่ติดตั้ง ความเสียหายระเบิด รัศมีการทำงาน และการปลดล็อกคู่มือการประดิษฐ์",
+   "pl": "Wyburzanie to umiejętność określająca twoją wiedzę na temat używania materiałów wybuchowych.\r\nJest podnoszone przez: uzbrajanie i rozbrajanie materiałów wybuchowych / pułapek treningowych.\r\nWpływa na: czas rozbrajania materiałów wybuchowych, liczbę prób rozbrajania, jakość uzbrojonych materiałów wybuchowych, obrażenia wybuchowe, odległość od wyzwalaczy. Odblokowuje też receptury rzemieślnicze."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForArmedTrap": 1.0,
+     "PointsForDisarmedOwnedTrap": 1.0,
+     "PointsForDisarmedEnemyTrap": 2000.0,
+     "PointsForDisarmedPracticeTrap": 100.0,
+     "PointsDecreasePerPracticeTrapTimerSecondsIncrease": 25.0,
+     "PointsIncreasePerPracticeTrapTimerSecondsDecrease": 50.0,
+     "PointsForAddedTrigger": 50.0
+    },
+    "effects": {
+     "TrapQuality": 0.5,
+     "GreenWiresNumber": 3,
+     "RedWiresNumber": 3,
+     "NumberOfDefuseAttempts": 5,
+     "ParametersPerTrapType": [
+      {
+       "Key": "ETrapType::SuicideZombie",
+       "Value": {
+        "DefuseTime": 3.0
+       }
+      },
+      {
+       "Key": "ETrapType::Default",
+       "Value": {
+        "DefuseTime": 5.0
+       }
+      }
+     ]
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForArmedTrap": 1.0,
+     "PointsForDisarmedOwnedTrap": 1.0,
+     "PointsForDisarmedEnemyTrap": 4000.0,
+     "PointsForDisarmedPracticeTrap": 375.0,
+     "PointsDecreasePerPracticeTrapTimerSecondsIncrease": 50.0,
+     "PointsIncreasePerPracticeTrapTimerSecondsDecrease": 100.0,
+     "PointsForAddedTrigger": 375.0
+    },
+    "effects": {
+     "TrapQuality": 0.625,
+     "GreenWiresNumber": 3,
+     "RedWiresNumber": 3,
+     "NumberOfDefuseAttempts": 4,
+     "ParametersPerTrapType": [
+      {
+       "Key": "ETrapType::SuicideZombie",
+       "Value": {
+        "DefuseTime": 3.0
+       }
+      },
+      {
+       "Key": "ETrapType::Default",
+       "Value": {
+        "DefuseTime": 5.0
+       }
+      }
+     ]
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForArmedTrap": 1.0,
+     "PointsForDisarmedOwnedTrap": 1.0,
+     "PointsForDisarmedEnemyTrap": 8000.0,
+     "PointsForDisarmedPracticeTrap": 850.0,
+     "PointsDecreasePerPracticeTrapTimerSecondsIncrease": 150.0,
+     "PointsIncreasePerPracticeTrapTimerSecondsDecrease": 300.0,
+     "PointsForAddedTrigger": 500.0
+    },
+    "effects": {
+     "TrapQuality": 0.75,
+     "GreenWiresNumber": 3,
+     "RedWiresNumber": 3,
+     "NumberOfDefuseAttempts": 3,
+     "ParametersPerTrapType": [
+      {
+       "Key": "ETrapType::SuicideZombie",
+       "Value": {
+        "DefuseTime": 3.0
+       }
+      },
+      {
+       "Key": "ETrapType::Default",
+       "Value": {
+        "DefuseTime": 5.0
+       }
+      }
+     ]
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForArmedTrap": 1.0,
+     "PointsForDisarmedOwnedTrap": 1.0,
+     "PointsForDisarmedEnemyTrap": 16000.0,
+     "PointsForDisarmedPracticeTrap": 3400.0,
+     "PointsDecreasePerPracticeTrapTimerSecondsIncrease": 600.0,
+     "PointsIncreasePerPracticeTrapTimerSecondsDecrease": 1200.0,
+     "PointsForAddedTrigger": 1000.0
+    },
+    "effects": {
+     "TrapQuality": 0.875,
+     "GreenWiresNumber": 3,
+     "RedWiresNumber": 3,
+     "NumberOfDefuseAttempts": 2,
+     "ParametersPerTrapType": [
+      {
+       "Key": "ETrapType::SuicideZombie",
+       "Value": {
+        "DefuseTime": 3.5
+       }
+      },
+      {
+       "Key": "ETrapType::Default",
+       "Value": {
+        "DefuseTime": 6.0
+       }
+      }
+     ]
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForArmedTrap": 1.0,
+     "PointsForDisarmedOwnedTrap": 1.0,
+     "PointsForDisarmedEnemyTrap": 32000.0,
+     "PointsDecreasePerPracticeTrapTimerSecondsIncrease": 1200.0,
+     "PointsIncreasePerPracticeTrapTimerSecondsDecrease": 2400.0,
+     "PointsForAddedTrigger": 2000.0
+    },
+    "effects": {
+     "TrapQuality": 1.0,
+     "GreenWiresNumber": 3,
+     "RedWiresNumber": 3,
+     "NumberOfDefuseAttempts": 1,
+     "ParametersPerTrapType": [
+      {
+       "Key": "ETrapType::SuicideZombie",
+       "Value": {
+        "DefuseTime": 3.5
+       }
+      },
+      {
+       "Key": "ETrapType::Default",
+       "Value": {
+        "DefuseTime": 6.0
+       }
+      }
+     ]
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_demolition"
+ },
+ {
+  "asset": "DrivingSkill",
+  "slug": "driving",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Conducción",
+   "en": "Driving",
+   "de": "Fahren",
+   "ru": "Вождение",
+   "zh": "驾驶",
+   "fr": "Conduite",
+   "pt": "Condução",
+   "zh-tw": "駕駛",
+   "th": "การขับรถ",
+   "pl": "Prowadzenie pojazdów"
+  },
+  "description": {
+   "es": "La conducción es una habilidad que te permite manejar vehículos terrestres con cuatro o más ruedas, así como aquellos que cuenten con tractor oruga y aerodeslizadores.\r\nAumenta al conducir durante un tiempo prolongado.\r\nInfluye en la frecuencia de calado del vehículo, la velocidad máxima alcanzable, la aceleración y el manejo.",
+   "en": "Driving is a skill that enables you to drive ground vehicles with four or more wheels as well as those with tracks and hovercraft.\r\nIs raised by: driving for an extended amount of time.\r\nIt influences: vehicle stalling frequency, maximum attainable speed, acceleration, steering.",
+   "de": "„Fahren“ beschreibt die Fertigkeit, die es dir ermöglicht, Bodenfahrzeuge mit vier oder mehr Rädern sowie Kettenfahrzeuge und Luftkissenfahrzeuge zu fahren.\r\nWird erhöht durch: Fahren über einen längeren Zeitraum.\r\nBeeinflusst: Häufigkeit des Abwürgens des Fahrzeugs, maximal erreichbare Geschwindigkeit, Beschleunigung, Lenkung.",
+   "ru": "Вождение — это умение управлять наземными транспортными средствами с четырьмя и более колёсами, а также гусеничным транспортом и кораблями на воздушной подушке.\r\nОт чего улучшается: вождение в течение длительного времени.\r\nНа что влияет: частота перебоев в работе двигателя, максимальная скорость, ускорение, управляемость.",
+   "zh": "驾驶是驾驶四轮以上的地面载具、沿轨道行驶的载具及气垫船的技能。\r\n提升方式：驾驶载具。\r\n影响效果：载具熄火频率，最大速度，加速度，转向效率。",
+   "fr": "La conduite est une compétence qui vous permet de conduire des véhicules terrestres à quatre roues ou plus, ainsi que des véhicules à chenilles et des aéroglisseurs.\r\nElle est améliorée : en conduisant pendant une période prolongée.\r\nElle influence : la fréquence de calage du véhicule, la vitesse maximale atteignable, l'accélération, la direction.",
+   "pt": "Condução é uma habilidade que permite que você dirija veículos terrestres com quatro ou mais rodas, esteiras e hovercrafts.\r\nAumenta ao: dirigir por bastante tempo.\r\nInfluencia em: frequência de desligamento do veículo, velocidade máxima atingível, aceleração, direção.",
+   "zh-tw": "駕駛是能讓你駕駛四輪以上陸地載具的技能，包括履帶式和氣墊式的載具。\r\n提升方式：長時間駕駛載具。\r\n影響：載具熄火頻率、最大速度、加速度、轉向能力。",
+   "th": "การขับรถคือทักษะที่จะทำให้คุณขับยานพาหนะทางบกที่มีสี่ล้อขึ้นไปได้ รวมทั้งยานพาหนะที่ใช้โซ่หรือที่เป็นโฮเวอร์คราฟต์\r\nจะเพิ่มขึ้นโดย: การขับรถเป็นระยะเวลาหนึ่ง\r\nจะส่งผลต่อ: ความถี่ที่ยานพาหนะจะดับ ความเร็วสูงสุดที่เร่งได้ การเร่งความเร็ว และการเลี้ยว",
+   "pl": "Prowadzenie pojazdów wieloosiowych to umiejętność, która umożliwia kierowanie pojazdami naziemnymi z czterema lub więcej kołami, a także tych z gąsienicami oraz poduszkowcami.\r\nJest podnoszone przez: jazdę przez dłuższy czas.\r\nWpływa na: częstotliwość gaśnięcia pojazdu, maksymalną osiągalną prędkość, przyspieszenie, dokładność sterowania."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "effects": {
+     "EngineStartViaMotionDuration": 3.0,
+     "MaxSpeedModifier": 0.4,
+     "ThrottleModifier": 0.7,
+     "WheelSteeringLerpSpeedMultiplier": 2.0,
+     "EngineHandlingParameters": {
+      "IgnitionDurationMultiplier": 3.0,
+      "IgnitionFailureChance": 0.5
+     },
+     "GearboxHandlingParameters": {
+      "GearChangeDelayMultiplier": 1.5,
+      "GearUpRatioMultiplier": 0.5,
+      "GearDownRatioMultiplier": 1.2
+     },
+     "EngineStallingByAccelerationParameters": {
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "MinDuration": 1.2,
+      "MaxDuration": 1.2,
+      "StopEngineChance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 3.0,
+      "MaxDuration": 3.0,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 3.0,
+      "BrakeCurveFrequencyMultiplier": 3.0,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 3.0
+     }
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 200.0
+    },
+    "effects": {
+     "MaxSpeedModifier": 0.6,
+     "ThrottleModifier": 0.8,
+     "WheelSteeringLerpSpeedMultiplier": 1.75,
+     "EngineHandlingParameters": {
+      "IgnitionDurationMultiplier": 2.0,
+      "IgnitionFailureChance": 0.25
+     },
+     "GearboxHandlingParameters": {
+      "GearChangeDelayMultiplier": 1.3,
+      "GearUpRatioMultiplier": 0.6,
+      "GearDownRatioMultiplier": 1.15
+     },
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.25,
+      "StopEngineChance": 0.25,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.25,
+      "StopEngineChance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 2.5,
+      "MaxDuration": 2.5,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 2.5,
+      "BrakeCurveFrequencyMultiplier": 2.5,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 2.5
+     }
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 800.0
+    },
+    "effects": {
+     "MaxSpeedModifier": 0.8,
+     "ThrottleModifier": 0.9,
+     "GearboxHandlingParameters": {
+      "GearChangeDelayMultiplier": 1.2,
+      "GearUpRatioMultiplier": 0.75,
+      "GearDownRatioMultiplier": 1.1
+     },
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 2.0,
+      "MaxDuration": 2.0,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 2.0,
+      "BrakeCurveFrequencyMultiplier": 2.0,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 2.0
+     }
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "GearboxHandlingParameters": {
+      "GearChangeDelayMultiplier": 1.1,
+      "GearUpRatioMultiplier": 0.9,
+      "GearDownRatioMultiplier": 1.05
+     },
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 1.5,
+      "MaxDuration": 1.5,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 1.5,
+      "BrakeCurveFrequencyMultiplier": 1.5,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 1.5
+     }
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 1.0,
+      "MaxDuration": 1.0,
+      "StopEngineChance": 0.0,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     }
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_driving"
+ },
+ {
+  "asset": "MotorcycleSkill",
+  "slug": "motorcycling",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Motociclismo",
+   "en": "Motorcycling",
+   "de": "Motorrad fahren",
+   "ru": "Мототехника",
+   "zh": "摩托车技术",
+   "fr": "Conduite de moto",
+   "pt": "Motociclismo",
+   "zh-tw": "摩托車",
+   "th": "การขี่มอเตอร์ไซค์",
+   "pl": "Prowadzenie motocykli"
+  },
+  "description": {
+   "es": "El motociclismo es una habilidad que permite conducir vehículos terrestres de dos o tres ruedas.\r\nAumenta al conducir durante un tiempo prolongado.\r\nInfluye en la frecuencia de calado del vehículo, la velocidad máxima alcanzable, la aceleración y el manejo.",
+   "en": "Motorcycling is a skill that enables you to drive ground vehicles with two or three wheels.\r\nIs raised by: driving for an extended amount of time.\r\nIt influences: vehicle stalling frequency, maximum attainable speed, acceleration, steering.",
+   "de": "„Motorradfahren“ beschreibt die Fertigkeit, die es dir ermöglicht, Bodenfahrzeuge mit zwei oder drei Rädern zu fahren.\r\nWird erhöht durch: Fahren über einen längeren Zeitraum.\r\nBeeinflusst: Häufigkeit des Abwürgens des Fahrzeugs, maximal erreichbare Geschwindigkeit, Beschleunigung, Lenkung.",
+   "ru": "Мототехника — это умение управлять наземными транспортными средствами с двумя или тремя колёсами.\r\nОт чего улучшается: вождение в течение длительного времени.\r\nНа что влияет: частота перебоев в работе двигателя, максимальная скорость, ускорение, управляемость.",
+   "zh": "摩托车驾驶是驾驶两轮或三轮地面载具的技能。\r\n提升方式：驾驶摩托车载具。\r\n影响效果：载具熄火频率，最大速度，加速度，转向效率。",
+   "fr": "La conduite de moto est une compétence qui vous permet de conduire des véhicules terrestres à deux ou trois roues.\r\nElle est améliorée : en conduisant pendant une période prolongée.\r\nElle influence : la fréquence de calage du véhicule, la vitesse maximale atteignable, l'accélération, la direction.",
+   "pt": "Motociclismo é uma habilidade que permite que você dirija veículos terrestres com duas ou três rodas.\r\nAumenta ao: dirigir por bastante tempo.\r\nInfluencia em: frequência de desligamento do veículo, velocidade máxima atingível, aceleração, direção.",
+   "zh-tw": "摩托車是能讓你駕駛二輪或三輪陸地載具的技能。\r\n提升方式：長時間駕駛載具。\r\n影響：載具熄火頻率、最大速度、加速度、轉向能力。",
+   "th": "การขี่มอเตอร์ไซค์คือทักษะที่จะทำให้คุณขับยานพาหนะทางบกที่มีสองหรือสามล้อได้\r\nจะเพิ่มขึ้นโดย: การขับเป็นระยะเวลาหนึ่ง\r\nจะส่งผลต่อ: ความถี่เวลายานพาหนะดับ ความเร็วสูงสุดที่เร่งได้ การเร่งความเร็ว และการเลี้ยว",
+   "pl": "Prowadzenie motocykli to umiejętność, która umożliwia kierowanie pojazdami naziemnymi z dwoma lub trzema kołami.\r\nJest podnoszone przez: jazdę przez dłuższy czas.\r\nWpływa na: częstotliwość gaśnięcia pojazdu, maksymalną osiągalną prędkość, przyspieszenie, dokładność sterowania."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "effects": {
+     "MaxSpeedModifier": 0.4,
+     "ThrottleModifier": 0.9
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 200.0
+    },
+    "effects": {
+     "MaxSpeedModifier": 0.6,
+     "ThrottleModifier": 0.9
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 800.0
+    },
+    "effects": {
+     "MaxSpeedModifier": 0.8,
+     "ThrottleModifier": 0.9,
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 2.0,
+      "MaxDuration": 2.0,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 2.0,
+      "BrakeCurveFrequencyMultiplier": 2.0,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 2.0
+     }
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "ThrottleModifier": 0.9,
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 1.5,
+      "MaxDuration": 1.5,
+      "StopEngineChance": 0.0,
+      "ThrottleCurveFrequencyMultiplier": 1.5,
+      "BrakeCurveFrequencyMultiplier": 1.5,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      },
+      "ForceMagnitudeScaleCurveFrequencyMultiplier": 1.5
+     }
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerDrivenDistanceInKm": 3200.0
+    },
+    "effects": {
+     "ThrottleModifier": 0.9,
+     "EngineStallingByAccelerationParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingByUpShiftParameters": {
+      "Chance": 0.0,
+      "ThrottleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationThrottle'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationThrottle.0"
+      },
+      "BrakeCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationBrake2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationBrake2.0"
+      },
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     },
+     "EngineStallingWhenStartingViaMotion": {
+      "Chance": 1.0,
+      "MinDuration": 1.0,
+      "MaxDuration": 1.0,
+      "StopEngineChance": 0.0,
+      "ForceMagnitudeScaleCurve": {
+       "ObjectName": "CurveFloat'EngineStallByAccelerationImpulseScale2'",
+       "ObjectPath": "SCUM/Content/ConZ_Files/Vehicles/Curves/EngineStallByAccelerationImpulseScale2.0"
+      }
+     }
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": null
+ },
+ {
+  "asset": "StealthSkill",
+  "slug": "stealth",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Sigilo",
+   "en": "Stealth",
+   "de": "Schleichen",
+   "ru": "Скрытность",
+   "zh": "潜行",
+   "fr": "Furtivité",
+   "pt": "Furtividade",
+   "zh-tw": "隱匿",
+   "th": "ลอบเร้น",
+   "pl": "Skradanie się"
+  },
+  "description": {
+   "es": "Sigilo es la habilidad de moverse cautelosamente, en silencio y lentamente para evitar que los demás te detecten.\r\nAumenta al moverse en posición agachada o tumbada.\r\nInfluye en el sonido que se produce al moverse.",
+   "en": "Stealth is the skill of moving cautiously, silently and slowly to prevent others from hearing you.\r\nIs raised by: moving while in crouch or prone position\r\nIt influences: sound produced while moving",
+   "de": "„Schleichen“ ist die Fertigkeit, sich vorsichtig, leise und langsam zu bewegen, sodass andere dich nicht hören können.\r\nWird erhöht durch: Bewegung in geduckter oder liegender Position.\r\nBeeinflusst: Geräusche, die beim Bewegen entstehen.",
+   "ru": "Скрытность — это умение двигаться осторожно, бесшумно и медленно, неслышно для других.\r\nОт чего улучшается: движение в положении сидя или лёжа.\r\nНа что влияет: звук, издаваемый при движении.",
+   "zh": "潜行是通过小心，安静且缓慢的移动避免自己被其他人发现的技能。\r\n提升方式：蹲伏或趴下时移动。\r\n影响效果：移动时发出的声音",
+   "fr": "La furtivité est l'aptitude à se déplacer prudemment, silencieusement et lentement pour éviter que les autres ne vous entendent.\r\nElle est améliorée : en vous déplaçant en position accroupie ou à plat ventre.\r\nElle influence : le son produit lorsque vous vous déplacez.",
+   "pt": "Furtividade é a habilidade de se mover de maneira cautelosa, silenciosa e lenta para evitar que outros escutem você.\r\nAumenta ao: mover-se enquanto estiver agachado ou deitado no chão.\r\nInfluencia em: barulhos causados ao se mover.",
+   "zh-tw": "隱匿是能讓你謹慎潛行，不讓其他人聽見你的技能。\r\n提升方式：在蹲下或伏地時移動。\r\n影響：移動時發出的聲音。",
+   "th": "ลอบเร้นคือทักษะในการเคลื่อนไหวอย่างระมัดระวัง เงียบเชียบ และช้าๆ เพื่อไม่ให้ผู้อื่นได้ยินคุณ\r\nจะเพิ่มขึ้นโดย: การเคลื่อนไหวในท่านั่งย่อหรือหมอบ\r\nจะส่งผลต่อ: เสียงที่ดังออกมาเวลาเคลื่อนไหว",
+   "pl": "Umiejętność skradania się pozwala na poruszanie się ostrożnie, cicho i powoli, aby zapobiec wykryciu przez innych.\r\nJest podnoszona przez: poruszanie się w pozycji kucznej lub leżącej.\r\nWpływa na: głośność dźwięków wydawanych podczas ruchu."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForCrouchedMovementPerSecond": 2.0,
+     "PointsForProneMovementPerSecond": 2.0
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForCrouchedMovementPerSecond": 4.0,
+     "PointsForProneMovementPerSecond": 4.0
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForCrouchedMovementPerSecond": 8.0,
+     "PointsForProneMovementPerSecond": 8.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForCrouchedMovementPerSecond": 16.0,
+     "PointsForProneMovementPerSecond": 16.0
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForCrouchedMovementPerSecond": 32.0,
+     "PointsForProneMovementPerSecond": 32.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_stealth"
+ },
+ {
+  "asset": "ThieverySkill",
+  "slug": "thievery",
+  "attribute": "Dexterity",
+  "name": {
+   "es": "Hurto",
+   "en": "Thievery",
+   "de": "Diebstahl",
+   "ru": "Взлом",
+   "zh": "偷窃技术",
+   "fr": "Crochetage",
+   "pt": "Roubo",
+   "zh-tw": "竊盜",
+   "th": "การขโมย",
+   "pl": "Złodziejstwo"
+  },
+  "description": {
+   "es": "Hurto es una habilidad que determina lo eficaz que eres al forzar cerraduras.\r\nAumenta al forzar cerraduras en general, tanto si se tiene éxito como si no.\r\nInfluye en el tiempo disponible en cada intento de forzar cerraduras y el nivel de la presión aplicada antes de romper la ganzúa.",
+   "en": "Thievery is a skill that determines how well you can pick locks.\r\nIs raised by: lockpicking in general, both successfully and unsuccessfully.\r\nIt influences: time available per lockpicking attempt, level of pressure applied before lockpicks break.",
+   "de": "Diebstahl ist eine Fertigkeit, die bestimmt, wie gut du Schlösser knacken kannst.\r\nWird erhöht durch: Schlösser knacken im Allgemeinen – sowohl erfolgreich als auch erfolglos.\r\nBeeinflusst: die verfügbare Zeit pro Dietrichversuch und den Druck, der ausgeübt wird, bevor die Dietriche brechen.",
+   "ru": "Взлом — это умение взламывать замки.\r\nОт чего улучшается: взлом в целом, как успешный, так и безуспешный.\r\nНа что влияет: время каждой попытки взлома и уровень давления, при котором отмычка не ломается.",
+   "zh": "窃术是撬锁的技能。\r\n提升方式：尝试撬锁。\r\n影响效果：每次撬锁的时间限制，撬锁工具损坏前可施加的最大压力。",
+   "fr": "Le crochetage est une compétence qui détermine votre capacité à crocheter les serrures.\r\nElle est améliorée : en crochetant des serrures de manière générale, que vous réussissiez ou non.\r\nElle influence : le temps disponible par tentative de crochetage, le niveau de pression appliqué avant que les kits de crochetage ne cassent.",
+   "pt": "Roubo é uma habilidade que determina sua capacidade de forçar fechaduras.\r\nAumenta ao: forçar fechaduras de forma geral, sendo bem ou malsucedido.\r\nInfluencia em: tempo disponível em cada tentativa de forçar fechadura e nível de pressão aplicado antes que as gazuas quebrem.",
+   "zh-tw": "竊盜是代表你多會開鎖的技能。\r\n提升方式：嘗試開鎖（無論成功或失敗）。\r\n影響：嘗試開鎖的時間限制、開鎖器斷掉前可承受的壓力。",
+   "th": "การขโมยคือทักษะที่จะกำหนดว่าคุณสะเดาะกลอนได้เก่งแค่ไหน\r\nจะเพิ่มขึ้นโดย: การสะเดาะกลอนทั่วไปทั้งสำเร็จและไม่สำเร็จ\r\nจะส่งผลต่อ: ระยะเวลาในการสะเดาะกลอนแต่ละครั้ง ระดับของแรงกดที่ใช้ก่อนที่อุปกรณ์สะเดาะกลอนจะแตกหัก",
+   "pl": "Umiejętność złodziejstwa określa, jak dobrze umiesz otwierać zamki.\r\nJest podnoszona przez: próby otwierania zamków, zarówno udane, jak i nieskuteczne.\r\nWpływa na: czas dostępny na próbę użycia wytrychu, poziom nacisku wywieranego przed pęknięciem wytrychu."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [],
+  "modifierCurves": {
+   "lockpickingDurationModifierCurve": {
+    "asset": "FC_LockpickingDurationModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "x": 4.0,
+      "y": 1.5
+     }
+    ]
+   },
+   "lockpickingStartAngleModifierCurve": {
+    "asset": "FC_LockpickingStartAngleModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 0.6665
+     },
+     {
+      "x": 1.0,
+      "y": 0.7145
+     },
+     {
+      "x": 2.0,
+      "y": 0.769
+     },
+     {
+      "x": 3.0,
+      "y": 0.8335
+     },
+     {
+      "x": 4.0,
+      "y": 1.0
+     }
+    ]
+   },
+   "lockpickingAngleModifierCurve": {
+    "asset": "FC_LockpickingAngleModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 0.5
+     },
+     {
+      "x": 4.0,
+      "y": 1.0
+     }
+    ]
+   },
+   "lockpickingDurabilityModifierCurve": {
+    "asset": "FC_LockpickingDurabilityModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 0.5
+     },
+     {
+      "x": 4.0,
+      "y": 0.7
+     }
+    ]
+   },
+   "dialPadDurationModifierCurve": {
+    "asset": "FC_DialPadDurationModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 2.5
+     },
+     {
+      "x": 4.0,
+      "y": 4.5
+     }
+    ]
+   },
+   "voltageMatchingDurationModifierCurve": {
+    "asset": "FC_VoltageMatchingDurationModifier",
+    "interp": "Linear",
+    "points": [
+     {
+      "x": 0.0,
+      "y": 6.065991e-08
+     },
+     {
+      "x": 4.0,
+      "y": 59.999996
+     }
+    ]
+   }
+  },
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_thievery"
+ },
+ {
+  "asset": "AwarenessSkill",
+  "slug": "awareness",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Percepción",
+   "en": "Awareness",
+   "de": "Aufmerksamkeit",
+   "ru": "Внимательность",
+   "zh": "警觉",
+   "fr": "Perception",
+   "pt": "Percepção",
+   "zh-tw": "感知",
+   "th": "การรับรู้",
+   "pl": "Spostrzegawczość"
+  },
+  "description": {
+   "es": "La percepción es una habilidad que te permite advertir pistas, objetos, enemigos camuflados y otros factores.\r\nAumenta al explorar la isla.",
+   "en": "Awareness is a skill that enables you to notice or be aware of clues, items, camouflaged enemies and other things.\r\nIs raised by: exploring The Island.",
+   "de": "„Aufmerksamkeit“ ist die Fertigkeit, Hinweise, Gegenstände, getarnte Gegner und andere Dinge zu bemerken oder wahrzunehmen.\r\nWird erhöht durch: Erkunden der Insel.",
+   "ru": "Внимательность — это умение замечать подсказки, предметы, замаскированных врагов и т. п.\r\nОт чего улучшается: исследование острова.",
+   "zh": "警觉是发现线索，物品，伪装的敌人或其他东西的技能。\r\n提升方式：探索岛屿。",
+   "fr": "La perception est une compétence qui vous permet de remarquer des indices, des objets et des ennemis camouflés, entre autres choses.\r\nElle est améliorée : en explorant l'île.",
+   "pt": "Percepção é uma habilidade que permite que você perceba pistas, itens, inimigos camuflados e outras coisas.\r\nAumenta ao: explorar a Ilha.",
+   "zh-tw": "感知是能讓你注意或察覺線索、道具、偽裝敵人和其他事物的技能。\r\n提升方式：探索島嶼。",
+   "th": "ทักษะการรับรู้จะช่วยให้สังเกตร่องรอย สิ่งของ ศัตรูที่พรางตัวและอื่นๆ ได้\r\nจะเพิ่มขึ้นโดย: การสำรวจเกาะ",
+   "pl": "Spostrzegawczość to umiejętność, która pozwala zauważać lub świadomie analizować wskazówki, przedmioty, zakamuflowanych wrogów i inne rzeczy.\r\nJest podnoszona przez: eksplorację wyspy."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForDetectedItem": 10.0,
+     "PointsForDetectedWatchingPrisoner": 50.0,
+     "PointsForDetectedCamouflagedPrisoner": 200.0
+    },
+    "effects": {
+     "ItemDetectionRadius": 400.0,
+     "ItemDetectionHighlightByDayRadius": 500.0,
+     "ItemDetectionHighlightByNightRadius": 200.0,
+     "WatchingDetectionTime": 10.0,
+     "WatchingDetectionRadius": 2500.0,
+     "CharacterDetectionAngle": 120.0,
+     "CharacterDetectionTime": 3.0,
+     "CharacterDetectionPeriodicRangeIncrement": 500.0,
+     "HiddenCharacterDetectionRange": 8000.0,
+     "HiddenCharacterHotSpotDetectionRange": 4000.0,
+     "HiddenCharacterSoundDetectionRange": 1000.0,
+     "TrackDetectionRange": 200.0,
+     "TrapDetectionRange": 50.0,
+     "FocusModeNotMovingFocusRangeMultiplier": 1.5,
+     "FocusModeSlowMovingFocusRangeMultiplier": 1.35,
+     "FocusModeMediumMovingFocusRangeMultiplier": 1.2,
+     "ContainerItemSpawnProbabilityModifier": 0.94
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForDetectedItem": 20.0,
+     "PointsForDetectedWatchingPrisoner": 200.0,
+     "PointsForDetectedCamouflagedPrisoner": 250.0
+    },
+    "effects": {
+     "ItemDetectionRadius": 400.0,
+     "ItemDetectionHighlightByDayRadius": 500.0,
+     "ItemDetectionHighlightByNightRadius": 200.0,
+     "WatchingDetectionTime": 10.0,
+     "WatchingDetectionRadius": 2500.0,
+     "WatchingDetectionChance": 0.3,
+     "CharacterDetectionAngle": 120.0,
+     "CharacterDetectionTime": 3.0,
+     "CharacterDetectionPeriodicRangeIncrement": 500.0,
+     "HiddenCharacterDetectionRange": 8000.0,
+     "HiddenCharacterHotSpotDetectionRange": 4000.0,
+     "HiddenCharacterSoundDetectionRange": 1000.0,
+     "TrackDetectionRange": 525.0,
+     "TrapDetectionRange": 100.0,
+     "FocusModeNotMovingFocusRangeMultiplier": 1.5,
+     "FocusModeSlowMovingFocusRangeMultiplier": 1.35,
+     "FocusModeMediumMovingFocusRangeMultiplier": 1.2,
+     "FlashbangFlashFadeOutDurationMultiplier": 0.875,
+     "ContainerItemSpawnProbabilityModifier": 0.97
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForDetectedItem": 40.0,
+     "PointsForDetectedWatchingPrisoner": 400.0,
+     "PointsForDetectedCamouflagedPrisoner": 300.0
+    },
+    "effects": {
+     "ItemDetectionRadius": 400.0,
+     "ItemDetectionHighlightByDayRadius": 500.0,
+     "ItemDetectionHighlightByNightRadius": 200.0,
+     "WatchingDetectionTime": 10.0,
+     "WatchingDetectionRadius": 2500.0,
+     "WatchingDetectionChance": 0.6,
+     "CharacterDetectionAngle": 120.0,
+     "CharacterDetectionTime": 3.0,
+     "CharacterDetectionPeriodicRangeIncrement": 500.0,
+     "HiddenCharacterDetectionRange": 8000.0,
+     "HiddenCharacterHotSpotDetectionRange": 4000.0,
+     "HiddenCharacterSoundDetectionRange": 1000.0,
+     "TrackDetectionRange": 850.0,
+     "TrapDetectionRange": 200.0,
+     "FocusModeNotMovingFocusRangeMultiplier": 1.5,
+     "FocusModeSlowMovingFocusRangeMultiplier": 1.35,
+     "FocusModeMediumMovingFocusRangeMultiplier": 1.2,
+     "FlashbangFlashFadeOutDurationMultiplier": 0.75
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForDetectedItem": 80.0,
+     "PointsForDetectedWatchingPrisoner": 1600.0,
+     "PointsForDetectedCamouflagedPrisoner": 350.0
+    },
+    "effects": {
+     "ItemDetectionRadius": 400.0,
+     "ItemDetectionHighlightByDayRadius": 500.0,
+     "ItemDetectionHighlightByNightRadius": 200.0,
+     "WatchingDetectionTime": 10.0,
+     "WatchingDetectionRadius": 2500.0,
+     "WatchingDetectionChance": 0.9,
+     "CharacterDetectionAngle": 120.0,
+     "CharacterDetectionTime": 3.0,
+     "CharacterDetectionPeriodicRangeIncrement": 500.0,
+     "HiddenCharacterDetectionRange": 8000.0,
+     "HiddenCharacterHotSpotDetectionRange": 4000.0,
+     "HiddenCharacterSoundDetectionRange": 1000.0,
+     "TrackDetectionRange": 1175.0,
+     "TrapDetectionRange": 300.0,
+     "FocusModeNotMovingFocusRangeMultiplier": 1.5,
+     "FocusModeSlowMovingFocusRangeMultiplier": 1.35,
+     "FocusModeMediumMovingFocusRangeMultiplier": 1.2,
+     "FlashbangFlashFadeOutDurationMultiplier": 0.625,
+     "ContainerItemSpawnProbabilityModifier": 1.03
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForDetectedItem": 160.0,
+     "PointsForDetectedWatchingPrisoner": 6400.0,
+     "PointsForDetectedCamouflagedPrisoner": 400.0
+    },
+    "effects": {
+     "ItemDetectionRadius": 400.0,
+     "ItemDetectionHighlightByDayRadius": 500.0,
+     "ItemDetectionHighlightByNightRadius": 200.0,
+     "WatchingDetectionTime": 10.0,
+     "WatchingDetectionRadius": 2500.0,
+     "WatchingDetectionChance": 1.0,
+     "CharacterDetectionAngle": 120.0,
+     "CharacterDetectionTime": 3.0,
+     "CharacterDetectionPeriodicRangeIncrement": 500.0,
+     "HiddenCharacterDetectionRange": 8000.0,
+     "HiddenCharacterHotSpotDetectionRange": 4000.0,
+     "HiddenCharacterSoundDetectionRange": 1000.0,
+     "TrackDetectionRange": 1500.0,
+     "TrapDetectionRange": 500.0,
+     "FocusModeNotMovingFocusRangeMultiplier": 1.5,
+     "FocusModeSlowMovingFocusRangeMultiplier": 1.35,
+     "FocusModeMediumMovingFocusRangeMultiplier": 1.2,
+     "FlashbangFlashFadeOutDurationMultiplier": 0.5,
+     "ContainerItemSpawnProbabilityModifier": 1.06
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": {
+   "EnterFocusModeAudioEvent": {
+    "ObjectName": "AkAudioEvent'Focus_Enabled'",
+    "ObjectPath": "SCUM/Content/WwiseAudio/Event/DefaultWorkUnit/Focus_Enabled.0"
+   },
+   "LeaveFocusModeAudioEvent": {
+    "ObjectName": "AkAudioEvent'Focus_Disabled'",
+    "ObjectPath": "SCUM/Content/WwiseAudio/Event/DefaultWorkUnit/Focus_Disabled.0"
+   },
+   "_updateTime": 0.05,
+   "_staminaConsumption": -0.1
+  },
+  "skillIcon": "T_awareness"
+ },
+ {
+  "asset": "CamouflageSkill",
+  "slug": "camouflage",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Camuflaje",
+   "en": "Camouflage",
+   "de": "Tarnung",
+   "ru": "Маскировка",
+   "zh": "伪装",
+   "fr": "Camouflage",
+   "pt": "Camuflagem",
+   "zh-tw": "偽裝",
+   "th": "พรางตัว",
+   "pl": "Kamuflaż"
+  },
+  "description": {
+   "es": "El camuflaje es la habilidad de disfrazarse y hacerse invisible para el resto.\r\nAumenta al esconderse en el follaje.\r\nInfluye en la visibilidad ante otros jugadores y PNJ.",
+   "en": "Camouflage is the skill of self-disguise and making yourself invisible to others.\r\nIs raised by: hiding in foliage.\r\nIt influences: visibility to other players and NPCs.",
+   "de": "„Tarnung“ ist die Fertigkeit, sich zu verbergen und sich für andere unsichtbar zu machen.\r\nWird erhöht durch: Verstecken im Laub.\r\nBeeinflusst: die Sichtbarkeit für andere Spieler und NPCs.",
+   "ru": "Маскировка — это умение маскироваться и становиться невидимым для других.\r\nОт чего улучшается: нахождение в листве.\r\nНа что влияет: видимость для других игроков и персонажей.",
+   "zh": "伪装是自我伪装并使自己对其他人隐身的技能。\r\n提升方式：藏在灌木丛里。\r\n影响效果：其他玩家或NPC对自己的能见度。",
+   "fr": "Le camouflage est l'art de se déguiser et de se rendre invisible aux yeux des autres.\r\nElle est améliorée : en se cachant dans le feuillage.\r\nElle influence : votre visibilité pour les autres joueurs et les PNJ.",
+   "pt": "Camuflagem é a habilidade de se disfarçar e ficar invisível para outras pessoas.\r\nAumenta ao: se esconder na vegetação.\r\nInfluencia em: visibilidade para outros jogadores e PNJs.",
+   "zh-tw": "偽裝是能讓你自我偽裝並讓其他人看不到你的技能。\r\n提升方式：躲在植被裡。\r\n影響：其他玩家和 NPC 的可見度。",
+   "th": "การพรางตัวคือทักษะในการอำพรางตนและทำให้ผู้อื่นมองไม่เห็นตนเอง\r\nจะเพิ่มขึ้นโดย: การซ่อมตามพุ่มไม้ใบหญ้า\r\nจะส่งผลต่อ: การมองเห็นของผู้เล่นคนอื่นและ NPC ต่อตนเอง",
+   "pl": "Kamuflaż to umiejętność maskowania się i czynienia siebie niewidzialnym dla innych.\r\nJest podnoszony przez: ukrywanie się w roślinności.\r\nWpływa na: widoczność dla innych graczy i postaci niezależnych."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "BonusExperience": -0.1
+    },
+    "effects": {
+     "Modifier": 1.1,
+     "Bonus": -0.1,
+     "FoliageAIPerceptionOuterRadius": 2000.0,
+     "FoliageAIPerceptionInnerRadius": 1600.0,
+     "VisibilityFadeByDistanceWhileStandingInMeters": {
+      "Min": 800.0
+     },
+     "VisibilityFadeByDistanceWhileCrouchingInMeters": {
+      "Min": 450.0,
+      "Max": 600.0
+     },
+     "VisibilityFadeByDistanceWhileInProneInMeters": {
+      "Min": 500.0
+     }
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "effects": {
+     "Modifier": 0.9,
+     "FoliageAIPerceptionOuterRadius": 1800.0,
+     "FoliageAIPerceptionInnerRadius": 1400.0,
+     "VisibilityFadeByDistanceWhileStandingInMeters": {
+      "Min": 700.0,
+      "Max": 1000.0
+     },
+     "VisibilityFadeByDistanceWhileCrouchingInMeters": {
+      "Min": 350.0,
+      "Max": 500.0
+     },
+     "VisibilityFadeByDistanceWhileInProneInMeters": {
+      "Min": 400.0,
+      "Max": 800.0
+     },
+     "PhysicalSurfaceVisibilityInfluenceDistanceInMeters": {
+      "Min": 100.0,
+      "Max": 275.0
+     }
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "other": {
+     "MovingCrouchingPenalty": 0.8
+    },
+    "experienceAwards": {
+     "BonusExperience": 0.1
+    },
+    "effects": {
+     "Modifier": 0.7,
+     "Bonus": 0.1,
+     "FoliageAIPerceptionOuterRadius": 1600.0,
+     "FoliageAIPerceptionInnerRadius": 1200.0,
+     "VisibilityFadeByDistanceWhileStandingInMeters": {
+      "Min": 650.0,
+      "Max": 1000.0
+     },
+     "VisibilityFadeByDistanceWhileCrouchingInMeters": {
+      "Min": 250.0,
+      "Max": 400.0
+     },
+     "VisibilityFadeByDistanceWhileInProneInMeters": {
+      "Min": 300.0,
+      "Max": 600.0
+     },
+     "PhysicalSurfaceVisibilityInfluenceDistanceInMeters": {
+      "Min": 75.0,
+      "Max": 200.0
+     }
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "BonusExperience": 0.2
+    },
+    "effects": {
+     "Modifier": 0.5,
+     "Bonus": 0.2,
+     "FoliageAIPerceptionOuterRadius": 1400.0,
+     "FoliageAIPerceptionInnerRadius": 1000.0,
+     "VisibilityFadeByDistanceWhileStandingInMeters": {
+      "Min": 700.0,
+      "Max": 900.0
+     },
+     "VisibilityFadeByDistanceWhileCrouchingInMeters": {
+      "Min": 200.0,
+      "Max": 300.0
+     },
+     "VisibilityFadeByDistanceWhileInProneInMeters": {
+      "Min": 250.0,
+      "Max": 500.0
+     },
+     "PhysicalSurfaceVisibilityInfluenceDistanceInMeters": {
+      "Min": 50.0,
+      "Max": 150.0
+     }
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "BonusExperience": 0.3
+    },
+    "effects": {
+     "Modifier": 0.3,
+     "Bonus": 0.3,
+     "FoliageAIPerceptionOuterRadius": 1200.0,
+     "FoliageAIPerceptionInnerRadius": 800.0,
+     "VisibilityFadeByDistanceWhileStandingInMeters": {
+      "Min": 700.0,
+      "Max": 900.0
+     },
+     "VisibilityFadeByDistanceWhileCrouchingInMeters": {
+      "Min": 200.0,
+      "Max": 300.0
+     },
+     "VisibilityFadeByDistanceWhileInProneInMeters": {
+      "Min": 200.0,
+      "Max": 400.0
+     },
+     "PhysicalSurfaceVisibilityInfluenceDistanceInMeters": {
+      "Min": 25.0,
+      "Max": 100.0
+     }
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": {
+   "_slowMovingCrouchingPenalty": 0.6,
+   "_slowMovingPronePenalty": 0.4
+  },
+  "skillIcon": "T_camouflage"
+ },
+ {
+  "asset": "CookingSkill",
+  "slug": "cooking",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Cocina",
+   "en": "Cooking",
+   "de": "Kochen",
+   "ru": "Готовка",
+   "zh": "烹饪",
+   "fr": "Cuisine",
+   "pt": "Culinária",
+   "zh-tw": "烹飪",
+   "th": "การทำอาหาร",
+   "pl": "Gotowanie"
+  },
+  "description": {
+   "es": "La cocina es una habilidad que te permite preparar platos deliciosos y nutritivos.\r\nAumenta al cocinar platos.\r\nInfluye en los tiempos de cocina de los platos.",
+   "en": "Cooking is a skill that enables you to create delicious and nutritious meals.\r\nIs raised by: Cooking meals.\r\nIt influences: Meal cooking times.",
+   "de": "Kochen ist eine Fertigkeit, die es dir ermöglicht, leckere und nahrhafte Mahlzeiten zuzubereiten.\r\nWird erhöht durch: Das Kochen von Mahlzeiten.\r\nEs beeinflusst: Die Kochzeit.",
+   "ru": "Готовка — это навык, позволяющий создавать вкусные и питательные блюда.\r\nОт чего улучшается: приготовление блюд.\r\nНа что влияет: время приготовления блюд.",
+   "zh": "烹饪是一种技能，使你能够做出美味营养的饭菜。\r\n提升方式：烹饪食物。\r\n影响效果：烹饪时间。",
+   "fr": "La cuisine est une compétence qui vous permet de préparer des repas délicieux et nutritifs.\r\nElle est améliorée : en cuisinant.\r\nElle influence : le temps de cuisson.",
+   "pt": "Culinária é uma habilidade que permite que você crie refeições deliciosas e nutritivas.\r\nAumenta ao: cozinhar.\r\nInfluencia em: tempo de cozimento de refeições.",
+   "zh-tw": "烹飪是能讓你創造美味營養料理的技能。\r\n提升方式：烹飪料理。\r\n影響：料理的烹飪時間。",
+   "th": "การทำอาหารคือทักษะที่จะช่วยทำให้อาหารอร่อยและมีคุณค่าทางโภชนาการ\r\nจะเพิ่มขึ้นโดย: การทำอาหาร\r\nจะส่งผลต่อ: เวลาการทำอาหาร",
+   "pl": "Gotowanie to umiejętność pozwalająca na tworzenie pysznych i pożywnych potraw.\r\nJest podnoszone przez: gotowanie potraw.\r\nWpływa na: czas gotowania."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [],
+  "modifierCurves": null,
+  "recipesKnownByDefault": [
+   "Cook_Dish_Grilled_Mushroom",
+   "Cook_Dish_Grilled_Chevap",
+   "Cook_Dish_Grill_Fish",
+   "Cook_Dish_Grilled_Meat",
+   "Cook_Dish_Grilled_Veggie",
+   "Cook_Dish_Fried_Eggs",
+   "Cook_Dish_Skewer_Meat",
+   "Cook_Dish_Skewer_Mixed",
+   "Cook_Dish_Skewer_Vegetable",
+   "Cook_Drink_CoffeeBlack",
+   "Cook_Drink_Tea",
+   "Cook_Dish_Skewer_Fish",
+   "Cook_Dish_Smoked_Drumstick",
+   "Cook_Dish_Smoked_Fish",
+   "Cook_Dish_Smoked_RabbitLeg",
+   "Cook_Dish_Smoked_RedMeat"
+  ],
+  "extraParameters": null,
+  "skillIcon": null
+ },
+ {
+  "asset": "EngineeringSkill",
+  "slug": "engineering",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Ingeniería",
+   "en": "Engineering",
+   "de": "Konstruktion",
+   "ru": "Инженерное дело",
+   "zh": "工程",
+   "fr": "Ingénierie",
+   "pt": "Engenharia",
+   "zh-tw": "工程",
+   "th": "วิศวกรรม",
+   "pl": "Technika"
+  },
+  "description": {
+   "es": "La ingeniería es una habilidad que te permite construir varias estructuras y fabricar ciertos objetos.\r\nAumenta al fabricar y mejorar elementos de construcción de base, al reparar elementos de construcción de base y otros objetos, y al arreglar ruedas de vehículos.\r\nInfluye en el numero de materiales necesarios para crear elementos de construcción de base, la calidad de las reparaciones y la velocidad de carga de baterías y repostaje.",
+   "en": "Engineering is a skill that enables you to build various constructions and craft various items.\r\nIs raised by: crafting and upgrading base building elements, repairing base building elements and other items and fixing vehicle tires.\r\nIt influences: number of materials needed for base building elements, repairing quality, charging and fueling speed.",
+   "de": "„Konstruktion“ beschreibt die Fertigkeit des Baus verschiedener Konstruktionen und des Craftings verschiedener Gegenstände.\r\nWird erhöht durch: Crafting und Aufrüstung von Basiskomponenten, Reparieren von Basiskomponenten und anderen Gegenständen sowie Reparieren von Fahrzeugreifen.\r\nBeeinflusst: die Anzahl der Materialien, die für Stützpunktbau-Komponenten benötigt werden, die Qualität der Reparaturen, die Geschwindigkeit des Aufladens und Betankens.",
+   "ru": "Инженерное дело — это умение строить различные конструкции и создавать различные предметы.\r\nОт чего улучшается: создание, улучшение и ремонт базовых элементов строительства базы и других предметов, а также ремонт шин.\r\nНа что влияет: количество материалов для создания базовых элементов строительства базы, разблокирование рецептов для создания, качество ремонта, скорость зарядки и заправки.",
+   "zh": "工程学是让你能够建造多种建筑，制作多种物品的技能。\r\n提升方式：制作或升级基地建筑元素，修理基地建筑元素或其他物品，修理载具轮胎。\r\n影响效果：基地建筑元素建造需求，修理质量，充电和加油速度。",
+   "fr": "L'ingénierie est une compétence qui vous permet de fabriquer divers éléments et objets.\r\nElle est améliorée : en fabriquant et en améliorant des éléments de construction de base, en réparant des éléments de construction de base, des objets et des pneus.\r\nElle influence : le nombre de matériaux nécessaires pour fabriquer des éléments de construction de base, le déblocage de recettes de fabrication, la qualité des réparations, la vitesse de chargement et de ravitaillement.",
+   "pt": "Engenharia é uma habilidade que permite que você erga construções e crie diversos itens.\r\nAumenta ao: criar e melhorar elementos de construção de base, reparar elementos de construção de base e outros itens, além de consertar pneus de veículos.\r\nInfluencia em: quantidade de materiais necessários para elementos de construção de base, qualidade de reparos, velocidade de carregamento e abastecimento.",
+   "zh-tw": "工程是能讓你建造各種建築和製作各種道具的技能。\r\n提升方式：製作和升級基地建設元素、修理基地建設元素和其他道具、修理載具輪胎。\r\n影響：基地建設元素所需的材料數量、修理品質、充電和加油的速度。",
+   "th": "วิศวกรรมเป็นทักษะที่จะช่วยให้คุณสร้างสิ่งก่อสร้างและประดิษฐ์สิ่งของได้หลากหลาย\r\nจะเพิ่มขึ้นโดย: การประดิษฐ์และการอัปเกรดองค์ประกอบสิ่งก่อสร้างฐาน การซ่อมแซมองค์ประกอบสิ่งก่อสร้างฐาน สิ่งของอื่นๆ รวมถึงการซ่อมยางของยานพาหนะ\r\nจะส่งผลต่อ: จำนวนวัตถุที่ต้องใช้สำหรับองค์ประกอบสิ่งก่อสร้างฐาน คุณภาพการซ่อมแซม ตลอดจนความเร็วในการชาร์จและการเติมน้ำมัน",
+   "pl": "Technika to umiejętność, która umożliwia budowanie różnych konstrukcji i tworzenie różnych przedmiotów.\r\nJest podnoszona przez: tworzenie i ulepszanie elementów do budowy bazy, naprawę elementów do budowy bazy i innych przedmiotów, a także naprawianie opon pojazdu.\r\nWpływa na: ilość materiałów potrzebnych do budowy elementów bazy, odblokowywania receptur rzemieślniczych, jakość naprawy, prędkość ładowania i tankowania."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "RepairExperienceMultiplier": 0.25,
+     "FillFuelExperienceMultiplier": 0.25,
+     "DrainFuelExperienceMultiplier": 0.25,
+     "ChargeBatteryExperienceMultiplier": 0.25
+    },
+    "effects": {
+     "RepairRadius": 50.0,
+     "RepairTimeMultiplier": 0.55,
+     "FillFuelDurationMultiplier": 1.3,
+     "DrainFuelDurationMultiplier": 1.3,
+     "ChargeBatteryDurationMultiplier": 1.3
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "RepairExperienceMultiplier": 0.5,
+     "FillFuelExperienceMultiplier": 0.5,
+     "DrainFuelExperienceMultiplier": 0.5,
+     "ChargeBatteryExperienceMultiplier": 0.5
+    },
+    "effects": {
+     "RepairRadius": 100.0,
+     "RepairTimeMultiplier": 0.4,
+     "ToolUsageMultiplier": 0.9,
+     "FillFuelDurationMultiplier": 1.15,
+     "DrainFuelDurationMultiplier": 1.15,
+     "ChargeBatteryDurationMultiplier": 1.15
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "effects": {
+     "RepairRadius": 200.0,
+     "RepairTimeMultiplier": 0.3,
+     "ToolUsageMultiplier": 0.8
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "RepairExperienceMultiplier": 2.0,
+     "FillFuelExperienceMultiplier": 2.0,
+     "DrainFuelExperienceMultiplier": 2.0,
+     "ChargeBatteryExperienceMultiplier": 2.0
+    },
+    "effects": {
+     "RepairRadius": 300.0,
+     "RepairTimeMultiplier": 0.15,
+     "ToolUsageMultiplier": 0.7,
+     "FillFuelDurationMultiplier": 0.85,
+     "DrainFuelDurationMultiplier": 0.85,
+     "ChargeBatteryDurationMultiplier": 0.85
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "RepairExperienceMultiplier": 2.0,
+     "FillFuelExperienceMultiplier": 2.0,
+     "DrainFuelExperienceMultiplier": 2.0,
+     "ChargeBatteryExperienceMultiplier": 2.0
+    },
+    "effects": {
+     "RepairRadius": 500.0,
+     "RepairTimeMultiplier": 0.05,
+     "ToolUsageMultiplier": 0.6,
+     "FillFuelDurationMultiplier": 0.7,
+     "DrainFuelDurationMultiplier": 0.7,
+     "ChargeBatteryDurationMultiplier": 0.7
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_engineering"
+ },
+ {
+  "asset": "FarmingSkill",
+  "slug": "farming",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Cultivo",
+   "en": "Farming",
+   "de": "Gärtnerei",
+   "ru": "Земледелие",
+   "zh": "耕种",
+   "fr": "Agriculture",
+   "pt": "Agricultura",
+   "zh-tw": "務農",
+   "th": "ทำสวน",
+   "pl": "Rolnictwo"
+  },
+  "description": {
+   "es": "El cultivo es una habilidad que define la destreza de alguien cultivando plantas.\r\nAumenta con la fabricación de un bancal, la plantación, la fertilización, el riego, el deshierbe y el cuidado de las plagas.\r\nInfluye en la cantidad de productos que se pueden cosechar y la velocidad de cada interacción agrícola, como plantar, desherbar o regar.",
+   "en": "Farming is a skill that defines how good someone is at growing plants.\r\nIs raised by: crafting a garden, planting, fertilizing, watering, weeding, and taking care of pests.\r\nIt influences: amount of harvestable produce, speed of each farming interaction like planting, weeding or watering.",
+   "de": "„Gärtnerei“ beschreibt die Fertigkeit, die bestimmt, wie gut jemand Pflanzen anbauen kann.\r\nWird erhöht durch: Anlegen eines Gartens, Pflanzen, Düngen, Gießen, Unkrautjäten und Schädlingsbekämpfung.\r\nBeeinflusst: die Menge der erntefähigen Produkte, die Geschwindigkeit jeder landwirtschaftlichen Interaktion wie Pflanzen, Jäten oder Gießen.",
+   "ru": "Земледелие — это умение выращивать растения.\r\nОт чего улучшается: создание сада, посев, удобрение, полив, прополка и борьба с вредителями.\r\nНа что влияет: количество получаемого урожая, скорость каждого действия, связанного с земледелием, такого как посев, прополка или полив.",
+   "zh": "耕种是决定你种植作物熟练度的技能。\r\n提高方式：制作苗圃，栽种，施肥，浇水，除草，除虫。\r\n影响效果：可收获的产品数量，农作行为的速度，如栽种、除草或浇水等。",
+   "fr": "L'agriculture est une compétence qui détermine votre capacité à faire pousser des plantes.\r\nElle est améliorée : en fabriquant un potager, en plantant des graines, en utilisant de l'engrais, en arrosant, en désherbant et en vous débarrassant des parasites.\r\nElle influence : la quantité de produits récoltés, la vitesse des actions agricoles (planter, désherber, arroser, etc.).",
+   "pt": "Agricultura é uma habilidade que define sua capacidade de cuidar de plantas.\r\nAumenta ao: criar um jardim, plantar, fertilizar, regar, remover ervas daninhas e lidar com pragas.\r\nInfluencia em: quantidade de produtos que podem ser colhidos e velocidade de cada interação de agricultura, como plantar, remover ervas daninhas ou regar.",
+   "zh-tw": "務農技能代表你有多會種植植物。\r\n提升方式：打造花園、種植、施肥、澆水、除草、處理害蟲。\r\n影響：可收穫的產品數量、各種務農互動的速度（例如種植、除草或澆水）。",
+   "th": "การทำสวนคือทักษะที่จะกำหนดว่าคนๆ นั้นเก่งแค่ไหนในการปลูกพืช\r\nจะเพิ่มขึ้นโดย: การประดิษฐ์ที่เกี่ยวกับสวน การปลูก การใส่ปุ๋ย การรดน้ำ การกำจัดวัชพืช และจัดการกับศัตรูพืช\r\nจะส่งผลต่อ: จำนวนของผลผลิตที่เก็บเกี่ยวได้ ความเร็วของเรื่องต่างๆ ในคำสั่งการทำสวนเช่นการปลูก การกำจัดวัชพืช และการรดน้ำ",
+   "pl": "Rolnictwo to umiejętność określająca, jak dobrze postać radzi sobie z hodowlą roślin.\r\nJest podnoszone przez: tworzenie ogródków, sadzenie, nawożenie, podlewanie, pielenie i pozbywanie się szkodników.\r\nWpływa na: wielkość plonów, szybkość każdego rolniczego działania, jak sadzenie, pielenie czy podlewanie."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "effects": {
+     "PlantingSeedTime": 55.0,
+     "ApplyPesticideTime": 7.0,
+     "RemovePlantTime": 10.0,
+     "SuccessfulHarvestChancePercentage": 100.0,
+     "PlantingSeedExperience": 125.0,
+     "AddFertilizerExperience": 150.0,
+     "WateringPlantExperiencePerLiter": 125.0,
+     "ReachingNextPlantStageExperience": 200.0,
+     "WeedingByHandExperience": 150.0,
+     "WeedingByToolExperience": 150.0,
+     "ApplyWeedRepellentExperience": 150.0,
+     "ApplyPesticideExperience": 150.0,
+     "CraftGardenExperience": 150.0
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "effects": {
+     "PlantingSeedTime": 52.5,
+     "ApplyPesticideTime": 7.0,
+     "RemovePlantTime": 10.0,
+     "SuccessfulHarvestChancePercentage": 100.0,
+     "SkillLevelBonusExperience": 50.0,
+     "PlantingSeedExperience": 250.0,
+     "AddFertilizerExperience": 300.0,
+     "WateringPlantExperiencePerLiter": 250.0,
+     "ReachingNextPlantStageExperience": 400.0,
+     "WeedingByHandExperience": 300.0,
+     "WeedingByToolExperience": 300.0,
+     "ApplyWeedRepellentExperience": 300.0,
+     "ApplyPesticideExperience": 300.0,
+     "CraftGardenExperience": 300.0
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "effects": {
+     "ApplyPesticideTime": 7.0,
+     "RemovePlantTime": 10.0,
+     "SuccessfulHarvestChancePercentage": 100.0,
+     "SkillLevelBonusExperience": 100.0,
+     "PlantingSeedExperience": 500.0,
+     "AddFertilizerExperience": 600.0,
+     "WateringPlantExperiencePerLiter": 500.0,
+     "ReachingNextPlantStageExperience": 800.0,
+     "WeedingByHandExperience": 600.0,
+     "WeedingByToolExperience": 600.0,
+     "ApplyWeedRepellentExperience": 600.0,
+     "ApplyPesticideExperience": 600.0,
+     "CraftGardenExperience": 600.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "effects": {
+     "PlantingSeedTime": 47.5,
+     "ApplyPesticideTime": 7.0,
+     "RemovePlantTime": 10.0,
+     "SuccessfulHarvestChancePercentage": 100.0,
+     "SkillLevelBonusExperience": 200.0,
+     "PlantingSeedExperience": 1000.0,
+     "AddFertilizerExperience": 1200.0,
+     "WateringPlantExperiencePerLiter": 1000.0,
+     "ReachingNextPlantStageExperience": 1600.0,
+     "WeedingByHandExperience": 1200.0,
+     "WeedingByToolExperience": 1200.0,
+     "ApplyWeedRepellentExperience": 1200.0,
+     "ApplyPesticideExperience": 1200.0,
+     "CraftGardenExperience": 1200.0
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "effects": {
+     "PlantingSeedTime": 45.0,
+     "ApplyPesticideTime": 7.0,
+     "RemovePlantTime": 10.0,
+     "SuccessfulHarvestChancePercentage": 100.0,
+     "SkillLevelBonusExperience": 400.0,
+     "PlantingSeedExperience": 2000.0,
+     "AddFertilizerExperience": 2400.0,
+     "WateringPlantExperiencePerLiter": 2000.0,
+     "ReachingNextPlantStageExperience": 3200.0,
+     "WeedingByHandExperience": 2400.0,
+     "WeedingByToolExperience": 2400.0,
+     "ApplyWeedRepellentExperience": 2400.0,
+     "ApplyPesticideExperience": 2400.0,
+     "CraftGardenExperience": 2400.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": null
+ },
+ {
+  "asset": "MedicalSkill",
+  "slug": "medical",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Medicina",
+   "en": "Medical",
+   "de": "Medizin",
+   "ru": "Медицина",
+   "zh": "医疗",
+   "fr": "Soins",
+   "pt": "Medicina",
+   "zh-tw": "醫療",
+   "th": "การแพทย์",
+   "pl": "Medycyna"
+  },
+  "description": {
+   "es": "La medicina es una habilidad que indica el grado de competencia al tratar lesiones.\r\nAumenta con el tratamiento de heridas y afecciones.\r\nInfluye en el tiempo de estabilización, la cantidad de objetos necesarios para tratar una herida con éxito y la probabilidad de conseguir mejorar el chip de UCB.",
+   "en": "Medical skill indicates how proficient you are at treating injuries. \r\nIs raised by: treating conditions and injuries.\r\nIt influences: stabilization time, number of required items for successful treatment, chance to successfully upgrade BCU chip.",
+   "de": "Die Fertigkeit „Medizin“ beschreibt, wie gut der Charakter Verletzungen behandeln kann. \r\nWird erhöht durch: Behandlung von Krankheiten und Verletzungen.\r\nBeeinflusst: Stabilisierungszeit, Anzahl der benötigten Gegenstände für eine erfolgreiche Behandlung, Chance auf die erfolgreiche Aufwertung des BCU-Chips.",
+   "ru": "Медицина — это умение лечить травмы.\r\nОт чего улучшается: лечение травм и эффектов состояния.\r\nНа что влияет: время стабилизации, количество необходимых предметов для успешного лечения, вероятность успешно улучшить чип BCU.",
+   "zh": "医疗是处理伤口的技能。\r\n提升方式：处理非健康状态和伤口。\r\n影响效果：包扎有效时间，处理所需物品数量。",
+   "fr": "La compétence de soins indique votre capacité à soigner les blessures.\r\nElle est améliorée : en traitant des états et des blessures.\r\nElle influence : le temps de stabilisation, le nombre d'objets requis pour un traitement réussi, les chances d'améliorer la puce BCU.",
+   "pt": "A habilidade de medicina indica sua capacidade de tratar ferimentos. \r\nAumenta ao: tratar condições e ferimentos.\r\nInfluencia em: tempo de estabilização, quantidade de itens necessários para ter sucesso no tratamento e chance de melhorar com sucesso um Chip UBC.",
+   "zh-tw": "醫療技能代表你處治損傷的熟練度。\r\n提升方式：處治狀態和損傷。\r\n影響：穩定時間、成功處治所需的道具數量、升級 BCU 晶片的成功率。",
+   "th": "ทักษะการแพทย์จะเป็นตัวบ่งบอกว่าคุณช่ำชองแค่ไหนในการรักษาอาการบาดเจ็บ\r\nจะเพิ่มขึ้นโดย: การรักษาอาการบาดเจ็บและความเจ็บป่วย\r\nจะส่งผลต่อ: ระยะเวลาทรงตัว จำนวนสิ่งของที่ต้องใช้เพื่อทำการรักษาให้สำเร็จ โอกาสสำเร็จในการอัปเกรดชิป BCU",
+   "pl": "Medycyna to umiejętność określająca twoją biegłość w leczeniu urazów.\r\nJest podnoszona przez: leczenie chorób i urazów.\r\nWpływa na: czas stabilizacji, liczbę przedmiotów wymaganych do skutecznego leczenia, szansę na udane ulepszenie BCU."
+  },
+  "availableInCharacterCreation": true,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "effects": {
+     "ManualBCUUpgradeSuccessChance": 0.125,
+     "ExtractBloodSampleDurationMultiplier": 2.2
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "effects": {
+     "ManualBCUUpgradeSuccessChance": 0.25,
+     "ExtractBloodSampleDurationMultiplier": 1.9
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "effects": {
+     "ManualBCUUpgradeSuccessChance": 0.5,
+     "ExtractBloodSampleDurationMultiplier": 1.6
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "effects": {
+     "ManualBCUUpgradeSuccessChance": 0.75,
+     "ExtractBloodSampleDurationMultiplier": 1.3
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "effects": {
+     "ManualBCUUpgradeSuccessChance": 1.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": {
+   "IsAvailableInCharacterCreation": true
+  },
+  "skillIcon": "T_medical"
+ },
+ {
+  "asset": "SnipingSkill",
+  "slug": "sniping",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Francotirador",
+   "en": "Sniping",
+   "de": "Scharfschütze",
+   "ru": "Снайперская стрельба",
+   "zh": "狙击技术",
+   "fr": "Tir de précision",
+   "pt": "Tiro de precisão",
+   "zh-tw": "狙擊",
+   "th": "การซุ่มยิง",
+   "pl": "Snajperstwo"
+  },
+  "description": {
+   "es": "La habilidad de francotirador indica lo bien que apuntas a través de miras y cuánto sabes sobre calcular la velocidad del viento y determinar el alcance.\r\nAumenta al disparar armas que cuenten con miras.\r\nInfluye en el tiempo de verificación del alcance y la habilidad de aguantar la respiración.",
+   "en": "Sniping is a skill that indicates how well you aim through scopes and how knowledgeable you are about wind speeds and determining range.\r\nIs raised by: shooting from weapons that have scopes attached to them.\r\nIt influences: range check speed, ability to hold breath.",
+   "de": "Die Fertigkeit „Scharfschütze“ beschreibt, wie gut der Charakter mithilfe eines Zielfernrohrs zielen kann und wie gut er Windgeschwindigkeiten und Entfernungen einschätzen kann.\r\nWird erhöht durch: das Schießen mit Waffen, an denen Zielfernrohre angebracht sind.\r\nBeeinflusst durch: Geschwindigkeit der Entfernungsmessung, Fähigkeit, die Luft anzuhalten.",
+   "ru": "Снайперская стрельба — это умение обращаться с прицелами, учитывать скорость ветра и определять дальность при выстреле.\r\nОт чего улучшается: при стрельбе из оружия, к которому прикреплены оптические прицелы.\r\nНа что влияет: скорость проверки дальности, способность задерживать дыхание.",
+   "zh": "狙击是使用准镜瞄准，判断风速和距离的技能。\r\n提升方式：使用装有准镜的武器射击。\r\n影响效果：测距速度，屏息时间。",
+   "fr": "Le tir de précision est une compétence qui indique votre capacité à viser à travers des lunettes de visée et votre connaissance de la vitesse du vent et de la portée.\r\nElle est améliorée : en tirant avec des armes équipées de lunettes de visée.\r\nElle influence : la vitesse de contrôle de la portée, la capacité à retenir votre respiration.",
+   "pt": "Tiro de precisão é uma habilidade que indica sua capacidade de mirar por meio de lunetas e o seu conhecimento sobre a velocidade do vento e a determinação do alcance.\r\nAumenta ao: atirar com armas com lunetas acopladas.\r\nInfluencia em: velocidade de verificação de alcance e capacidade de prender a respiração.",
+   "zh-tw": "狙擊是代表你多會使用瞄準鏡進行瞄準，以及你對風速和射程有多理解的技能。\r\n提升方式：使用安裝瞄準鏡的武器進行射擊。\r\n影響：射程確認速度、閉氣能力。",
+   "th": "การซุ่มยิงเป็นทักษะที่บ่งบอกว่าคุณเล็งผ่านกล้องเล็งได้ดีแค่ไหน และมีความรู้มากน้อยแค่ไหนเกี่ยวกับความเร็วลม และการกำหนดระยะ\r\nจะเพิ่มขึ้นโดย: การยิงจากอาวุธที่มีกล้องเล็งติดอยู่\r\nจะส่งผลต่อ: ความเร็วในการเช็คระยะ, ความสามารถในการกลั้นหายใจ",
+   "pl": "Umiejętność obsługi karabinów snajperskich wskazuje, jak dobrze celujesz przez lunety i jak dobrze znasz się na prędkościach wiatru i określaniu zasięgu.\r\nJest podnoszona przez: strzelanie z broni, na której zamontowane są lunety.\r\nWpływa na: prędkość pomiarów zasięgu, zdolność do wstrzymywania oddechu."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsPerShotDistance": 1.0,
+     "PointsPerSubsequentHit": 25.0,
+     "PointsForKillUnderDistanceLimit": 100.0,
+     "PointsForHeadshotUnderDistanceLimit": 100.0,
+     "PointsForHit": 100.0,
+     "PointsForKill": 300.0,
+     "PointsForHeadshot": 200.0,
+     "PointsForLowWindSpeed": 50.0,
+     "PointsForMediumWindSpeed": 75.0,
+     "PointsForHighWindSpeed": 100.0,
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "PointsForStanding": 100.0
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsPerShotDistance": 2.0,
+     "PointsPerSubsequentHit": 50.0,
+     "PointsForKillUnderDistanceLimit": 200.0,
+     "PointsForHeadshotUnderDistanceLimit": 200.0,
+     "PointsForHit": 200.0,
+     "PointsForKill": 600.0,
+     "PointsForHeadshot": 400.0,
+     "PointsForLowWindSpeed": 100.0,
+     "PointsForMediumWindSpeed": 150.0,
+     "PointsForHighWindSpeed": 200.0,
+     "PointsForProne": 100.0,
+     "PointsForCrouching": 150.0,
+     "PointsForStanding": 200.0
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsPerShotDistance": 4.0,
+     "PointsPerSubsequentHit": 50.0,
+     "PointsForKillUnderDistanceLimit": 400.0,
+     "PointsForHeadshotUnderDistanceLimit": 400.0,
+     "PointsForHit": 400.0,
+     "PointsForKill": 1200.0,
+     "PointsForHeadshot": 400.0,
+     "PointsForLowWindSpeed": 200.0,
+     "PointsForMediumWindSpeed": 300.0,
+     "PointsForHighWindSpeed": 400.0,
+     "PointsForProne": 200.0,
+     "PointsForCrouching": 300.0,
+     "PointsForStanding": 400.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsPerShotDistance": 8.0,
+     "PointsPerSubsequentHit": 100.0,
+     "PointsForKillUnderDistanceLimit": 800.0,
+     "PointsForHeadshotUnderDistanceLimit": 800.0,
+     "PointsForHit": 800.0,
+     "PointsForKill": 2400.0,
+     "PointsForHeadshot": 800.0,
+     "PointsForLowWindSpeed": 400.0,
+     "PointsForMediumWindSpeed": 600.0,
+     "PointsForHighWindSpeed": 800.0,
+     "PointsForProne": 400.0,
+     "PointsForCrouching": 600.0,
+     "PointsForStanding": 800.0
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsPerShotDistance": 16.0,
+     "PointsPerSubsequentHit": 200.0,
+     "PointsForKillUnderDistanceLimit": 1600.0,
+     "PointsForHeadshotUnderDistanceLimit": 1600.0,
+     "PointsForHit": 1600.0,
+     "PointsForKill": 4800.0,
+     "PointsForHeadshot": 1600.0,
+     "PointsForLowWindSpeed": 800.0,
+     "PointsForMediumWindSpeed": 1200.0,
+     "PointsForHighWindSpeed": 1600.0,
+     "PointsForProne": 800.0,
+     "PointsForCrouching": 1600.0,
+     "PointsForStanding": 1600.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_sniping"
+ },
+ {
+  "asset": "SurvivalSkill",
+  "slug": "survival",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Supervivencia",
+   "en": "Survival",
+   "de": "Überlebensfähigkeit",
+   "ru": "Выживание",
+   "zh": "生存",
+   "fr": "Survie",
+   "pt": "Sobrevivência",
+   "zh-tw": "生存",
+   "th": "การเอาตัวรอด",
+   "pl": "Przetrwanie"
+  },
+  "description": {
+   "es": "La supervivencia es una habilidad que indica tu capacidad de sobrevivir en la naturaleza.\r\nAumenta al fabricar objetos relacionados.\r\nInfluye en el número de materiales necesarios para fabricar objetos, la complejidad de la brújula y el desbloqueo de recetas de fabricación.",
+   "en": "Survival is a skill that indicates how well you are able to survive in the wild.\r\nIs raised by: crafting related items.\r\nIt influences: number of materials needed for crafting items, compass complexity and unlocks crafting recipes.",
+   "de": "„Überleben“ ist eine Fertigkeit, die angibt, wie gut du in der Wildnis überleben kannst.\r\nWird erhöht durch: das Herstellen von Gegenständen.\r\nBeeinflusst: die Anzahl der Materialien, die zur Herstellung von Gegenständen benötigt werden, die Komplexität des Kompasses und schaltet Handwerksrezepte frei.",
+   "ru": "Выживание — это умение выживать в дикой природе.\r\nОт чего улучшается: создание предметов, связанных с выживанием.\r\nНа что влияет: уровень компаса и разблокирование рецептов для создания предметов.",
+   "zh": "生存是让你在野外存活的技能。\r\n提升方式：制作相关物品。\r\n影响效果：制造物品时需要的物品数量，指南针复杂性，解锁更多制作配方。",
+   "fr": "La survie est une compétence qui indique votre capacité à survivre dans la nature.\r\nElle est améliorée : en fabriquant des objets de survie.\r\nElle influence : le nombre de matériaux nécessaires pour fabriquer des objets, la complexité de la boussole et le déblocage des recettes de fabrication.",
+   "pt": "Sobrevivência é uma habilidade que indica sua capacidade de sobreviver na natureza.\r\nAumenta ao: criar itens relacionados.\r\nInfluencia em: quantidade de materiais necessários para criar itens, complexidade da bússola e desbloqueio de receitas de criação.",
+   "zh-tw": "生存是代表你能否在野外活下去的技能。\r\n提升方式：製作相關的道具。\r\n影響：製作道具所需的材料數量、指南針的複雜度、解鎖製作藍圖。",
+   "th": "การเอาตัวรอดคือทักษะที่บ่งบอกว่าคุณเอาตัวรอดได้ดีแค่ไหนท่ามกลางธรรมชาติ\r\nจะเพิ่มขึ้นโดย: การประดิษฐ์สิ่งของที่เกี่ยวข้อง\r\nจะส่งผลต่อ: จำนวนวัตถุที่ต้องใช้ในการประดิษฐ์สิ่งของ, ความซับซ้อนของเข็มทิศ และปลดล็อกคู่มือการประดิษฐ์",
+   "pl": "Umiejętność przetrwania wskazuje, jak skutecznie radzisz sobie w dziczy.\r\nJest podnoszona przez: wytwarzanie powiązanych z nią przedmiotów.\r\nWpływa na: ilość materiałów niezbędnych do wytwarzania przedmiotów, złożoność kompasu. Odblokowuje receptury rzemieślnicze."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "effects": {
+     "CompassSkillLevel": 1
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "effects": {
+     "CompassSkillLevel": 2
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "effects": {
+     "CompassSkillLevel": 2
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "effects": {
+     "CompassSkillLevel": 2
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_survivals"
+ },
+ {
+  "asset": "TacticsSkill",
+  "slug": "tactics",
+  "attribute": "Intelligence",
+  "name": {
+   "es": "Tácticas",
+   "en": "Tactics",
+   "de": "Strategie",
+   "ru": "Тактическая подготовка",
+   "zh": "战术",
+   "fr": "Tactique",
+   "pt": "Tática",
+   "zh-tw": "戰術",
+   "th": "กลยุทธ์",
+   "pl": "Taktyka"
+  },
+  "description": {},
+  "availableInCharacterCreation": false,
+  "levels": [
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "other": {
+     "DetectionTime": 1.5
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "other": {
+     "DetectionTime": 2.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "other": {
+     "DetectionTime": 2.5
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "other": {
+     "DetectionTime": 3.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": {
+   "_fadeOutTime": 0.5,
+   "_detectionTimeDistanceScale": {
+    "ObjectName": "CurveFloat'FC_TacticsDetectionTimeDistanceScale'",
+    "ObjectPath": "SCUM/Content/ConZ_Files/Skills/FC_TacticsDetectionTimeDistanceScale.0"
+   },
+   "_tacticsDetectionCurveCoefficient1": 99999.0,
+   "IsAvailableInCharacterCreation": false
+  },
+  "skillIcon": null
+ },
+ {
+  "asset": "ArcherySkill",
+  "slug": "archery",
+  "attribute": "Strength",
+  "name": {
+   "es": "Tiro con arco",
+   "en": "Archery",
+   "de": "Bogenschießen",
+   "ru": "Стрельба из лука",
+   "zh": "箭术",
+   "fr": "Tir à l'arc",
+   "pt": "Arquearia",
+   "zh-tw": "箭術",
+   "th": "การยิงธนู",
+   "pl": "Łucznictwo"
+  },
+  "description": {
+   "es": "El tiro con arco es una habilidad que te permite disparar con arcos y flechas.\r\nAumenta al hacer daño con arco y flecha a jugadores y PNJ.\r\nInfluye en la capacidad de usar arcos de diferente potencia, el tiempo de recarga, tensado, espera en pleno tensado y el de ajuste del arco.",
+   "en": "Archery is a skill that enables you to shoot with bows and arrows.\r\nIs raised by: doing damage with bow and arrow to players and NPCs.\r\nIt influences: ability to use bows of different poundages, faster reload time, faster draw time, hold time at full draw, faster bow tuning.",
+   "de": "„Bogenschießen“ beschreibt die Fertigkeit, die es dir ermöglicht, mit Pfeil und Bogen zu schießen.\r\nWird erhöht durch: Schaden mit Pfeil und Bogen an Spielern oder NPCs erzeugen.\r\nBeeinflusst: die Fähigkeit, Bögen mit unterschiedlichem Gewicht zu benutzen, schnellere Nachladezeit, schnellere Ziehzeit, Haltezeit bei vollem Zug, schnellere Bogeneinstellung.",
+   "ru": "Стрельба из лука — это умение обращаться с луками.\r\nОт чего улучшается: нанесение урона игрокам и персонажам из лука.\r\nНа что влияет: способность использовать луки разного веса, скорость перезарядки, скорость натяжения, длительность удержания тетивы при полном натяжении, скорость настройки лука.",
+   "zh": "箭术是使用弓和箭的技能。\r\n提升方式：使用弓和箭对玩家和NPC造成伤害。\r\n影响效果：可以使用不同磅数的弓箭，弓箭装填速度，拉弓速度，拉满弓的保持时间，调弓速度。",
+   "fr": "Le tir à l'arc est une compétence qui vous permet de tirer avec des arcs et des flèches.\r\nElle est améliorée : en infligeant des dégâts avec un arc et des flèches aux joueurs et aux PNJ.\r\nElle influence : la capacité à utiliser des arcs de différents poids, la rapidité de rechargement, le rapidité de dégainage, le temps de maintien à pleine puissance, la rapidité du réglage de l'arc.",
+   "pt": "Arquearia é uma habilidade que permite que você atire com arco e flecha.\r\nAumenta ao: causar dano com arco e flecha em jogadores e PNJs.\r\nInfluencia em: capacidade de usar arcos de diferentes pesos, tempo de recarga mais rápido, tempo de puxada mais rápido, tempo de espera na puxada total, ajuste mais rápido do arco.",
+   "zh-tw": "箭術是能讓你使用弓箭進行射擊的技能。\r\n提升方式：使用弓箭對玩家和 NPC 造成傷害。\r\n影響：使用不同磅數的弓、加快重新裝填的時間、加快拉弓時間、延長拉滿弓的時間、加快調弓速度。",
+   "th": "การยิงธนูเป็นทักษะที่จะทำให้คุณยิงธนูด้วยลูกธนูได้\r\nจะเพิ่มขึ้นโดย: การสร้างความเสียหายโดยใช้ธนูและลูกธนูใส่ผู้เล่นและ NPC\r\nจะส่งผลต่อ: ความสามารถในการใช้ธนูที่มีแรงดึงต่างกัน เวลารีโหลดเร็วขึ้น เวลาดึงเร็วขึ้น การตรึงเอาไว้ตอนดึงจนสุด ตลอดจนการปรับธนู",
+   "pl": "Łucznictwo to umiejętność, która umożliwia używanie łuków i strzał.\r\nJest podnoszone przez: zadawanie obrażeń łukiem i strzałami graczom i postaciom niezależnym.\r\nWpływa na: możliwość korzystania z łuków o różnych wagach, szybkość przeładowania, czas naciągania cięciwy, czas trzymania przy pełnym naciągnięciu, szybsze strojenie łuku."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForCrouching": 75.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 1.1,
+     "DispersionMultiplyModifier": -0.2
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForKill": 200.0,
+     "PointsForHeadshot": 200.0,
+     "PointsForLowWindSpeed": 100.0,
+     "PointsForMediumWindSpeed": 150.0,
+     "PointsForHighWindSpeed": 200.0,
+     "PointsForCrouching": 175.0,
+     "PointsForStanding": 200.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.9,
+     "DispersionMultiplyModifier": -0.15
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForKill": 400.0,
+     "PointsForHeadshot": 400.0,
+     "PointsForLowWindSpeed": 200.0,
+     "PointsForMediumWindSpeed": 300.0,
+     "PointsForHighWindSpeed": 400.0,
+     "PointsForCrouching": 375.0,
+     "PointsForStanding": 400.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.75,
+     "DispersionMultiplyModifier": -0.25
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForKill": 800.0,
+     "PointsForHeadshot": 800.0,
+     "PointsForLowWindSpeed": 400.0,
+     "PointsForMediumWindSpeed": 600.0,
+     "PointsForHighWindSpeed": 800.0,
+     "PointsForCrouching": 785.0,
+     "PointsForStanding": 800.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.5,
+     "DispersionMultiplyModifier": -0.25
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForKill": 1600.0,
+     "PointsForHeadshot": 1600.0,
+     "PointsForLowWindSpeed": 800.0,
+     "PointsForMediumWindSpeed": 1200.0,
+     "PointsForHighWindSpeed": 1600.0,
+     "PointsForCrouching": 1285.0,
+     "PointsForStanding": 1600.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.4,
+     "DispersionMultiplyModifier": -0.25
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_archery"
+ },
+ {
+  "asset": "BoxingSkill",
+  "slug": "brawling",
+  "attribute": "Strength",
+  "name": {
+   "es": "Pelea",
+   "en": "Brawling",
+   "de": "Schlagen",
+   "ru": "Драка",
+   "zh": "近战肉搏",
+   "fr": "Bagarre",
+   "pt": "Briga",
+   "zh-tw": "肉搏",
+   "th": "การสู้มือเปล่า",
+   "pl": "Walka wręcz"
+  },
+  "description": {
+   "es": "La pelea es la habilidad de luchar con los puños, los pies y otras partes del cuerpo.\r\nAumenta al hacer daño cuerpo a cuerpo a jugadores y PNJ.\r\nInfluye en la velocidad de los ataques cuerpo a cuerpo, los ataques combinados disponibles y la eficacia de los bloqueos.",
+   "en": "Brawling is the skill of fighting with fists, feet and other body parts.\r\nIs raised by: doing hand-to-hand damage to players and NPCs.\r\nIt influences: hand-to-hand attack speed, available combo attacks, blocking efficiency.",
+   "de": "„Schlagen“ ist die Fertigkeit, mit Fäusten, Füßen und anderen Körperteilen zu kämpfen.\r\nWird erhöht durch: Verursachen von Schlag-Schaden mit den Händen an Spielern und NPCs.\r\nBeeinflusst: Angriffsgeschwindigkeit mit den Händen, verfügbare Kombo-Angriffe, Block-Effizienz.",
+   "ru": "Драка — это умение сражаться кулаками, ногами и другими частями тела.\r\nОт чего улучшается: нанесение урона игрокам и персонажам в рукопашном бою.\r\nНа что влияет: скорость атаки в ближнем бою, доступные комбо-атаки, эффективность блокировки.",
+   "zh": "搏斗术是使用拳、脚及其他肢体部位战斗的技能。\r\n提升方式：对玩家或NPC造成肉搏伤害。\r\n影响效果：肉搏攻击速度，额外组合攻击，格挡效率。",
+   "fr": "La bagarre est la capacité de se battre avec les poings, les pieds et d'autres parties du corps.\r\nElle est améliorée : en infligeant des dégâts au corps à corps aux joueurs et aux PNJ.\r\nElle influence : la vitesse d'attaque au corps à corps, les combos disponibles, l'efficacité des parades.",
+   "pt": "Briga é a habilidade de lutar com os punhos, pés e outras partes do corpo.\r\nAumenta ao: causar dano corpo a corpo em jogadores e PNJs.\r\nInfluencia em: velocidade de ataque corpo a corpo, ataques de combo disponíveis, eficiência de bloqueio.",
+   "zh-tw": "肉搏是能讓你用拳頭、腳和其他身體部位進行戰鬥的技能。\r\n提升方式：對玩家和 NPC 造成徒手傷害。\r\n影響：徒手攻擊速度、可施展的連續攻擊、格擋效率。",
+   "th": "การสู้มือเปล่าคือทักษะการต่อสู้ด้วยมือ เท้า และส่วนต่างๆ ของร่างกาย\r\nจะเพิ่มขึ้นโดย: การสร้างความเสียหายใส่ผู้เล่นกับ NPC ด้วยมือเปล่า\r\nจะส่งผลต่อ: ความเร็วในการโจมตีด้วยมือเปล่า คอมโบโจมตีที่ใช้ได้ และประสิทธิภาพการป้องกัน",
+   "pl": "Walka wręcz to umiejętność walki pięściami, stopami i innymi częściami ciała.\r\nJest podnoszona przez: zadawanie obrażeń w walce wręcz graczom i postaciom niezależnym.\r\nWpływa na: szybkość ataku wręcz, dostępne ataki kombinacyjne, skuteczność blokowania."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForHit": 5.0,
+     "PointsForKill": 20.0,
+     "SkillLevelBonusPoints": 10.0
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForHit": 10.0,
+     "PointsForKill": 40.0,
+     "SubsequentHitMultiplier": 4.0,
+     "SkillLevelBonusPoints": 20.0
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForHit": 20.0,
+     "PointsForKill": 80.0,
+     "SubsequentHitMultiplier": 8.0,
+     "SkillLevelBonusPoints": 40.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForHit": 40.0,
+     "PointsForKill": 160.0,
+     "SubsequentHitMultiplier": 16.0,
+     "SkillLevelBonusPoints": 100.0
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForHit": 80.0,
+     "PointsForKill": 320.0,
+     "SubsequentHitMultiplier": 32.0,
+     "SkillLevelBonusPoints": 180.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_boxing"
+ },
+ {
+  "asset": "HandgunSkill",
+  "slug": "handgun",
+  "attribute": "Strength",
+  "name": {
+   "es": "Pistolas",
+   "en": "Handgun",
+   "de": "Pistole",
+   "ru": "Пистолеты",
+   "zh": "手枪枪法",
+   "fr": "Armes de poing",
+   "pt": "Pistola",
+   "zh-tw": "手槍",
+   "th": "ปืนพก",
+   "pl": "Broń krótka"
+  },
+  "description": {
+   "es": "La habilidad de pistolas muestra el grado de familiaridad con pistolas de cualquier tipo, ya sea disparando, realizando su mantenimiento o llevando a cabo arreglos.\r\nAumenta al disparar a jugadores y PNJ con pistolas, así como al recargarlas.\r\nInfluye en un tiempo de recarga más rápido, un cambio más rápido de posición (de preparación a apuntado o viceversa), el retroceso y la precisión de disparo con pistolas.",
+   "en": "Handgun skill indicates how familiar you are with handguns of any type; whether firing, maintaining or fixing them.\r\nIs raised by: shooting players and NPCs with handguns, as well as reloading handguns.\r\nIt influences: faster reload time, faster change from position to position (readying/aiming), recoil, shooting accuracy with handguns.",
+   "de": "Die Fertigkeit „Pistole“ beschreibt, wie fähig der Charakter im Umgang mit Handfeuerwaffen aller Art ist – sei es in Bezug auf das Abfeuern, die Wartung oder Reparatur.\r\nWird erhöht durch: das Schießen auf Spieler und NPCs mit Pistolen sowie das Nachladen von Pistolen.\r\nBeeinflusst: schnelleres Nachladen, schnelleres Wechseln von Position zu Position (Bereitschaft/Zielen), Rückstoß, Schussgenauigkeit mit Pistolen.",
+   "ru": "Пистолеты — это умение обращаться с пистолетами любого типа, будь то стрельба, уход или ремонт.\r\nОт чего улучшается: стрельба из пистолета по игрокам и персонажам, перезарядка пистолетов.\r\nНа что влияет: время перезарядки, скорость изменения боевой позиции (подготовка и прицеливание), отдача, точность стрельбы из пистолета.",
+   "zh": "手枪枪法代表了你对手枪的熟悉程度，包括射击、维护和修理。\r\n提高方式：用手枪射击玩家和NPC，以及给手枪装弹\r\n影响效果：装弹时间，改变姿势（准备/瞄准）速度，后坐力，手枪的射击精度。",
+   "fr": "La maîtrise des armes de poing est une compétence qui indique votre degré de connaissance des armes de poing, que ce soit pour les utiliser, les entretenir ou les réparer.\r\nElle est améliorée : en tirant sur des joueurs et des PNJ avec des armes de poing, ainsi qu'en rechargeant ces armes.\r\nElle influence : la rapidité de rechargement, la rapidité de changement de position (préparation/visée), le recul, la précision de tir avec les armes de poing.",
+   "pt": "A habilidade com pistola indica sua familiaridade com pistolas de qualquer tipo, seja atirando, cuidando ou consertando.\r\nAumenta ao: atirar em jogadores e PNJs com pistolas, assim como ao recarregá-las.\r\nInfluencia em: tempo de recarga mais rápido, mudança de posição mais rápida (preparando, mirando), recuo e precisão de tiro com pistolas.",
+   "zh-tw": "手槍技能代表你對各種類型的手槍有多熟悉，包括射擊和維護修理。\r\n提升方式：用手槍射擊玩家和 NPC、重新裝填手槍彈藥。\r\n影響：加快重新裝填的速度、加快切換姿勢的速度（準備或瞄準）、後座力、手槍的射擊準度。",
+   "th": "ทักษะปืนพกจะเป็นตัวบ่งบอกว่าคุณมีความเคยชินกับปืนพกทุกประเภทมากแค่ไหนในเรื่องของการยิงปืน การบำรุงรักษา หรือซ่อมแซมปืนพก\r\nจะเพิ่มขึ้นโดย: การยิงผู้เล่นและ NPC ด้วยปืนพก รวมถึงการรีโหลดด้วยปืนพก\r\nจะส่งผลต่อ: เวลารีโหลดเร็วขึ้น, การเปลี่ยนท่าทาง (เตรียม/เล็ง) เร็วขึ้น, แรงถีบ และความแม่นยำในการยิงด้วยปืนพก",
+   "pl": "Umiejętność obsługi broni krótkiej określa, jak dobrze znasz pistolety dowolnego typu – czy z nich strzelasz, czy też je konserwujesz lub naprawiasz.\r\nJest podnoszona przez: strzelanie do graczy i postaci niezależnych za pomocą broni krótkiej i jej przeładowywanie.\r\nWpływa na: czas przeładowania, tempo zmiany pozycji (gotowość/celowanie), odrzut i celność strzelania z broni krótkiej."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 1.1,
+     "DispersionMultiplyModifier": -0.2
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.9,
+     "DispersionMultiplyModifier": -0.15
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.75,
+     "DispersionMultiplyModifier": -0.25
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.5,
+     "DispersionMultiplyModifier": -0.25
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.5,
+     "DispersionMultiplyModifier": -0.25
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_handgun"
+ },
+ {
+  "asset": "MeleeWeaponsSkill",
+  "slug": "melee-weapons",
+  "attribute": "Strength",
+  "name": {
+   "es": "Armas cuerpo a cuerpo",
+   "en": "Melee Weapons",
+   "de": "Nahkampfwaffen",
+   "ru": "Оружие ближнего боя",
+   "zh": "近战武器",
+   "fr": "Armes de mêlée",
+   "pt": "Armas brancas",
+   "zh-tw": "近戰武器",
+   "th": "อาวุธระยะประชิด",
+   "pl": "Broń biała"
+  },
+  "description": {
+   "es": "Armas cuerpo a cuerpo hace referencia a una habilidad que te permite utilizar cuchillos, hachas, garrotes y otras armas usadas en el combate cuerpo a cuerpo.\r\nAumenta al infligir daño con armas cuerpo a cuerpo a otros jugadores, PNJ y elementos de construcción de base.\r\nInfluye en la velocidad de ataque con armas cuerpo a cuerpo, los ataques combinados disponibles y el daño con armas cuerpo a cuerpo.",
+   "en": "Melee Weapons is a skill that enables you to use knives, axes, clubs and other hand-held weapons.\r\nIs raised by: doing damage with melee weapons to players, NPCs and base-building elements.\r\nIt influences: melee weapon attack speed, available combo attacks, melee weapon damage.",
+   "de": "Die Fertigkeit „Nahkampfwaffen“ ermöglicht dir, Messer, Äxte, Knüppel und andere Handwaffen zu benutzen.\r\nWird erhöht durch: Verursachen von Schaden mit Nahkampfwaffen an Spielern, NPCs und Bauelementen.\r\nBeeinflusst: Angriffsgeschwindigkeit von Nahkampfwaffen, verfügbare Kombo-Angriffe, Schaden von Nahkampfwaffen.",
+   "ru": "Оружие ближнего боя — это умение обращаться с ножами, топорами, дубинками и другим ручным оружием.\r\nОт чего улучшается: нанесение урона оружием ближнего боя игрокам, персонажам и базовым элементам строительства базы.\r\nНа что влияет: скорость атаки и урон оружием ближнего боя, доступные комбо-атаки.",
+   "zh": "近战武器专精是使用小刀、斧子、棍棒等手持武器的技能。\r\n提升方式：使用近战武器对玩家、NPC或基地建筑元素造成伤害。\r\n影响效果：近战武器攻击速度，额外组合攻击，近战武器伤害。",
+   "fr": "La maîtrise des armes de mêlée est une compétence qui vous permet d'utiliser des couteaux, des haches, des massues et d'autres armes de mêlée.\r\nElle est améliorée : en infligeant des dégâts avec des armes de mêlée aux joueurs, aux PNJ et aux éléments de construction de base.\r\nElle influence : la vitesse d'attaque des armes de mêlée, les combos disponibles, les dégâts des armes de mêlée.",
+   "pt": "Armas brancas é uma habilidade que permite o uso de facas, machados, bastões e outras armas de mão.\r\nAumenta ao: causar dano com armas brancas em jogadores, PNJs e elementos de construção de base.\r\nInfluencia em: velocidade de ataque com armas brancas, ataques de combo disponíveis, dano com armas brancas.",
+   "zh-tw": "近戰武器是能讓你使用小刀、斧頭、棍棒和其他手持武器的技能。\r\n提升方式：用近戰武器對玩家、NPC 和基地建設元素造成傷害。\r\n影響：近戰武器攻擊速度、可施展的連續攻擊、近戰武器傷害。",
+   "th": "อาวุธระยะประชิดคือทักษะที่จะทำให้คุณใช้มีด ขวาน กระบอง และอาวุธแบบใช้มือถือได้\r\nจะเพิ่มขึ้นโดย: การสร้างความเสียหายด้วยอาวุธระยะประชิดใส่ผู้เล่น, NPC และองค์ประกอบสิ่งก่อสร้างฐาน\r\nจะส่งผลต่อ: ความเร็วในการโจมตีของอาวุธระยะประชิด คอมโบโจมตีที่ใช้งานได้ และความเสียหายของอาวุธระยะประชิด",
+   "pl": "Umiejętność władania bronią białą umożliwia używanie noży, toporów, pałek i innych rodzajów broni ręcznej.\r\nJest podnoszona przez: zadawanie obrażeń bronią białą graczom, postaciom niezależnym i elementom baz.\r\nWpływa na: szybkość ataku bronią białą, dostępne ataki kombinacyjne, obrażenia zadawane bronią białą."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForHit": 5.0,
+     "PointsForKill": 20.0,
+     "SkillLevelBonusPoints": 10.0
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForHit": 10.0,
+     "PointsForKill": 40.0,
+     "SubsequentHitMultiplier": 4.0,
+     "SkillLevelBonusPoints": 20.0
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForHit": 20.0,
+     "PointsForKill": 80.0,
+     "SubsequentHitMultiplier": 8.0,
+     "SkillLevelBonusPoints": 40.0
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForHit": 40.0,
+     "PointsForKill": 160.0,
+     "SubsequentHitMultiplier": 16.0,
+     "SkillLevelBonusPoints": 100.0
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForHit": 80.0,
+     "PointsForKill": 320.0,
+     "SubsequentHitMultiplier": 32.0,
+     "SkillLevelBonusPoints": 180.0
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_melee"
+ },
+ {
+  "asset": "RiflesSkill",
+  "slug": "rifles",
+  "attribute": "Strength",
+  "name": {
+   "es": "Rifles",
+   "en": "Rifles",
+   "de": "Gewehre",
+   "ru": "Винтовки",
+   "zh": "步枪枪法",
+   "fr": "Fusils",
+   "pt": "Fuzis",
+   "zh-tw": "步槍",
+   "th": "ไรเฟิล",
+   "pl": "Karabiny"
+  },
+  "description": {
+   "es": "La habilidad de rifles indica tu grado de familiarización con los rifles de cualquier tipo, tanto para disparar con ellos como para mantenerlos o arreglarlos.\r\nAumenta al disparar a jugadores y PNJ con rifles y ballestas, así como al recargar dichas armas.\r\nInfluye en un tiempo de recarga más rápido, un cambio más rápido de posición (de preparación a apuntado o viceversa), el retroceso y la precisión de disparo con rifles.",
+   "en": "Rifles is a skill which indicates how familiar you are with rifles of any type, both firing them and maintaining or fixing them.\r\nIs raised by: shooting players and NPCs with rifles and crossbow, as well as reloading the said weapons.\r\nIt influences: faster reload time, faster change from position to position (readying/aiming), recoil, shooting accuracy with rifles.",
+   "de": "„Gewehre“ beschreibt, wie fähig der Charakter im Umgang mit Gewehren aller Art ist –, sowohl beim Schießen als auch bei der Wartung und Reparatur.\r\nWird erhöht durch: Schießen auf Spieler und NPCs mit Gewehren und Armbrüsten und Nachladen der genannten Waffen.\r\nBeeinflusst: schnelleres Nachladen, schnelleres Wechseln von Position zu Position (Bereitschaft/Zielen), Rückstoß, Schussgenauigkeit mit Gewehren.",
+   "ru": "Винтовки — это умение обращаться с винтовками любого типа, будь то стрельба, уход или ремонт.\r\nОт чего улучшается: стрельба из винтовки и арбалета по игрокам и персонажам, перезарядка винтовки и арбалета.\r\nНа что влияет: время перезарядки, скорость изменения боевой позиции (подготовка и прицеливание), отдача, точность стрельбы из винтовок.",
+   "zh": "步枪枪法代表了你对步枪的熟悉程度，包括射击、维护和修理。\r\n提高方式：用步枪和十字弩射击玩家和NPC，以及给以上武器装弹\r\n影响效果：装弹时间，改变姿势（准备/瞄准）速度，后坐力，步枪的射击精度。",
+   "fr": "La maîtrise des fusils est une compétence qui indique votre degré de connaissance des fusils, que ce soit pour les utiliser, les entretenir ou les réparer.\r\nElle est améliorée : en tirant sur des joueurs et des PNJ avec des fusils et des arbalètes, ainsi qu'en rechargeant ces armes.\r\nElle influence : la rapidité de rechargement, la rapidité de changement de position (préparation/visée), le recul, la précision de tir avec les fusils.",
+   "pt": "A habilidade com fuzis indica sua familiaridade com fuzis de qualquer tipo, seja atirando, cuidando ou consertando.\r\nAumenta ao: atirar em jogadores e PNJs com fuzis e balestras, assim como ao recarregar essas armas.\r\nInfluencia em: tempo de recarga mais rápido, mudança de posição mais rápida (preparando, mirando), recuo e precisão de tiro com fuzis.",
+   "zh-tw": "步槍技能代表你對各種類型的步槍有多熟悉，包括射擊和維護修理。\r\n提升方式：用步槍和十字弓射擊玩家和 NPC、重新裝填上述武器的彈藥。\r\n影響：加快重新裝填的速度、加快切換姿勢的速度（準備或瞄準）、後座力、步槍的射擊準度。",
+   "th": "ทักษะไรเฟิลจะเป็นตัวบ่งบอกว่าคุณมีความเคยชินกับไรเฟิลทุกประเภทมากแค่ไหนทั้งเรื่องของการยิงปืน การบำรุงรักษาหรือซ่อมแซมไรเฟิล\r\nจะเพิ่มขึ้นโดย: การยิงผู้เล่นและ NPC ด้วยไรเฟิลและหน้าไม้ รวมถึงการรีโหลดด้วยอาวุธดังกล่าว\r\nจะส่งผลต่อ: เวลารีโหลดเร็วขึ้น, การเปลี่ยนท่าทาง (เตรียม/เล็ง) เร็วขึ้น, แรงถีบ และความแม่นยำในการยิงด้วยไรเฟิล",
+   "pl": "Umiejętność obsługi karabinów określa, jak dobrze znasz karabiny dowolnego typu – czy z nich strzelasz, czy też je konserwujesz lub naprawiasz.\r\nJest podnoszona przez: strzelanie do graczy i postaci niezależnych za pomocą karabinów i kusz, a także ich przeładowywanie.\r\nWpływa na: czas przeładowania, tempo zmiany pozycji (gotowość/celowanie), odrzut i celność strzelania z karabinów."
+  },
+  "availableInCharacterCreation": null,
+  "levels": [
+   {
+    "id": "noSkill",
+    "label": {
+     "es": "Sin habilidad",
+     "en": "No Skill",
+     "de": "Keine Fertigkeit",
+     "ru": "Без навыка",
+     "zh": "无技能",
+     "fr": "Zéro compétences",
+     "pt": "Nenhuma habilidade",
+     "zh-tw": "無技能",
+     "th": "ไม่มีทักษะ",
+     "pl": "Brak umiejętności"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "CrosshairHidingDuration": 0.0,
+     "DispersionBaseModifier": 1.1,
+     "DispersionMultiplyModifier": -0.2
+    }
+   },
+   {
+    "id": "basic",
+    "label": {
+     "es": "Básica",
+     "en": "Basic",
+     "de": "Anfänger",
+     "ru": "Новичок",
+     "zh": "基础",
+     "fr": "Basique",
+     "pt": "Básica",
+     "zh-tw": "基礎",
+     "th": "พื้นฐาน",
+     "pl": "Podstawowe"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.9,
+     "DispersionMultiplyModifier": -0.15
+    }
+   },
+   {
+    "id": "medium",
+    "label": {
+     "es": "Intermedia",
+     "en": "Medium",
+     "de": "Mittel",
+     "ru": "Опытный",
+     "zh": "中",
+     "fr": "Moyen",
+     "pt": "Média",
+     "zh-tw": "中",
+     "th": "ปานกลาง",
+     "pl": "Średn."
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.8,
+     "DispersionMultiplyModifier": -0.2
+    }
+   },
+   {
+    "id": "advanced",
+    "label": {
+     "es": "Avanzada",
+     "en": "Advanced",
+     "de": "Experte",
+     "ru": "Эксперт",
+     "zh": "高级",
+     "fr": "Avancé",
+     "pt": "Avançada",
+     "zh-tw": "高級",
+     "th": "ขั้นสูง",
+     "pl": "Zaawansowane"
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.7,
+     "DispersionMultiplyModifier": -0.25
+    }
+   },
+   {
+    "id": "aboveAdvanced",
+    "label": {
+     "es": "Maestra",
+     "en": "Above Advanced",
+     "de": "Experte",
+     "ru": "Мастер",
+     "zh": "登峰造极",
+     "fr": "Maître",
+     "pt": "Acima de avançada",
+     "zh-tw": "超高級",
+     "th": "ขั้นสูงสุด",
+     "pl": "Powyżej zaawans."
+    },
+    "experienceAwards": {
+     "PointsForProne": 50.0,
+     "PointsForCrouching": 75.0,
+     "ClearMalfunctionBadRound": 25.0,
+     "ClearMalfunctionStovePipe": 25.0,
+     "ClearMalfunctionRoundNotLoaded": 30.0,
+     "ClearMalfunctionDoubleFeed": 40.0,
+     "ClearMalfunctionStuckBullet": 25.0,
+     "ClearMalfunctionClipPartiallyEjected": 25.0
+    },
+    "effects": {
+     "DispersionBaseModifier": 0.5,
+     "DispersionMultiplyModifier": -0.25
+    }
+   }
+  ],
+  "modifierCurves": null,
+  "recipesKnownByDefault": null,
+  "extraParameters": null,
+  "skillIcon": "T_rifles"
+ }
+]
