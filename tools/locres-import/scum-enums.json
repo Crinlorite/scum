@@ -1,0 +1,326 @@
+{
+ "ETradeCategory": {
+  "by_index": {
+   "0": "None",
+   "1": "Armour",
+   "2": "Helmets",
+   "3": "Jackets",
+   "4": "Pants",
+   "5": "Headwear",
+   "6": "Tops",
+   "7": "Underwear",
+   "8": "Neckwaist",
+   "9": "Hands",
+   "10": "Face",
+   "11": "Feet",
+   "12": "Backpacks",
+   "13": "RangedWeapon",
+   "14": "RangedWeaponAccessories",
+   "15": "Ammo",
+   "16": "MeleeWeapon",
+   "17": "Explosives",
+   "18": "Crafting",
+   "19": "Fishing",
+   "20": "Alcohol",
+   "21": "Food",
+   "22": "Drink",
+   "23": "FirstAid",
+   "24": "Vehicles",
+   "25": "Misc",
+   "26": "WaterVehicles",
+   "27": "Cosmetics",
+   "28": "Count"
+  },
+  "by_name": {
+   "None": 0,
+   "Armour": 1,
+   "Helmets": 2,
+   "Jackets": 3,
+   "Pants": 4,
+   "Headwear": 5,
+   "Tops": 6,
+   "Underwear": 7,
+   "Neckwaist": 8,
+   "Hands": 9,
+   "Face": 10,
+   "Feet": 11,
+   "Backpacks": 12,
+   "RangedWeapon": 13,
+   "RangedWeaponAccessories": 14,
+   "Ammo": 15,
+   "MeleeWeapon": 16,
+   "Explosives": 17,
+   "Crafting": 18,
+   "Fishing": 19,
+   "Alcohol": 20,
+   "Food": 21,
+   "Drink": 22,
+   "FirstAid": 23,
+   "Vehicles": 24,
+   "Misc": 25,
+   "WaterVehicles": 26,
+   "Cosmetics": 27,
+   "Count": 28
+  }
+ },
+ "ETraderType": {
+  "by_index": {
+   "0": "None",
+   "1": "Armorer",
+   "2": "GeneralGoods",
+   "3": "Mechanic",
+   "4": "Doctor",
+   "5": "Harbourmaster",
+   "6": "Bartender",
+   "7": "Barber",
+   "8": "Hunter",
+   "9": "MasterHunter",
+   "10": "TradesEverything",
+   "11": "Count"
+  },
+  "by_name": {
+   "None": 0,
+   "Armorer": 1,
+   "GeneralGoods": 2,
+   "Mechanic": 3,
+   "Doctor": 4,
+   "Harbourmaster": 5,
+   "Bartender": 6,
+   "Barber": 7,
+   "Hunter": 8,
+   "MasterHunter": 9,
+   "TradesEverything": 10,
+   "Count": 11
+  }
+ },
+ "ECurrencyType": {
+  "by_index": {
+   "0": "None",
+   "1": "Normal",
+   "2": "Gold",
+   "3": "Count"
+  },
+  "by_name": {
+   "None": 0,
+   "Normal": 1,
+   "Gold": 2,
+   "Count": 3
+  }
+ },
+ "EItemRarity": {
+  "by_index": {
+   "0": "ExtremelyRare",
+   "1": "VeryRare",
+   "2": "Rare",
+   "3": "Uncommon",
+   "4": "Common",
+   "5": "Abundant",
+   "6": "Count"
+  },
+  "by_name": {
+   "ExtremelyRare": 0,
+   "VeryRare": 1,
+   "Rare": 2,
+   "Uncommon": 3,
+   "Common": 4,
+   "Abundant": 5,
+   "Count": 6
+  }
+ },
+ "ETradeableSpawnType": {
+  "by_index": {
+   "0": "None",
+   "1": "DepotSpawn",
+   "2": "WorldSpawn"
+  },
+  "by_name": {
+   "None": 0,
+   "DepotSpawn": 1,
+   "WorldSpawn": 2
+  }
+ },
+ "EWeaponCategory": {
+  "by_index": {
+   "0": "ThrowingWeapons",
+   "1": "RangedWeapons",
+   "2": "FirstFirearm",
+   "3": "SubmachineGuns",
+   "4": "Rifles",
+   "5": "Shotguns",
+   "6": "AutomaticRifles",
+   "7": "LastFirearm",
+   "8": "Bow",
+   "9": "Count"
+  },
+  "by_name": {
+   "ThrowingWeapons": 0,
+   "RangedWeapons": 1,
+   "Handguns": 2,
+   "SubmachineGuns": 3,
+   "Rifles": 4,
+   "Shotguns": 5,
+   "AutomaticRifles": 6,
+   "SniperRifles": 7,
+   "Bow": 8,
+   "Count": 9,
+   "FirstFirearm": 2,
+   "LastFirearm": 7
+  }
+ },
+ "EWeaponFiringMode": {
+  "by_index": {
+   "0": "Automatic",
+   "1": "SingleShot",
+   "2": "Burst",
+   "3": "Count"
+  },
+  "by_name": {
+   "Automatic": 0,
+   "SingleShot": 1,
+   "Burst": 2,
+   "Count": 3
+  }
+ },
+ "EWeaponMalfunction": {
+  "by_index": {
+   "0": "None",
+   "1": "BadRound",
+   "2": "StovePipe",
+   "3": "RoundNotLoaded",
+   "4": "DoubleFeed",
+   "5": "StuckBullet",
+   "6": "ClipPartiallyEjected",
+   "7": "Count"
+  },
+  "by_name": {
+   "None": 0,
+   "BadRound": 1,
+   "StovePipe": 2,
+   "RoundNotLoaded": 3,
+   "DoubleFeed": 4,
+   "StuckBullet": 5,
+   "ClipPartiallyEjected": 6,
+   "Count": 7
+  }
+ },
+ "EDamageChannel": {
+  "by_index": {
+   "0": "UncategorizedDamage",
+   "1": "FallDamage",
+   "2": "BurnDamage",
+   "3": "TrapDamage",
+   "4": "ProjectileDamage",
+   "5": "MeleeWeaponDamage",
+   "6": "MeleeDamage",
+   "7": "ThrowingDamage",
+   "8": "ExplosiveDamage",
+   "9": "DamageToBases",
+   "10": "VehicleDamage",
+   "11": "BaseDefenseDamage",
+   "12": "LockProtectionDamage",
+   "13": "Count"
+  },
+  "by_name": {
+   "UncategorizedDamage": 0,
+   "FallDamage": 1,
+   "BurnDamage": 2,
+   "TrapDamage": 3,
+   "ProjectileDamage": 4,
+   "MeleeWeaponDamage": 5,
+   "MeleeDamage": 6,
+   "ThrowingDamage": 7,
+   "ExplosiveDamage": 8,
+   "DamageToBases": 9,
+   "VehicleDamage": 10,
+   "BaseDefenseDamage": 11,
+   "LockProtectionDamage": 12,
+   "Count": 13
+  }
+ },
+ "ENoiseLevel": {
+  "by_index": {
+   "0": "Mute",
+   "1": "VerySilent",
+   "2": "Silent",
+   "3": "Moderate",
+   "4": "Loud",
+   "5": "VeryLoud",
+   "6": "Count"
+  },
+  "by_name": {
+   "Mute": 0,
+   "VerySilent": 1,
+   "Silent": 2,
+   "Moderate": 3,
+   "Loud": 4,
+   "VeryLoud": 5,
+   "Count": 6
+  }
+ },
+ "EItemThrowingBehavior": {
+  "by_index": {
+   "0": "None",
+   "1": "Default",
+   "2": "Piercing",
+   "3": "Fragile",
+   "4": "Sticky"
+  },
+  "by_name": {
+   "None": 0,
+   "Default": 1,
+   "Piercing": 2,
+   "Fragile": 3,
+   "Sticky": 4
+  }
+ },
+ "EDeluxeVersion": {
+  "by_index": {
+   "0": "SupporterPack1",
+   "1": "SupporterPack2",
+   "2": "PremiumHairstyles1",
+   "3": "PremiumHairstyles2",
+   "4": "Character_DannyTrejo",
+   "5": "Character_LuisMoncada",
+   "6": "WeaponPaintjobs",
+   "7": "WeaponCharms",
+   "8": "VehiclePaintjobs",
+   "9": "Dance",
+   "10": "Character_RaymondCruz",
+   "11": "DigitalDeluxe",
+   "12": "PremiumBaseBuilding",
+   "13": "SquadEmblem",
+   "14": "EasternFurniturePack",
+   "15": "WoodlandHunterPack",
+   "16": "WoodlandFurniturePack",
+   "17": "SurvivalistFurniturePack",
+   "18": "SpecialistArcherPack",
+   "19": "SpecialistScoutPack",
+   "20": "ApexHunterPack",
+   "21": "None"
+  },
+  "by_name": {
+   "SupporterPack1": 0,
+   "SupporterPack2": 1,
+   "PremiumHairstyles1": 2,
+   "PremiumHairstyles2": 3,
+   "Character_DannyTrejo": 4,
+   "Character_LuisMoncada": 5,
+   "WeaponPaintjobs": 6,
+   "WeaponCharms": 7,
+   "VehiclePaintjobs": 8,
+   "Dance": 9,
+   "Character_RaymondCruz": 10,
+   "DigitalDeluxe": 11,
+   "PremiumBaseBuilding": 12,
+   "SquadEmblem": 13,
+   "EasternFurniturePack": 14,
+   "WoodlandHunterPack": 15,
+   "WoodlandFurniturePack": 16,
+   "SurvivalistFurniturePack": 17,
+   "SpecialistArcherPack": 18,
+   "SpecialistScoutPack": 19,
+   "ApexHunterPack": 20,
+   "None": 21
+  }
+ }
+}
