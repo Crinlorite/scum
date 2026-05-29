@@ -77,16 +77,15 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       overlays[`${typeLabels[key] || key} (${byType[key].length})`] = grp;
     }
 
-    // Sector grid overlay (navigation aid, off by default).
+    // Sector labels: la imagen ya trae la rejilla negra, así que solo etiquetamos
+    // cada sector en el centro (mediana) de sus POIs → cae dentro de su celda real.
     const sectors = {};
     for (const p of pois) if (p.s) (sectors[p.s] ??= []).push(p);
+    const median = (arr) => { const s = [...arr].sort((a, b) => a - b); return s[Math.floor(s.length / 2)]; };
     const grid = L.layerGroup();
     for (const key of Object.keys(sectors).sort()) {
       const ps = sectors[key];
-      const xs = ps.map((p) => p.x), ys = ps.map((p) => p.y);
-      const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
-      L.rectangle([flip(x0, y0), flip(x1, y1)], { color: '#e8e3d8', weight: 1, fill: false, dashArray: '4 4', opacity: 0.5 }).addTo(grid);
-      L.marker(flip((x0 + x1) / 2, (y0 + y1) / 2), {
+      L.marker(flip(median(ps.map((p) => p.x)), median(ps.map((p) => p.y))), {
         interactive: false,
         icon: L.divIcon({ className: 'sector-label', html: key, iconSize: [30, 16] }),
       }).addTo(grid);
