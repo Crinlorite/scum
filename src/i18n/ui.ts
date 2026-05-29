@@ -126,6 +126,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.hint': 'Sigue escribiendo…',
     'search.noResults': 'Sin resultados',
 
+    'units.label': 'Unidades (métrico / imperial)',
     'lang.label': 'Cambiar idioma',
     'lang.stable': 'Estables',
     'lang.beta': 'En Beta',
@@ -295,6 +296,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.hint': 'Keep typing…',
     'search.noResults': 'No results',
 
+    'units.label': 'Units (metric / imperial)',
     'lang.label': 'Change language',
     'lang.stable': 'Stable',
     'lang.beta': 'In Beta',

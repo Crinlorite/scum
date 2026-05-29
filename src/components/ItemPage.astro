@@ -39,14 +39,15 @@ const L: Record<string, Partial<Record<LangCode, string>>> = {
 };
 const lbl = (k: string) => L[k]?.[lang] ?? L[k]?.[FALLBACK_LANG] ?? k;
 
-// Curated stats to show (with value formatting).
+// Curated stats to show (with value formatting). `w` = raw grams for the
+// client-side unit converter (metric ⇄ imperial).
 const st = d.stats?.stats ?? {};
-const statRows: { k: string; v: string }[] = [];
-const pushStat = (k: string, v: string) => statRows.push({ k: lbl(k), v });
+const statRows: { k: string; v: string; w?: number }[] = [];
+const pushStat = (k: string, v: string, w?: number) => statRows.push({ k: lbl(k), v, w });
 if (typeof st.weight === 'number')
   pushStat('weight', st.weight >= 1000
     ? `${(st.weight / 1000).toLocaleString(lang, { maximumFractionDigits: 2 })} kg`
-    : `${Math.round(st.weight)} g`);
+    : `${Math.round(st.weight)} g`, st.weight);
 if (st.rarity) pushStat('rarity', String(st.rarity));
 if (typeof st.gridSlots === 'number') pushStat('gridSlots', `${st.gridRows ?? ''}×${st.gridColumns ?? ''} (${st.gridSlots})`);
 if (typeof st.maxHealth === 'number') pushStat('maxHealth', String(st.maxHealth));
@@ -77,7 +78,7 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         <section class="block">
           <h2>{tr('item.statsTitle')}</h2>
           <dl class="stat-grid">
-            {statRows.map((r) => (<div><dt>{r.k}</dt><dd>{r.v}</dd></div>))}
+            {statRows.map((r) => (<div><dt>{r.k}</dt><dd data-w={r.w}>{r.v}</dd></div>))}
           </dl>
         </section>
       )}
@@ -95,7 +96,7 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
             {typeof w.magazine?.capacity === 'number' && (
               <div><dt>{tr('item.magazine')}</dt><dd>{w.magazine.capacity}</dd></div>)}
             {typeof w.maxRange === 'number' && (
-              <div><dt>{tr('item.range')}</dt><dd>{w.maxRange} m</dd></div>)}
+              <div><dt>{tr('item.range')}</dt><dd data-d={w.maxRange}>{w.maxRange} m</dd></div>)}
             {typeof w.rof === 'number' && w.rof > 0 && (
               <div><dt>{tr('item.rof')}</dt><dd>{w.rof}</dd></div>)}
           </dl>
