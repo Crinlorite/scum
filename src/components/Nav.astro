@@ -95,6 +95,15 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
     nav { margin-left: 0; width: 100%; order: 3; }
     nav > ul { justify-content: flex-start; flex-wrap: wrap; gap: 0.5rem 1rem; }
     nav a, .nav-dd summary { font-size: 0.85rem; }
-    .nav-dd-panel { position: static; box-shadow: none; grid-auto-flow: column; grid-template-columns: repeat(2, 1fr); }
+    /* Dropdown takes its own full-width row; panel flows below it as a
+       responsive grid that fills the nav width (no more cramped 2-col overflow). */
+    .nav-dd-li, .nav-dd { width: 100%; }
+    .nav-dd-panel {
+      position: static; box-shadow: none;
+      width: 100%; min-width: 0; margin-top: 0.4rem;
+      grid-auto-flow: row;
+      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+      background: rgba(232, 227, 216, 0.04);
+    }
   }
 </style>
