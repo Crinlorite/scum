@@ -312,7 +312,8 @@
    "th": ".30-06",
    "pl": ".30-06"
   },
-  "description": {}
+  "description": {},
+  "disambig": "30"
  },
  {
   "asset": "BP_WeaponBullet_30_Crafted",
@@ -1041,7 +1042,8 @@
    "th": ".357",
    "pl": ".357"
   },
-  "description": {}
+  "description": {},
+  "disambig": "357"
  },
  {
   "asset": "Cal_357_Viper_ES",
@@ -1756,7 +1758,8 @@
    "th": ".45 ACP",
    "pl": ".45 ACP"
   },
-  "description": {}
+  "description": {},
+  "disambig": "45 ACP"
  },
  {
   "asset": "BP_WeaponBullet_45ACP_Crafted",
@@ -2755,7 +2758,8 @@
    "th": ".50 BMG",
    "pl": ".50 BMG"
   },
-  "description": {}
+  "description": {},
+  "disambig": "50 BMG"
  },
  {
   "asset": "Cal_50BMG_ES",
@@ -4054,7 +4058,8 @@
    "th": "9x39 มม.",
    "pl": "9x39 mm"
   },
-  "description": {}
+  "description": {},
+  "disambig": "9x39mm"
  },
  {
   "asset": "BP_WeaponBullet_9x39mm_Crafted",
@@ -4985,7 +4990,7 @@
    "th": "กระสุนปืนยิงจรวด 70 มม.",
    "pl": "Amunicja granatnikowa 70 mm"
   },
-  "disambig": "Cal AT4 HEAT"
+  "disambig": "Cal 84 AT4 HEAT"
  },
  {
   "asset": "Cal_40_PG-7M_ES",
@@ -5017,7 +5022,7 @@
    "th": "ระเบิดหัวจรวด HEAT 40 มม. หัวรบระเบิดแรงสูงต่อต้านรถถัง (HEAT) ที่มีวัสดุระเบิดอัดรูปซึ่งเอาไว้เจาะเกราะหนักแต่มีประสิทธิภาพน้อยลงในพื้นที่กว้าง ใช้กับ: RPG-7",
    "pl": "40 mm granat przeciwpancerny. Głowica zawiera pocisk kumulacyjny będący w stanie przebić cięższy pancerz, ale mniej skuteczny na dużym obszarze. Używany w: RPG-7."
   },
-  "disambig": "Cal PG-7 M"
+  "disambig": "Cal 40 PG-7 M"
  },
  {
   "asset": "12_Gauge_Slug_Ammobox_ES",
@@ -5162,7 +5167,8 @@
    "zh-tw": "由木棍製作而成的木製箭矢。可與任何弓一同使用。",
    "th": "ลูกธนูไม้ประดิษฐ์จากกิ่งไม้ สามารถใช้ได้กับทุกธนู",
    "pl": "Drewniana strzała z patyka. Można jej użyć z każdym łukiem."
-  }
+  },
+  "disambig": "Wooden Arrow"
  },
  {
   "asset": "Ammo_Crossbow_Bolt_Wooden_ES",
@@ -5615,7 +5621,8 @@
    "th": "ลูกธนูไม้หัก",
    "pl": "Złamana drewniana strzała"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Wooden Broken Arrow"
  },
  {
   "asset": "WoodenBrokenArrowStoneTip_ES",
@@ -5689,7 +5696,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present Kar98"
+  "disambig": "Present Kar98 02"
  },
  {
   "asset": "Christmas_Present_MP5_02_ES",
@@ -5721,7 +5728,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present MP5"
+  "disambig": "Present MP5 02"
  },
  {
   "asset": "Christmas_Present_UMP_02_ES",
@@ -5753,7 +5760,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present UMP"
+  "disambig": "Present UMP 02"
  },
  {
   "asset": "Christmas_Present_M1887_ES",
@@ -5817,7 +5824,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M82 A1"
+  "disambig": "Present M82 A1 01"
  },
  {
   "asset": "Christmas_Present_MK18_ES",
@@ -5881,7 +5888,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present RPK"
+  "disambig": "Present RPK 01"
  },
  {
   "asset": "Christmas_Present_AK15_ES",
@@ -5977,7 +5984,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present MK18"
+  "disambig": "Present MK18 01"
  },
  {
   "asset": "Christmas_Present_AK15_02_ES",
@@ -6009,7 +6016,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AK15"
+  "disambig": "Present AK15 02"
  },
  {
   "asset": "Christmas_Present_AKS_74U_ES",
@@ -6041,7 +6048,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AKS U"
+  "disambig": "Present AKS 74 U"
  },
  {
   "asset": "Christmas_Present_RPK_02_ES",
@@ -6073,7 +6080,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present RPK"
+  "disambig": "Present RPK 02"
  },
  {
   "asset": "Christmas_Present_SVD_01_ES",
@@ -6105,7 +6112,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present SVD"
+  "disambig": "Present SVD 01"
  },
  {
   "asset": "Christmas_Present_SVD_02_ES",
@@ -6137,7 +6144,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present SVD"
+  "disambig": "Present SVD 02"
  },
  {
   "asset": "Christmas_Present_AKS_74U_01_ES",
@@ -6169,7 +6176,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AKS U"
+  "disambig": "Present AKS 74 U 01"
  },
  {
   "asset": "Christmas_Present_Kar98_01_ES",
@@ -6201,7 +6208,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present Kar98"
+  "disambig": "Present Kar98 01"
  },
  {
   "asset": "Christmas_Present_AKS_74U_02_ES",
@@ -6233,7 +6240,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AKS U"
+  "disambig": "Present AKS 74 U 02"
  },
  {
   "asset": "Christmas_Present_M16A4_ES",
@@ -6329,7 +6336,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AS Val"
+  "disambig": "Present AS Val 02"
  },
  {
   "asset": "Christmas_Present_MK18_02_ES",
@@ -6361,7 +6368,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present MK18"
+  "disambig": "Present MK18 02"
  },
  {
   "asset": "Christmas_Present_UMP_ES",
@@ -6425,7 +6432,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M1"
+  "disambig": "Present M1 02"
  },
  {
   "asset": "Christmas_Present_MP5_01_ES",
@@ -6457,7 +6464,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present MP5"
+  "disambig": "Present MP5 01"
  },
  {
   "asset": "Christmas_Present_M1_01_ES",
@@ -6489,7 +6496,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M1"
+  "disambig": "Present M1 01"
  },
  {
   "asset": "Christmas_Present_AK15_01_ES",
@@ -6521,7 +6528,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AK15"
+  "disambig": "Present AK15 01"
  },
  {
   "asset": "Christmas_Present_M16A4_01_ES",
@@ -6553,7 +6560,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M16 A4"
+  "disambig": "Present M16 A4 01"
  },
  {
   "asset": "Christmas_Present_M16A4_02_ES",
@@ -6585,7 +6592,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M16 A4"
+  "disambig": "Present M16 A4 02"
  },
  {
   "asset": "Christmas_Present_SVD_ES",
@@ -6713,7 +6720,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present AS Val"
+  "disambig": "Present AS Val 01"
  },
  {
   "asset": "Christmas_Present_Ghillie_01_ES",
@@ -6745,7 +6752,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present Ghillie"
+  "disambig": "Present Ghillie 01"
  },
  {
   "asset": "Christmas_Present_M82A1_02_ES",
@@ -6777,7 +6784,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present M82 A1"
+  "disambig": "Present M82 A1 02"
  },
  {
   "asset": "Christmas_Present_Ghillie_ES",
@@ -6873,7 +6880,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present Ghillie"
+  "disambig": "Present Ghillie 02"
  },
  {
   "asset": "Christmas_Present_M1_ES",
@@ -7001,7 +7008,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present UMP"
+  "disambig": "Present UMP 01"
  },
  {
   "asset": "Christmas_Present_03_ES",
@@ -7033,7 +7040,7 @@
    "th": "สุขสันต์วันคริสต์มาส!",
    "pl": "Wesołych Świąt!"
   },
-  "disambig": "Present"
+  "disambig": "Present 03"
  },
  {
   "asset": "Christmas_Decoration_ES",
@@ -7267,7 +7274,8 @@
    "th": "ตุ๊กตาหิมะ",
    "pl": "Bałwan"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01"
  },
  {
   "asset": "Snowballs_02_ES",
@@ -7556,7 +7564,7 @@
    "th": "กระเป๋าเป้มาตราฐานสำหรับใส่ของระหว่างเดินทาง ",
    "pl": "Standardowy plecak służący do przechowywania przedmiotów podczas podróży. "
   },
-  "disambig": "Military"
+  "disambig": "Military 03 01"
  },
  {
   "asset": "Backpack_02_01_ES",
@@ -7587,7 +7595,8 @@
    "zh-tw": "在旅行過程中用來存放道具的標準背包。 ",
    "th": "กระเป๋าเป้มาตราฐานสำหรับใส่ของระหว่างเดินทาง ",
    "pl": "Standardowy plecak służący do przechowywania przedmiotów podczas podróży. "
-  }
+  },
+  "disambig": "02 01"
  },
  {
   "asset": "Police_Mask_01_ES",
@@ -7619,7 +7628,7 @@
    "th": "ส่วนใหญ่จะใช้เพื่อความอบอุ่นและปกปิดตัวตนของผู้สวมใส่ สามารถใช้เป็นชุดพรางได้เช่นกัน",
    "pl": "Przeważnie używana do ocieplania lub ukrywania twarzy noszącej ją osoby. Może być też wykorzystywana w celach maskujących."
   },
-  "disambig": "Police Mask"
+  "disambig": "Police Mask 01"
  },
  {
   "asset": "Military_Mask_01_ES",
@@ -7651,7 +7660,7 @@
    "th": "ส่วนใหญ่จะใช้เพื่อความอบอุ่นและปกปิดตัวตนของผู้สวมใส่ สามารถใช้เป็นชุดพรางได้เช่นกัน",
    "pl": "Przeważnie używana do ocieplania lub ukrywania twarzy noszącej ją osoby. Może być też wykorzystywana w celach maskujących."
   },
-  "disambig": "Military Mask"
+  "disambig": "Military Mask 01"
  },
  {
   "asset": "Bamboo_Hat_01_ES",
@@ -7723,7 +7732,7 @@
    "pl": "Czapka"
   },
   "description": {},
-  "disambig": "Military"
+  "disambig": "Military 01"
  },
  {
   "asset": "Beenie_01_ES",
@@ -7744,7 +7753,7 @@
    "pl": "Czapka"
   },
   "description": {},
-  "disambig": "Beenie"
+  "disambig": "Beenie 01"
  },
  {
   "asset": "Bear_Pow_01_ES",
@@ -7877,7 +7886,8 @@
    "th": "แจ็คเก็ตนักซิ่งหนัง",
    "pl": "Skórzana kurtka motocyklowa"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Leather Jacket"
  },
  {
   "asset": "Negan_Jacket_ES",
@@ -9020,7 +9030,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Lecter"
+  "disambig": "Lecter 06"
  },
  {
   "asset": "Halloween_Mask_Greek_ES",
@@ -9062,7 +9072,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Plague"
+  "disambig": "Plague 07"
  },
  {
   "asset": "Halloween_Mask_BabyDoll_02_ES",
@@ -9083,7 +9093,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Baby Doll"
+  "disambig": "Baby Doll 02"
  },
  {
   "asset": "Halloween_Mask_Clown_03_ES",
@@ -9104,7 +9114,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Clown"
+  "disambig": "Clown 03"
  },
  {
   "asset": "Halloween_Mask_Wooden_09_ES",
@@ -9125,7 +9135,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Wooden"
+  "disambig": "Wooden 09"
  },
  {
   "asset": "Halloween_Mask_Hockey_04_ES",
@@ -9146,7 +9156,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Hockey"
+  "disambig": "Hockey 04"
  },
  {
   "asset": "Halloween_Mask_JohnDoe_05_ES",
@@ -9167,7 +9177,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "John Doe"
+  "disambig": "John Doe 05"
  },
  {
   "asset": "Halloween_Mask_Smiley_08_ES",
@@ -9188,7 +9198,7 @@
    "pl": "Maska halloweenowa"
   },
   "description": {},
-  "disambig": "Smiley"
+  "disambig": "Smiley 08"
  },
  {
   "asset": "Head_Bags_01_ES",
@@ -9630,7 +9640,7 @@
    "pl": "Improwizowany kołczan"
   },
   "description": {},
-  "disambig": "Event"
+  "disambig": "02 Event"
  },
  {
   "asset": "Improvised_Quiver_02_Rags_ES",
@@ -9651,7 +9661,7 @@
    "pl": "Improwizowany kołczan"
   },
   "description": {},
-  "disambig": "Rags"
+  "disambig": "02 Rags"
  },
  {
   "asset": "Raincoat_Improvised_ES",
@@ -9723,7 +9733,7 @@
    "pl": "Dżinsy"
   },
   "description": {},
-  "disambig": "V2"
+  "disambig": "02 01 V2"
  },
  {
   "asset": "Jeans_01_01_ES",
@@ -9743,7 +9753,8 @@
    "th": "ยีนส์",
    "pl": "Dżinsy"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01 01"
  },
  {
   "asset": "Jersey_01_ES",
@@ -9916,7 +9927,8 @@
    "zh-tw": "非常適合日常需求的經典時髦背包。",
    "th": "กระเป๋าสไตล์วินเทตที่เหมาะกับการใช้งานในทุกวัน",
    "pl": "Stylowa torba w stylu retro idealna na co dzień."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Leather_Backpack_03_ES",
@@ -9947,7 +9959,8 @@
    "zh-tw": "非常適合日常需求的經典時髦背包。",
    "th": "กระเป๋าสไตล์วินเทตที่เหมาะกับการใช้งานในทุกวัน",
    "pl": "Stylowa torba w stylu retro idealna na co dzień."
-  }
+  },
+  "disambig": "03"
  },
  {
   "asset": "Leather_Backpack_02_ES",
@@ -9978,7 +9991,8 @@
    "zh-tw": "非常適合日常需求的經典時髦背包。",
    "th": "กระเป๋าสไตล์วินเทตที่เหมาะกับการใช้งานในทุกวัน",
    "pl": "Stylowa torba w stylu retro idealna na co dzień."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Belt_Pistol_Holster_ES",
@@ -10623,7 +10637,8 @@
    "th": "แว่นปาร์ตี้",
    "pl": "Okulary imprezowe"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01"
  },
  {
   "asset": "Party_Glasses_02_ES",
@@ -10643,7 +10658,8 @@
    "th": "แว่นปาร์ตี้",
    "pl": "Okulary imprezowe"
   },
-  "description": {}
+  "description": {},
+  "disambig": "02"
  },
  {
   "asset": "Pilot_Glasses_ES",
@@ -10765,7 +10781,8 @@
    "zh-tw": "破爛的皮革海盜帽，配有羽毛和紅圍巾。 ",
    "th": "หมวกโจรสลัดกับขนนกและผ้าพันคอสีแดง ",
    "pl": "Znoszony skórzany kapelusz piracki z piórami i czerwoną szarfą. "
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Pirate_Hat_Sparrow_02_ES",
@@ -10786,7 +10803,7 @@
    "pl": "Kapelusz piracki"
   },
   "description": {},
-  "disambig": "Sparrow"
+  "disambig": "Sparrow 02"
  },
  {
   "asset": "Police_Backpack_01_ES",
@@ -11745,7 +11762,7 @@
    "th": "ถุงเท้าผ้าฝ้ายธรรมดา",
    "pl": "Proste bawełniane skarpetki."
   },
-  "disambig": "Sock"
+  "disambig": "Sock 01"
  },
  {
   "asset": "Kilt_Sock_01_ES",
@@ -11777,7 +11794,7 @@
    "th": "ถุงเท้าผ้าฝ้ายธรรมดา",
    "pl": "Proste bawełniane skarpetki."
   },
-  "disambig": "Kilt Sock"
+  "disambig": "Kilt Sock 01"
  },
  {
   "asset": "MA1_Spitfire_01_ES",
@@ -11809,7 +11826,7 @@
    "th": "แจ็คเก็ตที่อบอุ่นและใส่สบายสามารถป้องกันสภาพอากาศได้ แต่มักจะทำมาหลายสีที่สามารถดึงดูดสายตาคนได้",
    "pl": "Wygodna i ciepła kurtka odporna na warunki atmosferyczne, jednak często produkowana w różnych kolorach, które mogą zwrócić uwagę."
   },
-  "disambig": "MA1"
+  "disambig": "MA1 01"
  },
  {
   "asset": "College_Jacket_01_ES",
@@ -11841,7 +11858,7 @@
    "th": "แจ็คเก็ตที่อบอุ่นและใส่สบายสามารถป้องกันสภาพอากาศได้ แต่มักจะทำมาหลายสีที่สามารถดึงดูดสายตาคนได้",
    "pl": "Wygodna i ciepła kurtka odporna na warunki atmosferyczne, jednak często produkowana w różnych kolorach, które mogą zwrócić uwagę."
   },
-  "disambig": "College"
+  "disambig": "College 01"
  },
  {
   "asset": "Scottish_Sporran_Bag_01_ES",
@@ -11944,7 +11961,7 @@
    "th": "กางเกงขายาวสไตล์แคชชวลเนื้อผ้านุ่มที่มีหลากหลายแบบสำหรับใส่เพื่อความสบายหรือเล่นกีฬา",
    "pl": "Swobodne, miękkie spodnie, w których można się zrelaksować lub uprawiać sport."
   },
-  "disambig": "Tracksuit Pants"
+  "disambig": "Tracksuit Pants 01 01"
  },
  {
   "asset": "Tracksuit_Pants_02_01_ES",
@@ -11976,7 +11993,7 @@
    "th": "กางเกงขายาวสไตล์แคชชวลเนื้อผ้านุ่มที่มีหลากหลายแบบสำหรับใส่เพื่อความสบายหรือเล่นกีฬา",
    "pl": "Swobodne, miękkie spodnie, w których można się zrelaksować lub uprawiać sport."
   },
-  "disambig": "Tracksuit Pants"
+  "disambig": "Tracksuit Pants 02 01"
  },
  {
   "asset": "TC_Backpack_ES",
@@ -12079,7 +12096,8 @@
    "th": "ซองปืนพกยุทธวิธี",
    "pl": "Taktyczna kabura na broń"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01"
  },
  {
   "asset": "Tactical_Jacket_01_01_ES",
@@ -12250,7 +12268,8 @@
    "th": "แจ็คเก็ตคนขับรถบรรทุก",
    "pl": "Kurtka dżinsowa"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01"
  },
  {
   "asset": "Jeans_Jersey_Jacket_01_ES",
@@ -12271,7 +12290,7 @@
    "pl": "Kurtka dżinsowa"
   },
   "description": {},
-  "disambig": "Jeans Jersey"
+  "disambig": "Jeans Jersey 01"
  },
  {
   "asset": "Hiking_Backpack_Tyrone_ES",
@@ -12384,7 +12403,8 @@
    "zh-tw": "汗衫是穿在襯衫裡面的一件內衣，可以防止襯衫吸收汗水而散發臭味。",
    "th": "เสื้อชั้นในเป็นชุดชั้นในที่สวมไว้ใต้ชุดภายนอกที่มีจุดประสงค์เพื่อป้องกันจากเหงื่อและกลิ่นตามร่างกาย",
    "pl": "Rodzaj bielizny noszonej, jak wskazuje nazwa, pod koszulą w celu ochrony jej przed potem oraz nieprzyjemnymi zapachami."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "F_Bra_Supporter_01_ES",
@@ -12416,7 +12436,7 @@
    "th": "เสื้อชั้นในเป็นชุดชั้นในที่สวมไว้ใต้ชุดภายนอกที่มีจุดประสงค์เพื่อป้องกันจากเหงื่อและกลิ่นตามร่างกาย",
    "pl": "Rodzaj bielizny noszonej, jak wskazuje nazwa, pod koszulą w celu ochrony jej przed potem oraz nieprzyjemnymi zapachami."
   },
-  "disambig": "F Bra Supporter"
+  "disambig": "F Bra Supporter 01"
  },
  {
   "asset": "Scum_Shirt_Supporter_Pack_Black_01_ES",
@@ -12448,7 +12468,7 @@
    "th": "เสื้อชั้นในเป็นชุดชั้นในที่สวมไว้ใต้ชุดภายนอกที่มีจุดประสงค์เพื่อป้องกันจากเหงื่อและกลิ่นตามร่างกาย",
    "pl": "Rodzaj bielizny noszonej, jak wskazuje nazwa, pod koszulą w celu ochrony jej przed potem oraz nieprzyjemnymi zapachami."
   },
-  "disambig": "Scum Shirt Supporter Pack Black"
+  "disambig": "Scum Shirt Supporter Pack Black 01"
  },
  {
   "asset": "Scum_Shirt_Event_Black_ES",
@@ -12807,7 +12827,8 @@
    "zh-tw": "大型的固定式火炬，用基礎材料和燃油製成。照明時間更長，即使在潮濕環境下也能提供光線。",
    "th": "คบเพลิงติดพื้นขนาดใหญ่ที่ทำจากวัสดุพื้นฐานและน้ำมัน สามารถใช้ได้นานและยังคงให้แสงสว่างแม้ในสภาพที่เปียกชื้น",
    "pl": "Duża nieruchoma pochodnia wykonana z podstawowych materiałów i wykorzystująca olej. Jest wytrzymała i zapewnia światło nawet w wilgotnych warunkach."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "CR_Upgrade_Asian_Chest",
@@ -13184,7 +13205,7 @@
   "description": {
    "en": "A weapon rack you can place on the wall."
   },
-  "disambig": "CR Upgrade"
+  "disambig": "CR Upgrade 2"
  },
  {
   "asset": "CR_Upgrade_Asian_Gas_Lamp_Ceiling",
@@ -13226,7 +13247,7 @@
   "description": {
    "en": "A weapon rack you can place on the wall."
   },
-  "disambig": "CR Upgrade"
+  "disambig": "CR Upgrade 3"
  },
  {
   "asset": "CR_Upgrade_Table_Asian",
@@ -13972,7 +13993,8 @@
    "zh-tw": "篝火是一種大型火勢得以控制的戶外營火，可用來隨意燃燒廢料或舉辦慶典。",
    "th": "กองไฟคือกองเพลิงที่จุดกลางแจ้งที่ถึงจะใหญ่แต่ก็อยู๋ในการควบคุม ใช้สำหรับเผาทำลายขยะที่เผาได้หรือเป็นจะใช้เป็นส่วนหนึ่งของงานฉลองก็ได้",
    "pl": "Duże ognisko to sporych rozmiarów palenisko na wolnym powietrzu wykorzystywane do pozbywania się odpadów lub podczas uroczystości."
-  }
+  },
+  "disambig": "Bonfire"
  },
  {
   "asset": "CR_Bonfire",
@@ -17738,7 +17760,7 @@
    "th": "ก้าวผิดถึงขั้นขิตเลยทีเดียว",
    "pl": "O krok bliżej na Księżyc."
   },
-  "disambig": "CR"
+  "disambig": "CR 05"
  },
  {
   "asset": "CR_Door_Airplane_Upgr3",
@@ -18667,7 +18689,8 @@
    "th": "คบเพลิงตั้งพื้น",
    "pl": "Stojąca pochodnia"
   },
-  "description": {}
+  "description": {},
+  "disambig": "01"
  },
  {
   "asset": "CR_Stool_Improvised_Wood",
@@ -21952,7 +21975,8 @@
    "zh-tw": "帶刺鐵絲是一種鐵製隔離用具，鐵絲的間隔裝有利刃或尖刺。",
    "th": "ลวดหนามเป็นรั้วลวดเหล็กชนิดหนึ่งที่ออกแบบมาให้มีขอบคมหรือมีปมที่เป็นหนามแหลมเป็นช่วงๆ ตามสาย",
    "pl": "Drut kolczasty jest rodzajem stalowego drutu ogrodzeniowego posiadającego ostre krawędzie bądź kolce rozmieszczone w pewnych odstępach."
-  }
+  },
+  "disambig": "Barbed Wire"
  },
  {
   "asset": "Barrel_ES",
@@ -22156,7 +22180,8 @@
    "th": "ป้ายเปล่า",
    "pl": "Pusty znak"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Blank Sign"
  },
  {
   "asset": "Blast_Cap_ES",
@@ -22196,7 +22221,8 @@
    "th": "หัวหมูป่าเสียบไม้แหลม",
    "pl": "Głowa dzika na palu"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Boar Head Spike"
  },
  {
   "asset": "Bobby_pin_ES",
@@ -23172,7 +23198,7 @@
    "th": "สว่านแท่นสว่านรูปแบบหนึ่งที่สามารถยึดไว้บนแท่นหรือพื้นหรือโต๊ะทำงานได้ ส่วนประกอบหลักได้แก่ฐาน เสา โต๊ะแบบปรับได้ แกนหมุน หัวจับดอกสว่าน และหัวสว่าน ซึ่งปกติจะขับเคลื่อนโดยมอเตอร์ไฟฟ้า",
    "pl": "Wiertarka stołowa to rodzaj wiertarki, którą można zamontować na stojaku, przykręcić do podłogi lub stołu roboczego. Jej główne elementy to podstawa, kolumna, regulowany stół, wrzeciono, uchwyt i głowica wiertnicza, zwykle napędzana silnikiem elektrycznym."
   },
-  "disambig": "Work Drillpress"
+  "disambig": "Work Drillpress 02"
  },
  {
   "asset": "Work_Drillpress_01_ES",
@@ -23204,7 +23230,7 @@
    "th": "สว่านแท่นสว่านรูปแบบหนึ่งที่สามารถยึดไว้บนแท่นหรือพื้นหรือโต๊ะทำงานได้ ส่วนประกอบหลักได้แก่ฐาน เสา โต๊ะแบบปรับได้ แกนหมุน หัวจับดอกสว่าน และหัวสว่าน ซึ่งปกติจะขับเคลื่อนโดยมอเตอร์ไฟฟ้า",
    "pl": "Wiertarka stołowa to rodzaj wiertarki, którą można zamontować na stojaku, przykręcić do podłogi lub stołu roboczego. Jej główne elementy to podstawa, kolumna, regulowany stół, wrzeciono, uchwyt i głowica wiertnicza, zwykle napędzana silnikiem elektrycznym."
   },
-  "disambig": "Work Drillpress"
+  "disambig": "Work Drillpress 01"
  },
  {
   "asset": "4_pieces_Ear_Necklace_ES",
@@ -23225,7 +23251,7 @@
    "pl": "Naszyjnik z uszu"
   },
   "description": {},
-  "disambig": "pieces"
+  "disambig": "4 pieces"
  },
  {
   "asset": "6_pieces_Ear_Necklace_ES",
@@ -23246,7 +23272,7 @@
    "pl": "Naszyjnik z uszu"
   },
   "description": {},
-  "disambig": "pieces"
+  "disambig": "6 pieces"
  },
  {
   "asset": "2_pieces_Ear_Necklace_ES",
@@ -23267,7 +23293,7 @@
    "pl": "Naszyjnik z uszu"
   },
   "description": {},
-  "disambig": "pieces"
+  "disambig": "2 pieces"
  },
  {
   "asset": "Electrical_Repair_Kit_ES",
@@ -23584,7 +23610,8 @@
    "zh-tw": "一根有彈性的長竿子。簡單來說，釣竿就是一根繫線栓鉤的棍子或竿子。",
    "th": "คันเบ็ดที่ยาวและยืดหยุ่นสำหรับจับปลา ว่ากันง่ายๆ คันเบ็ดตกปลาคือแท่งไม้ธรรมดาๆ ที่ติดอยู่กับสายที่ส่วนปลายมีตะขออยู่",
    "pl": "Długa, elastyczna wędka używana do połowu ryb. W uproszczeniu jest to zwykły kij lub tyczka, do której przymocowana jest linka zakończona haczykiem."
-  }
+  },
+  "disambig": "Fishing rod"
  },
  {
   "asset": "FlareItem_Green_ES",
@@ -23934,7 +23961,8 @@
    "th": "หัวแพะเสียบไม้แหลม",
    "pl": "Głowa kozy na palu"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Goat Head Spike"
  },
  {
   "asset": "Graphite_ES",
@@ -24078,7 +24106,8 @@
    "zh-tw": "用來磨利刀刃武器和其他物品的工具。 ",
    "th": "เครื่องมือที่ใช้สำหรับลับอาวุธและเครื่องมือให้คม ",
    "pl": "Narzędzie służące do ostrzenia broni i narzędzi. "
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Grinding_Stone_01_ES",
@@ -24109,7 +24138,8 @@
    "zh-tw": "用來磨利刀刃武器和其他物品的工具。 ",
    "th": "เครื่องมือที่ใช้สำหรับลับอาวุธและเครื่องมือให้คม ",
    "pl": "Narzędzie służące do ostrzenia broni i narzędzi. "
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Guitar_ES",
@@ -24293,7 +24323,8 @@
    "th": "หัวม้าเสียบไม้แหลม",
    "pl": "Głowa konia na palu"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Horse Head Spike"
  },
  {
   "asset": "Hose_ES",
@@ -24353,7 +24384,8 @@
    "th": "หัวมนุษย์เสียบไม้แหลม",
    "pl": "Ludzka głowa na palu"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Human Head Spike"
  },
  {
   "asset": "Human_Skin_ES",
@@ -24417,7 +24449,8 @@
   },
   "description": {
    "en": "Improved wooden chest made by a skilled craftsman, used for storing items."
-  }
+  },
+  "disambig": "Improved Wooden Chest"
  },
  {
   "asset": "Improvised_Shelter_ES",
@@ -24520,7 +24553,8 @@
   "name": {
    "en": "Improvised Metal Chest"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Improvised Metal Chest"
  },
  {
   "asset": "Water_Collector_Raincoat_ES",
@@ -24762,7 +24796,8 @@
    "zh-tw": "簡易製成的工作台，可以用來製作彈藥。",
    "th": "โต๊ะทำงานแบบประดิษฐ์ สามารถใช้สร้างกระสุนได้",
    "pl": "Improwizowany stół roboczy służący na przykład do wytwarzania amunicji."
-  }
+  },
+  "disambig": "Improvised Workbench"
  },
  {
   "asset": "Jack_o_Lantern_03_ES",
@@ -24793,7 +24828,8 @@
    "zh-tw": "萬聖節的裝飾。",
    "th": "ของประดับฮาโลวีน",
    "pl": "Dekoracja na Halloween."
-  }
+  },
+  "disambig": "03"
  },
  {
   "asset": "Jack_o_Lantern_01_ES",
@@ -24824,7 +24860,8 @@
    "zh-tw": "萬聖節的裝飾。",
    "th": "ของประดับฮาโลวีน",
    "pl": "Dekoracja na Halloween."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Jack_o_Lantern_02_ES",
@@ -24855,7 +24892,8 @@
    "zh-tw": "萬聖節的裝飾。",
    "th": "ของประดับฮาโลวีน",
    "pl": "Dekoracja na Halloween."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Jar_ES",
@@ -24886,7 +24924,8 @@
    "zh-tw": "普通的家用罐子，可以用來儲藏和保存食物。",
    "th": "ไหทั่วไปสำหรับครัวเรือน สามารถใช้เพื่อเก็บและถนอมอาหารได้",
    "pl": "Zwykły słoik, który można wykorzystywać do przechowywania i konserwowania żywności."
-  }
+  },
+  "disambig": "Jar"
  },
  {
   "asset": "Jar_02_ES",
@@ -24917,7 +24956,8 @@
    "zh-tw": "普通的家用罐子，可以用來儲藏和保存食物。",
    "th": "ไหทั่วไปสำหรับครัวเรือน สามารถใช้เพื่อเก็บและถนอมอาหารได้",
    "pl": "Zwykły słoik, który można wykorzystywać do przechowywania i konserwowania żywności."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Jezva_ES",
@@ -25010,7 +25050,8 @@
    "zh-tw": "只能存放木頭製作材料的倉庫。",
    "th": "สถานที่เก็บของที่ใช้เก็บวัสดุการประดิษฐ์ที่เป็นไม้เท่านั้น",
    "pl": "Miejsce przydatne wyłącznie do przechowywania drewnianych materiałów rzemieślniczych."
-  }
+  },
+  "disambig": "1"
  },
  {
   "asset": "Stone_Large_ES",
@@ -25387,7 +25428,8 @@
    "zh-tw": "用過的金屬零件，可以用來製作其他道具。",
    "th": "ชิ้นส่วนโลหะที่ใช้แล้ว สามารถนำมาใช้ใหม่เพื่อประดิษฐ์สิ่งของอื่นๆ ได้",
    "pl": "Stary, używany kawałek metalu. Może zostać ponownie wykorzystany do wytworzenia innych przedmiotów."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Metal_Scrap_05_ES",
@@ -25418,7 +25460,8 @@
    "zh-tw": "用過的金屬零件，可以用來製作其他道具。",
    "th": "ชิ้นส่วนโลหะที่ใช้แล้ว สามารถนำมาใช้ใหม่เพื่อประดิษฐ์สิ่งของอื่นๆ ได้",
    "pl": "Stary, używany kawałek metalu. Może zostać ponownie wykorzystany do wytworzenia innych przedmiotów."
-  }
+  },
+  "disambig": "05"
  },
  {
   "asset": "Metal_Scrap_01_ES",
@@ -25449,7 +25492,8 @@
    "zh-tw": "用過的金屬零件，可以用來製作其他道具。",
    "th": "ชิ้นส่วนโลหะที่ใช้แล้ว สามารถนำมาใช้ใหม่เพื่อประดิษฐ์สิ่งของอื่นๆ ได้",
    "pl": "Stary, używany kawałek metalu. Może zostać ponownie wykorzystany do wytworzenia innych przedmiotów."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Metal_Scrap_04_ES",
@@ -25480,7 +25524,8 @@
    "zh-tw": "用過的金屬零件，可以用來製作其他道具。",
    "th": "ชิ้นส่วนโลหะที่ใช้แล้ว สามารถนำมาใช้ใหม่เพื่อประดิษฐ์สิ่งของอื่นๆ ได้",
    "pl": "Stary, używany kawałek metalu. Może zostać ponownie wykorzystany do wytworzenia innych przedmiotów."
-  }
+  },
+  "disambig": "04"
  },
  {
   "asset": "Metal_Scrap_03_ES",
@@ -25511,7 +25556,8 @@
    "zh-tw": "用過的金屬零件，可以用來製作其他道具。",
    "th": "ชิ้นส่วนโลหะที่ใช้แล้ว สามารถนำมาใช้ใหม่เพื่อประดิษฐ์สิ่งของอื่นๆ ได้",
    "pl": "Stary, używany kawałek metalu. Może zostać ponownie wykorzystany do wytworzenia innych przedmiotów."
-  }
+  },
+  "disambig": "03"
  },
  {
   "asset": "Bundle_Of_Metal_Tips_ES",
@@ -25613,7 +25659,8 @@
    "zh-tw": "差一步就能飛上月球。",
    "th": "ก้าวผิดถึงขั้นขิตเลยทีเดียว",
    "pl": "O krok bliżej na Księżyc."
-  }
+  },
+  "disambig": "05"
  },
  {
   "asset": "Mobile_Phone_ES",
@@ -25828,7 +25875,8 @@
    "th": "กระดาษ",
    "pl": "Papier"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Paper"
  },
  {
   "asset": "Test_Paper_ES",
@@ -26607,7 +26655,8 @@
    "th": "เพิงพัก",
    "pl": "Szałas"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Shelter"
  },
  {
   "asset": "Short_Paddle_A_ES",
@@ -26658,7 +26707,8 @@
    "th": "ไม้เสียบเนื้อ",
    "pl": "Rożen"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Skewer"
  },
  {
   "asset": "Skewer_02_ES",
@@ -26678,7 +26728,8 @@
    "th": "ไม้เสียบเนื้อ",
    "pl": "Rożen"
   },
-  "description": {}
+  "description": {},
+  "disambig": "02"
  },
  {
   "asset": "Battery_Charger_Small_ES",
@@ -26793,7 +26844,8 @@
    "zh-tw": "只能存放木頭製作材料的倉庫。",
    "th": "สถานที่เก็บของที่ใช้เก็บวัสดุการประดิษฐ์ที่เป็นไม้เท่านั้น",
    "pl": "Miejsce przydatne wyłącznie do przechowywania drewnianych materiałów rzemieślniczych."
-  }
+  },
+  "disambig": "2"
  },
  {
   "asset": "Wooden_Sticks_Bundle_Meduim_ES",
@@ -26937,7 +26989,8 @@
    "zh-tw": "可以用來生火的原木。",
    "th": "ไม้ดิบที่สามารถนำมาจุดไฟได้",
    "pl": "Surowe drewno, które można wykorzystać jako opał."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Wooden_Log_Small_03_ES",
@@ -26968,7 +27021,8 @@
    "zh-tw": "可以用來生火的原木。",
    "th": "ไม้ดิบที่สามารถนำมาจุดไฟได้",
    "pl": "Surowe drewno, które można wykorzystać jako opał."
-  }
+  },
+  "disambig": "03"
  },
  {
   "asset": "Wooden_Log_Small_01_ES",
@@ -26999,7 +27053,8 @@
    "zh-tw": "可以用來生火的原木。",
    "th": "ไม้ดิบที่สามารถนำมาจุดไฟได้",
    "pl": "Surowe drewno, które można wykorzystać jako opał."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Smartphone_Battery_ES",
@@ -27444,7 +27499,7 @@
    "pl": "Naszyjnik z zębów"
   },
   "description": {},
-  "disambig": "Teeth"
+  "disambig": "15 Teeth"
  },
  {
   "asset": "05_Teeth_Necklace_ES",
@@ -27465,7 +27520,7 @@
    "pl": "Naszyjnik z zębów"
   },
   "description": {},
-  "disambig": "Teeth"
+  "disambig": "05 Teeth"
  },
  {
   "asset": "10_Teeth_Necklace_ES",
@@ -27486,7 +27541,7 @@
    "pl": "Naszyjnik z zębów"
   },
   "description": {},
-  "disambig": "Teeth"
+  "disambig": "10 Teeth"
  },
  {
   "asset": "Torch_ES",
@@ -27948,7 +28003,8 @@
    "zh-tw": "可以用來生火的原木。",
    "th": "ไม้ดิบที่สามารถนำมาจุดไฟได้",
    "pl": "Surowe drewno, które można wykorzystać jako opał."
-  }
+  },
+  "disambig": "01"
  },
  {
   "asset": "Wooden_Log_02_ES",
@@ -27979,7 +28035,8 @@
    "zh-tw": "可以用來生火的原木。",
    "th": "ไม้ดิบที่สามารถนำมาจุดไฟได้",
    "pl": "Surowe drewno, które można wykorzystać jako opał."
-  }
+  },
+  "disambig": "02"
  },
  {
   "asset": "Wooden_Plank_ES",
@@ -29723,7 +29780,8 @@
    "zh-tw": "一種安裝在釣竿上並用來纏繞和收納魚線的圓柱裝置。",
    "th": "รอกเบ็ดตกปลาเป็นอุปกรณ์ทรงกระบอกติดกับคันเบ็ดตกปลาที่ใช้ในการม้วนและเก็บสายเบ็ด",
    "pl": "Kołowrotek wędkarski to cylindryczne narzędzie przymocowywane do wędki, służące do nawijania i przechowywania żyłki."
-  }
+  },
+  "disambig": "Fishing Reel"
  },
  {
   "asset": "ImprovisedFishingReel_ES",
@@ -29806,7 +29864,8 @@
    "th": "คันเบ็ดตกปลา",
    "pl": "Wędka"
   },
-  "description": {}
+  "description": {},
+  "disambig": "Fishing Rod"
  },
  {
   "asset": "ImprovisedFishingHook_ES",
@@ -32212,7 +32271,8 @@
    "zh-tw": "哈密瓜可指多種葫蘆科甜瓜種植物，原產地很可能是印度到非洲一帶，隨後被引入歐洲，並於 1890 年左右成為美國的商業作物。",
    "th": "แคนตาลูปเป็นพืชไม้เลื้อยสายพันธ์ Cucumis Melo ในวงศ์แตง แคนตาลูปน่าจะมีต้นกําเนิดในภูมิภาคจากอินเดียไปจนถึงแอฟริกา ต่อมาได้มีการนำเข้าสู่ยุโรป และประมาณปี 1890 ได้กลายเป็นพืชเชิงพาณิชย์ในสหรัฐอเมริกา",
    "pl": "Kantalupa to jedna z grup wśród gatunku ogórków melonów z rodziny dyniowatych. Roślina ta najprawdopodobniej pochodzi z regionu między Indiami a Afryką, skąd przywędrowała do Europy, a następnie także do Stanów Zjednoczonych, gdzie około roku 1890 zaczęła być hodowana na cele handlowe."
-  }
+  },
+  "disambig": "Cantaloupe Melon"
  },
  {
   "asset": "Cantharellus_Cibarius_ES",
@@ -32962,7 +33022,7 @@
    "pl": "Czekoladka"
   },
   "description": {},
-  "disambig": "Candy"
+  "disambig": "Candy 06"
  },
  {
   "asset": "ChocolateCandy_04_ES",
@@ -32983,7 +33043,7 @@
    "pl": "Czekoladka"
   },
   "description": {},
-  "disambig": "Candy"
+  "disambig": "Candy 04"
  },
  {
   "asset": "ChocolateCandy_07_ES",
@@ -33024,7 +33084,7 @@
    "pl": "Czekoladka"
   },
   "description": {},
-  "disambig": "Candy"
+  "disambig": "Candy 05"
  },
  {
   "asset": "ChocolateCandy_09_ES",
@@ -33045,7 +33105,7 @@
    "pl": "Baton czekoladowy"
   },
   "description": {},
-  "disambig": "Candy"
+  "disambig": "Candy 09"
  },
  {
   "asset": "ChocolateCandy_08_ES",
@@ -33066,7 +33126,7 @@
    "pl": "Baton czekoladowy"
   },
   "description": {},
-  "disambig": "Candy"
+  "disambig": "Candy 08"
  },
  {
   "asset": "Dish_Cake_Chocolate_ES",
@@ -33210,7 +33270,8 @@
    "zh-tw": "炒麵是一種麵料理，非常受海外華人的歡迎，在中餐廳的菜單上很常見。",
    "th": "ผัดหมี่ซั่วเป็นอาหารเส้นที่นำมาผัด ชื่อ Chow mein มาจากการถอดเสียงภาษาอังกฤษจากภาษากวางตุ้งคำว่าเชาเหมิน เมนูนี้เป็นที่นิยมของชาวจีนพลัดถิ่นและมักจะปรากฏอยู่ในเมนูของร้านอาหารจีน",
    "pl": "Chow mein to smażony makaron, którego nazwa stanowi romanizację oryginalnego chińskiego chāu-mèing. Danie to jest popularne w całej kulturze chińskiej i pojawia się w menu restauracji chińskich."
-  }
+  },
+  "disambig": "Chow Mein"
  },
  {
   "asset": "Dish_Noodles_ChowMein_ES",
@@ -38241,7 +38302,7 @@
    "th": "แขนของซอมบี้ที่ถูกตัด สามารถนำไปแล่เป็นเนื้อได้",
    "pl": "Odcięta ręka kukły. Można pociąć na mięso."
   },
-  "disambig": "Zombie Right"
+  "disambig": "Zombie 01 Right"
  },
  {
   "asset": "Zombie_01_Left_Arm_ES",
@@ -38273,7 +38334,7 @@
    "th": "แขนของซอมบี้ที่ถูกตัด สามารถนำไปแล่เป็นเนื้อได้",
    "pl": "Odcięta ręka kukły. Można pociąć na mięso."
   },
-  "disambig": "Zombie Left"
+  "disambig": "Zombie 01 Left"
  },
  {
   "asset": "Zombie_01_Right_Foot_ES",
@@ -38336,7 +38397,7 @@
    "th": "หัวซอมบี้ที่ถูกตัด ของที่ระลึกมันมีหลายแบบหลายไซส์",
    "pl": "Odcięta głowa kukły. Trofea miewają różne kształty i wielkości."
   },
-  "disambig": "Zombie No teeth"
+  "disambig": "Zombie 01 No teeth"
  },
  {
   "asset": "Zombie_01_Head_ES",
@@ -38368,7 +38429,7 @@
    "th": "หัวซอมบี้ที่ถูกตัด ของที่ระลึกมันมีหลายแบบหลายไซส์",
    "pl": "Odcięta głowa kukły. Trofea miewają różne kształty i wielkości."
   },
-  "disambig": "Zombie"
+  "disambig": "Zombie 01"
  },
  {
   "asset": "Zombie_01_Left_Leg_ES",
@@ -38400,7 +38461,7 @@
    "th": "ขาของซอมบี้ที่ถูกตัด สามารถนำไปแล่เป็นเนื้อได้",
    "pl": "Odcięta noga kukły. Można pociąć na mięso."
   },
-  "disambig": "Zombie Left"
+  "disambig": "Zombie 01 Left"
  },
  {
   "asset": "Zombie_01_Right_Leg_ES",
@@ -38432,7 +38493,7 @@
    "th": "ขาของซอมบี้ที่ถูกตัด สามารถนำไปแล่เป็นเนื้อได้",
    "pl": "Odcięta noga kukły. Można pociąć na mięso."
   },
-  "disambig": "Zombie Right"
+  "disambig": "Zombie 01 Right"
  },
  {
   "asset": "ZombieMeat_ES",
@@ -40468,7 +40529,8 @@
    "zh-tw": "酥皮點心是一種可以用烤箱烘焙後食用的糕點統稱，是一種方便的食品，可作為早餐或零食。酥皮點心通常包含水果味或其他食材的餡料，例如巧克力或肉桂。",
    "th": "โทสเตอร์เพสตรีเป็นชื่อสามัญสำหรับแป้งที่สามารถนำไปปิ้งในเครื่องปิ้งขนมปังได้ ซึ่งเป็นอาหารที่สะดวก สามารถทานเป็นอาหารเช้าหรือของว่างก็ได้ โทสเตอร์เพสตรีสอดไส้รสผลไม้หรือวัตถุดิบอื่นๆ อยู่ด้วย เช่น ช็อกโกแลตหรืออบเชย",
    "pl": "Ciastka do tostera to ogólna nazwa wypieków, które można podgrzewać w tosterze i spożywać na śniadanie lub jako przekąskę. Ciastka tego rodzaju posiadają zwykle nadzienie z owoców lub innych składników, takich jak czekolada czy cynamon."
-  }
+  },
+  "disambig": "Toaster Pastries"
  },
  {
   "asset": "Toaster_Pastries2_ES",
@@ -41636,7 +41698,8 @@
    "zh-tw": "裝有炸彈而不是鑰匙孔的鎖。",
    "th": "ตัวล็อกที่มีระเบิดแทนที่จะเป็นรูกุญแจ",
    "pl": "Zamek z bombą zamiast dziurki od klucza."
-  }
+  },
+  "disambig": "Lock Bomb"
  },
  {
   "asset": "Lock_Security_Killbox_ES",
@@ -42264,7 +42327,7 @@
    "th": "ยาถ่ายพยาธิเป็นกลุ่มของยาที่ระบุไว้สำหรับการรักษาโรคพยาธิ เช่น โรคที่เกิดจากหนอนพยาธิ อะมีบา ปรสิตภายนอก เชื้อราปรสิต และโปรโตซัว เป็นต้น ยาถ่ายพยาธิจะมุ่งเป้าไปที่เชื้อปรสิตที่ทำให้เกิดการติดเชื้อโดยการทำลายหรือยับยั้งการเติบโต",
    "pl": "Środki przeciwpasożytnicze to klasa leków stosowanych w leczeniu chorób pasożytniczych, takich jak te wywoływane przez glisty, ameby, ektopasożyty, grzyby pasożytnicze i pierwotniaki. Środki przeciwpasożytnicze celują w pasożytnicze czynniki infekcji, niszcząc je lub hamując ich wzrost."
   },
-  "disambig": "Antiparasitics"
+  "disambig": "Antiparasitics 03"
  },
  {
   "asset": "Antiparasitics_01_ES",
@@ -42296,7 +42359,7 @@
    "th": "ยาถ่ายพยาธิเป็นกลุ่มของยาที่ระบุไว้สำหรับการรักษาโรคพยาธิ เช่น โรคที่เกิดจากหนอนพยาธิ อะมีบา ปรสิตภายนอก เชื้อราปรสิต และโปรโตซัว เป็นต้น ยาถ่ายพยาธิจะมุ่งเป้าไปที่เชื้อปรสิตที่ทำให้เกิดการติดเชื้อโดยการทำลายหรือยับยั้งการเติบโต",
    "pl": "Środki przeciwpasożytnicze to klasa leków stosowanych w leczeniu chorób pasożytniczych, takich jak te wywoływane przez glisty, ameby, ektopasożyty, grzyby pasożytnicze i pierwotniaki. Środki przeciwpasożytnicze celują w pasożytnicze czynniki infekcji, niszcząc je lub hamując ich wzrost."
   },
-  "disambig": "Antiparasitics"
+  "disambig": "Antiparasitics 01"
  },
  {
   "asset": "Aspirin_ES",
@@ -42870,7 +42933,8 @@
    "zh-tw": "用木板和釘刺製成的陷阱，會對腳造成穿刺傷害。",
    "th": "กับดักทำจากไม้และตะปู ทำให้เกิดแผลเจาะทะลุเท้า",
    "pl": "Pułapka wykonana z desek i gwoździ, przebijająca stopy po nadepnięciu."
-  }
+  },
+  "disambig": "Barbed Spike Trap"
  },
  {
   "asset": "C4_ES",
@@ -42972,7 +43036,8 @@
    "zh-tw": "觸發時會釋放煙火的陷阱。",
    "th": "กับดักที่จะจุดพลุเมื่อกับดักทำงาน",
    "pl": "Pułapka, która po aktywacji wystrzeliwuje fajerwerki."
-  }
+  },
+  "disambig": "Fireworks Trap"
  },
  {
   "asset": "ImprovisedClaymore_ES",
@@ -43145,7 +43210,8 @@
    "zh-tw": "觸發時會向主人傳送通知的陷阱。",
    "th": "กับดักที่ส่งสัญญาณแจ้งเตือนไปยังเจ้าของเมื่อทำงาน",
    "pl": "Pułapka, która wysyła po aktywacji powiadomienie do właściciela."
-  }
+  },
+  "disambig": "Silent Alarm"
  },
  {
   "asset": "Mine_02_ES",
@@ -45994,7 +46060,7 @@
    "th": "ศูนย์เล็ง 5 พินสำหรับธนูทดกำลัง",
    "pl": "5-punktowy celownik do łuku kompozytowego."
   },
-  "disambig": "Pin"
+  "disambig": "5 Pin"
  },
  {
   "asset": "CompoundBowSight_3_Pin_ES",
@@ -46026,7 +46092,7 @@
    "th": "ศูนย์เล็ง 3 พินสำหรับธนูทดกำลัง",
    "pl": "3-punktowy celownik do łuku kompozytowego."
   },
-  "disambig": "Pin"
+  "disambig": "3 Pin"
  },
  {
   "asset": "1H_Crowbar_ES",
@@ -47355,7 +47421,7 @@
    "pl": "Nóż kuchenny"
   },
   "description": {},
-  "disambig": "H"
+  "disambig": "1 H 03"
  },
  {
   "asset": "1H_KitchenKnife_04_ES",
@@ -47376,7 +47442,7 @@
    "pl": "Nóż kuchenny"
   },
   "description": {},
-  "disambig": "H"
+  "disambig": "1 H 04"
  },
  {
   "asset": "1H_KitchenKnife_02_Deluxe_ES",
@@ -47397,7 +47463,7 @@
    "pl": "Nóż kuchenny"
   },
   "description": {},
-  "disambig": "H Deluxe"
+  "disambig": "1 H 02 Deluxe"
  },
  {
   "asset": "1H_KitchenKnife_ES",
@@ -47418,7 +47484,7 @@
    "pl": "Nóż kuchenny"
   },
   "description": {},
-  "disambig": "H"
+  "disambig": "1 H"
  },
  {
   "asset": "Recurve_Bow_60_ES",
@@ -48701,7 +48767,7 @@
    "th": "มีดปลายปืน N9 (สีขาว) ที่รู้จักกันอย่างเป็นทางการในชื่อ N9 Phlex III เป็นมีดอเนกประสงค์และมีดปลายปืน มีใบมีดขนาด 7 นิ้ว (18 ซม.) และมีปลอกที่ออกแบบมาเพื่อใช้เป็นคีมตัดลวดได้ด้วย\r\nสามารถติดตั้งกับ M16 ได้",
    "pl": "Bagnet N9 (biały), oficjalnie znany jako N9 Phlex III, to wielofunkcyjny nóż i bagnet. Posiada 7-calowe (18 cm) ostrze i jest wyposażony w pochwę mogącą służyć także jako nożyce do drutu.\r\nMożna zamontować na M16."
   },
-  "disambig": "H White"
+  "disambig": "1 H White"
  },
  {
   "asset": "1H_N9_Black_ES",
@@ -48733,7 +48799,7 @@
    "th": "มีดปลายปืน N9 (สีดำ) ที่รู้จักกันอย่างเป็นทางการในชื่อ N9 Phlex III เป็นมีดอเนกประสงค์และมีดปลายปืน มีใบมีดขนาด 7 นิ้ว (18 ซม.) และมีปลอกที่ออกแบบมาเพื่อใช้เป็นคีมตัดลวดได้ด้วย\r\nสามารถติดตั้งกับ M16 ได้",
    "pl": "Bagnet N9 (czarny), oficjalnie znany jako N9 Phlex III, to wielofunkcyjny nóż i bagnet. Posiada 7-calowe (18 cm) ostrze i jest wyposażony w pochwę mogącą służyć także jako nożyce do drutu.\r\nMożna zamontować na M16."
   },
-  "disambig": "H Black"
+  "disambig": "1 H Black"
  },
  {
   "asset": "WeaponSights_OKP-7_Holographic_ES",
@@ -49160,7 +49226,7 @@
    "pl": "Scout"
   },
   "description": {},
-  "disambig": "H White"
+  "disambig": "1 H White"
  },
  {
   "asset": "1H_Scout_Black_ES",
@@ -49181,7 +49247,7 @@
    "pl": "Scout"
   },
   "description": {},
-  "disambig": "H Black"
+  "disambig": "1 H Black"
  },
  {
   "asset": "Weapon_SDASS_ES",
