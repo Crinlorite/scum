@@ -12,9 +12,26 @@ interface Props { lang: LangCode; live?: boolean; noindex?: boolean; }
 const { lang, live = false, noindex = false } = Astro.props;
 const tr = useTranslations(lang);
 const SIZE = 2048;
-const pois = poiData as { n: string; s: string; x: number; y: number }[];
+const pois = poiData as { n: string; s: string; t: string; x: number; y: number }[];
 const sectorLabel = tr('map.sectors');
 const gridLabel = tr('map.grid');
+// POI type labels (localized) for the toggleable overlay filters.
+const TYPE_META: Record<string, Partial<Record<LangCode, string>>> = {
+  town: { es: 'Localidades', en: 'Settlements' },
+  abandoned: { es: 'Ciudad abandonada', en: 'Abandoned city' },
+  military: { es: 'Militar', en: 'Military' },
+  farm: { es: 'Granjas', en: 'Farms' },
+  industrial: { es: 'Industrial', en: 'Industrial' },
+  nuclear: { es: 'Central nuclear', en: 'Nuclear plant' },
+  rail: { es: 'Ferrocarril', en: 'Railway' },
+  airfield: { es: 'Aeródromo', en: 'Airfield' },
+  fortress: { es: 'Fortalezas / ruinas', en: 'Forts / ruins' },
+  cabin: { es: 'Cabañas', en: 'Cabins' },
+  gas: { es: 'Gasolineras', en: 'Gas stations' },
+  zone: { es: 'Zonas seguras', en: 'Safe zones' },
+  church: { es: 'Iglesias', en: 'Churches' },
+};
+const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => [k, v[lang] ?? v.en ?? k]));
 ---
 <BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')} noindex={noindex}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -28,7 +45,7 @@ const gridLabel = tr('map.grid');
   </section>
 
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script is:inline define:vars={{ pois, SIZE, sectorLabel, gridLabel, live }}>
+  <script is:inline define:vars={{ pois, SIZE, sectorLabel, gridLabel, typeLabels, live }}>
     const L = window.L;
     const map = L.map('scum-map', { crs: L.CRS.Simple, minZoom: -2, maxZoom: 2, zoomSnap: 0.25, attributionControl: false });
     const bounds = [[0, 0], [SIZE, SIZE]];
@@ -36,29 +53,33 @@ const gridLabel = tr('map.grid');
     map.fitBounds(bounds);
 
     const flip = (p) => [SIZE - p.y, p.x]; // pixel(top-left) → Leaflet(bottom-left)
-    const COLORS = { A: '#e0843f', B: '#5fb0d0', C: '#7cc56a', D: '#d06a9a', Z: '#c9b04a', '': '#9aa0a6' };
+    const COLORS = {
+      town: '#9aa0a6', abandoned: '#b06a4a', military: '#c83a3a', farm: '#7cc56a',
+      industrial: '#c9913a', nuclear: '#e0d24a', rail: '#8a8f96', airfield: '#5fb0d0',
+      fortress: '#a06ad0', cabin: '#6a9a5a', gas: '#e0843f', zone: '#3fb950', church: '#d0c0a0',
+    };
 
-    // Group POIs into one layer per sector.
-    const sectors = {};
-    for (const p of pois) (sectors[p.s] ??= []).push(p);
+    // Group POIs by TYPE → one toggleable overlay per type (filter on/off).
+    const byType = {};
+    for (const p of pois) (byType[p.t] ??= []).push(p);
     const overlays = {};
-    const allKeys = Object.keys(sectors).sort();
-    for (const key of allKeys) {
+    for (const key of Object.keys(byType).sort((a, b) => byType[b].length - byType[a].length)) {
       const grp = L.layerGroup();
-      const col = COLORS[(key[0] || '')] || '#9aa0a6';
-      for (const p of sectors[key]) {
-        L.circleMarker(flip(p), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.65 })
+      const col = COLORS[key] || '#9aa0a6';
+      for (const p of byType[key]) {
+        L.circleMarker(flip(p), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.7 })
           .bindPopup(`<b>${p.n}</b>${p.s ? `<br><small>${sectorLabel} ${p.s}</small>` : ''}`)
           .addTo(grp);
       }
       grp.addTo(map);
-      overlays[`${key || '·'} (${sectors[key].length})`] = grp;
+      overlays[`${typeLabels[key] || key} (${byType[key].length})`] = grp;
     }
 
-    // Sector grid overlay: bounding box + label per sector (derived from its POIs).
+    // Sector grid overlay (navigation aid, off by default).
+    const sectors = {};
+    for (const p of pois) if (p.s) (sectors[p.s] ??= []).push(p);
     const grid = L.layerGroup();
-    for (const key of allKeys) {
-      if (!key) continue;
+    for (const key of Object.keys(sectors).sort()) {
       const ps = sectors[key];
       const xs = ps.map((p) => p.x), ys = ps.map((p) => p.y);
       const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
@@ -68,7 +89,7 @@ const gridLabel = tr('map.grid');
         icon: L.divIcon({ className: 'sector-label', html: key, iconSize: [30, 16] }),
       }).addTo(grid);
     }
-    L.control.layers(null, { [gridLabel]: grid, ...overlays }, { collapsed: true }).addTo(map);
+    L.control.layers(null, { ...overlays, [gridLabel]: grid }, { collapsed: true }).addTo(map);
 
     // Live player positions (private panel only). The DB only refreshes on the
     // server autosave, so polling faster than that gains nothing — 5s is plenty.
