@@ -55,7 +55,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
     // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
     // Afinable en vivo con ?ox=..&oy=.. (sin redeploy) para calibrar y luego fijar.
-    const CALIB = { x: -20, y: 0 };
+    const CALIB = { x: -25, y: 0 };
     const params = new URLSearchParams(location.search);
     const OX = (parseFloat(params.get('ox')) || 0) + CALIB.x; // + derecha / − izquierda
     const OY = (parseFloat(params.get('oy')) || 0) + CALIB.y; // + arriba  / − abajo
