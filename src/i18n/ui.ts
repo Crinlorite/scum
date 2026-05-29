@@ -123,8 +123,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'beta.notice': 'Traducción en Beta: parte del contenido puede estar incompleto o aparecer en inglés.',
     'beta.readIn': 'Disponible en',
 
-    'search.label': 'Buscar ítems',
-    'search.placeholder': 'Buscar ítem…',
+    'search.label': 'Buscar',
+    'search.placeholder': 'Items, misiones, recetas…',
     'search.hint': 'Sigue escribiendo…',
     'search.noResults': 'Sin resultados',
 
@@ -294,8 +294,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'beta.notice': 'Beta translation: some content may be incomplete or shown in English.',
     'beta.readIn': 'Available in',
 
-    'search.label': 'Search items',
-    'search.placeholder': 'Search item…',
+    'search.label': 'Search',
+    'search.placeholder': 'Items, missions, recipes…',
     'search.hint': 'Keep typing…',
     'search.noResults': 'No results',
 

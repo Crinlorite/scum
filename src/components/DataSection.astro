@@ -75,6 +75,9 @@ const stext = (e: { name: string; desc?: string; meta: { v: string }[] }) =>
       for (const g of groups) { const v = g.querySelectorAll('.dcard:not([hidden])').length; g.hidden = v === 0; const j = jump.find((a) => a.dataset.cat === g.dataset.cat); if (j) j.hidden = v === 0; }
       if (nores) nores.hidden = any;
     });
+    // Deep link from the global search: ?q= pre-fills and filters on load.
+    const q0 = new URLSearchParams(location.search).get('q');
+    if (q0) { input.value = q0; input.dispatchEvent(new Event('input')); input.scrollIntoView({ block: 'center' }); }
   }
 </script>
 

@@ -78,6 +78,8 @@ function searchText(r: CookRecipe): string {
       for (const g of groups) { const v = g.querySelectorAll('.rcard:not([hidden])').length; g.hidden = v === 0; const j = jump.find((a) => a.dataset.cat === g.dataset.cat); if (j) j.hidden = v === 0; }
       if (nores) nores.hidden = any;
     });
+    const q0 = new URLSearchParams(location.search).get('q');
+    if (q0) { input.value = q0; input.dispatchEvent(new Event('input')); input.scrollIntoView({ block: 'center' }); }
   }
 </script>
 
