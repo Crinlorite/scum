@@ -22,6 +22,13 @@ const others = LANGUAGES
 // Localized field with EN→ES fallback (for crafting/recipe names).
 const loc = (m?: Partial<Record<LangCode, string>>) => m?.[lang] ?? m?.[FALLBACK_LANG] ?? (m && Object.values(m)[0]) ?? '';
 
+// Cross-link helpers: jump to a related mission/recipe/crafting entry, landing
+// on the section with its search pre-filtered to that name (?q=).
+const misionesBase = localizedPath('/misiones', lang);
+const recetasBase = localizedPath('/recetas', lang);
+const crafteoBase = localizedPath('/crafteo', lang);
+const qUrl = (base: string, s: string) => `${base}?q=${encodeURIComponent(s)}`;
+
 // In-component label maps keep i18n keys bounded; fall back to the raw key.
 const L: Record<string, Partial<Record<LangCode, string>>> = {
   weight: { es: 'Peso', en: 'Weight' },
@@ -118,6 +125,7 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
           <h2>{tr('item.howToCraft')}</h2>
           {d.craftedBy.slice(0, 4).map((c) => (
             <div class="recipe">
+              <a class="chip" href={qUrl(crafteoBase, loc(c.name) || dispName)}>{loc(c.name) || dispName}</a>
               <ul class="ingredients">
                 {(c.ingredients ?? []).map((ing) => (
                   <li>{(ing.options ?? []).map((o) => loc(o.name)).filter(Boolean).join(' / ')}</li>
@@ -136,7 +144,7 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
       {d.cookingUsing.length > 0 && (
         <section class="block">
           <h2>{tr('item.usedInCooking')}</h2>
-          <p class="cooking-list">{d.cookingUsing.slice(0, 20).map((r) => loc(r.name)).filter(Boolean).join(' · ')}</p>
+          <div class="chips">{d.cookingUsing.slice(0, 20).map((r) => { const t = loc(r.name); return t ? <a class="chip" href={qUrl(recetasBase, t)}>{t}</a> : null; })}</div>
         </section>
       )}
 
@@ -162,14 +170,14 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
       {d.questsNeeding.length > 0 && (
         <section class="block">
           <h2>{tr('item.questNeeded')}</h2>
-          <p class="cooking-list">{d.questsNeeding.slice(0, 15).map((q) => loc(q.title)).filter(Boolean).join(' · ')}</p>
+          <div class="chips">{d.questsNeeding.slice(0, 15).map((q) => { const t = loc(q.title); return t ? <a class="chip" href={qUrl(misionesBase, t)}>{t}</a> : null; })}</div>
         </section>
       )}
 
       {d.questsRewarding.length > 0 && (
         <section class="block">
           <h2>{tr('item.questReward')}</h2>
-          <p class="cooking-list">{d.questsRewarding.slice(0, 15).map((q) => loc(q.title)).filter(Boolean).join(' · ')}</p>
+          <div class="chips">{d.questsRewarding.slice(0, 15).map((q) => { const t = loc(q.title); return t ? <a class="chip" href={qUrl(misionesBase, t)}>{t}</a> : null; })}</div>
         </section>
       )}
 
@@ -210,6 +218,15 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
   .stat-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); }
   .stat-grid dd { margin: 0; color: var(--c-ink); font-weight: 600; }
   .recipe { padding: 0.75rem 0.9rem; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); margin-bottom: 0.6rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip {
+    display: inline-flex; align-items: center; padding: 0.28rem 0.6rem;
+    font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft);
+    border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .chip:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .recipe .chip { margin-bottom: 0.5rem; }
   .ingredients { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); }
   .ingredients li { margin: 0.1rem 0; }
   .recipe-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--c-ink-muted); }

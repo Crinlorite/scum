@@ -1,13 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, localizedPath } from '../i18n/utils';
 import { cookingByCategory, cookName, slotTitle, optName, COOKING, type CookRecipe } from '../data/cooking';
+import { ITEMS } from '../data/items';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
 const { lang } = Astro.props;
 const tr = useTranslations(lang);
 const groups = cookingByCategory(lang);
+
+// Link a recipe to the item page it produces, when that item exists.
+const ITEM_SLUGS = new Set(ITEMS.map((i) => i.slug));
+const itemHref = (slug?: string | null) => (slug && ITEM_SLUGS.has(slug) ? localizedPath(`/items/${slug}`, lang) : null);
 
 function searchText(r: CookRecipe): string {
   const parts = [cookName(r, lang)];
@@ -39,7 +44,7 @@ function searchText(r: CookRecipe): string {
             <div class="card-grid">
               {g.recipes.map((r) => (
                 <article class="rcard" data-text={searchText(r)}>
-                  <h3>{cookName(r, lang)}</h3>
+                  <h3>{itemHref(r.result?.slug) ? <a href={itemHref(r.result?.slug)!}>{cookName(r, lang)}</a> : cookName(r, lang)}</h3>
                   <ul class="ing">
                     {(r.mainIngredients ?? []).map((s) => (
                       <li>{slotTitle(s, lang) || (s.options ?? []).map((o) => optName(o, lang)).filter(Boolean).join(' / ')}</li>
@@ -102,6 +107,8 @@ function searchText(r: CookRecipe): string {
   .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
   .rcard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
   .rcard h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .rcard h3 a { color: var(--c-ink); text-decoration: none; }
+  .rcard h3 a:hover { color: var(--c-rust); }
   .ing { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); font-size: 0.9rem; }
   .ing li { margin: 0.1rem 0; }
   .opt { margin: 0 0 0.4rem; font-size: 0.82rem; color: var(--c-ink-soft); }

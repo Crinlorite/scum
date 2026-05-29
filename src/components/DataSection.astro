@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations } from '../i18n/utils';
 import { FALLBACK_LANG, type LangCode } from '../i18n/languages';
-import type { Section } from '../data/sections';
+import type { Section, SecEntry } from '../data/sections';
 
 interface Props {
   lang: LangCode;
@@ -20,8 +20,9 @@ const META: Record<string, Partial<Record<LangCode, string>>> = {
   tier: { es: 'Nivel', en: 'Tier' }, fame: { es: 'Fama', en: 'Fame' }, money: { es: 'Dinero', en: 'Money' },
 };
 const ml = (k: string) => META[k]?.[lang] ?? META[k]?.[FALLBACK_LANG] ?? k;
-const stext = (e: { name: string; desc?: string; meta: { v: string }[] }) =>
-  [e.name, e.desc ?? '', ...e.meta.map((m) => m.v)].join(' ').toLowerCase();
+const stext = (e: SecEntry) =>
+  [e.name, e.desc ?? '', ...e.meta.map((m) => m.v), ...(e.rels ?? []).flatMap((r) => r.links.map((l) => l.label))]
+    .join(' ').toLowerCase();
 ---
 <BaseLayout lang={lang} title={tr(titleKey as any)} description={tr(introKey as any)}>
   <section class="ds">
@@ -49,6 +50,9 @@ const stext = (e: { name: string; desc?: string; meta: { v: string }[] }) =>
                   {e.meta.length > 0 && (
                     <p class="dmeta">{e.meta.map((m) => (<span><b>{ml(m.k)}:</b> {m.v}</span>))}</p>
                   )}
+                  {e.rels?.map((rel) => (
+                    <p class="drel"><b>{rel.label}:</b> <span class="rchips">{rel.links.map((lk) => (<a class="rchip" href={lk.href}>{lk.label}</a>))}</span></p>
+                  ))}
                 </article>
               ))}
             </div>
@@ -105,4 +109,9 @@ const stext = (e: { name: string; desc?: string; meta: { v: string }[] }) =>
   .dd { margin: 0 0 0.4rem; font-size: 0.88rem; color: var(--c-ink-soft); line-height: 1.5; }
   .dmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.78rem; color: var(--c-ink-muted); }
   .dmeta b { font-weight: 600; color: var(--c-ink-soft); }
+  .drel { margin: 0.55rem 0 0; font-size: 0.8rem; color: var(--c-ink-muted); }
+  .drel b { font-weight: 600; color: var(--c-ink-soft); }
+  .rchips { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; vertical-align: top; }
+  .rchip { display: inline-flex; padding: 0.15rem 0.5rem; font-size: 0.78rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
+  .rchip:hover { color: var(--c-ink); border-color: var(--c-rust); }
 </style>

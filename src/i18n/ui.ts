@@ -127,6 +127,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.placeholder': 'Items, misiones, recetas…',
     'search.hint': 'Sigue escribiendo…',
     'search.noResults': 'Sin resultados',
+    'sec.quest.requires': 'Requiere',
+    'sec.quest.rewards': 'Recompensa',
 
     'lang.label': 'Cambiar idioma',
     'lang.stable': 'Estables',
@@ -298,6 +300,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.placeholder': 'Items, missions, recipes…',
     'search.hint': 'Keep typing…',
     'search.noResults': 'No results',
+    'sec.quest.requires': 'Requires',
+    'sec.quest.rewards': 'Reward',
 
     'lang.label': 'Change language',
     'lang.stable': 'Stable',
