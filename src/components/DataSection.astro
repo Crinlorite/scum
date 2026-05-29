@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations } from '../i18n/utils';
-import { FALLBACK_LANG, type LangCode } from '../i18n/languages';
+import { FALLBACK_LANG, LANGUAGES, type LangCode } from '../i18n/languages';
 import type { Section, SecEntry } from '../data/sections';
 
 interface Props {
@@ -24,8 +24,12 @@ const META: Record<string, Partial<Record<LangCode, string>>> = {
 };
 const ml = (k: string) => META[k]?.[lang] ?? META[k]?.[FALLBACK_LANG] ?? k;
 const stext = (e: SecEntry) =>
-  [e.name, e.desc ?? '', ...e.meta.map((m) => m.v), ...(e.rels ?? []).flatMap((r) => r.links.map((l) => l.label))]
+  [e.name, e.desc ?? '', ...e.meta.map((m) => m.v), ...(e.rels ?? []).flatMap((r) => r.links.map((l) => l.label)),
+   ...(e.names ? Object.values(e.names) : [])]
     .join(' ').toLowerCase();
+// Name in every other language (same idea as the item page's table).
+const otherLangs = (e: SecEntry) =>
+  e.names ? LANGUAGES.filter((l) => l.code !== lang && e.names![l.code]).map((l) => ({ native: l.native, code: l.code, value: e.names![l.code]! })) : [];
 ---
 <BaseLayout lang={lang} title={tr(titleKey as any)} description={tr(introKey as any)} noindex={noindex}>
   <section class="ds">
@@ -56,6 +60,12 @@ const stext = (e: SecEntry) =>
                   {e.rels?.map((rel) => (
                     <p class="drel"><b>{rel.label}:</b> <span class="rchips">{rel.links.map((lk) => (<a class="rchip" href={lk.href}>{lk.label}</a>))}</span></p>
                   ))}
+                  {otherLangs(e).length > 0 && (
+                    <details class="elangs">
+                      <summary>{tr('items.otherLanguages' as any)}</summary>
+                      <ul>{otherLangs(e).map((o) => (<li><span class="ln" lang={o.code}>{o.native}</span><span class="lv" lang={o.code}>{o.value}</span></li>))}</ul>
+                    </details>
+                  )}
                 </article>
               ))}
             </div>
@@ -117,4 +127,11 @@ const stext = (e: SecEntry) =>
   .rchips { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; vertical-align: top; }
   .rchip { display: inline-flex; padding: 0.15rem 0.5rem; font-size: 0.78rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
   .rchip:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .elangs { margin-top: 0.55rem; font-size: 0.82rem; }
+  .elangs summary { cursor: pointer; color: var(--c-ink-muted); }
+  .elangs summary:hover { color: var(--c-rust); }
+  .elangs ul { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.15rem; }
+  .elangs li { display: flex; justify-content: space-between; gap: 1rem; }
+  .elangs .ln { color: var(--c-ink-muted); }
+  .elangs .lv { color: var(--c-ink); text-align: right; }
 </style>

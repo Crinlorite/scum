@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { cookingByCategory, cookName, slotTitle, optName, COOKING, type CookRecipe } from '../data/cooking';
 import { ITEMS } from '../data/items';
-import type { LangCode } from '../i18n/languages';
+import { LANGUAGES, type LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
 const { lang } = Astro.props;
@@ -13,6 +13,8 @@ const groups = cookingByCategory(lang);
 // Link a recipe to the item page it produces, when that item exists.
 const ITEM_SLUGS = new Set(ITEMS.map((i) => i.slug));
 const itemHref = (slug?: string | null) => (slug && ITEM_SLUGS.has(slug) ? localizedPath(`/items/${slug}`, lang) : null);
+const otherLangs = (r: CookRecipe) =>
+  LANGUAGES.filter((l) => l.code !== lang && r.name?.[l.code]).map((l) => ({ native: l.native, code: l.code, value: r.name![l.code]! }));
 
 function searchText(r: CookRecipe): string {
   const parts = [cookName(r, lang)];
@@ -57,6 +59,12 @@ function searchText(r: CookRecipe): string {
                     {r.utility && r.utility.length > 0 && <span>{r.utility.join(' / ')}</span>}
                     {typeof r.cookingTime === 'number' && <span>{tr('recipes.time')}: {Math.round(r.cookingTime)} s</span>}
                   </p>
+                  {otherLangs(r).length > 0 && (
+                    <details class="elangs">
+                      <summary>{tr('items.otherLanguages')}</summary>
+                      <ul>{otherLangs(r).map((o) => (<li><span class="ln" lang={o.code}>{o.native}</span><span class="lv" lang={o.code}>{o.value}</span></li>))}</ul>
+                    </details>
+                  )}
                 </article>
               ))}
             </div>
@@ -113,4 +121,11 @@ function searchText(r: CookRecipe): string {
   .ing li { margin: 0.1rem 0; }
   .opt { margin: 0 0 0.4rem; font-size: 0.82rem; color: var(--c-ink-soft); }
   .rmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.78rem; color: var(--c-ink-muted); }
+  .elangs { margin-top: 0.5rem; font-size: 0.8rem; }
+  .elangs summary { cursor: pointer; color: var(--c-ink-muted); }
+  .elangs summary:hover { color: var(--c-rust); }
+  .elangs ul { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.15rem; }
+  .elangs li { display: flex; justify-content: space-between; gap: 1rem; }
+  .elangs .ln { color: var(--c-ink-muted); }
+  .elangs .lv { color: var(--c-ink); text-align: right; }
 </style>
