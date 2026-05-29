@@ -5,6 +5,8 @@ import itemStats from './item_stats.json';
 import weaponsData from './weapons.json';
 import recipesData from './recipes.json';
 import craftingData from './crafting.json';
+import economyData from './economy.json';
+import lootData from './loot.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -44,10 +46,18 @@ export interface CookRec {
   optionalIngredients?: { options?: { slug?: string | null }[] }[];
 }
 
+export interface EconomyRec {
+  slug?: string | null; category?: string | null; traders?: string[];
+  canBuy?: boolean; canSell?: boolean; requiredFame?: number | null;
+}
+export interface LootRec { slug: string; spawns?: { location: string; rarity?: string }[]; }
+
 const STATS = itemStats as unknown as ItemStatRec[];
 const WEAPONS = weaponsData as unknown as WeaponRec[];
 const RECIPES = recipesData as unknown as CookRec[];
 const CRAFTING = craftingData as unknown as CraftRec[];
+const ECONOMY = economyData as unknown as EconomyRec[];
+const LOOT = lootData as unknown as LootRec[];
 
 function push<K, V>(m: Map<K, V[]>, k: K, v: V) {
   const a = m.get(k);
@@ -74,11 +84,19 @@ for (const r of RECIPES) {
   for (const s of used) push(cookingUsingSlug, s, r);
 }
 
+const economyBySlug = new Map<string, EconomyRec>();
+for (const e of ECONOMY) if (e.slug && !economyBySlug.has(e.slug)) economyBySlug.set(e.slug, e);
+
+const lootBySlug = new Map<string, LootRec>();
+for (const l of LOOT) if (l.slug && !lootBySlug.has(l.slug)) lootBySlug.set(l.slug, l);
+
 export interface ItemDetail {
   stats?: ItemStatRec;
   weapon?: WeaponRec;
   craftedBy: CraftRec[];
   cookingUsing: CookRec[];
+  economy?: EconomyRec;
+  loot?: LootRec;
 }
 
 export function itemDetail(slug: string): ItemDetail {
@@ -87,9 +105,11 @@ export function itemDetail(slug: string): ItemDetail {
     weapon: weaponBySlug.get(slug),
     craftedBy: craftedBySlug.get(slug) ?? [],
     cookingUsing: cookingUsingSlug.get(slug) ?? [],
+    economy: economyBySlug.get(slug),
+    loot: lootBySlug.get(slug),
   };
 }
 
 export function hasDetail(d: ItemDetail): boolean {
-  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length);
+  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length || d.economy || d.loot?.spawns?.length);
 }
