@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations } from '../i18n/utils';
-import { manualByCategory, entryText } from '../data/manual';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { codexByCategory, codexTitle, codexDesc } from '../data/codex';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
 const { lang } = Astro.props;
 const tr = useTranslations(lang);
 
-const groups = manualByCategory(lang);
+const groups = codexByCategory(lang);
 ---
 <BaseLayout lang={lang} title={tr('manual.title')} description={tr('manual.intro')}>
   <section class="manual">
@@ -39,9 +39,10 @@ const groups = manualByCategory(lang);
             <h2>{g.label} <span class="cat-count">{g.entries.length}</span></h2>
             <div class="entry-grid">
               {g.entries.map((e) => (
-                <article class="entry" data-text={entryText(e, lang).toLowerCase()}>
-                  <p>{entryText(e, lang)}</p>
-                </article>
+                <a class="entry" href={localizedPath(`/manual/${e.slug}`, lang)} data-text={`${codexTitle(e, lang)} ${codexDesc(e, lang)}`.toLowerCase()}>
+                  <h3>{codexTitle(e, lang)}</h3>
+                  {codexDesc(e, lang) && <p>{codexDesc(e, lang)}</p>}
+                </a>
               ))}
             </div>
           </section>
@@ -112,8 +113,12 @@ const groups = manualByCategory(lang);
     gap: 0.75rem;
   }
   .entry {
-    background: var(--c-paper); border: 1px solid var(--c-rule);
-    border-radius: var(--radius); padding: 0.9rem 1rem;
+    display: block; background: var(--c-paper); border: 1px solid var(--c-rule);
+    border-radius: var(--radius); padding: 0.9rem 1rem; text-decoration: none; color: var(--c-ink);
+    transition: border-color 120ms ease;
   }
-  .entry p { margin: 0; color: var(--c-ink); font-size: 0.92rem; line-height: 1.55; white-space: pre-line; }
+  .entry:hover { border-color: var(--c-rust); }
+  .entry h3 { margin: 0 0 0.35rem; font-size: 1rem; color: var(--c-ink); }
+  .entry:hover h3 { color: var(--c-rust); }
+  .entry p { margin: 0; color: var(--c-ink-soft); font-size: 0.88rem; line-height: 1.5; }
 </style>
