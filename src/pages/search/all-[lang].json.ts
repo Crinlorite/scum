@@ -9,7 +9,7 @@ import { ITEMS, displayName } from '../../data/items';
 import { iconUrl } from '../../data/icons';
 import { COOKING, cookName } from '../../data/cooking';
 import { CRAFTING, craftName } from '../../data/craftrecipes';
-import { questsSection, skillsSection, medicalSection, vehiclesSection } from '../../data/sections';
+import { questsSection, skillsSection, medicalSection, vehiclesSection, adminSection } from '../../data/sections';
 import { loadWiki } from '../../i18n/wiki';
 
 export function getStaticPaths() {
@@ -32,6 +32,7 @@ export const GET: APIRoute = async ({ params }) => {
   for (const e of skillsSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/skills', e.name), t: tr('sec.skills.title') });
   for (const e of medicalSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/medico', e.name), t: tr('sec.medical.title') });
   for (const e of vehiclesSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/vehiculos', e.name), t: tr('sec.vehicles.title') });
+  for (const e of adminSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/comandos', e.name), t: tr('sec.admin.title') });
 
   const wiki = await loadWiki();
   for (const w of wiki)
