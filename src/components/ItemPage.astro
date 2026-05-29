@@ -138,6 +138,19 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         </section>
       )}
 
+      {d.ammo && (
+        <section class="block">
+          <h2>{tr('item.ballistics')}</h2>
+          <dl class="stat-grid">
+            {typeof d.ammo.damage === 'number' && (<div><dt>{tr('item.ammoDamage')}</dt><dd>{d.ammo.damage}</dd></div>)}
+            {typeof d.ammo.muzzleVel === 'number' && (<div><dt>{tr('item.muzzleVel')}</dt><dd>{d.ammo.muzzleVel} m/s</dd></div>)}
+            {typeof d.ammo.caliber === 'number' && (<div><dt>{tr('item.caliber')}</dt><dd>{d.ammo.caliber} mm</dd></div>)}
+            {typeof d.ammo.penetration === 'number' && (<div><dt>{tr('item.penetration')}</dt><dd>{d.ammo.penetration}</dd></div>)}
+            {typeof d.ammo.ballisticCoef === 'number' && (<div><dt>{tr('item.bcoef')}</dt><dd>{d.ammo.ballisticCoef}</dd></div>)}
+          </dl>
+        </section>
+      )}
+
       {d.clothing && (
         <section class="block">
           <h2>{tr('item.protection')}</h2>

@@ -1,0 +1,336 @@
+[
+ {
+  "slug": "12-gauge",
+  "damage": 12.0,
+  "muzzleVel": 366,
+  "caliber": 4.8,
+  "penetration": 0.01,
+  "ballisticCoef": 0.015
+ },
+ {
+  "slug": "12-gauge-2",
+  "damage": 10.0,
+  "muzzleVel": 70,
+  "caliber": 18.5,
+  "penetration": 0.5,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "12-gauge-3",
+  "damage": 30.0,
+  "muzzleVel": 427,
+  "caliber": 8.3,
+  "penetration": 0.01,
+  "ballisticCoef": 0.189
+ },
+ {
+  "slug": "12-gauge-4",
+  "damage": 27.0,
+  "muzzleVel": 342,
+  "caliber": 8.3,
+  "penetration": 0.01,
+  "ballisticCoef": 0.189
+ },
+ {
+  "slug": "12-gauge-5",
+  "damage": 240.0,
+  "muzzleVel": 579,
+  "caliber": 8.3,
+  "penetration": 2.5,
+  "ballisticCoef": 0.189
+ },
+ {
+  "slug": "22-cal",
+  "damage": 47.2,
+  "muzzleVel": 732,
+  "caliber": 5.6,
+  "penetration": 0.08,
+  "ballisticCoef": 0.13
+ },
+ {
+  "slug": "22-cal-2",
+  "damage": 52.5,
+  "muzzleVel": 732,
+  "caliber": 5.6,
+  "penetration": 0.09,
+  "ballisticCoef": 0.13
+ },
+ {
+  "slug": "30-06",
+  "damage": 120.0,
+  "muzzleVel": 853,
+  "penetration": 2.5,
+  "ballisticCoef": 0.45
+ },
+ {
+  "slug": "30-06-2",
+  "damage": 108.0,
+  "muzzleVel": 682,
+  "penetration": 2.4,
+  "ballisticCoef": 0.45
+ },
+ {
+  "slug": "308-win",
+  "damage": 120.0,
+  "muzzleVel": 770,
+  "caliber": 8.7,
+  "penetration": 2.45,
+  "ballisticCoef": 0.495
+ },
+ {
+  "slug": "338-lapua",
+  "damage": 138.0,
+  "muzzleVel": 701,
+  "caliber": 8.6,
+  "penetration": 2.6,
+  "ballisticCoef": 0.75
+ },
+ {
+  "slug": "357",
+  "damage": 102.8,
+  "muzzleVel": 304,
+  "caliber": 9.1,
+  "penetration": 0.06,
+  "ballisticCoef": 0.159
+ },
+ {
+  "slug": "357-2",
+  "damage": 112.5,
+  "muzzleVel": 380,
+  "caliber": 9.1,
+  "penetration": 0.06,
+  "ballisticCoef": 0.159
+ },
+ {
+  "slug": "38",
+  "damage": 97.5,
+  "muzzleVel": 270,
+  "caliber": 9.1,
+  "penetration": 0.01,
+  "ballisticCoef": 0.238
+ },
+ {
+  "slug": "44-magnum",
+  "damage": 127.5,
+  "muzzleVel": 450,
+  "caliber": 10.9,
+  "penetration": 2.3,
+  "ballisticCoef": 0.199
+ },
+ {
+  "slug": "45-acp",
+  "damage": 87.0,
+  "muzzleVel": 254,
+  "caliber": 11.5,
+  "penetration": 0.03,
+  "ballisticCoef": 0.162
+ },
+ {
+  "slug": "45-acp-2",
+  "damage": 87.0,
+  "muzzleVel": 254,
+  "caliber": 11.5,
+  "penetration": 0.02,
+  "ballisticCoef": 0.162
+ },
+ {
+  "slug": "45-acp-3",
+  "damage": 75.0,
+  "muzzleVel": 204,
+  "caliber": 11.5,
+  "penetration": 0.01,
+  "ballisticCoef": 0.162
+ },
+ {
+  "slug": "45-acp-4",
+  "damage": 87.0,
+  "muzzleVel": 254,
+  "caliber": 11.5,
+  "penetration": 0.04,
+  "ballisticCoef": 0.162
+ },
+ {
+  "slug": "5-45-39mm",
+  "damage": 54.0,
+  "muzzleVel": 704,
+  "caliber": 5.5,
+  "penetration": 1.9,
+  "ballisticCoef": 0.168
+ },
+ {
+  "slug": "5-45-39mm-2",
+  "damage": 60.0,
+  "muzzleVel": 880,
+  "caliber": 5.5,
+  "penetration": 2.0,
+  "ballisticCoef": 0.168
+ },
+ {
+  "slug": "5-56-45mm",
+  "damage": 75.0,
+  "muzzleVel": 752,
+  "caliber": 5.6,
+  "penetration": 2.3,
+  "ballisticCoef": 0.151
+ },
+ {
+  "slug": "5-56-45mm-3",
+  "damage": 82.5,
+  "muzzleVel": 940,
+  "caliber": 5.6,
+  "penetration": 2.35,
+  "ballisticCoef": 0.151
+ },
+ {
+  "slug": "50-ae",
+  "damage": 123.0,
+  "muzzleVel": 360,
+  "caliber": 12.7,
+  "penetration": 2.4,
+  "ballisticCoef": 0.171
+ },
+ {
+  "slug": "50-ae-2",
+  "damage": 135.0,
+  "muzzleVel": 450,
+  "caliber": 12.7,
+  "penetration": 2.45,
+  "ballisticCoef": 0.171
+ },
+ {
+  "slug": "50-bmg",
+  "damage": 360.0,
+  "muzzleVel": 742,
+  "caliber": 12.7,
+  "penetration": 2.5,
+  "ballisticCoef": 0.64
+ },
+ {
+  "slug": "50-bmg-2",
+  "damage": 400.0,
+  "muzzleVel": 928,
+  "caliber": 12.7,
+  "penetration": 2.6,
+  "ballisticCoef": 0.64
+ },
+ {
+  "slug": "7-62x39mm",
+  "damage": 87.8,
+  "muzzleVel": 584,
+  "penetration": 2.35
+ },
+ {
+  "slug": "7-62x39mm-2",
+  "damage": 97.5,
+  "muzzleVel": 730,
+  "penetration": 2.4
+ },
+ {
+  "slug": "7-62x54mm",
+  "damage": 92.0,
+  "muzzleVel": 830,
+  "caliber": 7.6,
+  "penetration": 2.6,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-2",
+  "muzzleVel": 830,
+  "caliber": 7.6,
+  "penetration": 2.7,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-3",
+  "damage": 138.0,
+  "muzzleVel": 830,
+  "penetration": 2.5,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-4",
+  "muzzleVel": 830,
+  "caliber": 7.6,
+  "penetration": 2.75,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-6",
+  "damage": 92.0,
+  "muzzleVel": 830,
+  "caliber": 7.6,
+  "penetration": 2.55,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-7",
+  "damage": 67.5,
+  "muzzleVel": 664,
+  "caliber": 7.6,
+  "penetration": 2.4,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-8",
+  "damage": 67.5,
+  "muzzleVel": 664,
+  "caliber": 7.6,
+  "penetration": 2.55,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-62x54mm-9",
+  "damage": 101.2,
+  "muzzleVel": 664,
+  "penetration": 2.45,
+  "ballisticCoef": 0.344
+ },
+ {
+  "slug": "7-92x57mm",
+  "damage": 108.0,
+  "muzzleVel": 608,
+  "caliber": 7.9,
+  "penetration": 2.4,
+  "ballisticCoef": 0.345
+ },
+ {
+  "slug": "7-92x57mm-2",
+  "damage": 150.0,
+  "muzzleVel": 760,
+  "caliber": 7.9,
+  "penetration": 2.5,
+  "ballisticCoef": 0.345
+ },
+ {
+  "slug": "9mm",
+  "damage": 82.5,
+  "muzzleVel": 390,
+  "caliber": 9.0,
+  "penetration": 0.04,
+  "ballisticCoef": 0.13
+ },
+ {
+  "slug": "9mm-2",
+  "damage": 75.0,
+  "muzzleVel": 312,
+  "caliber": 9.0,
+  "penetration": 0.04,
+  "ballisticCoef": 0.13
+ },
+ {
+  "slug": "9x39mm",
+  "damage": 82.5,
+  "muzzleVel": 300,
+  "caliber": 9.0,
+  "penetration": 0.08,
+  "ballisticCoef": 0.299
+ },
+ {
+  "slug": "9x39mm-2",
+  "damage": 61.5,
+  "muzzleVel": 240,
+  "caliber": 9.0,
+  "penetration": 0.07,
+  "ballisticCoef": 0.299
+ }
+]
