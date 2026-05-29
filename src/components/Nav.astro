@@ -40,6 +40,7 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
       <ul>
         <li><a href={home} class={isActive(home) ? 'active' : ''}>{tr('nav.home')}</a></li>
         <li><a href={localizedPath('/wiki', lang)} class={isActive(localizedPath('/wiki', lang)) ? 'active' : ''}>{tr('nav.wiki')}</a></li>
+        <li><a href={localizedPath('/mapa', lang)} class={isActive(localizedPath('/mapa', lang)) ? 'active' : ''}>{tr('nav.map')}</a></li>
         <li class="nav-dd-li">
           <details class="nav-dd">
             <summary class={dataActive ? 'active' : ''}>{tr('nav.datos')}<span class="ddc" aria-hidden="true">▾</span></summary>

@@ -13,6 +13,11 @@ export const UI: Partial<Record<LangCode, Dict>> = {
 
     'nav.home': 'Inicio',
     'nav.menu': 'Menú',
+    'nav.map': 'Mapa',
+    'map.title': 'Mapa de la isla',
+    'map.intro': 'Mapa interactivo de la isla con todas las localizaciones. Activa o desactiva sectores.',
+    'map.sectors': 'Sector',
+    'map.grid': 'Rejilla de sectores',
     'nav.wiki': 'Wiki',
     'nav.items': 'Ítems',
     'nav.manual': 'Manual',
@@ -214,6 +219,11 @@ export const UI: Partial<Record<LangCode, Dict>> = {
 
     'nav.home': 'Home',
     'nav.menu': 'Menu',
+    'nav.map': 'Map',
+    'map.title': 'Island map',
+    'map.intro': 'Interactive island map with every location. Toggle sectors on and off.',
+    'map.sectors': 'Sector',
+    'map.grid': 'Sector grid',
     'nav.wiki': 'Wiki',
     'nav.items': 'Items',
     'nav.manual': 'Manual',
