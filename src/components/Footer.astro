@@ -12,7 +12,8 @@ const year = new Date().getFullYear();
     <p class="disclaimer">{tr('footer.disclaimer')}</p>
     <p class="credit">
       © {year} · {tr('footer.builtBy')} <a href="https://crintech.pro">Crintech</a> ·
-      <a href="https://github.com/Crinlorite/scum">{tr('footer.opensource')}</a>
+      <a href="https://github.com/Crinlorite/scum">{tr('footer.opensource')}</a> ·
+      <a href="/panel" class="panel-link" rel="nofollow">Panel</a>
     </p>
   </div>
 </footer>
@@ -46,4 +47,5 @@ const year = new Date().getFullYear();
     color: var(--c-bone);
   }
   .credit a:hover { color: var(--c-rust-bright); }
+  .panel-link { color: var(--c-steel) !important; }
 </style>
