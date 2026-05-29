@@ -36,7 +36,7 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
       <span class="brand-mark" aria-hidden="true">SC</span>
       <span class="brand-name">{tr('site.name')}</span>
     </a>
-    <nav aria-label="primary">
+    <nav id="primary-nav" aria-label="primary">
       <ul>
         <li><a href={home} class={isActive(home) ? 'active' : ''}>{tr('nav.home')}</a></li>
         <li><a href={localizedPath('/wiki', lang)} class={isActive(localizedPath('/wiki', lang)) ? 'active' : ''}>{tr('nav.wiki')}</a></li>
@@ -52,16 +52,48 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
         <li><a href={`${home}#contribute`}>{tr('nav.contribute')}</a></li>
       </ul>
     </nav>
-    <ItemSearch lang={lang} />
-    <LangSwitcher lang={lang} />
+    <div class="nav-actions">
+      <ItemSearch lang={lang} />
+      <LangSwitcher lang={lang} />
+      <button class="nav-toggle" aria-label={tr('nav.menu')} aria-expanded="false" aria-controls="primary-nav">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <script>
-  for (const d of document.querySelectorAll<HTMLDetailsElement>('details.nav-dd')) {
-    document.addEventListener('click', (e) => { if (d.open && !d.contains(e.target as Node)) d.open = false; });
-    d.addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Escape') d.open = false; });
+  // Desktop: <details> acts as a click dropdown. Mobile: hamburger toggles the
+  // whole nav panel, and the dropdown becomes a vertical accordion inside it.
+  const header = document.querySelector<HTMLElement>('.site-nav');
+  const nav = document.getElementById('primary-nav');
+  const toggle = header?.querySelector<HTMLButtonElement>('.nav-toggle');
+  const dd = document.querySelector<HTMLDetailsElement>('details.nav-dd');
+
+  function setNav(open: boolean) {
+    if (!nav || !toggle) return;
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('nav-locked', open);
   }
+  toggle?.addEventListener('click', () => setNav(!nav?.classList.contains('open')));
+
+  // Close the mobile panel when a real navigation link is tapped (not the accordion summary).
+  nav?.addEventListener('click', (e) => {
+    const a = (e.target as HTMLElement).closest('a');
+    if (a) setNav(false);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (header && !header.contains(e.target as Node)) { setNav(false); if (dd) dd.open = false; }
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e as KeyboardEvent).key === 'Escape') { setNav(false); if (dd) dd.open = false; }
+  });
+  // On desktop, clicking outside the dropdown closes it.
+  document.addEventListener('click', (e) => {
+    if (dd && dd.open && !dd.contains(e.target as Node)) dd.open = false;
+  });
 </script>
 
 <style>
@@ -76,6 +108,9 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
   nav a:hover { color: var(--c-bone); }
   nav a.active { color: var(--c-bone); border-bottom-color: var(--c-rust); }
 
+  .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
+  .nav-toggle { display: none; }
+
   .nav-dd-li { position: relative; }
   .nav-dd summary { list-style: none; cursor: pointer; color: var(--c-ash); font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
   .nav-dd summary::-webkit-details-marker { display: none; }
@@ -89,20 +124,52 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
   .nav-dd-panel a.active { color: var(--c-rust-bright); background: rgba(176, 74, 42, 0.14); }
 
   @media (max-width: 720px) {
-    .nav-inner { flex-wrap: wrap; min-height: 56px; padding-block: 0.5rem; gap: 0.75rem; }
+    .nav-inner { gap: 0.75rem; min-height: 56px; }
+    .brand { margin-right: auto; }
     .brand-name { display: none; }
-    nav { margin-left: 0; width: 100%; order: 3; }
-    nav > ul { justify-content: flex-start; flex-wrap: wrap; gap: 0.5rem 1rem; }
-    nav a, .nav-dd summary { font-size: 0.85rem; }
-    /* Dropdown takes its own full-width row; panel flows below it as a
-       responsive grid that fills the nav width (no more cramped 2-col overflow). */
-    .nav-dd-li, .nav-dd { width: 100%; }
-    .nav-dd-panel {
-      position: static; box-shadow: none;
-      width: 100%; min-width: 0; margin-top: 0.4rem;
-      grid-auto-flow: row;
-      grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
-      background: rgba(232, 227, 216, 0.04);
+
+    /* Hamburger button */
+    .nav-toggle {
+      display: inline-grid; place-items: center; width: 38px; height: 38px;
+      background: transparent; border: 1px solid rgba(232, 227, 216, 0.15);
+      border-radius: 6px; cursor: pointer; color: var(--c-bone);
     }
+    .nav-toggle .bars { display: grid; gap: 4px; width: 18px; }
+    .nav-toggle .bars span { height: 2px; width: 100%; background: currentColor; border-radius: 2px; transition: transform 160ms ease, opacity 160ms ease; }
+    .nav-toggle[aria-expanded='true'] .bars span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded='true'] .bars span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded='true'] .bars span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Nav becomes a full-width dropdown panel toggled by the hamburger */
+    nav#primary-nav {
+      position: absolute; top: 100%; left: 0; right: 0; margin: 0;
+      display: none; background: var(--c-bg-panel, #1a1f1c);
+      border-top: 1px solid rgba(232, 227, 216, 0.1);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5);
+      max-height: calc(100vh - 56px); overflow-y: auto; z-index: 55;
+    }
+    nav#primary-nav.open { display: block; }
+    nav > ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0.5rem; }
+    nav > ul > li { width: 100%; }
+    nav > ul > li > a {
+      display: block; padding: 0.85rem 0.75rem; font-size: 1rem;
+      border-bottom: 1px solid rgba(232, 227, 216, 0.06);
+    }
+    nav > ul > li:last-child > a { border-bottom: none; }
+
+    /* "Datos del juego" → vertical accordion */
+    .nav-dd-li { width: 100%; }
+    .nav-dd summary {
+      width: 100%; justify-content: space-between; font-size: 1rem;
+      padding: 0.85rem 0.75rem; border-bottom: 1px solid rgba(232, 227, 216, 0.06);
+    }
+    .nav-dd-panel {
+      position: static; box-shadow: none; border: none; border-radius: 0;
+      min-width: 0; width: 100%; margin: 0; padding: 0.2rem 0 0.4rem;
+      display: block; background: rgba(0, 0, 0, 0.22);
+    }
+    .nav-dd-panel a { display: block; padding: 0.6rem 0.75rem 0.6rem 1.5rem; font-size: 0.95rem; border-radius: 0; }
   }
+
+  :global(body.nav-locked) { overflow: hidden; }
 </style>
