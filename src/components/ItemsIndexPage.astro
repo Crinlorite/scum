@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
-import { itemsGroupedByCategory, itemName, ITEMS } from '../data/items';
+import { itemsGroupedByCategory, itemName, displayName, ITEMS } from '../data/items';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -46,8 +46,8 @@ const countKey = total === 1 ? 'items.countOne' : 'items.countOther';
             <ul class="item-grid">
               {g.items.map((it) => (
                 <li>
-                  <a class="item-link" href={localizedPath(`/items/${it.slug}`, lang)} data-name={itemName(it, lang).toLowerCase()}>
-                    {itemName(it, lang)}
+                  <a class="item-link" href={localizedPath(`/items/${it.slug}`, lang)} data-name={displayName(it, lang).toLowerCase()}>
+                    {displayName(it, lang)}
                   </a>
                 </li>
               ))}

@@ -27,6 +27,9 @@ export interface ScumItem {
   descKey: string | null;
   name: Localized;
   description: Localized;
+  /** Asset-derived qualifier set only when several items share an in-game name
+   * (e.g. the five "12 Gauge" ammo types), so lists/search can tell them apart. */
+  disambig?: string;
 }
 
 export const ITEMS = itemsData as unknown as ScumItem[];
@@ -39,6 +42,12 @@ export function itemName(item: ScumItem, lang: LangCode): string {
     item.name[DEFAULT_LANG] ??
     item.asset
   );
+}
+
+/** Name for lists/search: appends the disambiguator for same-named items. */
+export function displayName(item: ScumItem, lang: LangCode): string {
+  const n = itemName(item, lang);
+  return item.disambig ? `${n} (${item.disambig})` : n;
 }
 
 /** Official description in `lang`, falling back EN → ES, or undefined. */
