@@ -14,6 +14,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'nav.home': 'Inicio',
     'nav.wiki': 'Wiki',
     'nav.items': 'Ítems',
+    'nav.manual': 'Manual',
     'nav.server': 'Servidor',
     'nav.contribute': 'Contribuir',
     'nav.skipToContent': 'Saltar al contenido',
@@ -41,7 +42,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'cat.server.desc': 'Cómo conectarte al nuestro y al resto. Reglas y configuración.',
 
     'server.title': 'Nuestro servidor SCUM',
-    'server.subtitle': 'Servidor comunitario alojado por Crintech. Estable, sin admins tóxicos.',
+    'server.subtitle': 'Servidor privado, de momento para uso familiar y de allegados.',
+    'server.familyNote': 'Por ahora es un servidor familiar. Si empieza a llegar gente y hay interés en montar comunidad alrededor, escríbenos y lo preparamos.',
     'server.name': 'Nombre del servidor',
     'server.status': 'Estado',
     'server.statusOnline': 'En línea',
@@ -103,6 +105,12 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'lang.beta': 'En Beta',
     'lang.help': '¿Hablas otro idioma? Ayúdanos a traducir',
 
+    'manual.title': 'Manual del juego',
+    'manual.intro': 'Texto oficial del juego: mecánicas, supervivencia, crafteo y más, en tu idioma.',
+    'manual.source': 'Contenido oficial del juego SCUM (texto del propio juego, traducido por el estudio).',
+    'manual.search': 'Buscar en el manual…',
+    'manual.searchNoResults': 'Nada coincide con tu búsqueda.',
+
     'common.readMore': 'Leer más',
     'common.lastUpdated': 'Última actualización',
     'common.404title': 'Página no encontrada',
@@ -119,6 +127,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'nav.home': 'Home',
     'nav.wiki': 'Wiki',
     'nav.items': 'Items',
+    'nav.manual': 'Manual',
     'nav.server': 'Server',
     'nav.contribute': 'Contribute',
     'nav.skipToContent': 'Skip to content',
@@ -146,7 +155,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'cat.server.desc': 'How to join ours and others. Rules and configuration.',
 
     'server.title': 'Our SCUM server',
-    'server.subtitle': 'Community server hosted by Crintech. Stable, no toxic admins.',
+    'server.subtitle': 'Private server — currently for family and close friends.',
+    'server.familyNote': 'For now it is a family server. If people start showing up and there is interest in building a community around it, reach out and we will set it up.',
     'server.name': 'Server name',
     'server.status': 'Status',
     'server.statusOnline': 'Online',
@@ -207,6 +217,12 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'lang.stable': 'Stable',
     'lang.beta': 'In Beta',
     'lang.help': 'Speak another? Help us translate',
+
+    'manual.title': 'Game manual',
+    'manual.intro': 'Official in-game text: mechanics, survival, crafting and more, in your language.',
+    'manual.source': 'Official SCUM in-game content (the game’s own text, translated by the studio).',
+    'manual.search': 'Search the manual…',
+    'manual.searchNoResults': 'Nothing matches your search.',
 
     'common.readMore': 'Read more',
     'common.lastUpdated': 'Last updated',

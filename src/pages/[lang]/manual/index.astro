@@ -1,0 +1,13 @@
+---
+import ManualIndexPage from '../../../components/ManualIndexPage.astro';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../i18n/languages';
+
+export function getStaticPaths() {
+  return LANGUAGES
+    .filter((l) => l.code !== DEFAULT_LANG)
+    .map((l) => ({ params: { lang: l.code } }));
+}
+
+const lang = Astro.params.lang as LangCode;
+---
+<ManualIndexPage lang={lang} />
