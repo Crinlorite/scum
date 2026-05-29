@@ -2,6 +2,7 @@
 import { useTranslations, localizedPath } from '../i18n/utils';
 import LangSwitcher from './LangSwitcher.astro';
 import ItemSearch from './ItemSearch.astro';
+import UnitsToggle from './UnitsToggle.astro';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -51,6 +52,7 @@ const dataActive = dataLinks.some((l) => isActive(l.href));
       </ul>
     </nav>
     <ItemSearch lang={lang} />
+    <UnitsToggle lang={lang} />
     <LangSwitcher lang={lang} />
   </div>
 </header>
