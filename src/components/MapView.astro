@@ -95,11 +95,26 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // server autosave, so polling faster than that gains nothing — 5s is plenty.
     if (live) {
       const playerLayer = L.layerGroup().addTo(map);
+      // "Actualizado hace Xs" — prueba visible de que sondea aunque el punto no se mueva.
+      const status = L.control({ position: 'bottomleft' });
+      status.onAdd = () => { const d = L.DomUtil.create('div', 'live-status'); d.textContent = '…'; return d; };
+      status.addTo(map);
+      let lastOk = 0, dataTs = 0, count = 0;
+      const fmtAgo = (s) => (s < 60 ? `${s}s` : `${Math.floor(s / 60)} min`);
+      const tick = () => {
+        const el = document.querySelector('.live-status');
+        if (!el) return;
+        if (!lastOk) { el.textContent = '⏳ conectando…'; return; }
+        const ago = Math.round((Date.now() - lastOk) / 1000);
+        const dataAgo = dataTs ? Math.round(Date.now() / 1000 - dataTs) : null;
+        el.innerHTML = `🟢 en vivo · consultado hace ${fmtAgo(ago)}` + (dataAgo != null ? ` · dato del servidor hace ${fmtAgo(dataAgo)}` : '');
+      };
       const refresh = async () => {
         try {
           const r = await fetch('/panel/live/positions.json', { cache: 'no-store' });
           if (!r.ok) return;
           const data = await r.json();
+          lastOk = Date.now(); dataTs = data.ts || 0; count++;
           playerLayer.clearLayers();
           for (const p of (data.players || [])) {
             const html = `<div class="pm-arrow" style="transform:rotate(${p.heading || 0}deg)">▲</div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
@@ -108,10 +123,12 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
               zIndexOffset: 1000,
             }).addTo(playerLayer);
           }
+          tick();
         } catch (e) { /* sin datos aún */ }
       };
       refresh();
       setInterval(refresh, 5000);
+      setInterval(tick, 1000);
     }
   </script>
 </BaseLayout>
@@ -136,4 +153,6 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker .pm-arrow) { position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; color: var(--c-rust-bright, #e0843f); font-size: 16px; line-height: 16px; text-align: center; text-shadow: 0 0 4px #000; }
   :global(.player-marker .pm-name) { position: absolute; left: 10px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-arrow) { color: #c83a3a; }
+  :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
+
 </style>
