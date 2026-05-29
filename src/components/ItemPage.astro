@@ -4,6 +4,7 @@ import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
 import { itemName, displayName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
 import { itemDetail } from '../data/details';
+import { iconUrl } from '../data/icons';
 
 interface Props { lang: LangCode; item: ScumItem; }
 const { lang, item } = Astro.props;
@@ -14,6 +15,7 @@ const dispName = displayName(item, lang);
 const desc = itemDescription(item, lang);
 const cat = categoryLabel(item.category, lang);
 const d = itemDetail(item.slug);
+const icon = iconUrl(item.slug);
 
 const others = LANGUAGES
   .filter((l) => l.code !== lang && item.name[l.code])
@@ -74,8 +76,13 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
   <article class="item-page">
     <div class="container container-prose">
       <a class="back" href={localizedPath('/items', lang)}>{tr('items.backToItems')}</a>
-      <span class="eyebrow">{cat}</span>
-      <h1>{dispName}</h1>
+      <div class="hero">
+        {icon && <img class="hero-icon" src={icon} alt={dispName} width="96" height="96" loading="lazy" />}
+        <div>
+          <span class="eyebrow">{cat}</span>
+          <h1>{dispName}</h1>
+        </div>
+      </div>
 
       {desc
         ? <p class="desc">{desc}</p>
@@ -209,6 +216,10 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
   .back { display: inline-block; margin-bottom: 1.5rem; color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem; }
   .back:hover { color: var(--c-rust); }
   h1 { margin: 0.3rem 0 1rem; }
+  .hero { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+  .hero > div { min-width: 0; }
+  .hero h1 { margin: 0.2rem 0 0; }
+  .hero-icon { flex: none; width: 96px; height: 96px; object-fit: contain; padding: 6px; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
   .desc { font-size: 1.15rem; color: var(--c-ink); line-height: 1.6; }
   .desc.muted { color: var(--c-ink-muted); font-style: italic; }
   .block { margin: 1.75rem 0; }
