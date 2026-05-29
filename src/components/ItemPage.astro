@@ -43,7 +43,10 @@ const lbl = (k: string) => L[k]?.[lang] ?? L[k]?.[FALLBACK_LANG] ?? k;
 const st = d.stats?.stats ?? {};
 const statRows: { k: string; v: string }[] = [];
 const pushStat = (k: string, v: string) => statRows.push({ k: lbl(k), v });
-if (typeof st.weight === 'number') pushStat('weight', `${Math.round(st.weight)} g`);
+if (typeof st.weight === 'number')
+  pushStat('weight', st.weight >= 1000
+    ? `${(st.weight / 1000).toLocaleString(lang, { maximumFractionDigits: 2 })} kg`
+    : `${Math.round(st.weight)} g`);
 if (st.rarity) pushStat('rarity', String(st.rarity));
 if (typeof st.gridSlots === 'number') pushStat('gridSlots', `${st.gridRows ?? ''}×${st.gridColumns ?? ''} (${st.gridSlots})`);
 if (typeof st.maxHealth === 'number') pushStat('maxHealth', String(st.maxHealth));
