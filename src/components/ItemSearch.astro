@@ -1,21 +1,19 @@
 ---
-// Global item search: a button in the nav that opens an input + results
-// dropdown. Lazy-fetches /search/items-<lang>.json (active language) on first
-// use and filters client-side. Links to each item's page.
-import { useTranslations, localizedPath } from '../i18n/utils';
+// Global search: a button in the nav that opens an input + results dropdown.
+// Lazy-fetches the unified /search/all-<lang>.json index (items, missions,
+// recipes, crafting, skills, health, vehicles, wiki) on first use and filters
+// client-side. Each result carries its own URL and a type label.
+import { useTranslations } from '../i18n/utils';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
 const { lang } = Astro.props;
 const tr = useTranslations(lang);
-// Base path for item pages in this language: "/items/" or "/de/items/".
-const itemsBase = localizedPath('/items', lang);
 ---
 <div
   class="item-search"
   data-lang={lang}
-  data-base={itemsBase}
-  data-index={`/search/items-${lang}.json`}
+  data-index={`/search/all-${lang}.json`}
   data-hint={tr('search.hint')}
   data-noresults={tr('search.noResults')}
 >
@@ -37,12 +35,11 @@ const itemsBase = localizedPath('/items', lang);
     const panel = root.querySelector<HTMLElement>('.is-panel')!;
     const input = root.querySelector<HTMLInputElement>('.is-input')!;
     const results = root.querySelector<HTMLUListElement>('.is-results')!;
-    const base = root.dataset.base || '/items/';
     const indexUrl = root.dataset.index!;
     const noResults = root.dataset.noresults || 'No results';
-    const MAX = 12;
+    const MAX = 14;
 
-    let index: { s: string; n: string }[] | null = null;
+    let index: { n: string; u: string; t: string }[] | null = null;
     let loading: Promise<void> | null = null;
 
     const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -70,7 +67,7 @@ const itemsBase = localizedPath('/items', lang);
       results.hidden = false;
       if (!hits.length) { results.innerHTML = `<li class="is-empty">${noResults}</li>`; return; }
       results.innerHTML = hits
-        .map((it) => `<li role="option"><a href="${base}${it.s}/">${escapeHtml(it.n)}</a></li>`)
+        .map((it) => `<li role="option"><a href="${it.u}"><span class="is-name">${escapeHtml(it.n)}</span><span class="is-type">${escapeHtml(it.t)}</span></a></li>`)
         .join('');
     }
     function escapeHtml(s: string) {
@@ -127,9 +124,15 @@ const itemsBase = localizedPath('/items', lang);
   .is-results { list-style: none; margin: 0.4rem 0 0; padding: 0; max-height: 60vh; overflow-y: auto; }
   .is-results li { margin: 0; }
   .is-results a {
-    display: block; padding: 0.4rem 0.55rem; border-radius: 5px;
+    display: flex; align-items: baseline; gap: 0.5rem; justify-content: space-between;
+    padding: 0.4rem 0.55rem; border-radius: 5px;
     color: var(--c-ash); text-decoration: none; font-size: 0.92rem;
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
+  .is-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .is-type {
+    flex: none; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--c-steel); opacity: 0.85;
+  }
   .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
 </style>
