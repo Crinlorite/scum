@@ -27,6 +27,10 @@ const statusClass = SERVER_INFO.status ?? 'unknown';
           <dd><code>{SERVER_INFO.name}</code></dd>
         </div>
         <div>
+          <dt>{tr('server.address')}</dt>
+          <dd><code>{SERVER_INFO.address}</code></dd>
+        </div>
+        <div>
           <dt>{tr('server.status')}</dt>
           <dd>
             <span class={`status-dot status-${statusClass}`} aria-hidden="true"></span>
