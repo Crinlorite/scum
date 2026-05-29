@@ -15,7 +15,7 @@ const { Content } = await entry.render();
 const updated = entry.data.updated
   ? new Intl.DateTimeFormat(getLanguageMeta(lang).bcp47, { dateStyle: 'long' }).format(entry.data.updated)
   : null;
-const editUrl = `https://github.com/Crinlorite/scum-crintech/edit/main/site/src/content/wiki/${entry.id}`;
+const editUrl = `https://github.com/Crinlorite/scum/edit/main/src/content/wiki/${entry.id}`;
 ---
 <BaseLayout
   lang={lang}
