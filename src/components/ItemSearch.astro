@@ -67,7 +67,7 @@ const tr = useTranslations(lang);
       results.hidden = false;
       if (!hits.length) { results.innerHTML = `<li class="is-empty">${noResults}</li>`; return; }
       results.innerHTML = hits
-        .map((it) => `<li role="option"><a href="${it.u}"><span class="is-name">${escapeHtml(it.n)}</span>${it.t ? `<span class="is-type">${escapeHtml(it.t)}</span>` : ''}</a></li>`)
+        .map((it) => `<li role="option"><a href="${it.u}">${escapeHtml(it.n)}</a></li>`)
         .join('');
     }
     function escapeHtml(s: string) {
@@ -124,15 +124,10 @@ const tr = useTranslations(lang);
   .is-results { list-style: none; margin: 0.4rem 0 0; padding: 0; max-height: 60vh; overflow-y: auto; }
   .is-results li { margin: 0; }
   .is-results a {
-    display: flex; align-items: baseline; gap: 0.5rem; justify-content: space-between;
-    padding: 0.4rem 0.55rem; border-radius: 5px;
+    display: block; padding: 0.4rem 0.55rem; border-radius: 5px;
     color: var(--c-ash); text-decoration: none; font-size: 0.92rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
-  .is-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .is-type {
-    flex: none; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase;
-    letter-spacing: 0.04em; color: var(--c-steel); opacity: 0.85;
-  }
   .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
 </style>
