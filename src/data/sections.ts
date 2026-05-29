@@ -153,5 +153,5 @@ export function adminSection(lang: LangCode): Section {
     meta: c.args ? [{ k: 'args', v: String(c.args) }] : [],
     _c: c.level || '',
   }));
-  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => ADMIN_LVL[k]?.[lang] ?? ADMIN_LVL[k]?.[FALLBACK_LANG] ?? k || 'Otros') };
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => ADMIN_LVL[k]?.[lang] ?? ADMIN_LVL[k]?.[FALLBACK_LANG] ?? (k || 'Otros')) };
 }
