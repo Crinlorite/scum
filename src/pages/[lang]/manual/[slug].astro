@@ -1,0 +1,13 @@
+---
+import ManualArticle from '../../../components/ManualArticle.astro';
+import { CODEX } from '../../../data/codex';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../i18n/languages';
+export function getStaticPaths() {
+  return LANGUAGES.filter((l) => l.code !== DEFAULT_LANG).flatMap((l) =>
+    CODEX.map((article) => ({ params: { lang: l.code, slug: article.slug }, props: { article } })),
+  );
+}
+const lang = Astro.params.lang as LangCode;
+const { article } = Astro.props;
+---
+<ManualArticle lang={lang} article={article} />

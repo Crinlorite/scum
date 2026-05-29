@@ -11,6 +11,7 @@ import { COOKING, cookName } from '../../data/cooking';
 import { CRAFTING, craftName } from '../../data/craftrecipes';
 import { questsSection, skillsSection, medicalSection, vehiclesSection, fameSection, huntingSection } from '../../data/sections';
 import { loadWiki } from '../../i18n/wiki';
+import { CODEX, codexTitle } from '../../data/codex';
 
 export function getStaticPaths() {
   return LANGUAGES.map((l) => ({ params: { lang: l.code } }));
@@ -39,6 +40,9 @@ export const GET: APIRoute = async ({ params }) => {
     huntSeen.add(e.name);
     out.push({ n: e.name, u: qp('/caza', e.name), t: tr('sec.hunting.title') });
   }
+
+  for (const a of CODEX)
+    out.push({ n: codexTitle(a, lang), u: localizedPath(`/manual/${a.slug}`, lang), t: tr('manual.title') });
 
   const wiki = await loadWiki();
   for (const w of wiki)

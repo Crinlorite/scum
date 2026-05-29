@@ -1,0 +1,9 @@
+---
+import ManualArticle from '../../components/ManualArticle.astro';
+import { CODEX } from '../../data/codex';
+export function getStaticPaths() {
+  return CODEX.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+}
+const { article } = Astro.props;
+---
+<ManualArticle lang="es" article={article} />
