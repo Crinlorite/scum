@@ -1,0 +1,8 @@
+---
+// Private panel — admin/server command reference. Lives under /panel/, which is
+// HTTP Basic Auth protected at the nginx layer (see nginx.conf + Dockerfile).
+// Not linked from the public nav and excluded from sitemap/search. noindex too.
+import DataSection from '../../components/DataSection.astro';
+import { adminSection } from '../../data/sections';
+---
+<DataSection lang="es" titleKey="sec.admin.title" introKey="sec.admin.intro" searchKey="sec.admin.search" noResKey="sec.noResults" section={adminSection('es')} noindex />

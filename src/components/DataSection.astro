@@ -8,8 +8,9 @@ interface Props {
   lang: LangCode;
   titleKey: string; introKey: string; searchKey: string; noResKey: string;
   section: Section;
+  noindex?: boolean;
 }
-const { lang, titleKey, introKey, searchKey, noResKey, section } = Astro.props;
+const { lang, titleKey, introKey, searchKey, noResKey, section, noindex } = Astro.props;
 const tr = useTranslations(lang);
 
 const META: Record<string, Partial<Record<LangCode, string>>> = {
@@ -26,7 +27,7 @@ const stext = (e: SecEntry) =>
   [e.name, e.desc ?? '', ...e.meta.map((m) => m.v), ...(e.rels ?? []).flatMap((r) => r.links.map((l) => l.label))]
     .join(' ').toLowerCase();
 ---
-<BaseLayout lang={lang} title={tr(titleKey as any)} description={tr(introKey as any)}>
+<BaseLayout lang={lang} title={tr(titleKey as any)} description={tr(introKey as any)} noindex={noindex}>
   <section class="ds">
     <div class="container container-prose">
       <span class="eyebrow">{tr(titleKey as any)}</span>
