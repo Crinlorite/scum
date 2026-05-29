@@ -4,6 +4,7 @@ import weaponsData from './weapons.json';
 import skillsData from './skills.json';
 import medicalData from './medical.json';
 import vehiclesData from './vehicles.json';
+import questsData from './quests.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath } from '../i18n/utils';
 
@@ -98,4 +99,21 @@ export function vehiclesSection(lang: LangCode): Section {
     return { name: loc(v.name, lang) || v.slug, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
   });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
+}
+
+// ---- quests / missions ----
+export function questsSection(lang: LangCode): Section {
+  const entries: (SecEntry & { _c: string })[] = (questsData as any[]).map((q) => {
+    const meta: { k: string; v: string }[] = [];
+    if (q.tier) meta.push({ k: 'tier', v: `T${q.tier}` });
+    if (q.rewardFame) meta.push({ k: 'fame', v: `+${q.rewardFame}` });
+    if (q.rewardCurrency) meta.push({ k: 'money', v: String(q.rewardCurrency) });
+    return {
+      name: loc(q.title, lang) || q.slug,
+      desc: loc(q.description, lang),
+      meta,
+      _c: (q.traderLabel && (q.traderLabel[lang] ?? q.traderLabel[FALLBACK_LANG])) || q.trader || 'Other',
+    };
+  });
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => k) };
 }
