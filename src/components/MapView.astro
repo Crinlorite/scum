@@ -1,0 +1,91 @@
+---
+// Interactive island map (Leaflet, CRS.Simple) over IslandMap.webp (2048²).
+// POIs (poi.json) are grouped by sector into toggleable overlay layers, plus a
+// sector-grid overlay. Pixel coords come straight from the export; y is flipped
+// because Leaflet's CRS.Simple origin is bottom-left.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import poiData from '../data/poi.json';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const SIZE = 2048;
+const pois = poiData as { n: string; s: string; x: number; y: number }[];
+const sectorLabel = tr('map.sectors');
+const gridLabel = tr('map.grid');
+---
+<BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')}>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <section class="map-wrap">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr('map.title')}</span>
+      <h1>{tr('map.title')}</h1>
+      <p class="intro">{tr('map.intro')} <span class="count">{pois.length} POIs</span></p>
+    </div>
+    <div id="scum-map" role="application" aria-label={tr('map.title')}></div>
+  </section>
+
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script is:inline define:vars={{ pois, SIZE, sectorLabel, gridLabel }}>
+    const L = window.L;
+    const map = L.map('scum-map', { crs: L.CRS.Simple, minZoom: -2, maxZoom: 2, zoomSnap: 0.25, attributionControl: false });
+    const bounds = [[0, 0], [SIZE, SIZE]];
+    L.imageOverlay('/map/island.webp', bounds).addTo(map);
+    map.fitBounds(bounds);
+
+    const flip = (p) => [SIZE - p.y, p.x]; // pixel(top-left) → Leaflet(bottom-left)
+    const COLORS = { A: '#e0843f', B: '#5fb0d0', C: '#7cc56a', D: '#d06a9a', Z: '#c9b04a', '': '#9aa0a6' };
+
+    // Group POIs into one layer per sector.
+    const sectors = {};
+    for (const p of pois) (sectors[p.s] ??= []).push(p);
+    const overlays = {};
+    const allKeys = Object.keys(sectors).sort();
+    for (const key of allKeys) {
+      const grp = L.layerGroup();
+      const col = COLORS[(key[0] || '')] || '#9aa0a6';
+      for (const p of sectors[key]) {
+        L.circleMarker(flip(p), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.65 })
+          .bindPopup(`<b>${p.n}</b>${p.s ? `<br><small>${sectorLabel} ${p.s}</small>` : ''}`)
+          .addTo(grp);
+      }
+      grp.addTo(map);
+      overlays[`${key || '·'} (${sectors[key].length})`] = grp;
+    }
+
+    // Sector grid overlay: bounding box + label per sector (derived from its POIs).
+    const grid = L.layerGroup();
+    for (const key of allKeys) {
+      if (!key) continue;
+      const ps = sectors[key];
+      const xs = ps.map((p) => p.x), ys = ps.map((p) => p.y);
+      const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+      L.rectangle([[SIZE - y0, x0], [SIZE - y1, x1]], { color: '#e8e3d8', weight: 1, fill: false, dashArray: '4 4', opacity: 0.5 }).addTo(grid);
+      L.marker([SIZE - (y0 + y1) / 2, (x0 + x1) / 2], {
+        interactive: false,
+        icon: L.divIcon({ className: 'sector-label', html: key, iconSize: [30, 16] }),
+      }).addTo(grid);
+    }
+    const layerControl = L.control.layers(null, { [gridLabel]: grid, ...overlays }, { collapsed: true }).addTo(map);
+  </script>
+</BaseLayout>
+
+<style>
+  .map-wrap { padding: 2.5rem 0 0; }
+  .intro { color: var(--c-ink-soft); font-size: 1.05rem; margin-bottom: 1.25rem; }
+  .count { font-family: var(--font-mono); font-size: 0.82rem; color: var(--c-ink-muted); }
+  #scum-map {
+    width: 100%; height: calc(100vh - 220px); min-height: 460px;
+    background: #0d1411; border-top: 1px solid var(--c-rule); border-bottom: 1px solid var(--c-rule);
+  }
+  /* Leaflet overrides for the dark map */
+  :global(.leaflet-container) { background: #0d1411; font-family: inherit; }
+  :global(.sector-label) {
+    color: #e8e3d8; font-family: var(--font-mono); font-weight: 700; font-size: 0.8rem;
+    text-shadow: 0 0 4px #000, 0 0 4px #000; pointer-events: none; text-align: center;
+  }
+  :global(.leaflet-popup-content) { font-size: 0.9rem; }
+  :global(.leaflet-control-layers) { max-height: 70vh; overflow-y: auto; }
+</style>
