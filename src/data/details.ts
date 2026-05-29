@@ -8,6 +8,7 @@ import craftingData from './crafting.json';
 import economyData from './economy.json';
 import lootData from './loot.json';
 import questsData from './quests.json';
+import containersData from './containers.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -53,6 +54,7 @@ export interface EconomyRec {
   buyPrice?: number | null; sellPrice?: number | null; currency?: string | null;
 }
 export interface LootRec { slug: string; spawns?: { location: string; rarity?: string }[]; }
+export interface ContainerRec { slug: string; rows?: number; cols?: number; slots?: number; maxWeightKg?: number; }
 export interface QuestLite { slug: string; title: Localized; trader?: string; tier?: number | null; }
 interface QuestRec extends QuestLite {
   requiredItems?: { slug?: string | null }[];
@@ -66,6 +68,7 @@ const CRAFTING = craftingData as unknown as CraftRec[];
 const ECONOMY = economyData as unknown as EconomyRec[];
 const LOOT = lootData as unknown as LootRec[];
 const QUESTS = questsData as unknown as QuestRec[];
+const CONTAINERS = containersData as unknown as ContainerRec[];
 
 function push<K, V>(m: Map<K, V[]>, k: K, v: V) {
   const a = m.get(k);
@@ -98,6 +101,9 @@ for (const e of ECONOMY) if (e.slug && !economyBySlug.has(e.slug)) economyBySlug
 const lootBySlug = new Map<string, LootRec>();
 for (const l of LOOT) if (l.slug && !lootBySlug.has(l.slug)) lootBySlug.set(l.slug, l);
 
+const containerBySlug = new Map<string, ContainerRec>();
+for (const c of CONTAINERS) if (c.slug && !containerBySlug.has(c.slug)) containerBySlug.set(c.slug, c);
+
 const questsNeedingSlug = new Map<string, QuestLite[]>();
 const questsRewardingSlug = new Map<string, QuestLite[]>();
 for (const q of QUESTS) {
@@ -115,6 +121,7 @@ export interface ItemDetail {
   cookingUsing: CookRec[];
   economy?: EconomyRec;
   loot?: LootRec;
+  container?: ContainerRec;
   questsNeeding: QuestLite[];
   questsRewarding: QuestLite[];
 }
@@ -127,6 +134,7 @@ export function itemDetail(slug: string): ItemDetail {
     cookingUsing: cookingUsingSlug.get(slug) ?? [],
     economy: economyBySlug.get(slug),
     loot: lootBySlug.get(slug),
+    container: containerBySlug.get(slug),
     questsNeeding: questsNeedingSlug.get(slug) ?? [],
     questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
@@ -134,5 +142,5 @@ export function itemDetail(slug: string): ItemDetail {
 
 export function hasDetail(d: ItemDetail): boolean {
   return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length ||
-    d.economy || d.loot?.spawns?.length || d.questsNeeding.length || d.questsRewarding.length);
+    d.economy || d.loot?.spawns?.length || d.container || d.questsNeeding.length || d.questsRewarding.length);
 }
