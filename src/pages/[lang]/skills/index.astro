@@ -1,0 +1,10 @@
+---
+import DataSection from '../../../components/DataSection.astro';
+import { skillsSection } from '../../../data/sections';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../i18n/languages';
+export function getStaticPaths() {
+  return LANGUAGES.filter((l) => l.code !== DEFAULT_LANG).map((l) => ({ params: { lang: l.code } }));
+}
+const lang = Astro.params.lang as LangCode;
+---
+<DataSection lang={lang} titleKey="sec.skills.title" introKey="sec.skills.intro" searchKey="sec.skills.search" noResKey="sec.noResults" section={skillsSection(lang)} />
