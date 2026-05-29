@@ -8,15 +8,15 @@ import { useTranslations } from '../i18n/utils';
 import poiData from '../data/poi.json';
 import type { LangCode } from '../i18n/languages';
 
-interface Props { lang: LangCode; }
-const { lang } = Astro.props;
+interface Props { lang: LangCode; live?: boolean; noindex?: boolean; }
+const { lang, live = false, noindex = false } = Astro.props;
 const tr = useTranslations(lang);
 const SIZE = 2048;
 const pois = poiData as { n: string; s: string; x: number; y: number }[];
 const sectorLabel = tr('map.sectors');
 const gridLabel = tr('map.grid');
 ---
-<BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')}>
+<BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')} noindex={noindex}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <section class="map-wrap">
     <div class="container container-prose">
@@ -28,7 +28,7 @@ const gridLabel = tr('map.grid');
   </section>
 
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script is:inline define:vars={{ pois, SIZE, sectorLabel, gridLabel }}>
+  <script is:inline define:vars={{ pois, SIZE, sectorLabel, gridLabel, live }}>
     const L = window.L;
     const map = L.map('scum-map', { crs: L.CRS.Simple, minZoom: -2, maxZoom: 2, zoomSnap: 0.25, attributionControl: false });
     const bounds = [[0, 0], [SIZE, SIZE]];
@@ -68,7 +68,30 @@ const gridLabel = tr('map.grid');
         icon: L.divIcon({ className: 'sector-label', html: key, iconSize: [30, 16] }),
       }).addTo(grid);
     }
-    const layerControl = L.control.layers(null, { [gridLabel]: grid, ...overlays }, { collapsed: true }).addTo(map);
+    L.control.layers(null, { [gridLabel]: grid, ...overlays }, { collapsed: true }).addTo(map);
+
+    // Live player positions (private panel only). The DB only refreshes on the
+    // server autosave, so polling faster than that gains nothing — 5s is plenty.
+    if (live) {
+      const playerLayer = L.layerGroup().addTo(map);
+      const refresh = async () => {
+        try {
+          const r = await fetch('/panel/live/positions.json', { cache: 'no-store' });
+          if (!r.ok) return;
+          const data = await r.json();
+          playerLayer.clearLayers();
+          for (const p of (data.players || [])) {
+            const html = `<div class="pm-arrow" style="transform:rotate(${p.heading || 0}deg)">▲</div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
+            L.marker([SIZE - p.py, p.px], {
+              icon: L.divIcon({ className: 'player-marker' + (p.alive ? '' : ' dead'), html, iconSize: [0, 0] }),
+              zIndexOffset: 1000,
+            }).addTo(playerLayer);
+          }
+        } catch (e) { /* sin datos aún */ }
+      };
+      refresh();
+      setInterval(refresh, 5000);
+    }
   </script>
 </BaseLayout>
 
@@ -88,4 +111,8 @@ const gridLabel = tr('map.grid');
   }
   :global(.leaflet-popup-content) { font-size: 0.9rem; }
   :global(.leaflet-control-layers) { max-height: 70vh; overflow-y: auto; }
+  :global(.player-marker) { position: relative; }
+  :global(.player-marker .pm-arrow) { position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; color: var(--c-rust-bright, #e0843f); font-size: 16px; line-height: 16px; text-align: center; text-shadow: 0 0 4px #000; }
+  :global(.player-marker .pm-name) { position: absolute; left: 10px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
+  :global(.player-marker.dead .pm-arrow) { color: #c83a3a; }
 </style>

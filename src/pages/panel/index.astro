@@ -3,8 +3,8 @@
 // tools: command reference now, live map next.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const tools = [
+  { href: '/panel/mapa', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla (se actualiza con el autosave del servidor).', ready: true },
   { href: '/panel/comandos', title: 'Comandos de servidor', desc: 'Referencia de comandos admin por nivel de permiso.', ready: true },
-  { href: '#', title: 'Mapa en vivo', desc: 'Posición tuya y de los jugadores sobre el mapa del juego.', ready: false },
 ];
 ---
 <BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>
