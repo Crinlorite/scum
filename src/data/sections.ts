@@ -16,7 +16,7 @@ const loc = (m: L | undefined, lang: LangCode) => (m && (m[lang] ?? m[FALLBACK_L
 const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
 
 export interface SecRel { label: string; links: { label: string; href: string }[]; }
-export interface SecEntry { slug?: string; name: string; desc?: string; meta: { k: string; v: string }[]; link?: string; rels?: SecRel[]; }
+export interface SecEntry { slug?: string; name: string; names?: L; desc?: string; meta: { k: string; v: string }[]; link?: string; rels?: SecRel[]; }
 export interface SecGroup { key: string; label: string; entries: SecEntry[]; }
 export interface Section { groups: SecGroup[]; total: number; }
 
@@ -48,7 +48,7 @@ export function weaponsSection(lang: LangCode): Section {
     if (typeof w.maxRange === 'number') meta.push({ k: 'range', v: `${w.maxRange} m` });
     if (w.fireModes?.length) meta.push({ k: 'fire', v: w.fireModes.join(', ') });
     return {
-      slug: w.slug, name: loc(w.name, lang) || w.slug, meta,
+      slug: w.slug, name: loc(w.name, lang) || w.slug, names: w.name, meta,
       link: w.slug ? localizedPath(`/items/${w.slug}`, lang) : undefined,
       _c: w.weaponCategory ? pretty(w.weaponCategory) : (w.kind === 'melee' ? 'Melee' : 'Ranged'),
     };
@@ -64,7 +64,7 @@ const ATTR: Record<string, L> = {
 export function skillsSection(lang: LangCode): Section {
   const cat = labelFrom(ATTR, lang);
   const entries: (SecEntry & { _c: string })[] = (skillsData as any[]).map((s) => ({
-    name: loc(s.name, lang) || s.slug, desc: loc(s.description, lang),
+    name: loc(s.name, lang) || s.slug, names: s.name, desc: loc(s.description, lang),
     meta: Array.isArray(s.levels) && s.levels.length ? [{ k: 'lvl', v: `${s.levels.length}` }] : [],
     _c: s.attribute || 'Other',
   }));
@@ -81,7 +81,7 @@ const MCAT: Record<string, L> = {
 export function medicalSection(lang: LangCode): Section {
   const cat = labelFrom(MCAT, lang);
   const entries: (SecEntry & { _c: string })[] = (medicalData as any[]).map((m) => ({
-    name: loc(m.name, lang) || m.slug, desc: loc(m.description, lang),
+    name: loc(m.name, lang) || m.slug, names: m.name, desc: loc(m.description, lang),
     meta: m.treatment ? [{ k: 'cure', v: typeof m.treatment === 'string' ? m.treatment : loc(m.treatment, lang) }] : [],
     _c: m.category || m.kind || 'general',
   }));
@@ -100,7 +100,7 @@ export function vehiclesSection(lang: LangCode): Section {
     const meta: { k: string; v: string }[] = [];
     if (v.fuel?.type) meta.push({ k: 'fuel', v: String(v.fuel.type) });
     if (typeof v.seats === 'number') meta.push({ k: 'seats', v: String(v.seats) });
-    return { name: loc(v.name, lang) || v.slug, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
+    return { name: loc(v.name, lang) || v.slug, names: v.name, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
   });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
 }
@@ -133,6 +133,7 @@ export function questsSection(lang: LangCode): Section {
     if (rew.length) rels.push({ label: tr('sec.quest.rewards' as any), links: rew });
     return {
       name: loc(q.title, lang) || q.slug,
+      names: q.title,
       desc: loc(q.description, lang),
       meta,
       rels: rels.length ? rels : undefined,
@@ -174,6 +175,7 @@ export function huntingSection(lang: LangCode): Section {
   const range = (a?: number, b?: number) => (a === b ? String(a ?? '') : `${a ?? '?'}–${b ?? '?'}`);
   const entries: (SecEntry & { _c: string })[] = (huntingData as any[]).map((r) => ({
     name: loc(r.animal, lang) || r.animal.en,
+    names: r.animal,
     meta: [
       { k: 'pack', v: range(r.packMin, r.packMax) },
       ...(r.cluesMax ? [{ k: 'clues', v: range(r.cluesMin, r.cluesMax) }] : []),
