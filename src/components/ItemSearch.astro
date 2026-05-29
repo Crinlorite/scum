@@ -1,0 +1,135 @@
+---
+// Global item search: a button in the nav that opens an input + results
+// dropdown. Lazy-fetches /search/items-<lang>.json (active language) on first
+// use and filters client-side. Links to each item's page.
+import { useTranslations, localizedPath } from '../i18n/utils';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+// Base path for item pages in this language: "/items/" or "/de/items/".
+const itemsBase = localizedPath('/items', lang);
+---
+<div
+  class="item-search"
+  data-lang={lang}
+  data-base={itemsBase}
+  data-index={`/search/items-${lang}.json`}
+  data-hint={tr('search.hint')}
+  data-noresults={tr('search.noResults')}
+>
+  <button type="button" class="is-toggle" aria-label={tr('search.label')} aria-expanded="false">
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="9" cy="9" r="6" /><line x1="14" y1="14" x2="18" y2="18" stroke-linecap="round" />
+    </svg>
+  </button>
+  <div class="is-panel" hidden>
+    <input class="is-input" type="search" autocomplete="off" spellcheck="false"
+           placeholder={tr('search.placeholder')} aria-label={tr('search.label')} />
+    <ul class="is-results" role="listbox" hidden></ul>
+  </div>
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('.item-search')) {
+    const toggle = root.querySelector<HTMLButtonElement>('.is-toggle')!;
+    const panel = root.querySelector<HTMLElement>('.is-panel')!;
+    const input = root.querySelector<HTMLInputElement>('.is-input')!;
+    const results = root.querySelector<HTMLUListElement>('.is-results')!;
+    const base = root.dataset.base || '/items/';
+    const indexUrl = root.dataset.index!;
+    const noResults = root.dataset.noresults || 'No results';
+    const MAX = 12;
+
+    let index: { s: string; n: string }[] | null = null;
+    let loading: Promise<void> | null = null;
+
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    // CJK/Kana/Hangul: 1 char is a meaningful query; other scripts: 2.
+    const minLen = (q: string) =>
+      /[\u3400-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]/.test(q) ? 1 : 2;
+
+    async function ensureIndex() {
+      if (index) return;
+      if (!loading) loading = fetch(indexUrl).then((r) => r.json()).then((d) => { index = d; });
+      await loading;
+    }
+
+    function render(q: string) {
+      const nq = norm(q.trim());
+      if (!nq || nq.length < minLen(nq) || !index) { results.hidden = true; results.innerHTML = ''; return; }
+      const starts: typeof index = [], has: typeof index = [];
+      for (const it of index) {
+        const n = norm(it.n);
+        if (n.startsWith(nq)) starts.push(it);
+        else if (n.includes(nq)) has.push(it);
+        if (starts.length >= MAX) break;
+      }
+      const hits = [...starts, ...has].slice(0, MAX);
+      results.hidden = false;
+      if (!hits.length) { results.innerHTML = `<li class="is-empty">${noResults}</li>`; return; }
+      results.innerHTML = hits
+        .map((it) => `<li role="option"><a href="${base}${it.s}/">${escapeHtml(it.n)}</a></li>`)
+        .join('');
+    }
+    function escapeHtml(s: string) {
+      return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+    }
+
+    function open() {
+      panel.hidden = false; toggle.setAttribute('aria-expanded', 'true');
+      ensureIndex().then(() => render(input.value));
+      input.focus();
+    }
+    function close() { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); results.hidden = true; }
+
+    toggle.addEventListener('click', () => (panel.hidden ? open() : close()));
+    input.addEventListener('input', () => render(input.value));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { close(); toggle.focus(); }
+      else if (e.key === 'Enter') {
+        const first = results.querySelector<HTMLAnchorElement>('a');
+        if (first) location.href = first.href;
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) close();
+    });
+  }
+</script>
+
+<style>
+  .item-search { position: relative; display: inline-flex; }
+  .is-toggle {
+    display: inline-grid; place-items: center;
+    width: 34px; height: 34px;
+    color: var(--c-ash);
+    background: transparent; border: 1px solid rgba(232, 227, 216, 0.12);
+    border-radius: 6px; cursor: pointer;
+    transition: color 120ms ease, border-color 120ms ease;
+  }
+  .is-toggle:hover, .is-toggle[aria-expanded='true'] { color: var(--c-bone); border-color: var(--c-rust); }
+  .is-panel {
+    position: absolute; top: calc(100% + 6px); right: 0;
+    width: min(20rem, 80vw);
+    background: var(--c-bg-panel, #1a1f1c);
+    border: 1px solid rgba(232, 227, 216, 0.12);
+    border-radius: 8px; padding: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); z-index: 60;
+  }
+  .is-input {
+    width: 100%; padding: 0.5rem 0.6rem; font-size: 0.95rem;
+    color: var(--c-bone); background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(232, 227, 216, 0.15); border-radius: 6px;
+  }
+  .is-input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .is-results { list-style: none; margin: 0.4rem 0 0; padding: 0; max-height: 60vh; overflow-y: auto; }
+  .is-results li { margin: 0; }
+  .is-results a {
+    display: block; padding: 0.4rem 0.55rem; border-radius: 5px;
+    color: var(--c-ash); text-decoration: none; font-size: 0.92rem;
+  }
+  .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
+  .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
+</style>

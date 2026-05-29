@@ -1,6 +1,7 @@
 ---
 import { useTranslations, localizedPath } from '../i18n/utils';
 import LangSwitcher from './LangSwitcher.astro';
+import ItemSearch from './ItemSearch.astro';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -34,6 +35,7 @@ function isActive(href: string): boolean {
         ))}
       </ul>
     </nav>
+    <ItemSearch lang={lang} />
     <LangSwitcher lang={lang} />
   </div>
 </header>
