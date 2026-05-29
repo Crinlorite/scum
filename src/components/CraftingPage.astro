@@ -1,13 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, localizedPath } from '../i18n/utils';
 import { craftingByGroup, craftName, ingredientText, skillLabel, CRAFTING, type CraftRecipe } from '../data/craftrecipes';
+import { ITEMS } from '../data/items';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
 const { lang } = Astro.props;
 const tr = useTranslations(lang);
 const groups = craftingByGroup(lang);
+
+// Link a crafting recipe to the item page it produces, when that item exists.
+const ITEM_SLUGS = new Set(ITEMS.map((i) => i.slug));
+const itemHref = (slug?: string | null) => (slug && ITEM_SLUGS.has(slug) ? localizedPath(`/items/${slug}`, lang) : null);
 
 function searchText(r: CraftRecipe): string {
   const parts = [craftName(r, lang), skillLabel(r.skill, lang)];
@@ -36,7 +41,9 @@ function searchText(r: CraftRecipe): string {
             <div class="card-grid">
               {g.recipes.map((r) => (
                 <article class="ccard" data-text={searchText(r)}>
-                  <h3>{craftName(r, lang)}{typeof r.productQuantity === 'number' && r.productQuantity > 1 ? ` ×${r.productQuantity}` : ''}</h3>
+                  <h3>{itemHref(r.result?.slug)
+                    ? <a href={itemHref(r.result?.slug)!}>{craftName(r, lang)}</a>
+                    : craftName(r, lang)}{typeof r.productQuantity === 'number' && r.productQuantity > 1 ? ` ×${r.productQuantity}` : ''}</h3>
                   <ul class="ing">
                     {(r.ingredients ?? []).map((ing) => (<li>{ingredientText(ing, lang)}</li>))}
                   </ul>
@@ -94,6 +101,8 @@ function searchText(r: CraftRecipe): string {
   .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
   .ccard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
   .ccard h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .ccard h3 a { color: var(--c-ink); text-decoration: none; }
+  .ccard h3 a:hover { color: var(--c-rust); }
   .ing { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); font-size: 0.9rem; }
   .ing li { margin: 0.1rem 0; }
   .cmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.78rem; color: var(--c-ink-muted); }

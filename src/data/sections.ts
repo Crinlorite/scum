@@ -6,13 +6,14 @@ import medicalData from './medical.json';
 import vehiclesData from './vehicles.json';
 import questsData from './quests.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
-import { localizedPath } from '../i18n/utils';
+import { localizedPath, useTranslations } from '../i18n/utils';
 
 type L = Partial<Record<LangCode, string>>;
 const loc = (m: L | undefined, lang: LangCode) => (m && (m[lang] ?? m[FALLBACK_LANG] ?? m[DEFAULT_LANG])) ?? '';
 const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
 
-export interface SecEntry { slug?: string; name: string; desc?: string; meta: { k: string; v: string }[]; link?: string; }
+export interface SecRel { label: string; links: { label: string; href: string }[]; }
+export interface SecEntry { slug?: string; name: string; desc?: string; meta: { k: string; v: string }[]; link?: string; rels?: SecRel[]; }
 export interface SecGroup { key: string; label: string; entries: SecEntry[]; }
 export interface Section { groups: SecGroup[]; total: number; }
 
@@ -103,15 +104,35 @@ export function vehiclesSection(lang: LangCode): Section {
 
 // ---- quests / missions ----
 export function questsSection(lang: LangCode): Section {
+  const tr = useTranslations(lang);
+  // Items required/rewarded by a quest → clickable links to each item page
+  // (deduped by slug; names are already localized in quests.json).
+  const itemLinks = (arr: any[] | undefined) => {
+    const seen = new Set<string>();
+    const links: { label: string; href: string }[] = [];
+    for (const it of arr ?? []) {
+      if (!it?.slug || seen.has(it.slug)) continue;
+      seen.add(it.slug);
+      const lbl = (loc(it.name, lang) || it.slug).trim();
+      links.push({ label: it.count && it.count > 1 ? `${lbl} ×${it.count}` : lbl, href: localizedPath(`/items/${it.slug}`, lang) });
+    }
+    return links;
+  };
   const entries: (SecEntry & { _c: string })[] = (questsData as any[]).map((q) => {
     const meta: { k: string; v: string }[] = [];
     if (q.tier) meta.push({ k: 'tier', v: `T${q.tier}` });
     if (q.rewardFame) meta.push({ k: 'fame', v: `+${q.rewardFame}` });
     if (q.rewardCurrency) meta.push({ k: 'money', v: String(q.rewardCurrency) });
+    const rels: SecRel[] = [];
+    const req = itemLinks(q.requiredItems);
+    const rew = itemLinks(q.rewardItems);
+    if (req.length) rels.push({ label: tr('sec.quest.requires' as any), links: req });
+    if (rew.length) rels.push({ label: tr('sec.quest.rewards' as any), links: rew });
     return {
       name: loc(q.title, lang) || q.slug,
       desc: loc(q.description, lang),
       meta,
+      rels: rels.length ? rels : undefined,
       _c: (q.traderLabel && (q.traderLabel[lang] ?? q.traderLabel[FALLBACK_LANG])) || q.trader || 'Other',
     };
   });
