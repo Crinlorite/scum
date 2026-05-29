@@ -39,7 +39,7 @@ const tr = useTranslations(lang);
     const noResults = root.dataset.noresults || 'No results';
     const MAX = 14;
 
-    let index: { n: string; u: string; t: string; i?: string }[] | null = null;
+    let index: { n: string; u: string; t?: string }[] | null = null;
     let loading: Promise<void> | null = null;
 
     const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -67,7 +67,7 @@ const tr = useTranslations(lang);
       results.hidden = false;
       if (!hits.length) { results.innerHTML = `<li class="is-empty">${noResults}</li>`; return; }
       results.innerHTML = hits
-        .map((it) => `<li role="option"><a href="${it.u}">${it.i ? `<img class="is-ico" src="${it.i}" alt="" width="22" height="22" loading="lazy">` : ''}<span class="is-name">${escapeHtml(it.n)}</span><span class="is-type">${escapeHtml(it.t)}</span></a></li>`)
+        .map((it) => `<li role="option"><a href="${it.u}"><span class="is-name">${escapeHtml(it.n)}</span>${it.t ? `<span class="is-type">${escapeHtml(it.t)}</span>` : ''}</a></li>`)
         .join('');
     }
     function escapeHtml(s: string) {
@@ -129,7 +129,6 @@ const tr = useTranslations(lang);
     color: var(--c-ash); text-decoration: none; font-size: 0.92rem;
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
-  .is-ico { flex: none; width: 22px; height: 22px; object-fit: contain; }
   .is-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .is-type {
     flex: none; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase;
