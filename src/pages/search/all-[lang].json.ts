@@ -6,6 +6,7 @@ import type { APIRoute } from 'astro';
 import { LANGUAGES, type LangCode } from '../../i18n/languages';
 import { localizedPath, useTranslations } from '../../i18n/utils';
 import { ITEMS, displayName } from '../../data/items';
+import { iconUrl } from '../../data/icons';
 import { COOKING, cookName } from '../../data/cooking';
 import { CRAFTING, craftName } from '../../data/craftrecipes';
 import { questsSection, skillsSection, medicalSection, vehiclesSection } from '../../data/sections';
@@ -18,11 +19,13 @@ export function getStaticPaths() {
 export const GET: APIRoute = async ({ params }) => {
   const lang = params.lang as LangCode;
   const tr = useTranslations(lang);
-  const out: { n: string; u: string; t: string }[] = [];
+  const out: { n: string; u: string; t: string; i?: string }[] = [];
   const qp = (path: string, name: string) => `${localizedPath(path, lang)}?q=${encodeURIComponent(name)}`;
 
-  for (const it of ITEMS)
-    out.push({ n: displayName(it, lang), u: localizedPath(`/items/${it.slug}`, lang), t: tr('nav.items') });
+  for (const it of ITEMS) {
+    const ico = iconUrl(it.slug);
+    out.push({ n: displayName(it, lang), u: localizedPath(`/items/${it.slug}`, lang), t: tr('nav.items'), ...(ico ? { i: ico } : {}) });
+  }
   for (const r of COOKING) { const n = cookName(r, lang); out.push({ n, u: qp('/recetas', n), t: tr('recipes.title') }); }
   for (const r of CRAFTING) { const n = craftName(r, lang); out.push({ n, u: qp('/crafteo', n), t: tr('crafting.title') }); }
   for (const g of questsSection(lang).groups) for (const e of g.entries) out.push({ n: e.name, u: qp('/misiones', e.name), t: tr('sec.quests.title') });

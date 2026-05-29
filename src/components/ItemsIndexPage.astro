@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { itemsGroupedByCategory, displayName, ITEMS } from '../data/items';
+import { iconUrl } from '../data/icons';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -47,7 +48,8 @@ const countKey = total === 1 ? 'items.countOne' : 'items.countOther';
               {g.items.map((it) => (
                 <li>
                   <a class="item-link" href={localizedPath(`/items/${it.slug}`, lang)} data-name={displayName(it, lang).toLowerCase()}>
-                    {displayName(it, lang)}
+                    {iconUrl(it.slug) && <img class="item-ico" src={iconUrl(it.slug)!} alt="" width="32" height="32" loading="lazy" />}
+                    <span>{displayName(it, lang)}</span>
                   </a>
                 </li>
               ))}
@@ -139,7 +141,9 @@ const countKey = total === 1 ? 'items.countOne' : 'items.countOther';
     gap: 0.4rem;
   }
   .item-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     padding: 0.5rem 0.7rem;
     color: var(--c-ink);
     background: var(--c-paper);
@@ -150,4 +154,5 @@ const countKey = total === 1 ? 'items.countOne' : 'items.countOther';
     transition: border-color 120ms ease, color 120ms ease;
   }
   .item-link:hover { border-color: var(--c-rust); color: var(--c-rust); }
+  .item-ico { flex: none; width: 32px; height: 32px; object-fit: contain; }
 </style>
