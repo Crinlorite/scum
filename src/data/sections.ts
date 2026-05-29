@@ -1,0 +1,101 @@
+// Normalizers that turn the raw game datasets (weapons/skills/medical/vehicles)
+// into a uniform shape for the generic <DataSection> component.
+import weaponsData from './weapons.json';
+import skillsData from './skills.json';
+import medicalData from './medical.json';
+import vehiclesData from './vehicles.json';
+import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
+import { localizedPath } from '../i18n/utils';
+
+type L = Partial<Record<LangCode, string>>;
+const loc = (m: L | undefined, lang: LangCode) => (m && (m[lang] ?? m[FALLBACK_LANG] ?? m[DEFAULT_LANG])) ?? '';
+const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
+
+export interface SecEntry { slug?: string; name: string; desc?: string; meta: { k: string; v: string }[]; link?: string; }
+export interface SecGroup { key: string; label: string; entries: SecEntry[]; }
+export interface Section { groups: SecGroup[]; total: number; }
+
+function group(entries: SecEntry[], catOf: (e: SecEntry) => string, labelOf: (k: string) => string): SecGroup[] {
+  const by = new Map<string, SecEntry[]>();
+  for (const e of entries) { const k = catOf(e); const a = by.get(k); if (a) a.push(e); else by.set(k, [e]); }
+  const groups = [...by].map(([key, es]) => {
+    es.sort((a, b) => a.name.localeCompare(b.name));
+    return { key, label: labelOf(key), entries: es, _cat: key };
+  }) as (SecGroup & { _cat: string })[];
+  groups.sort((a, b) => b.entries.length - a.entries.length || a.label.localeCompare(b.label));
+  return groups;
+}
+
+function labelFrom(map: Record<string, L>, lang: LangCode) {
+  return (k: string) => map[k]?.[lang] ?? map[k]?.[FALLBACK_LANG] ?? pretty(k);
+}
+
+// ---- weapons ----
+const WCAT: Record<string, L> = {
+  Melee: { es: 'Cuerpo a cuerpo', en: 'Melee' }, Ranged: { es: 'A distancia', en: 'Ranged' },
+};
+export function weaponsSection(lang: LangCode): Section {
+  const cat = labelFrom(WCAT, lang);
+  const entries: (SecEntry & { _c: string })[] = (weaponsData as any[]).map((w) => {
+    const meta: { k: string; v: string }[] = [];
+    if (w.kind === 'melee' && typeof w.melee?.damage === 'number') meta.push({ k: 'dmg', v: String(w.melee.damage) });
+    if (w.ammunition?.labels?.length) meta.push({ k: 'ammo', v: w.ammunition.labels.join(', ') });
+    if (typeof w.maxRange === 'number') meta.push({ k: 'range', v: `${w.maxRange} m` });
+    if (w.fireModes?.length) meta.push({ k: 'fire', v: w.fireModes.join(', ') });
+    return {
+      slug: w.slug, name: loc(w.name, lang) || w.slug, meta,
+      link: w.slug ? localizedPath(`/items/${w.slug}`, lang) : undefined,
+      _c: w.weaponCategory ? pretty(w.weaponCategory) : (w.kind === 'melee' ? 'Melee' : 'Ranged'),
+    };
+  });
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
+}
+
+// ---- skills ----
+const ATTR: Record<string, L> = {
+  Strength: { es: 'Fuerza', en: 'Strength' }, Dexterity: { es: 'Destreza', en: 'Dexterity' },
+  Constitution: { es: 'Constitución', en: 'Constitution' }, Intelligence: { es: 'Inteligencia', en: 'Intelligence' },
+};
+export function skillsSection(lang: LangCode): Section {
+  const cat = labelFrom(ATTR, lang);
+  const entries: (SecEntry & { _c: string })[] = (skillsData as any[]).map((s) => ({
+    name: loc(s.name, lang) || s.slug, desc: loc(s.description, lang),
+    meta: Array.isArray(s.levels) && s.levels.length ? [{ k: 'lvl', v: `${s.levels.length}` }] : [],
+    _c: s.attribute || 'Other',
+  }));
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
+}
+
+// ---- medical ----
+const MCAT: Record<string, L> = {
+  disease: { es: 'Enfermedades', en: 'Diseases' }, infection: { es: 'Infecciones', en: 'Infections' },
+  poisoning: { es: 'Intoxicaciones', en: 'Poisoning' }, injury: { es: 'Lesiones', en: 'Injuries' },
+  deficiency: { es: 'Deficiencias', en: 'Deficiencies' }, radiation: { es: 'Radiación', en: 'Radiation' },
+  environment: { es: 'Ambiental', en: 'Environment' }, general: { es: 'General', en: 'General' },
+};
+export function medicalSection(lang: LangCode): Section {
+  const cat = labelFrom(MCAT, lang);
+  const entries: (SecEntry & { _c: string })[] = (medicalData as any[]).map((m) => ({
+    name: loc(m.name, lang) || m.slug, desc: loc(m.description, lang),
+    meta: m.treatment ? [{ k: 'cure', v: typeof m.treatment === 'string' ? m.treatment : loc(m.treatment, lang) }] : [],
+    _c: m.category || m.kind || 'general',
+  }));
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
+}
+
+// ---- vehicles ----
+const VTYPE: Record<string, L> = {
+  car: { es: 'Coches', en: 'Cars' }, bike: { es: 'Motos/Bicis', en: 'Bikes' }, boat: { es: 'Barcos', en: 'Boats' },
+  airplane: { es: 'Aviones', en: 'Aircraft' }, atv: { es: 'Quads', en: 'ATVs' }, tractor: { es: 'Tractores', en: 'Tractors' },
+  wheelbarrow: { es: 'Carretillas', en: 'Wheelbarrows' },
+};
+export function vehiclesSection(lang: LangCode): Section {
+  const cat = labelFrom(VTYPE, lang);
+  const entries: (SecEntry & { _c: string })[] = (vehiclesData as any[]).map((v) => {
+    const meta: { k: string; v: string }[] = [];
+    if (v.fuel?.type) meta.push({ k: 'fuel', v: String(v.fuel.type) });
+    if (typeof v.seats === 'number') meta.push({ k: 'seats', v: String(v.seats) });
+    return { name: loc(v.name, lang) || v.slug, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
+  });
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
+}

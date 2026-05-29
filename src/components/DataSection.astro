@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import { FALLBACK_LANG, type LangCode } from '../i18n/languages';
+import type { Section } from '../data/sections';
+
+interface Props {
+  lang: LangCode;
+  titleKey: string; introKey: string; searchKey: string; noResKey: string;
+  section: Section;
+}
+const { lang, titleKey, introKey, searchKey, noResKey, section } = Astro.props;
+const tr = useTranslations(lang);
+
+const META: Record<string, Partial<Record<LangCode, string>>> = {
+  dmg: { es: 'Daño', en: 'Dmg' }, ammo: { es: 'Munición', en: 'Ammo' },
+  range: { es: 'Alcance', en: 'Range' }, fire: { es: 'Modos', en: 'Modes' },
+  lvl: { es: 'Niveles', en: 'Levels' }, cure: { es: 'Tratamiento', en: 'Treatment' },
+  fuel: { es: 'Combustible', en: 'Fuel' }, seats: { es: 'Asientos', en: 'Seats' },
+};
+const ml = (k: string) => META[k]?.[lang] ?? META[k]?.[FALLBACK_LANG] ?? k;
+const stext = (e: { name: string; desc?: string; meta: { v: string }[] }) =>
+  [e.name, e.desc ?? '', ...e.meta.map((m) => m.v)].join(' ').toLowerCase();
+---
+<BaseLayout lang={lang} title={tr(titleKey as any)} description={tr(introKey as any)}>
+  <section class="ds">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr(titleKey as any)}</span>
+      <h1>{tr(titleKey as any)}</h1>
+      <p class="intro">{tr(introKey as any)} <span class="count">{section.total}</span></p>
+      <label class="search"><span class="sr-only">{tr(searchKey as any)}</span>
+        <input id="ds-search" type="search" autocomplete="off" placeholder={tr(searchKey as any)} aria-controls="ds-list" /></label>
+      <p id="ds-nores" class="no-results" hidden>{tr(noResKey as any)}</p>
+    </div>
+    <div class="container">
+      <nav class="cat-jump" aria-label={tr(titleKey as any)}>
+        {section.groups.map((g) => (<a href={`#ds-${g.key}`} data-cat={g.key}>{g.label} <span>{g.entries.length}</span></a>))}
+      </nav>
+      <div id="ds-list">
+        {section.groups.map((g) => (
+          <section class="cat-group" id={`ds-${g.key}`} data-cat={g.key}>
+            <h2>{g.label} <span class="cat-count">{g.entries.length}</span></h2>
+            <div class="card-grid">
+              {g.entries.map((e) => (
+                <article class="dcard" data-text={stext(e)}>
+                  <h3>{e.link ? <a href={e.link}>{e.name}</a> : e.name}</h3>
+                  {e.desc && <p class="dd">{e.desc.length > 180 ? e.desc.slice(0, 180) + '…' : e.desc}</p>}
+                  {e.meta.length > 0 && (
+                    <p class="dmeta">{e.meta.map((m) => (<span><b>{ml(m.k)}:</b> {m.v}</span>))}</p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('ds-search') as HTMLInputElement | null;
+  const list = document.getElementById('ds-list');
+  const nores = document.getElementById('ds-nores');
+  if (input && list) {
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('.dcard'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('.cat-group'));
+    const jump = Array.from(document.querySelectorAll<HTMLElement>('.cat-jump a'));
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const minLen = (q: string) => /[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(q) ? 1 : 2;
+    input.addEventListener('input', () => {
+      const q = norm(input.value.trim()); const active = q.length >= minLen(q); let any = false;
+      for (const c of cards) { const show = !active || norm(c.dataset.text || '').includes(q); c.hidden = !show; if (show) any = true; }
+      for (const g of groups) { const v = g.querySelectorAll('.dcard:not([hidden])').length; g.hidden = v === 0; const j = jump.find((a) => a.dataset.cat === g.dataset.cat); if (j) j.hidden = v === 0; }
+      if (nores) nores.hidden = any;
+    });
+  }
+</script>
+
+<style>
+  .ds { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-muted); }
+  .search { display: block; margin-bottom: 0.5rem; }
+  .search input { width: 100%; padding: 0.7rem 0.9rem; font-size: 1rem; color: var(--c-ink); background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
+  .search input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .no-results { color: var(--c-ink-soft); font-style: italic; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cat-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--c-rule); }
+  .cat-jump a { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.6rem; font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
+  .cat-jump a:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .cat-jump a span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+  .cat-group { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+  .cat-group h2 { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1rem; }
+  .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
+  .dcard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
+  .dcard h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  .dcard h3 a { color: var(--c-ink); text-decoration: none; }
+  .dcard h3 a:hover { color: var(--c-rust); }
+  .dd { margin: 0 0 0.4rem; font-size: 0.88rem; color: var(--c-ink-soft); line-height: 1.5; }
+  .dmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.78rem; color: var(--c-ink-muted); }
+  .dmeta b { font-weight: 600; color: var(--c-ink-soft); }
+</style>
