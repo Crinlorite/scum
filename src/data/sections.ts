@@ -7,6 +7,7 @@ import vehiclesData from './vehicles.json';
 import questsData from './quests.json';
 import adminData from './admin.json';
 import fameData from './fame.json';
+import huntingData from './hunting.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath, useTranslations } from '../i18n/utils';
 
@@ -166,4 +167,18 @@ export function fameSection(lang: LangCode): Section {
     arr.map((a) => ({ name: pretty(a.action), meta: [{ k: 'fame', v: `${sign}${a.fame}` }], _c: kind }));
   const entries = [...mk(fameData.awards as any[], 'award', '+'), ...mk(fameData.penalties as any[], 'pen', '−')];
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => FAME_KIND[k]?.[lang] ?? FAME_KIND[k]?.[FALLBACK_LANG] ?? k) };
+}
+
+// ---- hunting (animals per biome) ----
+export function huntingSection(lang: LangCode): Section {
+  const range = (a?: number, b?: number) => (a === b ? String(a ?? '') : `${a ?? '?'}–${b ?? '?'}`);
+  const entries: (SecEntry & { _c: string })[] = (huntingData as any[]).map((r) => ({
+    name: loc(r.animal, lang) || r.animal.en,
+    meta: [
+      { k: 'pack', v: range(r.packMin, r.packMax) },
+      ...(r.cluesMax ? [{ k: 'clues', v: range(r.cluesMin, r.cluesMax) }] : []),
+    ],
+    _c: loc(r.biomeLabel, lang) || r.biomeLabel.en,
+  }));
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => k) };
 }

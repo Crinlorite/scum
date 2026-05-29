@@ -1,0 +1,497 @@
+[
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Caballo",
+   "en": "Horse"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 1,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Burro",
+   "en": "Donkey"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 1,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Jabalí",
+   "en": "Boar"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Ciervo",
+   "en": "Deer"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Conejo",
+   "en": "Rabbit"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Lobo",
+   "en": "Wolf"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "ContinentalForest",
+  "biomeLabel": {
+   "es": "Bosque continental",
+   "en": "Continental forest"
+  },
+  "animal": {
+   "es": "Oso",
+   "en": "Bear"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "ContinentalMeadow",
+  "biomeLabel": {
+   "es": "Pradera continental",
+   "en": "Continental meadow"
+  },
+  "animal": {
+   "es": "Conejo",
+   "en": "Rabbit"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalMeadow",
+  "biomeLabel": {
+   "es": "Pradera continental",
+   "en": "Continental meadow"
+  },
+  "animal": {
+   "es": "Lobo",
+   "en": "Wolf"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "ContinentalMeadow",
+  "biomeLabel": {
+   "es": "Pradera continental",
+   "en": "Continental meadow"
+  },
+  "animal": {
+   "es": "Oso",
+   "en": "Bear"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "ContinentalMeadow",
+  "biomeLabel": {
+   "es": "Pradera continental",
+   "en": "Continental meadow"
+  },
+  "animal": {
+   "es": "Gallina",
+   "en": "Chicken"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "ContinentalMeadow",
+  "biomeLabel": {
+   "es": "Pradera continental",
+   "en": "Continental meadow"
+  },
+  "animal": {
+   "es": "Cabra",
+   "en": "Goat"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mediterranean",
+  "biomeLabel": {
+   "es": "Mediterráneo",
+   "en": "Mediterranean"
+  },
+  "animal": {
+   "es": "Burro",
+   "en": "Donkey"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mediterranean",
+  "biomeLabel": {
+   "es": "Mediterráneo",
+   "en": "Mediterranean"
+  },
+  "animal": {
+   "es": "Jabalí",
+   "en": "Boar"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mediterranean",
+  "biomeLabel": {
+   "es": "Mediterráneo",
+   "en": "Mediterranean"
+  },
+  "animal": {
+   "es": "Conejo",
+   "en": "Rabbit"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mediterranean",
+  "biomeLabel": {
+   "es": "Mediterráneo",
+   "en": "Mediterranean"
+  },
+  "animal": {
+   "es": "Gallina",
+   "en": "Chicken"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Jabalí",
+   "en": "Boar"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Ciervo",
+   "en": "Deer"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Conejo",
+   "en": "Rabbit"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Lobo",
+   "en": "Wolf"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Oso",
+   "en": "Bear"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "Mountain",
+  "biomeLabel": {
+   "es": "Montaña",
+   "en": "Mountain"
+  },
+  "animal": {
+   "es": "Cabra",
+   "en": "Goat"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Urban",
+  "biomeLabel": {
+   "es": "Urbano",
+   "en": "Urban"
+  },
+  "animal": {
+   "es": "Gallina",
+   "en": "Chicken"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Urban",
+  "biomeLabel": {
+   "es": "Urbano",
+   "en": "Urban"
+  },
+  "animal": {
+   "es": "Cabra",
+   "en": "Goat"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Urban",
+  "biomeLabel": {
+   "es": "Urbano",
+   "en": "Urban"
+  },
+  "animal": {
+   "es": "Jabalí",
+   "en": "Boar"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 1,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Conejo",
+   "en": "Rabbit"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Gallina",
+   "en": "Chicken"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Cabra",
+   "en": "Goat"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Caballo",
+   "en": "Horse"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Burro",
+   "en": "Donkey"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Lobo",
+   "en": "Wolf"
+  },
+  "packMin": 1,
+  "packMax": 3,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Oso",
+   "en": "Bear"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 0
+ },
+ {
+  "biome": "Village",
+  "biomeLabel": {
+   "es": "Pueblo",
+   "en": "Village"
+  },
+  "animal": {
+   "es": "Jabalí",
+   "en": "Boar"
+  },
+  "packMin": 1,
+  "packMax": 1,
+  "cluesMin": 0,
+  "cluesMax": 1
+ }
+]
