@@ -52,7 +52,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     L.imageOverlay('/map/island.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    const flip = (p) => [SIZE - p.y, p.x]; // pixel(top-left) → Leaflet(bottom-left)
+    // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
+    // Leaflet, equivalente a girar todo media vuelta para que cuadre la brújula.
+    const flip = (x, y) => [y, SIZE - x];
     const COLORS = {
       town: '#9aa0a6', abandoned: '#b06a4a', military: '#c83a3a', farm: '#7cc56a',
       industrial: '#c9913a', nuclear: '#e0d24a', rail: '#8a8f96', airfield: '#5fb0d0',
@@ -67,7 +69,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       const grp = L.layerGroup();
       const col = COLORS[key] || '#9aa0a6';
       for (const p of byType[key]) {
-        L.circleMarker(flip(p), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.7 })
+        L.circleMarker(flip(p.x, p.y), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.7 })
           .bindPopup(`<b>${p.n}</b>${p.s ? `<br><small>${sectorLabel} ${p.s}</small>` : ''}`)
           .addTo(grp);
       }
@@ -83,8 +85,8 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       const ps = sectors[key];
       const xs = ps.map((p) => p.x), ys = ps.map((p) => p.y);
       const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
-      L.rectangle([[SIZE - y0, x0], [SIZE - y1, x1]], { color: '#e8e3d8', weight: 1, fill: false, dashArray: '4 4', opacity: 0.5 }).addTo(grid);
-      L.marker([SIZE - (y0 + y1) / 2, (x0 + x1) / 2], {
+      L.rectangle([flip(x0, y0), flip(x1, y1)], { color: '#e8e3d8', weight: 1, fill: false, dashArray: '4 4', opacity: 0.5 }).addTo(grid);
+      L.marker(flip((x0 + x1) / 2, (y0 + y1) / 2), {
         interactive: false,
         icon: L.divIcon({ className: 'sector-label', html: key, iconSize: [30, 16] }),
       }).addTo(grid);
@@ -118,7 +120,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
           playerLayer.clearLayers();
           for (const p of (data.players || [])) {
             const html = `<div class="pm-arrow" style="transform:rotate(${p.heading || 0}deg)">▲</div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
-            L.marker([SIZE - p.py, p.px], {
+            L.marker(flip(p.px, p.py), {
               icon: L.divIcon({ className: 'player-marker' + (p.alive ? '' : ' dead'), html, iconSize: [0, 0] }),
               zIndexOffset: 1000,
             }).addTo(playerLayer);
