@@ -1,0 +1,7 @@
+node_modules
+dist
+.astro
+.git
+*.log
+tools/locres-import/out
+tools/locres-import/__pycache__
