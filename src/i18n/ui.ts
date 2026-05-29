@@ -118,6 +118,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.fame': 'Fama requerida',
     'item.questNeeded': 'Necesario para misiones',
     'item.questReward': 'Recompensa de misiones',
+    'item.storage': 'Almacenamiento',
+    'item.capacity': 'Rejilla',
+    'item.slots': 'Huecos',
+    'item.maxWeight': 'Peso máx.',
 
     'beta.badge': 'Beta',
     'beta.notice': 'Traducción en Beta: parte del contenido puede estar incompleto o aparecer en inglés.',
@@ -291,6 +295,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'item.fame': 'Fame required',
     'item.questNeeded': 'Needed for missions',
     'item.questReward': 'Mission reward',
+    'item.storage': 'Storage',
+    'item.capacity': 'Grid',
+    'item.slots': 'Slots',
+    'item.maxWeight': 'Max weight',
 
     'beta.badge': 'Beta',
     'beta.notice': 'Beta translation: some content may be incomplete or shown in English.',

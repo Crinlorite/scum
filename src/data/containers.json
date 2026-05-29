@@ -1,0 +1,699 @@
+[
+ {
+  "slug": "angel-s-flight-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "animal-skin-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48
+ },
+ {
+  "slug": "animal-skin-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16
+ },
+ {
+  "slug": "animal-skin-quiver",
+  "rows": 6,
+  "cols": 4,
+  "slots": 24,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "antler-backpack",
+  "rows": 14,
+  "cols": 8,
+  "slots": 112,
+  "maxWeightKg": 50.0
+ },
+ {
+  "slug": "armor-tactical-vest",
+  "rows": 4,
+  "cols": 8,
+  "slots": 32,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "backpack",
+  "rows": 10,
+  "cols": 8,
+  "slots": 80,
+  "maxWeightKg": 40.0
+ },
+ {
+  "slug": "backpack-2",
+  "rows": 10,
+  "cols": 8,
+  "slots": 80,
+  "maxWeightKg": 40.0
+ },
+ {
+  "slug": "big-christmas-gift-9",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "biker-leather-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "biker-leather-jacket-2",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "bulletproof-vest",
+  "rows": 4,
+  "cols": 8,
+  "slots": 32,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "camo-hiking-backpack",
+  "rows": 20,
+  "cols": 10,
+  "slots": 200,
+  "maxWeightKg": 60.0
+ },
+ {
+  "slug": "camouflage-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "christmas-gift",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "christmas-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "christmas-sweater",
+  "rows": 2,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "combat-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "combined-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "construction-pants",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 2.5
+ },
+ {
+  "slug": "cotton-hoodie",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "cursed-puppet-suit",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "danny-trejo-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "danny-trejo-vest",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "depleted-uranium-container",
+  "rows": 8,
+  "cols": 4,
+  "slots": 32
+ },
+ {
+  "slug": "depot",
+  "rows": 75,
+  "cols": 15,
+  "slots": 1125
+ },
+ {
+  "slug": "ghillie-suit-bottom",
+  "rows": 5,
+  "cols": 4,
+  "slots": 20,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "hiking-backpack",
+  "rows": 20,
+  "cols": 10,
+  "slots": 200,
+  "maxWeightKg": 60.0
+ },
+ {
+  "slug": "hippie-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "hippie-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "hospital-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "hospital-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "improved-wooden-chest-3",
+  "rows": 45,
+  "cols": 20,
+  "slots": 900,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "improvised-backpack",
+  "rows": 10,
+  "cols": 10,
+  "slots": 100,
+  "maxWeightKg": 40.0
+ },
+ {
+  "slug": "improvised-courier-backpack",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36
+ },
+ {
+  "slug": "improvised-metal-chest-2",
+  "rows": 75,
+  "cols": 20,
+  "slots": 1500,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "improvised-quiver",
+  "cols": 6,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "improvised-quiver-2",
+  "cols": 2,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "improvised-raincoat",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "improvised-wardrobe-2",
+  "rows": 95,
+  "cols": 20,
+  "slots": 1900,
+  "maxWeightKg": 1000.0
+ },
+ {
+  "slug": "jeans",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "jeans-2",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "jersey-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "jock-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "kilt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 2.5
+ },
+ {
+  "slug": "large-battery-charger",
+  "rows": 12,
+  "cols": 6,
+  "slots": 72
+ },
+ {
+  "slug": "large-log-shed",
+  "rows": 120,
+  "cols": 16,
+  "slots": 1920,
+  "maxWeightKg": 1070.0
+ },
+ {
+  "slug": "leather-belt-pistol-holster",
+  "rows": 3,
+  "cols": 4,
+  "slots": 12,
+  "maxWeightKg": 4.0
+ },
+ {
+  "slug": "luis-moncada-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "luis-moncada-suit",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "military-ballistic-vest-event",
+  "rows": 4,
+  "cols": 8,
+  "slots": 32,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "military-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "military-shirt",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "modern-hazmat-suit",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "motorcycle-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "motorcycle-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 2.5
+ },
+ {
+  "slug": "pajama-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "pajama-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "pilot-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48
+ },
+ {
+  "slug": "police-assault-backpack",
+  "rows": 14,
+  "cols": 8,
+  "slots": 112,
+  "maxWeightKg": 50.0
+ },
+ {
+  "slug": "police-backpack",
+  "rows": 10,
+  "cols": 8,
+  "slots": 80,
+  "maxWeightKg": 40.0
+ },
+ {
+  "slug": "police-bulletproof-vest",
+  "rows": 4,
+  "cols": 8,
+  "slots": 32,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "police-hiking-backpack",
+  "rows": 20,
+  "cols": 10,
+  "slots": 200,
+  "maxWeightKg": 60.0
+ },
+ {
+  "slug": "police-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.8
+ },
+ {
+  "slug": "police-shirt",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "police-sweater",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "police-tactical-vest",
+  "rows": 4,
+  "cols": 8,
+  "slots": 32,
+  "maxWeightKg": 6.0
+ },
+ {
+  "slug": "portable-refrigerator",
+  "rows": 16,
+  "cols": 16,
+  "slots": 256
+ },
+ {
+  "slug": "raincoat",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "refrigerator",
+  "rows": 30,
+  "cols": 15,
+  "slots": 450,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "santa-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "santa-pants",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "school-backpack",
+  "rows": 8,
+  "cols": 8,
+  "slots": 64
+ },
+ {
+  "slug": "shimoro-vest",
+  "rows": 5,
+  "cols": 5,
+  "slots": 25,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "short-pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "short-trousers",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "small-battery-charger",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16
+ },
+ {
+  "slug": "small-christmas-gift",
+  "rows": 4,
+  "cols": 2,
+  "slots": 8,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "small-improvised-backpack",
+  "rows": 8,
+  "cols": 8,
+  "slots": 64
+ },
+ {
+  "slug": "small-log-shed",
+  "rows": 60,
+  "cols": 16,
+  "slots": 960,
+  "maxWeightKg": 570.0
+ },
+ {
+  "slug": "spitfire-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "spitfire-jacket-2",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "sporran-bag",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "storage-shelf-3",
+  "rows": 125,
+  "cols": 20,
+  "slots": 2500,
+  "maxWeightKg": 1000.0
+ },
+ {
+  "slug": "straitjacket",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "sweater",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "sweatpants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "sweatpants-2",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "tactical-handgun-holster",
+  "rows": 3,
+  "cols": 4,
+  "slots": 12,
+  "maxWeightKg": 4.0
+ },
+ {
+  "slug": "tactical-handgun-holster-2",
+  "rows": 3,
+  "cols": 4,
+  "slots": 12,
+  "maxWeightKg": 4.0
+ },
+ {
+  "slug": "tactical-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.8
+ },
+ {
+  "slug": "tactical-military-pants",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "tactical-sweater",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "tang-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "tang-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "trucker-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "trucker-jacket-2",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "vintage-hazmat-suit",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "waist-bag",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "wooden-chest-3",
+  "rows": 30,
+  "cols": 20,
+  "slots": 600,
+  "maxWeightKg": 500.0
+ }
+]

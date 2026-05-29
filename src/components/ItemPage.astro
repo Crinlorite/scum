@@ -127,6 +127,17 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         </section>
       )}
 
+      {d.container && (d.container.slots || d.container.maxWeightKg) && (
+        <section class="block">
+          <h2>{tr('item.storage')}</h2>
+          <dl class="stat-grid">
+            {d.container.rows && d.container.cols && (<div><dt>{tr('item.capacity')}</dt><dd>{d.container.rows} × {d.container.cols}</dd></div>)}
+            {typeof d.container.slots === 'number' && (<div><dt>{tr('item.slots')}</dt><dd>{d.container.slots.toLocaleString(lang)}</dd></div>)}
+            {typeof d.container.maxWeightKg === 'number' && (<div><dt>{tr('item.maxWeight')}</dt><dd>{d.container.maxWeightKg.toLocaleString(lang)} kg</dd></div>)}
+          </dl>
+        </section>
+      )}
+
       {d.craftedBy.length > 0 && (
         <section class="block">
           <h2>{tr('item.howToCraft')}</h2>
