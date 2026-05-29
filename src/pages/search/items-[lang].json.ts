@@ -4,7 +4,7 @@
 // active language and filters it client-side.
 import type { APIRoute } from 'astro';
 import { LANGUAGES, type LangCode } from '../../i18n/languages';
-import { ITEMS, itemName } from '../../data/items';
+import { ITEMS, displayName } from '../../data/items';
 
 export function getStaticPaths() {
   return LANGUAGES.map((l) => ({ params: { lang: l.code } }));
@@ -12,7 +12,7 @@ export function getStaticPaths() {
 
 export const GET: APIRoute = ({ params }) => {
   const lang = params.lang as LangCode;
-  const index = ITEMS.map((it) => ({ s: it.slug, n: itemName(it, lang) }));
+  const index = ITEMS.map((it) => ({ s: it.slug, n: displayName(it, lang) }));
   return new Response(JSON.stringify(index), {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',

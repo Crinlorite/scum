@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
-import { itemName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
+import { itemName, displayName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
 import { itemDetail } from '../data/details';
 
 interface Props { lang: LangCode; item: ScumItem; }
@@ -10,6 +10,7 @@ const { lang, item } = Astro.props;
 const tr = useTranslations(lang);
 
 const name = itemName(item, lang);
+const dispName = displayName(item, lang);
 const desc = itemDescription(item, lang);
 const cat = categoryLabel(item.category, lang);
 const d = itemDetail(item.slug);
@@ -63,12 +64,12 @@ const kcal = d.stats?.food?.kcalPer100gDerived;
 const w = d.weapon;
 const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
 ---
-<BaseLayout lang={lang} title={name} description={desc ?? `${name} · ${cat} · SCUM`}>
+<BaseLayout lang={lang} title={dispName} description={desc ?? `${dispName} · ${cat} · SCUM`}>
   <article class="item-page">
     <div class="container container-prose">
       <a class="back" href={localizedPath('/items', lang)}>{tr('items.backToItems')}</a>
       <span class="eyebrow">{cat}</span>
-      <h1>{name}</h1>
+      <h1>{dispName}</h1>
 
       {desc
         ? <p class="desc">{desc}</p>
