@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import { craftingByGroup, craftName, ingredientText, skillLabel, CRAFTING, type CraftRecipe } from '../data/craftrecipes';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+const groups = craftingByGroup(lang);
+
+function searchText(r: CraftRecipe): string {
+  const parts = [craftName(r, lang), skillLabel(r.skill, lang)];
+  for (const ing of r.ingredients ?? []) parts.push(ingredientText(ing, lang));
+  return parts.join(' ').toLowerCase();
+}
+---
+<BaseLayout lang={lang} title={tr('crafting.title')} description={tr('crafting.intro')}>
+  <section class="crafting">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr('crafting.title')}</span>
+      <h1>{tr('crafting.title')}</h1>
+      <p class="intro">{tr('crafting.intro')} <span class="count">{CRAFTING.length}</span></p>
+      <label class="search"><span class="sr-only">{tr('crafting.search')}</span>
+        <input id="cx-search" type="search" autocomplete="off" placeholder={tr('crafting.search')} aria-controls="cx-list" /></label>
+      <p id="cx-nores" class="no-results" hidden>{tr('crafting.searchNoResults')}</p>
+    </div>
+    <div class="container">
+      <nav class="cat-jump" aria-label={tr('crafting.title')}>
+        {groups.map((g) => (<a href={`#cc-${g.key}`} data-cat={g.key}>{g.label} <span>{g.recipes.length}</span></a>))}
+      </nav>
+      <div id="cx-list">
+        {groups.map((g) => (
+          <section class="cat-group" id={`cc-${g.key}`} data-cat={g.key}>
+            <h2>{g.label} <span class="cat-count">{g.recipes.length}</span></h2>
+            <div class="card-grid">
+              {g.recipes.map((r) => (
+                <article class="ccard" data-text={searchText(r)}>
+                  <h3>{craftName(r, lang)}{typeof r.productQuantity === 'number' && r.productQuantity > 1 ? ` ×${r.productQuantity}` : ''}</h3>
+                  <ul class="ing">
+                    {(r.ingredients ?? []).map((ing) => (<li>{ingredientText(ing, lang)}</li>))}
+                  </ul>
+                  <p class="cmeta">
+                    {r.skill && <span>{tr('crafting.skill')}: {skillLabel(r.skill, lang)}</span>}
+                    {typeof r.duration === 'number' && <span>{tr('crafting.time')}: {Math.round(r.duration)} s</span>}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('cx-search') as HTMLInputElement | null;
+  const list = document.getElementById('cx-list');
+  const nores = document.getElementById('cx-nores');
+  if (input && list) {
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('.ccard'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('.cat-group'));
+    const jump = Array.from(document.querySelectorAll<HTMLElement>('.cat-jump a'));
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const minLen = (q: string) => /[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/.test(q) ? 1 : 2;
+    input.addEventListener('input', () => {
+      const q = norm(input.value.trim()); const active = q.length >= minLen(q); let any = false;
+      for (const c of cards) { const show = !active || norm(c.dataset.text || '').includes(q); c.hidden = !show; if (show) any = true; }
+      for (const g of groups) { const v = g.querySelectorAll('.ccard:not([hidden])').length; g.hidden = v === 0; const j = jump.find((a) => a.dataset.cat === g.dataset.cat); if (j) j.hidden = v === 0; }
+      if (nores) nores.hidden = any;
+    });
+  }
+</script>
+
+<style>
+  .crafting { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-ink-muted); }
+  .search { display: block; margin-bottom: 0.5rem; }
+  .search input { width: 100%; padding: 0.7rem 0.9rem; font-size: 1rem; color: var(--c-ink); background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
+  .search input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .no-results { color: var(--c-ink-soft); font-style: italic; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cat-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--c-rule); }
+  .cat-jump a { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.6rem; font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
+  .cat-jump a:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .cat-jump a span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+  .cat-group { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+  .cat-group h2 { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1rem; }
+  .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
+  .ccard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
+  .ccard h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .ing { margin: 0 0 0.4rem; padding-left: 1.1rem; color: var(--c-ink); font-size: 0.9rem; }
+  .ing li { margin: 0.1rem 0; }
+  .cmeta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.78rem; color: var(--c-ink-muted); }
+</style>
