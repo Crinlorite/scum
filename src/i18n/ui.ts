@@ -12,6 +12,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'Fuente de información sobre SCUM: mecánicas, mapas, loot, bases y guías. Sin anuncios, sin tracking, sostenible por la comunidad.',
 
     'nav.home': 'Inicio',
+    'nav.menu': 'Menú',
     'nav.wiki': 'Wiki',
     'nav.items': 'Ítems',
     'nav.manual': 'Manual',
@@ -211,6 +212,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'Community-run SCUM info source: mechanics, maps, loot, bases and guides. No ads, no tracking, sustainable.',
 
     'nav.home': 'Home',
+    'nav.menu': 'Menu',
     'nav.wiki': 'Wiki',
     'nav.items': 'Items',
     'nav.manual': 'Manual',
