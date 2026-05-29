@@ -89,6 +89,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'items.category': 'Categoría',
     'items.officialName': 'Nombre oficial del juego',
 
+    'beta.badge': 'Beta',
+    'beta.notice': 'Traducción en Beta: parte del contenido puede estar incompleto o aparecer en inglés.',
+    'beta.readIn': 'Disponible en',
+
     'common.readMore': 'Leer más',
     'common.lastUpdated': 'Última actualización',
     'common.404title': 'Página no encontrada',
@@ -179,6 +183,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'items.otherLanguages': 'In other languages',
     'items.category': 'Category',
     'items.officialName': 'Official in-game name',
+
+    'beta.badge': 'Beta',
+    'beta.notice': 'Beta translation: some content may be incomplete or shown in English.',
+    'beta.readIn': 'Available in',
 
     'common.readMore': 'Read more',
     'common.lastUpdated': 'Last updated',

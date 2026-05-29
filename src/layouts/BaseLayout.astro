@@ -2,8 +2,9 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import BetaNotice from '../components/BetaNotice.astro';
 import { useTranslations, getLocaleFromUrl, alternateHref } from '../i18n/utils';
-import { LANGUAGES, DEFAULT_LANG, getLanguageMeta, type LangCode } from '../i18n/languages';
+import { LANGUAGES, DEFAULT_LANG, getLanguageMeta, isBeta, type LangCode } from '../i18n/languages';
 
 interface Props {
   title?: string;
@@ -60,6 +61,7 @@ const xDefault = new URL(alternateHref(here, lang, DEFAULT_LANG), siteBase).href
   <body>
     <a href="#main" class="skip-link">{tr('nav.skipToContent')}</a>
     <Nav lang={lang} />
+    {isBeta(lang) && <BetaNotice lang={lang} />}
     <main id="main">
       <slot />
     </main>
