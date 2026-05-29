@@ -53,8 +53,13 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     map.fitBounds(bounds);
 
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
-    // Leaflet, equivalente a girar todo media vuelta para que cuadre la brújula.
-    const flip = (x, y) => [y, SIZE - x];
+    // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
+    // Afinable en vivo con ?ox=..&oy=.. (sin redeploy) para calibrar y luego fijar.
+    const CALIB = { x: 0, y: 0 };
+    const params = new URLSearchParams(location.search);
+    const OX = (parseFloat(params.get('ox')) || 0) + CALIB.x; // + derecha / − izquierda
+    const OY = (parseFloat(params.get('oy')) || 0) + CALIB.y; // + arriba  / − abajo
+    const flip = (x, y) => [y + OY, (SIZE - x) + OX];
     const COLORS = {
       town: '#9aa0a6', abandoned: '#b06a4a', military: '#c83a3a', farm: '#7cc56a',
       industrial: '#c9913a', nuclear: '#e0d24a', rail: '#8a8f96', airfield: '#5fb0d0',
