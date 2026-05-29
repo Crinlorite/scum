@@ -10,6 +10,7 @@ import lootData from './loot.json';
 import questsData from './quests.json';
 import containersData from './containers.json';
 import clothingData from './clothing.json';
+import ammoData from './ammo.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -57,6 +58,7 @@ export interface EconomyRec {
 export interface LootRec { slug: string; spawns?: { location: string; rarity?: string }[]; }
 export interface ContainerRec { slug: string; rows?: number; cols?: number; slots?: number; maxWeightKg?: number; }
 export interface ClothingRec { slug: string; warmth?: number; waterRes?: number; camo?: number; sharp?: number; blunt?: number; ballistic?: number; armor?: number; }
+export interface AmmoRec { slug: string; damage?: number; muzzleVel?: number; caliber?: number; penetration?: number; ballisticCoef?: number; }
 export interface QuestLite { slug: string; title: Localized; trader?: string; tier?: number | null; }
 interface QuestRec extends QuestLite {
   requiredItems?: { slug?: string | null }[];
@@ -72,6 +74,7 @@ const LOOT = lootData as unknown as LootRec[];
 const QUESTS = questsData as unknown as QuestRec[];
 const CONTAINERS = containersData as unknown as ContainerRec[];
 const CLOTHING = clothingData as unknown as ClothingRec[];
+const AMMO = ammoData as unknown as AmmoRec[];
 
 function push<K, V>(m: Map<K, V[]>, k: K, v: V) {
   const a = m.get(k);
@@ -110,6 +113,9 @@ for (const c of CONTAINERS) if (c.slug && !containerBySlug.has(c.slug)) containe
 const clothingBySlug = new Map<string, ClothingRec>();
 for (const c of CLOTHING) if (c.slug && !clothingBySlug.has(c.slug)) clothingBySlug.set(c.slug, c);
 
+const ammoBySlug = new Map<string, AmmoRec>();
+for (const a of AMMO) if (a.slug && !ammoBySlug.has(a.slug)) ammoBySlug.set(a.slug, a);
+
 const questsNeedingSlug = new Map<string, QuestLite[]>();
 const questsRewardingSlug = new Map<string, QuestLite[]>();
 for (const q of QUESTS) {
@@ -129,6 +135,7 @@ export interface ItemDetail {
   loot?: LootRec;
   container?: ContainerRec;
   clothing?: ClothingRec;
+  ammo?: AmmoRec;
   questsNeeding: QuestLite[];
   questsRewarding: QuestLite[];
 }
@@ -143,6 +150,7 @@ export function itemDetail(slug: string): ItemDetail {
     loot: lootBySlug.get(slug),
     container: containerBySlug.get(slug),
     clothing: clothingBySlug.get(slug),
+    ammo: ammoBySlug.get(slug),
     questsNeeding: questsNeedingSlug.get(slug) ?? [],
     questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
@@ -150,5 +158,5 @@ export function itemDetail(slug: string): ItemDetail {
 
 export function hasDetail(d: ItemDetail): boolean {
   return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length ||
-    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.questsNeeding.length || d.questsRewarding.length);
+    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.questsNeeding.length || d.questsRewarding.length);
 }
