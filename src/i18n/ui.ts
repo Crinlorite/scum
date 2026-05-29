@@ -98,6 +98,11 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.hint': 'Sigue escribiendo…',
     'search.noResults': 'Sin resultados',
 
+    'lang.label': 'Cambiar idioma',
+    'lang.stable': 'Estables',
+    'lang.beta': 'En Beta',
+    'lang.help': '¿Hablas otro idioma? Ayúdanos a traducir',
+
     'common.readMore': 'Leer más',
     'common.lastUpdated': 'Última actualización',
     'common.404title': 'Página no encontrada',
@@ -197,6 +202,11 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.placeholder': 'Search item…',
     'search.hint': 'Keep typing…',
     'search.noResults': 'No results',
+
+    'lang.label': 'Change language',
+    'lang.stable': 'Stable',
+    'lang.beta': 'In Beta',
+    'lang.help': 'Speak another? Help us translate',
 
     'common.readMore': 'Read more',
     'common.lastUpdated': 'Last updated',
