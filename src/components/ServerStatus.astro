@@ -18,6 +18,7 @@ const statusClass = SERVER_INFO.status ?? 'unknown';
       <span class="eyebrow">{tr('nav.server')}</span>
       <h2>{tr('server.title')}</h2>
       <p>{tr('server.subtitle')}</p>
+      <p class="server-family">{tr('server.familyNote')}</p>
     </div>
     <div class="server-card">
       <dl>
@@ -57,6 +58,15 @@ const statusClass = SERVER_INFO.status ?? 'unknown';
   }
   .server-text h2 { margin: 0.5rem 0 0.75rem; }
   .server-text p { color: var(--c-ink-soft); margin: 0; }
+  .server-family {
+    margin-top: 0.85rem !important;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    color: var(--c-ink) !important;
+    background: var(--c-paper);
+    border-left: 3px solid var(--c-rust);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
   .server-card {
     background: var(--c-paper);
     border: 1px solid var(--c-rule);

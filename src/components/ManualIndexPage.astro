@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import { manualByCategory, entryText } from '../data/manual';
+import type { LangCode } from '../i18n/languages';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const tr = useTranslations(lang);
+
+const groups = manualByCategory(lang);
+---
+<BaseLayout lang={lang} title={tr('manual.title')} description={tr('manual.intro')}>
+  <section class="manual">
+    <div class="container container-prose">
+      <span class="eyebrow">{tr('manual.title')}</span>
+      <h1>{tr('manual.title')}</h1>
+      <p class="intro">{tr('manual.intro')}</p>
+      <p class="source">{tr('manual.source')}</p>
+
+      <label class="search">
+        <span class="sr-only">{tr('manual.search')}</span>
+        <input id="manual-search" type="search" autocomplete="off"
+               placeholder={tr('manual.search')} aria-controls="manual-list" />
+      </label>
+      <p id="manual-noresults" class="no-results" hidden>{tr('manual.searchNoResults')}</p>
+    </div>
+
+    <div class="container">
+      <nav class="cat-jump" aria-label={tr('manual.title')}>
+        {groups.map((g) => (
+          <a href={`#mcat-${g.cat}`} data-cat={g.cat}>{g.label} <span>{g.entries.length}</span></a>
+        ))}
+      </nav>
+
+      <div id="manual-list">
+        {groups.map((g) => (
+          <section class="cat-group" id={`mcat-${g.cat}`} data-cat={g.cat}>
+            <h2>{g.label} <span class="cat-count">{g.entries.length}</span></h2>
+            <div class="entry-grid">
+              {g.entries.map((e) => (
+                <article class="entry" data-text={entryText(e, lang).toLowerCase()}>
+                  <p>{entryText(e, lang)}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('manual-search') as HTMLInputElement | null;
+  const list = document.getElementById('manual-list');
+  const noResults = document.getElementById('manual-noresults');
+  if (input && list) {
+    const entries = Array.from(list.querySelectorAll<HTMLElement>('.entry'));
+    const groups = Array.from(list.querySelectorAll<HTMLElement>('.cat-group'));
+    const jump = Array.from(document.querySelectorAll<HTMLElement>('.cat-jump a'));
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const minLen = (q: string) =>
+      /[\u3400-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]/.test(q) ? 1 : 2;
+    const run = () => {
+      const q = norm(input.value.trim());
+      const active = q.length >= minLen(q);
+      let anyVisible = false;
+      for (const el of entries) {
+        const show = !active || norm(el.dataset.text || el.textContent || '').includes(q);
+        el.hidden = !show;
+        if (show) anyVisible = true;
+      }
+      for (const g of groups) {
+        const visible = g.querySelectorAll('.entry:not([hidden])').length;
+        g.hidden = visible === 0;
+        const j = jump.find((a) => a.dataset.cat === g.dataset.cat);
+        if (j) j.hidden = visible === 0;
+      }
+      if (noResults) noResults.hidden = anyVisible;
+    };
+    input.addEventListener('input', run);
+  }
+</script>
+
+<style>
+  .manual { padding: 3rem 0 4rem; }
+  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .source { color: var(--c-ink-muted); font-size: 0.82rem; margin: 0 0 1.5rem; }
+  .search { display: block; margin-bottom: 0.5rem; }
+  .search input {
+    width: 100%; padding: 0.7rem 0.9rem; font-size: 1rem;
+    color: var(--c-ink); background: var(--c-paper);
+    border: 1px solid var(--c-rule); border-radius: var(--radius);
+  }
+  .search input:focus-visible { outline: 2px solid var(--c-rust); outline-offset: 1px; }
+  .no-results { color: var(--c-ink-soft); font-style: italic; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .cat-jump { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--c-rule); }
+  .cat-jump a {
+    display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.6rem;
+    font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft);
+    border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none;
+  }
+  .cat-jump a:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .cat-jump a span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+  .cat-group { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+  .cat-group h2 { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1rem; }
+  .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .entry-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 0.75rem;
+  }
+  .entry {
+    background: var(--c-paper); border: 1px solid var(--c-rule);
+    border-radius: var(--radius); padding: 0.9rem 1rem;
+  }
+  .entry p { margin: 0; color: var(--c-ink); font-size: 0.92rem; line-height: 1.55; white-space: pre-line; }
+</style>
