@@ -52,6 +52,21 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     L.imageOverlay('/map/island.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
+    // Botón de pantalla completa.
+    const fs = L.control({ position: 'topleft' });
+    fs.onAdd = () => {
+      const b = L.DomUtil.create('button', 'map-btn');
+      b.type = 'button'; b.title = 'Pantalla completa'; b.innerHTML = '⛶';
+      L.DomEvent.on(b, 'click', (e) => {
+        L.DomEvent.stop(e);
+        const el = document.getElementById('scum-map');
+        if (!document.fullscreenElement) el.requestFullscreen?.(); else document.exitFullscreen?.();
+      });
+      return b;
+    };
+    fs.addTo(map);
+    document.addEventListener('fullscreenchange', () => setTimeout(() => map.invalidateSize(), 120));
+
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
     // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
     // Afinable en vivo con ?ox=..&oy=.. (sin redeploy) para calibrar y luego fijar.
@@ -101,6 +116,30 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // server autosave, so polling faster than that gains nothing — 5s is plenty.
     if (live) {
       const playerLayer = L.layerGroup().addTo(map);
+      // "Centrarme en …": declaras quién eres y el mapa te recentra en cada refresco.
+      let players = [];
+      let me = localStorage.getItem('scum-map-me') || '';
+      let follow = !!me;
+      const meCtl = L.control({ position: 'topright' });
+      meCtl.onAdd = () => { const d = L.DomUtil.create('div', 'me-ctl'); L.DomEvent.disableClickPropagation(d); return d; };
+      meCtl.addTo(map);
+      const centerMe = (force) => {
+        if (!follow || !me) return;
+        const p = players.find((x) => x.name === me);
+        if (p) map.setView(flip(p.px, p.py), force ? Math.max(map.getZoom(), 1) : map.getZoom(), { animate: true });
+      };
+      const renderMe = () => {
+        const el = document.querySelector('.me-ctl'); if (!el) return;
+        if (!players.length) { el.innerHTML = ''; return; }
+        el.innerHTML = '<div class="me-h">Centrarme en:</div>'
+          + players.map((p) => `<button type="button" class="me-b${p.name === me && follow ? ' on' : ''}" data-n="${p.name}">${p.name}</button>`).join('')
+          + (follow && me ? '<button type="button" class="me-off">✕ dejar de seguir</button>' : '');
+        el.querySelectorAll('.me-b').forEach((b) => b.addEventListener('click', () => {
+          me = b.getAttribute('data-n'); follow = true; localStorage.setItem('scum-map-me', me); renderMe(); centerMe(true);
+        }));
+        const off = el.querySelector('.me-off');
+        if (off) off.addEventListener('click', () => { follow = false; localStorage.removeItem('scum-map-me'); renderMe(); });
+      };
       // "Actualizado hace Xs" — prueba visible de que sondea aunque el punto no se mueva.
       const status = L.control({ position: 'bottomleft' });
       status.onAdd = () => { const d = L.DomUtil.create('div', 'live-status'); d.textContent = '…'; return d; };
@@ -129,6 +168,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
               zIndexOffset: 1000,
             }).addTo(playerLayer);
           }
+          players = data.players || [];
+          renderMe();
+          centerMe(false);
           tick();
         } catch (e) { /* sin datos aún */ }
       };
@@ -160,5 +202,13 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker .pm-name) { position: absolute; left: 10px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-arrow) { color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
+  :global(.map-btn) { width: 34px; height: 34px; font-size: 18px; line-height: 1; cursor: pointer; background: #fff; color: #222; border: 2px solid rgba(0,0,0,0.2); border-radius: 4px; }
+  :global(.map-btn:hover) { background: #f0f0f0; }
+  :global(.me-ctl) { background: rgba(13,20,17,0.9); border: 1px solid rgba(232,227,216,0.15); border-radius: 6px; padding: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem; max-width: 12rem; }
+  :global(.me-ctl .me-h) { color: #b9c0b6; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  :global(.me-ctl button) { cursor: pointer; font-size: 0.85rem; padding: 0.3rem 0.5rem; border-radius: 5px; border: 1px solid rgba(232,227,216,0.2); background: transparent; color: #e8e3d8; text-align: left; }
+  :global(.me-ctl button:hover) { border-color: var(--c-rust); }
+  :global(.me-ctl .me-b.on) { background: var(--c-rust); border-color: var(--c-rust); color: #fff; }
+  :global(.me-ctl .me-off) { color: #c89; font-size: 0.78rem; }
 
 </style>
