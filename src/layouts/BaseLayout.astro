@@ -19,7 +19,7 @@ const tr = useTranslations(lang);
 const siteName = tr('site.name');
 const title = Astro.props.title ? `${Astro.props.title} · ${siteName}` : `${siteName} · ${tr('site.tagline')}`;
 const description = Astro.props.description ?? tr('site.description');
-const siteBase = Astro.site ?? new URL('https://scumwiki.crintech.pro');
+const siteBase = Astro.site ?? new URL('https://scumcodex.com');
 const canonical = new URL(Astro.url.pathname, siteBase).href;
 const here = Astro.url.pathname;
 
