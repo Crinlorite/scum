@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
-import { codexTitle, codexDesc, codexCategoryLabel, blockText, type CodexArticle } from '../data/codex';
+import { codexTitle, codexDesc, codexCategoryLabel, blockText, codexImageUrl, type CodexArticle } from '../data/codex';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; article: CodexArticle; }
@@ -10,9 +10,10 @@ const tr = useTranslations(lang);
 const title = codexTitle(article, lang);
 const desc = codexDesc(article, lang);
 const cat = codexCategoryLabel(article.category, lang);
-// Codex image textures aren't exported yet (separate texture dump) — text blocks
-// render now; images appear once /manual-img/ is populated.
-const blocks = article.blocks.map((b) => ({ ...b, str: b.t === 'image' ? '' : blockText(b, lang) })).filter((b) => b.t === 'image' || b.str);
+// Bloques: texto/título localizado + imágenes del códice (/manual-img/<img>.webp).
+const blocks = article.blocks
+  .map((b) => ({ t: b.t, str: b.t === 'image' ? '' : blockText(b, lang), img: b.t === 'image' ? codexImageUrl(b.img) : null }))
+  .filter((b) => (b.t === 'image' ? !!b.img : !!b.str));
 ---
 <BaseLayout lang={lang} title={title} description={desc || `${title} · ${tr('manual.title')}`}>
   <article class="codex">
@@ -24,6 +25,7 @@ const blocks = article.blocks.map((b) => ({ ...b, str: b.t === 'image' ? '' : bl
       {blocks.map((b) => (
         b.t === 'title' ? <h2>{b.str}</h2>
         : b.t === 'text' ? <p>{b.str}</p>
+        : b.t === 'image' && b.img ? <img class="codex-img" src={b.img} alt="" loading="lazy" />
         : null
       ))}
       <p class="source">{tr('manual.source')}</p>
@@ -39,5 +41,6 @@ const blocks = article.blocks.map((b) => ({ ...b, str: b.t === 'image' ? '' : bl
   .lead { color: var(--c-ink-soft); font-size: 1.15rem; line-height: 1.6; margin-bottom: 1.5rem; }
   .codex h2 { font-size: 1.15rem; margin: 1.75rem 0 0.6rem; }
   .codex p { color: var(--c-ink); line-height: 1.7; margin: 0 0 0.9rem; white-space: pre-line; }
+  .codex-img { display: block; max-width: 100%; height: auto; margin: 1.25rem 0; border: 1px solid var(--c-rule); border-radius: var(--radius); }
   .source { color: var(--c-ink-muted); font-size: 0.8rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--c-rule); }
 </style>
