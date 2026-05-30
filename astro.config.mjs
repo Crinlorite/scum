@@ -7,7 +7,7 @@ import { LANGUAGES, DEFAULT_LANG } from './src/i18n/languages.ts';
 const sitemapLocales = Object.fromEntries(LANGUAGES.map((l) => [l.code, l.bcp47]));
 
 export default defineConfig({
-  site: 'https://scumwiki.crintech.pro',
+  site: 'https://scumcodex.com',
   integrations: [
     mdx(),
     sitemap({
