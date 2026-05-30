@@ -1,7 +1,11 @@
 // In-game Codex (the official game manual) as structured, localized articles.
 // Built by tools/locres-import/extract_codex.py from Manual/Codex/Entries.
 import codexData from './codex.json';
+import codexImagesData from './codex_images.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
+
+const CODEX_IMG = new Set(codexImagesData as string[]);
+export const codexImageUrl = (img?: string): string | null => (img && CODEX_IMG.has(img) ? `/manual-img/${img}.webp` : null);
 
 type L = Partial<Record<LangCode, string>>;
 export interface CodexBlock { t: 'title' | 'text' | 'image'; text?: L; img?: string; }
