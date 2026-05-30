@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { WIKI_CATEGORIES, loadWiki } from '../i18n/wiki';
+import { codexByCategory } from '../data/codex';
 import type { LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -14,6 +15,8 @@ for (const c of WIKI_CATEGORIES) counts[c] = 0;
 for (const e of entries) {
   if (e.parsed.lang === lang) counts[e.parsed.category]++;
 }
+const codexGroups = codexByCategory(lang);
+const manualBase = localizedPath('/manual', lang);
 ---
 <BaseLayout
   lang={lang}
@@ -40,6 +43,20 @@ for (const e of entries) {
           );
         })}
       </div>
+
+      <h2 class="sec-h">{tr('manual.title')}</h2>
+      <p class="sec-sub">{tr('manual.intro')}</p>
+      <div class="grid">
+        {codexGroups.map((g) => {
+          const key = g.entries.length === 1 ? 'wiki.articleCountOne' : 'wiki.articleCountOther';
+          return (
+            <a class="card" href={`${manualBase}#mcat-${g.cat}`}>
+              <h3>{g.label}</h3>
+              <span class="count">{tr(key, { n: g.entries.length })}</span>
+            </a>
+          );
+        })}
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -47,6 +64,8 @@ for (const e of entries) {
 <style>
   .wiki-index { padding: 3rem 0 4rem; }
   .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 2.5rem; }
+  .sec-h { margin: 3rem 0 0.25rem; font-size: 1.3rem; }
+  .sec-sub { color: var(--c-ink-soft); margin: 0 0 1.25rem; font-size: 0.95rem; }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
