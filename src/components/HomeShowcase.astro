@@ -1,0 +1,75 @@
+---
+// Landing showcase: enseña el contenido REAL (con cifras) en vez de las categorías
+// de wiki escritas a mano (que estaban casi vacías).
+import { localizedPath } from '../i18n/utils';
+import { LANGUAGES, type LangCode } from '../i18n/languages';
+import { ITEMS } from '../data/items';
+import { COOKING } from '../data/cooking';
+import { CRAFTING } from '../data/craftrecipes';
+import { CODEX } from '../data/codex';
+import quests from '../data/quests.json';
+import controls from '../data/controls.json';
+import poi from '../data/poi.json';
+
+interface Props { lang: LangCode; }
+const { lang } = Astro.props;
+const L = (es: string, en: string) => (lang === 'es' ? es : en);
+const lp = (p: string) => localizedPath(p, lang);
+const nf = (n: number) => n.toLocaleString(lang);
+
+const stats = [
+  { n: nf(ITEMS.length), l: L('ítems con datos reales', 'items with real data') },
+  { n: String(LANGUAGES.length), l: L('idiomas oficiales', 'official languages') },
+  { n: nf(CODEX.length), l: L('guías del manual', 'manual guides') },
+  { n: nf(poi.length), l: L('lugares en el mapa', 'map locations') },
+];
+const features = [
+  { href: lp('/items'), icon: '✦', t: L('Ítems', 'Items'), c: nf(ITEMS.length), d: L('Armas, comida, medicina… con peso, stats, precios de comerciante y recetas.', 'Weapons, food, meds… with weight, stats, trader prices and recipes.') },
+  { href: lp('/manual'), icon: '◆', t: L('Manual del juego', 'Game manual'), c: L(`${CODEX.length} guías`, `${CODEX.length} guides`), d: L('El códice oficial del juego, ilustrado y con las teclas, en tu idioma.', "The game's official codex, illustrated with key bindings, in your language.") },
+  { href: lp('/mapa'), icon: '◈', t: L('Mapa de la isla', 'Island map'), c: `${nf(poi.length)} POIs`, d: L('Mapa interactivo con sectores, filtros por tipo y posición en vivo.', 'Interactive map with sectors, type filters and live position.') },
+  { href: lp('/misiones'), icon: '❖', t: L('Misiones', 'Missions'), c: nf(quests.length), d: L('Todas las misiones: requisitos, fama y recompensas, con los ítems enlazados.', 'Every mission: requirements, fame and rewards, with linked items.') },
+  { href: lp('/recetas'), icon: '✚', t: L('Recetas', 'Recipes'), c: nf(COOKING.length), d: L('Cocina: ingredientes, estación, temperatura y resultado.', 'Cooking: ingredients, station, temperature and result.') },
+  { href: lp('/crafteo'), icon: '▣', t: L('Crafteo', 'Crafting'), c: nf(CRAFTING.length), d: L('Fabricación: materiales, habilidad y tiempo.', 'Crafting: materials, skill and time.') },
+  { href: lp('/controles'), icon: '◇', t: L('Controles', 'Controls'), c: nf(controls.length), d: L('Teclas por defecto del juego, por categoría.', 'Default game keys, by category.') },
+  { href: lp('/wiki'), icon: '▦', t: L('Todo el catálogo', 'Full catalogue'), c: '', d: L('Armas, habilidades, médico, vehículos, caza y más — todo en un sitio.', 'Weapons, skills, medical, vehicles, hunting and more — all in one place.') },
+];
+---
+<section class="showcase">
+  <div class="container">
+    <div class="stats">
+      {stats.map((s) => (<div class="stat"><span class="num">{s.n}</span><span class="lbl">{s.l}</span></div>))}
+    </div>
+    <header class="sc-head">
+      <span class="eyebrow">{L('Todo el juego, con datos reales', 'The whole game, real data')}</span>
+      <h2>{L('Extraído directamente del juego, no inventado', 'Pulled straight from the game, not made up')}</h2>
+    </header>
+    <div class="grid">
+      {features.map((f) => (
+        <a class="card feat" href={f.href}>
+          <span class="fi" aria-hidden="true">{f.icon}</span>
+          <h3>{f.t}{f.c && <span class="cnt">{f.c}</span>}</h3>
+          <p>{f.d}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem; margin-bottom: 3rem; text-align: center;
+  }
+  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .stat .num { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--c-rust); line-height: 1; }
+  .stat .lbl { font-size: 0.85rem; color: var(--c-ink-soft); }
+  .sc-head { text-align: center; max-width: 40rem; margin: 0 auto 2.5rem; }
+  .sc-head h2 { margin: 0.4rem 0 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+  .feat { position: relative; }
+  .feat .fi { display: inline-grid; place-items: center; width: 36px; height: 36px; background: var(--c-paper-soft); color: var(--c-rust); border-radius: var(--radius); font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .feat h3 { display: flex; align-items: baseline; gap: 0.5rem; margin: 0 0 0.35rem; }
+  .feat .cnt { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .feat p { margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; line-height: 1.5; }
+</style>

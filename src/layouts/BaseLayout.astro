@@ -21,6 +21,7 @@ const title = Astro.props.title ? `${Astro.props.title} · ${siteName}` : `${sit
 const description = Astro.props.description ?? tr('site.description');
 const siteBase = Astro.site ?? new URL('https://scumcodex.com');
 const canonical = new URL(Astro.url.pathname, siteBase).href;
+const ogImage = new URL('/og.png', siteBase).href;
 const here = Astro.url.pathname;
 
 const alternates = LANGUAGES.map((l) => ({
@@ -56,9 +57,22 @@ const xDefault = new URL(alternateHref(here, lang, DEFAULT_LANG), siteBase).href
     {LANGUAGES.filter((l) => l.code !== lang).map((l) => (
       <meta property="og:locale:alternate" content={l.ogLocale} />
     ))}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <meta name="theme-color" content="#0f1311" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'WebSite', '@id': `${siteBase.origin}/#website`, url: `${siteBase.origin}/`, name: siteName, description, inLanguage: lang },
+        { '@type': 'Organization', '@id': `${siteBase.origin}/#org`, name: siteName, url: `${siteBase.origin}/`, logo: ogImage },
+      ],
+    })} />
   </head>
   <body>
     <a href="#main" class="skip-link">{tr('nav.skipToContent')}</a>
