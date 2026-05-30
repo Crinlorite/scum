@@ -130,4 +130,16 @@ const tr = useTranslations(lang);
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
   .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
+
+  /* En móvil el panel es una barra fija a ancho completo bajo el nav (no un
+     desplegable estrecho anclado al botón, que se salía por la izquierda). */
+  @media (max-width: 720px) {
+    .is-panel {
+      position: fixed; top: 56px; left: 0; right: 0; width: auto;
+      border-radius: 0; border-left: 0; border-right: 0; padding: 0.7rem 0.9rem;
+    }
+    .is-input { font-size: 1rem; padding: 0.65rem 0.7rem; }
+    .is-results { max-height: calc(100vh - 130px); }
+    .is-results a { font-size: 1rem; padding: 0.6rem 0.55rem; }
+  }
 </style>
