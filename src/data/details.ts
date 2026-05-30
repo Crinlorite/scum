@@ -46,6 +46,7 @@ export interface CraftRec {
 export interface CookRec {
   slug: string;
   name: Localized;
+  utility?: string[];
   mainIngredients?: { options?: { slug?: string | null }[] }[];
   optionalIngredients?: { options?: { slug?: string | null }[] }[];
 }
@@ -101,6 +102,31 @@ for (const r of RECIPES) {
   for (const s of used) push(cookingUsingSlug, s, r);
 }
 
+// Cooking stations: a recipe's `utility` names the cookware/appliance it needs
+// (Oven, Pot, Pan, BBQGrid, Skewer, Smoker). Map each to the item/placeable
+// slugs whose ficha represents that station, so the station page can list every
+// recipe made there. (Crafting recipes carry no workbench data, so cooking only.)
+const COOKING_STATION_SLUGS: Record<string, string[]> = {
+  Oven: ['improvised-oven', 'improvised-oven-2', 'brick-oven', 'brick-oven-2', 'eastern-oven', 'eastern-oven-2', 'kitchen-stove'],
+  Pot: ['cooking-pot'],
+  Pan: ['pan'],
+  BBQGrid: ['grill', 'grill-grid', 'improvised-grill'],
+  Skewer: ['skewer', 'skewer-2'],
+  Smoker: ['improvised-smoker'],
+};
+const cookedAtStationSlug = new Map<string, CookRec[]>();
+for (const r of RECIPES) {
+  const seen = new Set<string>();
+  for (const u of r.utility ?? [])
+    for (const slug of COOKING_STATION_SLUGS[u] ?? [])
+      if (!seen.has(slug)) { seen.add(slug); push(cookedAtStationSlug, slug, r); }
+}
+
+/** Cooking recipes that can be made at the station with this slug (oven, pot, …). */
+export function recipesCookedAt(slug: string): CookRec[] {
+  return cookedAtStationSlug.get(slug) ?? [];
+}
+
 const economyBySlug = new Map<string, EconomyRec>();
 for (const e of ECONOMY) if (e.slug && !economyBySlug.has(e.slug)) economyBySlug.set(e.slug, e);
 
@@ -131,6 +157,7 @@ export interface ItemDetail {
   weapon?: WeaponRec;
   craftedBy: CraftRec[];
   cookingUsing: CookRec[];
+  cookedHere: CookRec[];
   economy?: EconomyRec;
   loot?: LootRec;
   container?: ContainerRec;
@@ -146,6 +173,7 @@ export function itemDetail(slug: string): ItemDetail {
     weapon: weaponBySlug.get(slug),
     craftedBy: craftedBySlug.get(slug) ?? [],
     cookingUsing: cookingUsingSlug.get(slug) ?? [],
+    cookedHere: cookedAtStationSlug.get(slug) ?? [],
     economy: economyBySlug.get(slug),
     loot: lootBySlug.get(slug),
     container: containerBySlug.get(slug),
@@ -157,6 +185,6 @@ export function itemDetail(slug: string): ItemDetail {
 }
 
 export function hasDetail(d: ItemDetail): boolean {
-  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length ||
+  return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length || d.cookedHere.length ||
     d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.questsNeeding.length || d.questsRewarding.length);
 }

@@ -193,6 +193,13 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
         </section>
       )}
 
+      {d.cookedHere.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.cookedHere')}</h2>
+          <div class="chips">{d.cookedHere.map((r) => { const t = loc(r.name); return t ? <a class="chip" href={localizedPath(`/recetas/${r.slug}`, lang)}>{t}</a> : null; })}</div>
+        </section>
+      )}
+
       {d.loot?.spawns && d.loot.spawns.length > 0 && (
         <section class="block">
           <h2>{tr('item.whereFound')}</h2>
