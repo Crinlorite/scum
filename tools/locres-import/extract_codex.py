@@ -42,12 +42,26 @@ def build_loc_by_key():
     return loc
 
 loc = build_loc_by_key()
+# Placeholders de tecla del manual ($$Mapping_X$$) → tecla por defecto (DefaultInput.ini),
+# resuelto a etiquetas es/en por build_keybinds.mjs → keybinds.json.
+try:
+    KEYBINDS = json.load(open(os.path.join(HERE, "keybinds.json"), encoding="utf-8"))
+except Exception:
+    KEYBINDS = {}
+MAPRE = re.compile(r"\$\$Mapping_([A-Za-z0-9_]+)\$\$")
+def subkeys(text, lang):
+    if not text or "$$Mapping_" not in text: return text
+    def rep(m):
+        kb = KEYBINDS.get(m.group(1))
+        if not kb: return ""  # placeholder sin resolver → fuera (mejor que texto crudo)
+        return "[" + (kb.get(lang) or kb.get("en") or m.group(1)) + "]"
+    return MAPRE.sub(rep, text)
 TAG = re.compile(r"</?[^>]+>")  # UE rich-text tags: <blue>..</> , <bold> etc.
 def clean(s): return TAG.sub("", s).strip() if s else s
 def lf(field):
     if not isinstance(field, dict): return {}
-    d = {k: clean(v) for k, v in loc.get(field.get("Key", ""), {}).items()}
-    if "en" not in d and field.get("SourceString"): d["en"] = clean(field["SourceString"])
+    d = {k: subkeys(clean(v), k) for k, v in loc.get(field.get("Key", ""), {}).items()}
+    if "en" not in d and field.get("SourceString"): d["en"] = subkeys(clean(field["SourceString"]), "en")
     return {k: v for k, v in d.items() if v}
 
 def ref_index(ref):
