@@ -81,6 +81,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
 
     'wiki.title': 'Wiki',
     'wiki.intro': 'Documentación de SCUM mantenida por la comunidad.',
+    'wiki.catalogues': 'Catálogos del juego',
+    'wiki.guidesHeading': 'Guías y mecánicas',
     'wiki.empty': 'Aún no hay artículos en esta categoría. ¿Quieres ser la primera persona en escribir uno?',
     'wiki.articleCountOne': '{n} artículo',
     'wiki.articleCountOther': '{n} artículos',
@@ -287,6 +289,8 @@ export const UI: Partial<Record<LangCode, Dict>> = {
 
     'wiki.title': 'Wiki',
     'wiki.intro': 'Community-maintained SCUM documentation.',
+    'wiki.catalogues': 'Game catalogues',
+    'wiki.guidesHeading': 'Guides & mechanics',
     'wiki.empty': 'No articles in this category yet. Want to be the first to write one?',
     'wiki.articleCountOne': '{n} article',
     'wiki.articleCountOther': '{n} articles',
