@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { FALLBACK_LANG, LANGUAGES, type LangCode } from '../i18n/languages';
 import type { Section, SecEntry } from '../data/sections';
+import { iconUrl, skillIconUrl } from '../data/icons';
 
 interface Props {
   lang: LangCode;
@@ -21,6 +22,7 @@ const SECTION_OF: Record<string, string> = {
 };
 const detailSection = SECTION_OF[titleKey];
 const entryHref = (e: SecEntry) => e.link || (detailSection && e.slug ? localizedPath(`/info/${detailSection}/${e.slug}`, lang) : null);
+const cardIcon = (e: SecEntry) => (e.slug ? iconUrl(e.slug) : null) || (detailSection === 'skills' && e.slug ? skillIconUrl(e.slug) : null);
 
 const META: Record<string, Partial<Record<LangCode, string>>> = {
   dmg: { es: 'Daño', en: 'Dmg' }, ammo: { es: 'Munición', en: 'Ammo' },
@@ -61,7 +63,7 @@ const otherLangs = (e: SecEntry) =>
             <div class="card-grid">
               {g.entries.map((e) => (
                 <article class="dcard" data-text={stext(e)}>
-                  <h3>{entryHref(e) ? <a href={entryHref(e)!}>{e.name}</a> : e.name}</h3>
+                  <h3>{cardIcon(e) && <img class="dcard-ico" src={cardIcon(e)!} alt="" width="26" height="26" loading="lazy" />}{entryHref(e) ? <a href={entryHref(e)!}>{e.name}</a> : e.name}</h3>
                   {e.desc && <p class="dd">{e.desc.length > 180 ? e.desc.slice(0, 180) + '…' : e.desc}</p>}
                   {e.meta.length > 0 && (
                     <p class="dmeta">{e.meta.map((m) => (<span><b>{ml(m.k)}:</b> {m.v}</span>))}</p>
@@ -125,7 +127,8 @@ const otherLangs = (e: SecEntry) =>
   .cat-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
   .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.75rem; }
   .dcard { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); padding: 0.85rem 1rem; }
-  .dcard h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  .dcard h3 { margin: 0 0 0.4rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .dcard-ico { flex: none; width: 26px; height: 26px; object-fit: contain; }
   .dcard h3 a { color: var(--c-ink); text-decoration: none; }
   .dcard h3 a:hover { color: var(--c-rust); }
   .dd { margin: 0 0 0.4rem; font-size: 0.88rem; color: var(--c-ink-soft); line-height: 1.5; }
