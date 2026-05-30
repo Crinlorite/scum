@@ -8,6 +8,7 @@ import questsData from './quests.json';
 import adminData from './admin.json';
 import fameData from './fame.json';
 import huntingData from './hunting.json';
+import controlsData from './controls.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath, useTranslations } from '../i18n/utils';
 
@@ -184,6 +185,23 @@ export function huntingSection(lang: LangCode): Section {
     _c: loc(r.biomeLabel, lang) || r.biomeLabel.en,
   }));
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => k) };
+}
+
+// ---- controles (teclas por defecto) ----
+const CTRL_CAT: Record<string, L> = {
+  movement: { es: 'Movimiento', en: 'Movement' }, combat: { es: 'Combate', en: 'Combat' },
+  fishing: { es: 'Pesca', en: 'Fishing' }, vehicle: { es: 'Vehículos', en: 'Vehicles' },
+  minigame: { es: 'Minijuegos', en: 'Minigames' }, building: { es: 'Construcción', en: 'Building' },
+  interface: { es: 'Interfaz', en: 'Interface' }, view: { es: 'Cámara y vista', en: 'Camera & view' },
+  emotes: { es: 'Gestos', en: 'Emotes' }, music: { es: 'Música', en: 'Music' }, other: { es: 'Otros', en: 'Other' },
+};
+export function controlsSection(lang: LangCode): Section {
+  const entries: (SecEntry & { _c: string })[] = (controlsData as any[]).map((c) => ({
+    name: c.action,
+    meta: [{ k: 'key', v: (c.key && (c.key[lang] ?? c.key.en)) || '' }],
+    _c: c.cat,
+  }));
+  return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => CTRL_CAT[k]?.[lang] ?? CTRL_CAT[k]?.[FALLBACK_LANG] ?? k) };
 }
 
 // ---- detalle por entidad: cada cosa tiene su página con descripción completa ----

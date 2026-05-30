@@ -8,7 +8,7 @@ import { localizedPath, useTranslations } from '../../i18n/utils';
 import { ITEMS, displayName } from '../../data/items';
 import { COOKING, cookName } from '../../data/cooking';
 import { CRAFTING, craftName } from '../../data/craftrecipes';
-import { questsSection, skillsSection, medicalSection, vehiclesSection, fameSection, huntingSection } from '../../data/sections';
+import { questsSection, skillsSection, medicalSection, vehiclesSection, fameSection, huntingSection, controlsSection } from '../../data/sections';
 import { loadWiki } from '../../i18n/wiki';
 import { CODEX, codexTitle } from '../../data/codex';
 
@@ -35,6 +35,7 @@ export const GET: APIRoute = async ({ params }) => {
   for (const e of medicalSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('medico', e.slug) : qp('/medico', e.name), t: tr('sec.medical.title') });
   for (const e of vehiclesSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('vehiculos', e.slug) : qp('/vehiculos', e.name), t: tr('sec.vehicles.title') });
   for (const e of fameSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/fama', e.name), t: tr('sec.fame.title') });
+  for (const e of controlsSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/controles', e.name), t: tr('sec.controls.title') });
   const huntSeen = new Set<string>();
   for (const e of huntingSection(lang).groups.flatMap((g) => g.entries)) {
     if (huntSeen.has(e.name)) continue;
