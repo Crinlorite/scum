@@ -6,6 +6,7 @@ import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, type LangCode } from '../i18n/languages';
 import { cookBySlug, cookName, slotTitle, optName } from '../data/cooking';
 import { craftBySlug, craftName, ingredientText, skillLabel } from '../data/craftrecipes';
+import { recipesCookedAt } from '../data/details';
 import { iconUrl } from '../data/icons';
 
 interface Props { lang: LangCode; kind: 'cooking' | 'crafting'; slug: string; }
@@ -19,6 +20,8 @@ const title = r ? (isCook ? cookName(r, lang) : craftName(r, lang)) : slug;
 const nameMap = r?.name as Partial<Record<LangCode, string>> | undefined;
 const resultSlug = r?.result?.slug as string | undefined;
 const icon = resultSlug ? iconUrl(resultSlug) : null;
+// If this entry is a cooking station (oven, pot, smoker…), list recipes made here.
+const cookedHere = recipesCookedAt(slug);
 
 const L2 = (es: string, en: string) => (lang === 'es' ? es : en);
 const itemLink = (s?: string | null) => (s ? localizedPath(`/items/${s}`, lang) : null);
@@ -69,6 +72,13 @@ const others = nameMap
         {!isCook && typeof r?.duration === 'number' && (<div><dt>{tr('crafting.time')}</dt><dd>{Math.round(r.duration)} s</dd></div>)}
       </dl>
 
+      {cookedHere.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.cookedHere')}</h2>
+          <div class="chips">{cookedHere.map((cr) => (<a class="chip" href={localizedPath(`/recetas/${cr.slug}`, lang)}>{cr.name?.[lang] ?? cr.name?.en ?? cr.slug}</a>))}</div>
+        </section>
+      )}
+
       {others.length > 0 && (
         <section class="block other-langs">
           <h2>{tr('items.otherLanguages')}</h2>
@@ -104,4 +114,7 @@ const others = nameMap
   .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--c-rule); }
   .other-langs .ln { color: var(--c-ink-muted); }
   .other-langs .lv { color: var(--c-ink); text-align: right; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chips .chip { display: inline-block; padding: 0.25rem 0.6rem; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: 999px; font-size: 0.85rem; color: var(--c-rust); text-decoration: none; }
+  .chips .chip:hover { border-color: var(--c-rust); }
 </style>
