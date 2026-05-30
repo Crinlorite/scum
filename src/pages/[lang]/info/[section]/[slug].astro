@@ -1,0 +1,14 @@
+---
+import SectionEntryPage from '../../../../components/SectionEntryPage.astro';
+import { allSectionPaths } from '../../../../data/sections';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../../i18n/languages';
+export function getStaticPaths() {
+  const paths = allSectionPaths();
+  return LANGUAGES.filter((l) => l.code !== DEFAULT_LANG).flatMap((l) =>
+    paths.map((p) => ({ params: { lang: l.code, section: p.section, slug: p.slug } })),
+  );
+}
+const lang = Astro.params.lang as LangCode;
+const { section, slug } = Astro.params;
+---
+<SectionEntryPage lang={lang} section={section!} slug={slug!} />

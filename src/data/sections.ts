@@ -64,7 +64,7 @@ const ATTR: Record<string, L> = {
 export function skillsSection(lang: LangCode): Section {
   const cat = labelFrom(ATTR, lang);
   const entries: (SecEntry & { _c: string })[] = (skillsData as any[]).map((s) => ({
-    name: loc(s.name, lang) || s.slug, names: s.name, desc: loc(s.description, lang),
+    slug: s.slug, name: loc(s.name, lang) || s.slug, names: s.name, desc: loc(s.description, lang),
     meta: Array.isArray(s.levels) && s.levels.length ? [{ k: 'lvl', v: `${s.levels.length}` }] : [],
     _c: s.attribute || 'Other',
   }));
@@ -81,7 +81,7 @@ const MCAT: Record<string, L> = {
 export function medicalSection(lang: LangCode): Section {
   const cat = labelFrom(MCAT, lang);
   const entries: (SecEntry & { _c: string })[] = (medicalData as any[]).map((m) => ({
-    name: loc(m.name, lang) || m.slug, names: m.name, desc: loc(m.description, lang),
+    slug: m.slug, name: loc(m.name, lang) || m.slug, names: m.name, desc: loc(m.description, lang),
     meta: m.treatment ? [{ k: 'cure', v: typeof m.treatment === 'string' ? m.treatment : loc(m.treatment, lang) }] : [],
     _c: m.category || m.kind || 'general',
   }));
@@ -100,7 +100,7 @@ export function vehiclesSection(lang: LangCode): Section {
     const meta: { k: string; v: string }[] = [];
     if (v.fuel?.type) meta.push({ k: 'fuel', v: String(v.fuel.type) });
     if (typeof v.seats === 'number') meta.push({ k: 'seats', v: String(v.seats) });
-    return { name: loc(v.name, lang) || v.slug, names: v.name, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
+    return { slug: v.slug, name: loc(v.name, lang) || v.slug, names: v.name, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
   });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
 }
@@ -132,6 +132,7 @@ export function questsSection(lang: LangCode): Section {
     if (req.length) rels.push({ label: tr('sec.quest.requires' as any), links: req });
     if (rew.length) rels.push({ label: tr('sec.quest.rewards' as any), links: rew });
     return {
+      slug: q.slug,
       name: loc(q.title, lang) || q.slug,
       names: q.title,
       desc: loc(q.description, lang),
@@ -183,4 +184,32 @@ export function huntingSection(lang: LangCode): Section {
     _c: loc(r.biomeLabel, lang) || r.biomeLabel.en,
   }));
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => k) };
+}
+
+// ---- detalle por entidad: cada cosa tiene su página con descripción completa ----
+// Armas enlazan a su ficha de item (ya completa); el resto a /info/<section>/<slug>.
+export const SECTION_DETAIL: Record<string, { titleKey: string; base: string; fn: (l: LangCode) => Section }> = {
+  skills: { titleKey: 'sec.skills.title', base: '/skills', fn: skillsSection },
+  medico: { titleKey: 'sec.medical.title', base: '/medico', fn: medicalSection },
+  vehiculos: { titleKey: 'sec.vehicles.title', base: '/vehiculos', fn: vehiclesSection },
+  misiones: { titleKey: 'sec.quests.title', base: '/misiones', fn: questsSection },
+};
+
+export function sectionEntry(section: string, slug: string, lang: LangCode): SecEntry | undefined {
+  const def = SECTION_DETAIL[section];
+  if (!def) return undefined;
+  for (const g of def.fn(lang).groups) for (const e of g.entries) if (e.slug === slug) return e;
+  return undefined;
+}
+
+// Todas las (section, slug) para getStaticPaths (slugs únicos por sección).
+export function allSectionPaths(): { section: string; slug: string }[] {
+  const out: { section: string; slug: string }[] = [];
+  for (const [section, def] of Object.entries(SECTION_DETAIL)) {
+    const seen = new Set<string>();
+    for (const g of def.fn(DEFAULT_LANG).groups) for (const e of g.entries) {
+      if (e.slug && !seen.has(e.slug)) { seen.add(e.slug); out.push({ section, slug: e.slug }); }
+    }
+  }
+  return out;
 }

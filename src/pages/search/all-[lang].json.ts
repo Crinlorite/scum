@@ -28,10 +28,12 @@ export const GET: APIRoute = async ({ params }) => {
     out.push({ n: displayName(it, lang), u: localizedPath(`/items/${it.slug}`, lang) });
   for (const r of COOKING) { const n = cookName(r, lang); out.push({ n, u: qp('/recetas', n), t: tr('recipes.title') }); }
   for (const r of CRAFTING) { const n = craftName(r, lang); out.push({ n, u: qp('/crafteo', n), t: tr('crafting.title') }); }
-  for (const g of questsSection(lang).groups) for (const e of g.entries) out.push({ n: e.name, u: qp('/misiones', e.name), t: tr('sec.quests.title') });
-  for (const e of skillsSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/skills', e.name), t: tr('sec.skills.title') });
-  for (const e of medicalSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/medico', e.name), t: tr('sec.medical.title') });
-  for (const e of vehiclesSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/vehiculos', e.name), t: tr('sec.vehicles.title') });
+  // skills/medical/vehicles/missions → su página de detalle propia (/info/<section>/<slug>).
+  const info = (sec: string, slug: string) => localizedPath(`/info/${sec}/${slug}`, lang);
+  for (const e of questsSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('misiones', e.slug) : qp('/misiones', e.name), t: tr('sec.quests.title') });
+  for (const e of skillsSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('skills', e.slug) : qp('/skills', e.name), t: tr('sec.skills.title') });
+  for (const e of medicalSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('medico', e.slug) : qp('/medico', e.name), t: tr('sec.medical.title') });
+  for (const e of vehiclesSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: e.slug ? info('vehiculos', e.slug) : qp('/vehiculos', e.name), t: tr('sec.vehicles.title') });
   for (const e of fameSection(lang).groups.flatMap((g) => g.entries)) out.push({ n: e.name, u: qp('/fama', e.name), t: tr('sec.fame.title') });
   const huntSeen = new Set<string>();
   for (const e of huntingSection(lang).groups.flatMap((g) => g.entries)) {

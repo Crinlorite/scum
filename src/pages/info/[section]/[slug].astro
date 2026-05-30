@@ -1,0 +1,9 @@
+---
+import SectionEntryPage from '../../../components/SectionEntryPage.astro';
+import { allSectionPaths } from '../../../data/sections';
+export function getStaticPaths() {
+  return allSectionPaths().map((p) => ({ params: { section: p.section, slug: p.slug } }));
+}
+const { section, slug } = Astro.params;
+---
+<SectionEntryPage lang="es" section={section!} slug={slug!} />
