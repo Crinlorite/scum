@@ -8,6 +8,11 @@ const sitemapLocales = Object.fromEntries(LANGUAGES.map((l) => [l.code, l.bcp47]
 
 export default defineConfig({
   site: 'https://scumcodex.com',
+  redirects: {
+    '/wiki/items': '/items',
+    '/wiki/maps': '/mapa',
+    '/wiki/bases': '/wiki',
+  },
   integrations: [
     mdx(),
     sitemap({

@@ -52,7 +52,7 @@ const catGroups = [
     </div>
     <div class="container">
       <div class="grid">
-        {WIKI_CATEGORIES.map((c) => {
+        {WIKI_CATEGORIES.filter((c) => counts[c] > 0).map((c) => {
           const n = counts[c];
           const key = n === 1 ? 'wiki.articleCountOne' : 'wiki.articleCountOther';
           return (

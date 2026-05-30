@@ -41,12 +41,6 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'cat.guides.desc': 'Cómo empezar, supervivencia y consejos para no morir el primer día.',
     'cat.mechanics.title': 'Mecánicas',
     'cat.mechanics.desc': 'Hambre, sed, metabolismo, fama, daño, stamina y todo lo que la UI no explica.',
-    'cat.maps.title': 'Mapas',
-    'cat.maps.desc': 'Puntos de interés, zonas militares, búnkers y rutas seguras.',
-    'cat.items.title': 'Loot e ítems',
-    'cat.items.desc': 'Armas, munición, comida, medicina y crafteo.',
-    'cat.bases.title': 'Bases y raideo',
-    'cat.bases.desc': 'Construcción, defensa y cómo no perder horas de trabajo en una noche.',
     'cat.server.title': 'Servidores',
     'cat.server.desc': 'Cómo conectarte al nuestro y al resto. Reglas y configuración.',
 
@@ -64,7 +58,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'Abre SCUM → Multiplayer → Community → busca por nombre. Si no aparece, conexión directa por IP en la pestaña "Direct".',
     'server.rules': 'Reglas del servidor',
     'server.note':
-      'El query A2S está roto bajo Wine; la lista pública puede tardar en refrescar, pero el server admite conexiones.',
+      'Si no aparece en la lista pública de Steam, conéctate por dirección directa. El servidor admite conexiones en todo momento.',
 
     'contribute.title': '¿Por qué este sitio existe?',
     'contribute.body':
@@ -83,7 +77,6 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'wiki.title': 'Wiki',
     'wiki.intro': 'Documentación de SCUM mantenida por la comunidad.',
     'wiki.catalogues': 'Catálogos del juego',
-    'wiki.guidesHeading': 'Guías y mecánicas',
     'wiki.catObjects': 'Objetos',
     'wiki.catCharacter': 'Personaje',
     'wiki.catWorld': 'Mundo',
@@ -256,12 +249,6 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'cat.guides.desc': 'How to start, survival basics and tips to not die on day one.',
     'cat.mechanics.title': 'Mechanics',
     'cat.mechanics.desc': 'Hunger, thirst, metabolism, fame, damage, stamina and everything the UI hides.',
-    'cat.maps.title': 'Maps',
-    'cat.maps.desc': 'Points of interest, military zones, bunkers and safe routes.',
-    'cat.items.title': 'Loot & items',
-    'cat.items.desc': 'Weapons, ammo, food, medicine and crafting.',
-    'cat.bases.title': 'Bases & raiding',
-    'cat.bases.desc': 'Building, defense and how not to lose hours of work in one night.',
     'cat.server.title': 'Servers',
     'cat.server.desc': 'How to join ours and others. Rules and configuration.',
 
@@ -279,7 +266,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'Open SCUM → Multiplayer → Community → search by name. If it does not show up, use direct IP connection in the "Direct" tab.',
     'server.rules': 'Server rules',
     'server.note':
-      'A2S query is broken under Wine; public listing may take time to refresh, but the server accepts connections.',
+      "If it doesn't appear in Steam's public list, connect by direct address. The server accepts connections at all times.",
 
     'contribute.title': 'Why does this site exist?',
     'contribute.body':
@@ -298,7 +285,6 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'wiki.title': 'Wiki',
     'wiki.intro': 'Community-maintained SCUM documentation.',
     'wiki.catalogues': 'Game catalogues',
-    'wiki.guidesHeading': 'Guides & mechanics',
     'wiki.catObjects': 'Objects',
     'wiki.catCharacter': 'Character',
     'wiki.catWorld': 'World',
