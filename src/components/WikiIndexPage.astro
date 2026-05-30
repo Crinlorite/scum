@@ -17,6 +17,19 @@ for (const e of entries) {
 }
 const codexGroups = codexByCategory(lang);
 const manualBase = localizedPath('/manual', lang);
+const dataSections = [
+  { href: localizedPath('/items', lang), label: tr('nav.items') },
+  { href: localizedPath('/armas', lang), label: tr('sec.weapons.title') },
+  { href: localizedPath('/skills', lang), label: tr('sec.skills.title') },
+  { href: localizedPath('/medico', lang), label: tr('sec.medical.title') },
+  { href: localizedPath('/vehiculos', lang), label: tr('sec.vehicles.title') },
+  { href: localizedPath('/misiones', lang), label: tr('sec.quests.title') },
+  { href: localizedPath('/recetas', lang), label: tr('recipes.title') },
+  { href: localizedPath('/crafteo', lang), label: tr('crafting.title') },
+  { href: localizedPath('/caza', lang), label: tr('sec.hunting.title') },
+  { href: localizedPath('/fama', lang), label: tr('sec.fame.title') },
+  { href: localizedPath('/mapa', lang), label: tr('nav.map') },
+];
 ---
 <BaseLayout
   lang={lang}
@@ -56,6 +69,11 @@ const manualBase = localizedPath('/manual', lang);
             </a>
           );
         })}
+      </div>
+
+      <h2 class="sec-h">{tr('nav.datos')}</h2>
+      <div class="grid">
+        {dataSections.map((d) => (<a class="card data-card" href={d.href}><h3>{d.label}</h3></a>))}
       </div>
     </div>
   </section>
