@@ -85,17 +85,23 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     const byType = {};
     for (const p of pois) (byType[p.t] ??= []).push(p);
     const overlays = {};
+    const allMarkers = [];
     for (const key of Object.keys(byType).sort((a, b) => byType[b].length - byType[a].length)) {
       const grp = L.layerGroup();
       const col = COLORS[key] || '#9aa0a6';
       for (const p of byType[key]) {
-        L.circleMarker(flip(p.x, p.y), { radius: 4, color: col, weight: 1, fillColor: col, fillOpacity: 0.7 })
-          .bindPopup(`<b>${p.n}</b>${p.s ? `<br><small>${sectorLabel} ${p.s}</small>` : ''}`)
-          .addTo(grp);
+        const mk = L.circleMarker(flip(p.x, p.y), { radius: 5, color: col, weight: 1, fillColor: col, fillOpacity: 0.75 })
+          .bindPopup(`<b>${p.n}</b>${p.s ? `<br><small>${sectorLabel} ${p.s}</small>` : ''}`);
+        mk.addTo(grp);
+        allMarkers.push(mk);
       }
       grp.addTo(map);
       overlays[`${typeLabels[key] || key} (${byType[key].length})`] = grp;
     }
+    // Los POI crecen al acercar (circleMarker es de píxel fijo) → clicables en móvil.
+    const applyRadius = () => { const r = Math.round(5 + (map.getZoom() + 2) * 1.8); for (const mk of allMarkers) mk.setRadius(r); };
+    map.on('zoomend', applyRadius);
+    applyRadius();
 
     // Sector labels: la imagen ya trae la rejilla negra, así que solo etiquetamos
     // cada sector en el centro (mediana) de sus POIs → cae dentro de su celda real.
