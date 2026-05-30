@@ -1,0 +1,89 @@
+---
+// Página de detalle de una entidad de sección (skill, enfermedad, vehículo,
+// misión…): nombre + descripción completa + datos + relacionados + idiomas.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
+import { SECTION_DETAIL, sectionEntry } from '../data/sections';
+import { iconUrl } from '../data/icons';
+
+interface Props { lang: LangCode; section: string; slug: string; }
+const { lang, section, slug } = Astro.props;
+const tr = useTranslations(lang);
+const def = SECTION_DETAIL[section];
+const entry = sectionEntry(section, slug, lang);
+const base = localizedPath(def?.base ?? '/', lang);
+const secTitle = def ? tr(def.titleKey as any) : '';
+const icon = iconUrl(slug);
+
+const META: Record<string, Partial<Record<LangCode, string>>> = {
+  dmg: { es: 'Daño', en: 'Dmg' }, ammo: { es: 'Munición', en: 'Ammo' }, range: { es: 'Alcance', en: 'Range' },
+  fire: { es: 'Modos', en: 'Modes' }, lvl: { es: 'Niveles', en: 'Levels' }, cure: { es: 'Tratamiento', en: 'Treatment' },
+  fuel: { es: 'Combustible', en: 'Fuel' }, seats: { es: 'Asientos', en: 'Seats' }, tier: { es: 'Nivel', en: 'Tier' },
+  fame: { es: 'Fama', en: 'Fame' }, money: { es: 'Dinero', en: 'Money' },
+};
+const ml = (k: string) => META[k]?.[lang] ?? META[k]?.[FALLBACK_LANG] ?? k;
+const others = entry?.names
+  ? LANGUAGES.filter((l) => l.code !== lang && entry.names![l.code]).map((l) => ({ native: l.native, code: l.code, value: entry.names![l.code]! }))
+  : [];
+const title = entry?.name ?? slug;
+---
+<BaseLayout lang={lang} title={title} description={entry?.desc || `${title} · ${secTitle}`}>
+  <article class="sed">
+    <div class="container container-prose">
+      <a class="back" href={base}>← {secTitle}</a>
+      <div class="hero">
+        {icon && <img class="hero-icon" src={icon} alt={title} width="96" height="96" loading="lazy" />}
+        <div>
+          <span class="eyebrow">{secTitle}</span>
+          <h1>{title}</h1>
+        </div>
+      </div>
+
+      {entry?.desc && <p class="desc">{entry.desc}</p>}
+
+      {entry && entry.meta.length > 0 && (
+        <dl class="stat-grid">
+          {entry.meta.map((m) => (<div><dt>{ml(m.k)}</dt><dd>{m.v}</dd></div>))}
+        </dl>
+      )}
+
+      {entry?.rels?.map((rel) => (
+        <section class="block">
+          <h2>{rel.label}</h2>
+          <div class="chips">{rel.links.map((lk) => (<a class="chip" href={lk.href}>{lk.label}</a>))}</div>
+        </section>
+      ))}
+
+      {others.length > 0 && (
+        <section class="block other-langs">
+          <h2>{tr('items.otherLanguages')}</h2>
+          <ul>{others.map((o) => (<li><span class="ln" lang={o.code}>{o.native}</span><span class="lv" lang={o.code}>{o.value}</span></li>))}</ul>
+        </section>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .sed { padding: 2.5rem 0 4rem; }
+  .back { display: inline-block; margin-bottom: 1rem; color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .back:hover { color: var(--c-rust); }
+  .hero { display: flex; align-items: center; gap: 1rem; }
+  .hero h1 { margin: 0.2rem 0 0; }
+  .hero-icon { flex: none; width: 96px; height: 96px; object-fit: contain; padding: 6px; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
+  .desc { font-size: 1.1rem; color: var(--c-ink); line-height: 1.7; margin: 1.25rem 0; white-space: pre-line; }
+  .block { margin: 1.75rem 0; }
+  .block h2 { font-size: 1.05rem; margin: 0 0 0.6rem; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.6rem 1rem; margin: 1.25rem 0; }
+  .stat-grid > div { display: flex; flex-direction: column; }
+  .stat-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); }
+  .stat-grid dd { margin: 0; color: var(--c-ink); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip { display: inline-flex; padding: 0.28rem 0.6rem; font-size: 0.85rem; color: var(--c-ink-soft); background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-radius: 999px; text-decoration: none; }
+  .chip:hover { color: var(--c-ink); border-color: var(--c-rust); }
+  .other-langs ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; max-width: 32rem; }
+  .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--c-rule); }
+  .other-langs .ln { color: var(--c-ink-muted); }
+  .other-langs .lv { color: var(--c-ink); text-align: right; }
+</style>

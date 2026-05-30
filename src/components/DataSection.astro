@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, localizedPath } from '../i18n/utils';
 import { FALLBACK_LANG, LANGUAGES, type LangCode } from '../i18n/languages';
 import type { Section, SecEntry } from '../data/sections';
 
@@ -12,6 +12,15 @@ interface Props {
 }
 const { lang, titleKey, introKey, searchKey, noResKey, section, noindex } = Astro.props;
 const tr = useTranslations(lang);
+
+// Secciones con página de detalle propia (/info/<section>/<slug>). Las armas usan
+// su ficha de item (e.link). El resto va a la página de detalle por slug.
+const SECTION_OF: Record<string, string> = {
+  'sec.skills.title': 'skills', 'sec.medical.title': 'medico',
+  'sec.vehicles.title': 'vehiculos', 'sec.quests.title': 'misiones',
+};
+const detailSection = SECTION_OF[titleKey];
+const entryHref = (e: SecEntry) => e.link || (detailSection && e.slug ? localizedPath(`/info/${detailSection}/${e.slug}`, lang) : null);
 
 const META: Record<string, Partial<Record<LangCode, string>>> = {
   dmg: { es: 'Daño', en: 'Dmg' }, ammo: { es: 'Munición', en: 'Ammo' },
@@ -52,7 +61,7 @@ const otherLangs = (e: SecEntry) =>
             <div class="card-grid">
               {g.entries.map((e) => (
                 <article class="dcard" data-text={stext(e)}>
-                  <h3>{e.link ? <a href={e.link}>{e.name}</a> : e.name}</h3>
+                  <h3>{entryHref(e) ? <a href={entryHref(e)!}>{e.name}</a> : e.name}</h3>
                   {e.desc && <p class="dd">{e.desc.length > 180 ? e.desc.slice(0, 180) + '…' : e.desc}</p>}
                   {e.meta.length > 0 && (
                     <p class="dmeta">{e.meta.map((m) => (<span><b>{ml(m.k)}:</b> {m.v}</span>))}</p>
