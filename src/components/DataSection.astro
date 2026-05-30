@@ -32,6 +32,7 @@ const META: Record<string, Partial<Record<LangCode, string>>> = {
   tier: { es: 'Nivel', en: 'Tier' }, fame: { es: 'Fama', en: 'Fame' }, money: { es: 'Dinero', en: 'Money' },
   args: { es: 'Argumentos', en: 'Args' },
   pack: { es: 'Manada', en: 'Pack' }, clues: { es: 'Rastros', en: 'Clues' },
+  key: { es: 'Tecla', en: 'Key' },
 };
 const ml = (k: string) => META[k]?.[lang] ?? META[k]?.[FALLBACK_LANG] ?? k;
 const stext = (e: SecEntry) =>
