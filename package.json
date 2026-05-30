@@ -1,9 +1,9 @@
 {
-  "name": "scum-crintech",
+  "name": "scumcodex",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "Wiki y fuente de información de SCUM — sin anuncios, sostenible. scumwiki.crintech.pro",
+  "description": "Scum Codex — wiki y fuente de información de SCUM, sin anuncios. scumcodex.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
