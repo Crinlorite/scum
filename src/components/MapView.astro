@@ -52,20 +52,24 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     L.imageOverlay('/map/island.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    // Botón de pantalla completa.
+    // Pantalla completa por CSS (la Fullscreen API no va en iOS Safari para divs).
+    const el = document.getElementById('scum-map');
+    const setFs = (on) => {
+      el.classList.toggle('map-fullscreen', on);
+      document.body.classList.toggle('map-fs-lock', on);
+      const b = document.querySelector('.map-btn'); if (b) b.innerHTML = on ? '✕' : '⛶';
+      setTimeout(() => map.invalidateSize(), 80);
+    };
     const fs = L.control({ position: 'topleft' });
     fs.onAdd = () => {
       const b = L.DomUtil.create('button', 'map-btn');
       b.type = 'button'; b.title = 'Pantalla completa'; b.innerHTML = '⛶';
-      L.DomEvent.on(b, 'click', (e) => {
-        L.DomEvent.stop(e);
-        const el = document.getElementById('scum-map');
-        if (!document.fullscreenElement) el.requestFullscreen?.(); else document.exitFullscreen?.();
-      });
+      L.DomEvent.disableClickPropagation(b);
+      L.DomEvent.on(b, 'click', (e) => { L.DomEvent.stop(e); setFs(!el.classList.contains('map-fullscreen')); });
       return b;
     };
     fs.addTo(map);
-    document.addEventListener('fullscreenchange', () => setTimeout(() => map.invalidateSize(), 120));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setFs(false); });
 
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
     // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
@@ -210,6 +214,8 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker .pm-name) { position: absolute; left: 10px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-arrow) { color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
+  :global(#scum-map.map-fullscreen) { position: fixed; inset: 0; width: 100vw; height: 100vh; max-height: none; z-index: 9999; border: 0; }
+  :global(body.map-fs-lock) { overflow: hidden; }
   :global(.map-btn) { width: 34px; height: 34px; font-size: 18px; line-height: 1; cursor: pointer; background: #fff; color: #222; border: 2px solid rgba(0,0,0,0.2); border-radius: 4px; }
   :global(.map-btn:hover) { background: #f0f0f0; }
   :global(.me-ctl) { background: rgba(13,20,17,0.9); border: 1px solid rgba(232,227,216,0.15); border-radius: 6px; padding: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem; max-width: 12rem; }
