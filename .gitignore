@@ -15,3 +15,10 @@ tools/locres-import/out/
 
 # Private server-side map tool (reads the game save DB) — not part of the public wiki
 tools/map/
+
+# Localización/assets crudos del juego — NO distribuir (solo se usan para generar src/data)
+**/*.locres
+**/*.po
+**/*.pak
+scum-locres*
+scum-textures*

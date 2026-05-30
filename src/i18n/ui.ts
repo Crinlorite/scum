@@ -6,7 +6,7 @@ type Dict = Record<string, string>;
 // `t()` walks lang → en → es → key, so untranslated keys still render.
 export const UI: Partial<Record<LangCode, Dict>> = {
   es: {
-    'site.name': 'SCUM · Crintech',
+    'site.name': 'Scum Codex',
     'site.tagline': 'Wiki y guía de SCUM, sin anuncios.',
     'site.description':
       'Fuente de información sobre SCUM: mecánicas, mapas, loot, bases y guías. Sin anuncios, sin tracking, sostenible por la comunidad.',
@@ -74,9 +74,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'El sitio es open source. Si juegas SCUM y sabes algo que no está documentado, abre un PR o un issue.',
     'contribute.cta': 'Repositorio en GitHub',
 
-    'footer.disclaimer':
-      'Sitio fan no oficial. SCUM® es marca registrada de Gamepipe Studios / Croteam. Este proyecto no está afiliado, patrocinado ni respaldado por ellos.',
-    'footer.builtBy': 'Hecho por',
+    'footer.attribution':
+      'Contenido creado usando propiedad intelectual sobre cuyos derechos es titular Gamepires d.o.o. en virtud de las condiciones de la Política de Gamepires sobre contenidos creados por fans. Este contenido no cuenta con el refrendo de Gamepires ni debe considerarse como directamente asociado a Gamepires.',
+    'footer.trademark':
+      'SCUM y el logo de Gamepires son marcas de Gamepires d.o.o. (publicado por Jagex). Proyecto de fans no oficial: sin afiliación, patrocinio ni respaldo de Gamepires.',
     'footer.opensource': 'Código abierto',
 
     'wiki.title': 'Wiki',
@@ -220,7 +221,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
   },
 
   en: {
-    'site.name': 'SCUM · Crintech',
+    'site.name': 'Scum Codex',
     'site.tagline': 'SCUM wiki and guide, ad-free.',
     'site.description':
       'Community-run SCUM info source: mechanics, maps, loot, bases and guides. No ads, no tracking, sustainable.',
@@ -288,9 +289,10 @@ export const UI: Partial<Record<LangCode, Dict>> = {
       'The site is open source. If you play SCUM and know something undocumented, open a PR or an issue.',
     'contribute.cta': 'GitHub repository',
 
-    'footer.disclaimer':
-      'Unofficial fan site. SCUM® is a trademark of Gamepipe Studios / Croteam. This project is not affiliated with, sponsored by, or endorsed by them.',
-    'footer.builtBy': 'Made by',
+    'footer.attribution':
+      "Created using intellectual property belonging to Gamepires d.o.o. under the terms of Gamepires' Fan Content Policy. This content is not endorsed by or affiliated with Gamepires.",
+    'footer.trademark':
+      'SCUM and the Gamepires logo are trademarks of Gamepires d.o.o. (published by Jagex). Unofficial fan project — not affiliated with, sponsored or endorsed by Gamepires.',
     'footer.opensource': 'Open source',
 
     'wiki.title': 'Wiki',
