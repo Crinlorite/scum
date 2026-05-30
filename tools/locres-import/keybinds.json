@@ -1,0 +1,1110 @@
+{
+ "AimDownTheSights": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "AirplaneBrake": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "AirplaneFire": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "ATMBackspace": {
+  "es": "Retroceso",
+  "en": "Backspace"
+ },
+ "ATMEnter": {
+  "es": "Intro",
+  "en": "Enter"
+ },
+ "ATMKey0": {
+  "es": "Zero",
+  "en": "Zero"
+ },
+ "ATMKey1": {
+  "es": "1",
+  "en": "1"
+ },
+ "ATMKey2": {
+  "es": "2",
+  "en": "2"
+ },
+ "ATMKey3": {
+  "es": "3",
+  "en": "3"
+ },
+ "ATMKey4": {
+  "es": "4",
+  "en": "4"
+ },
+ "ATMKey5": {
+  "es": "5",
+  "en": "5"
+ },
+ "ATMKey6": {
+  "es": "6",
+  "en": "6"
+ },
+ "ATMKey7": {
+  "es": "Seven",
+  "en": "Seven"
+ },
+ "ATMKey8": {
+  "es": "Eight",
+  "en": "Eight"
+ },
+ "ATMKey9": {
+  "es": "Nine",
+  "en": "Nine"
+ },
+ "ATMShiftTab": {
+  "es": "Mayús + Tab",
+  "en": "Shift + Tab"
+ },
+ "ATMTab": {
+  "es": "Tab",
+  "en": "Tab"
+ },
+ "ATMVirtualMouseClick": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "AutoWalk": {
+  "es": "Mayús + W",
+  "en": "Shift + W"
+ },
+ "BallPalm": {
+  "es": "None",
+  "en": "None"
+ },
+ "Bash": {
+  "es": "Clic central",
+  "en": "Middle click"
+ },
+ "BayonetAttack": {
+  "es": "Clic central",
+  "en": "Middle click"
+ },
+ "Block": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "CancelAllControllerActions": {
+  "es": "Escape",
+  "en": "Escape"
+ },
+ "CancelThrow": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "CastBait": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "ChangeCamera": {
+  "es": "Intro",
+  "en": "Enter"
+ },
+ "ChangeVehicleWeaponAimingStance": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "Charge": {
+  "es": "None",
+  "en": "None"
+ },
+ "Chat": {
+  "es": "T",
+  "en": "T"
+ },
+ "CheckAmmo": {
+  "es": "Mayús + R",
+  "en": "Shift + R"
+ },
+ "CheckWeaponFiringMode": {
+  "es": "Mayús + Clic der.",
+  "en": "Shift + Right click"
+ },
+ "CombatMode": {
+  "es": "V",
+  "en": "V"
+ },
+ "CopyLocation": {
+  "es": "Ctrl + C",
+  "en": "Ctrl + C"
+ },
+ "CraftLastCraftedItem": {
+  "es": "Alt + C",
+  "en": "Alt + C"
+ },
+ "Crouch": {
+  "es": "C",
+  "en": "C"
+ },
+ "DecreaseCrouchStage": {
+  "es": "Ctrl + Rueda ↑",
+  "en": "Ctrl + Scroll up"
+ },
+ "DecreasePace": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "DecreaseSpectatorCameraSpeed": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "DecrementScopeZoomLevel": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "DecrementThrottle": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "DecrementWeaponScopeDisplayBrightness": {
+  "es": "Alt + Rueda ↓",
+  "en": "Alt + Scroll down"
+ },
+ "DecrementWeaponScopeWindage": {
+  "es": "Mayús + Alt + Rueda ↓",
+  "en": "Shift + Alt + Scroll down"
+ },
+ "DecrementWeaponZeroRange": {
+  "es": "Mayús + Rueda ↓",
+  "en": "Shift + Scroll down"
+ },
+ "DialLockMinigame_CheckCombination": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "DialLockMinigame_SetCombination": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "DialLockMinigame_TurnWheelDown": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "DialLockMinigame_TurnWheelUp": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "DialPad_LeftClick": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "DisablePlacementSnapping": {
+  "es": "Mayús",
+  "en": "Shift"
+ },
+ "EnterPhotoMode": {
+  "es": "P",
+  "en": "P"
+ },
+ "Exit": {
+  "es": "F",
+  "en": "F"
+ },
+ "ExitMinigame": {
+  "es": "Escape",
+  "en": "Escape"
+ },
+ "ExitPhotoMode": {
+  "es": "Escape",
+  "en": "Escape"
+ },
+ "ExitWithEngineOn": {
+  "es": "Mayús + F",
+  "en": "Shift + F"
+ },
+ "Facepalm": {
+  "es": "None",
+  "en": "None"
+ },
+ "FastReeling": {
+  "es": "Mayús",
+  "en": "Shift"
+ },
+ "FingerGun": {
+  "es": "None",
+  "en": "None"
+ },
+ "Fire": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "FlipQuestBookPageBackward": {
+  "es": "A",
+  "en": "A"
+ },
+ "FlipQuestBookPageForward": {
+  "es": "D",
+  "en": "D"
+ },
+ "Focus": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "FrackYou": {
+  "es": "F3",
+  "en": "F3"
+ },
+ "FreeLook": {
+  "es": "Alt",
+  "en": "Alt"
+ },
+ "Freeze": {
+  "es": "None",
+  "en": "None"
+ },
+ "Gamepad_ChatBlockPlayer": {
+  "es": "Gamepad_DPad_Left",
+  "en": "Gamepad_DPad_Left"
+ },
+ "Gamepad_ChatMute": {
+  "es": "Gamepad_LeftTrigger",
+  "en": "Gamepad_LeftTrigger"
+ },
+ "Gamepad_ChatReportPlayer": {
+  "es": "Gamepad_DPad_Right",
+  "en": "Gamepad_DPad_Right"
+ },
+ "Gamepad_ChatSendMessage": {
+  "es": "Gamepad_FaceButton_Top",
+  "en": "Gamepad_FaceButton_Top"
+ },
+ "Gamepad_ChatSwitchChannel": {
+  "es": "Gamepad_DPad_Left",
+  "en": "Gamepad_DPad_Left"
+ },
+ "Gamepad_ChatSwitchChannelAlt": {
+  "es": "Gamepad_DPad_Right",
+  "en": "Gamepad_DPad_Right"
+ },
+ "Gamepad_ChatTogglePlayerOptions": {
+  "es": "Gamepad_LeftShoulder",
+  "en": "Gamepad_LeftShoulder"
+ },
+ "Gamepad_ChatViewPlayerProfile": {
+  "es": "Gamepad_DPad_Up",
+  "en": "Gamepad_DPad_Up"
+ },
+ "Gamepad_SkipCutscene": {
+  "es": "Gamepad_FaceButton_Right",
+  "en": "Gamepad_FaceButton_Right"
+ },
+ "GetDown": {
+  "es": "None",
+  "en": "None"
+ },
+ "GetUp": {
+  "es": "None",
+  "en": "None"
+ },
+ "GrappleEscape": {
+  "es": "F",
+  "en": "F"
+ },
+ "Halt": {
+  "es": "F2",
+  "en": "F2"
+ },
+ "Handbrake": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "Heart": {
+  "es": "F8",
+  "en": "F8"
+ },
+ "HoldBreath": {
+  "es": "Ctrl",
+  "en": "Ctrl"
+ },
+ "Horn": {
+  "es": "H",
+  "en": "H"
+ },
+ "HurryUp": {
+  "es": "None",
+  "en": "None"
+ },
+ "IncreaseCrouchStage": {
+  "es": "Ctrl + Rueda ↓",
+  "en": "Ctrl + Scroll down"
+ },
+ "IncreasePace": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "IncreaseSpectatorCameraSpeed": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "IncrementScopeZoomLevel": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "IncrementThrottle": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "IncrementWeaponScopeDisplayBrightness": {
+  "es": "Alt + Rueda ↑",
+  "en": "Alt + Scroll up"
+ },
+ "IncrementWeaponScopeWindage": {
+  "es": "Mayús + Alt + Rueda ↑",
+  "en": "Shift + Alt + Scroll up"
+ },
+ "IncrementWeaponZeroRange": {
+  "es": "Mayús + Rueda ↑",
+  "en": "Shift + Scroll up"
+ },
+ "Interact": {
+  "es": "F",
+  "en": "F"
+ },
+ "InteractInTabMenu": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "InteractionContextMenu": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "InteractionMainAction": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "InteractionMode": {
+  "es": "Tab",
+  "en": "Tab"
+ },
+ "InteractWithModifier": {
+  "es": "Mayús + F",
+  "en": "Shift + F"
+ },
+ "InventoryFavorRotationOverScroll": {
+  "es": "Ctrl",
+  "en": "Ctrl"
+ },
+ "ItemSpecialAction": {
+  "es": "R",
+  "en": "R"
+ },
+ "Jump": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "KeepFish": {
+  "es": "Ctrl + ↑",
+  "en": "Ctrl + ↑"
+ },
+ "Kick": {
+  "es": "Mayús + Clic der.",
+  "en": "Shift + Right click"
+ },
+ "Laughing": {
+  "es": "None",
+  "en": "None"
+ },
+ "LeanLeft": {
+  "es": "Q",
+  "en": "Q"
+ },
+ "LeanRight": {
+  "es": "E",
+  "en": "E"
+ },
+ "LeftClick": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "LockpickingMinigame_PushTool": {
+  "es": "F",
+  "en": "F"
+ },
+ "MinigameDecreaseTime": {
+  "es": "↓",
+  "en": "↓"
+ },
+ "MinigameDown": {
+  "es": "↓",
+  "en": "↓"
+ },
+ "MinigameIncreaseTime": {
+  "es": "↑",
+  "en": "↑"
+ },
+ "MinigameLeft": {
+  "es": "←",
+  "en": "←"
+ },
+ "MinigameRight": {
+  "es": "→",
+  "en": "→"
+ },
+ "MinigameStart": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "MinigameUp": {
+  "es": "↑",
+  "en": "↑"
+ },
+ "MobilePhoneMinigame_ScrollDown": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "MobilePhoneMinigame_ScrollUp": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "MoveVerticalPlacingActorDown": {
+  "es": "Alt + Rueda ↓",
+  "en": "Alt + Scroll down"
+ },
+ "MoveVerticalPlacingActorUp": {
+  "es": "Alt + Rueda ↑",
+  "en": "Alt + Scroll up"
+ },
+ "MusicPlayerDecreaseVolume": {
+  "es": "PageDown",
+  "en": "PageDown"
+ },
+ "MusicPlayerIncreaseVolume": {
+  "es": "PageUp",
+  "en": "PageUp"
+ },
+ "MusicPlayerNext": {
+  "es": "L",
+  "en": "L"
+ },
+ "MusicPlayerPlay": {
+  "es": "Mayús + J",
+  "en": "Shift + J"
+ },
+ "MusicPlayerPrevious": {
+  "es": "K",
+  "en": "K"
+ },
+ "MusicPlayerRadio": {
+  "es": "Alt + J",
+  "en": "Alt + J"
+ },
+ "MusicPlayerRepeat": {
+  "es": "O",
+  "en": "O"
+ },
+ "MusicPlayerShuffle": {
+  "es": "U",
+  "en": "U"
+ },
+ "MusicPlayerTurnOn": {
+  "es": "J",
+  "en": "J"
+ },
+ "NextTarget": {
+  "es": "E",
+  "en": "E"
+ },
+ "OctaveDown": {
+  "es": "Ctrl",
+  "en": "Ctrl"
+ },
+ "OctaveUp": {
+  "es": "Mayús",
+  "en": "Shift"
+ },
+ "OpenParachute": {
+  "es": "F",
+  "en": "F"
+ },
+ "OpenTabBuilding": {
+  "es": "Mayús + B",
+  "en": "Shift + B"
+ },
+ "OpenTabCooking": {
+  "es": "Mayús + T",
+  "en": "Shift + T"
+ },
+ "OpenTabCrafting": {
+  "es": "Mayús + C",
+  "en": "Shift + C"
+ },
+ "OpenTabEight": {
+  "es": "Eight",
+  "en": "Eight"
+ },
+ "OpenTabEvents": {
+  "es": "Mayús + Y",
+  "en": "Shift + Y"
+ },
+ "OpenTabFive": {
+  "es": "5",
+  "en": "5"
+ },
+ "OpenTabFour": {
+  "es": "4",
+  "en": "4"
+ },
+ "OpenTabHealth": {
+  "es": "Mayús + Q",
+  "en": "Shift + Q"
+ },
+ "OpenTabInventory": {
+  "es": "Mayús + I",
+  "en": "Shift + I"
+ },
+ "OpenTabManual": {
+  "es": "Mayús + Z",
+  "en": "Shift + Z"
+ },
+ "OpenTabMetabolism": {
+  "es": "Mayús + V",
+  "en": "Shift + V"
+ },
+ "OpenTabOne": {
+  "es": "1",
+  "en": "1"
+ },
+ "OpenTabSeven": {
+  "es": "Seven",
+  "en": "Seven"
+ },
+ "OpenTabSix": {
+  "es": "6",
+  "en": "6"
+ },
+ "OpenTabSquad": {
+  "es": "Mayús + X",
+  "en": "Shift + X"
+ },
+ "OpenTabThree": {
+  "es": "3",
+  "en": "3"
+ },
+ "OpenTabTwo": {
+  "es": "2",
+  "en": "2"
+ },
+ "PasteAdminCommands": {
+  "es": "Ctrl + Alt + V",
+  "en": "Ctrl + Alt + V"
+ },
+ "PasteLocation": {
+  "es": "Ctrl + V",
+  "en": "Ctrl + V"
+ },
+ "PhotoModeMoveCamera": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "PhotoModeRotateCamera": {
+  "es": "Clic der.",
+  "en": "Right click"
+ },
+ "PhotoModeToggleInterfaceVisibility": {
+  "es": "Subtract",
+  "en": "Subtract"
+ },
+ "PlayA": {
+  "es": "J",
+  "en": "J"
+ },
+ "PlayAb": {
+  "es": "Eight",
+  "en": "Eight"
+ },
+ "PlayB": {
+  "es": "K",
+  "en": "K"
+ },
+ "PlayBb": {
+  "es": "Nine",
+  "en": "Nine"
+ },
+ "PlayC": {
+  "es": "Z",
+  "en": "Z"
+ },
+ "PlayC2": {
+  "es": "L",
+  "en": "L"
+ },
+ "PlayD": {
+  "es": "U",
+  "en": "U"
+ },
+ "PlayDb": {
+  "es": "5",
+  "en": "5"
+ },
+ "PlayE": {
+  "es": "I",
+  "en": "I"
+ },
+ "PlayEb": {
+  "es": "6",
+  "en": "6"
+ },
+ "PlayF": {
+  "es": "O",
+  "en": "O"
+ },
+ "PlayG": {
+  "es": "H",
+  "en": "H"
+ },
+ "PlayGb": {
+  "es": "Seven",
+  "en": "Seven"
+ },
+ "Point": {
+  "es": "F7",
+  "en": "F7"
+ },
+ "PointMe": {
+  "es": "None",
+  "en": "None"
+ },
+ "PointYou": {
+  "es": "None",
+  "en": "None"
+ },
+ "PreviousTarget": {
+  "es": "Q",
+  "en": "Q"
+ },
+ "Prone": {
+  "es": "X",
+  "en": "X"
+ },
+ "PullPin": {
+  "es": "Clic central",
+  "en": "Middle click"
+ },
+ "PullRod": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "Punch": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "PushToTalk": {
+  "es": "B",
+  "en": "B"
+ },
+ "QuestAccept": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "QuickAccess0": {
+  "es": "Zero",
+  "en": "Zero"
+ },
+ "QuickAccess1": {
+  "es": "1",
+  "en": "1"
+ },
+ "QuickAccess2": {
+  "es": "2",
+  "en": "2"
+ },
+ "QuickAccess3": {
+  "es": "3",
+  "en": "3"
+ },
+ "QuickAccess4": {
+  "es": "4",
+  "en": "4"
+ },
+ "QuickAccess5": {
+  "es": "5",
+  "en": "5"
+ },
+ "QuickAccess6": {
+  "es": "6",
+  "en": "6"
+ },
+ "QuickAccess7": {
+  "es": "Seven",
+  "en": "Seven"
+ },
+ "QuickAccess8": {
+  "es": "Eight",
+  "en": "Eight"
+ },
+ "QuickAccess9": {
+  "es": "Nine",
+  "en": "Nine"
+ },
+ "RadioChangeStation": {
+  "es": "Alt + Comma",
+  "en": "Alt + Comma"
+ },
+ "RadioDecreaseVolume": {
+  "es": "Ctrl + Comma",
+  "en": "Ctrl + Comma"
+ },
+ "RadioIncreaseVolume": {
+  "es": "Mayús + Comma",
+  "en": "Shift + Comma"
+ },
+ "Rally": {
+  "es": "None",
+  "en": "None"
+ },
+ "ReleaseFish": {
+  "es": "Ctrl + ↓",
+  "en": "Ctrl + ↓"
+ },
+ "Reload": {
+  "es": "R",
+  "en": "R"
+ },
+ "RepairWeaponMalfunction1": {
+  "es": "1",
+  "en": "1"
+ },
+ "RepairWeaponMalfunction2": {
+  "es": "2",
+  "en": "2"
+ },
+ "RepairWeaponMalfunction3": {
+  "es": "3",
+  "en": "3"
+ },
+ "RepairWeaponMalfunction4": {
+  "es": "4",
+  "en": "4"
+ },
+ "ReportVoteNo": {
+  "es": "F3",
+  "en": "F3"
+ },
+ "ReportVoteYes": {
+  "es": "F2",
+  "en": "F2"
+ },
+ "Reset": {
+  "es": "R",
+  "en": "R"
+ },
+ "Reverse": {
+  "es": "C",
+  "en": "C"
+ },
+ "RotateItem": {
+  "es": "Gamepad_RightShoulder",
+  "en": "Gamepad_RightShoulder"
+ },
+ "RotateItemAlt": {
+  "es": "Gamepad_LeftShoulder",
+  "en": "Gamepad_LeftShoulder"
+ },
+ "RotatePlacingActorClockwise": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "RotatePlacingActorCounterClockwise": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "SetDroneHidden": {
+  "es": "3",
+  "en": "3"
+ },
+ "SetDroneInvisible": {
+  "es": "2",
+  "en": "2"
+ },
+ "SetDroneVisible": {
+  "es": "1",
+  "en": "1"
+ },
+ "SetGearHi": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "SetGearLo": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ },
+ "ShortThrow": {
+  "es": "Mayús + G",
+  "en": "Shift + G"
+ },
+ "ShouldShowWidgetTooltip": {
+  "es": "Ctrl",
+  "en": "Ctrl"
+ },
+ "ShowFinger": {
+  "es": "None",
+  "en": "None"
+ },
+ "SkipCutscene": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "SmellWave": {
+  "es": "None",
+  "en": "None"
+ },
+ "SpectateNext": {
+  "es": "PageDown",
+  "en": "PageDown"
+ },
+ "SpectatePrevious": {
+  "es": "PageUp",
+  "en": "PageUp"
+ },
+ "StandSurrender": {
+  "es": "F4",
+  "en": "F4"
+ },
+ "StopResting": {
+  "es": "F",
+  "en": "F"
+ },
+ "Switchboard_LeftClick": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "SwitchCameraMode": {
+  "es": "Clic central",
+  "en": "Middle click"
+ },
+ "SwitchChatType": {
+  "es": "Tab",
+  "en": "Tab"
+ },
+ "SwitchNextDroneCamera": {
+  "es": "Ctrl + Q",
+  "en": "Ctrl + Q"
+ },
+ "SwitchPhotoModeGrid": {
+  "es": "G",
+  "en": "G"
+ },
+ "SwitchSeat0": {
+  "es": "F1",
+  "en": "F1"
+ },
+ "SwitchSeat1": {
+  "es": "F2",
+  "en": "F2"
+ },
+ "SwitchSeat2": {
+  "es": "F3",
+  "en": "F3"
+ },
+ "SwitchSeat3": {
+  "es": "F4",
+  "en": "F4"
+ },
+ "SwitchSeat4": {
+  "es": "F5",
+  "en": "F5"
+ },
+ "SwitchSeat5": {
+  "es": "F6",
+  "en": "F6"
+ },
+ "TakePhoto": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "Throw": {
+  "es": "G",
+  "en": "G"
+ },
+ "ThumbsDown": {
+  "es": "None",
+  "en": "None"
+ },
+ "ThumbsUp": {
+  "es": "None",
+  "en": "None"
+ },
+ "ToggleDroneHUD": {
+  "es": "H",
+  "en": "H"
+ },
+ "ToggleDroneSilentMode": {
+  "es": "X",
+  "en": "X"
+ },
+ "ToggleEventScoreboard": {
+  "es": "F1",
+  "en": "F1"
+ },
+ "ToggleHUDVisibility": {
+  "es": "Subtract",
+  "en": "Subtract"
+ },
+ "ToggleLights": {
+  "es": "X",
+  "en": "X"
+ },
+ "ToggleMap": {
+  "es": "M",
+  "en": "M"
+ },
+ "ToggleMeleeTargetSelectionMode": {
+  "es": "H",
+  "en": "H"
+ },
+ "ToggleNightVision": {
+  "es": "N",
+  "en": "N"
+ },
+ "ToggleNightVisionScope": {
+  "es": "Ctrl + N",
+  "en": "Ctrl + N"
+ },
+ "TogglePlayerNameplatesVisibilityInDroneMode": {
+  "es": "Alt + H",
+  "en": "Alt + H"
+ },
+ "ToggleRadio": {
+  "es": "Comma",
+  "en": "Comma"
+ },
+ "ToggleSpectatorMode": {
+  "es": "F10",
+  "en": "F10"
+ },
+ "ToggleWeaponAimingMode": {
+  "es": "Ctrl + Clic der.",
+  "en": "Ctrl + Right click"
+ },
+ "ToggleWeaponFiringMode": {
+  "es": "Mayús + Clic izq.",
+  "en": "Shift + Left click"
+ },
+ "ToggleWeaponLight": {
+  "es": "Mayús + E",
+  "en": "Shift + E"
+ },
+ "UnderstandNo": {
+  "es": "None",
+  "en": "None"
+ },
+ "UnderstandYes": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline0": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline1": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline10": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline11": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline12": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline13": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline14": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline15": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline2": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline3": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline4": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline5": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline6": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline7": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline8": {
+  "es": "None",
+  "en": "None"
+ },
+ "Voiceline9": {
+  "es": "None",
+  "en": "None"
+ },
+ "WaveHi": {
+  "es": "F5",
+  "en": "F5"
+ },
+ "WireCuttersCut": {
+  "es": "Clic izq.",
+  "en": "Left click"
+ },
+ "YouAreDead": {
+  "es": "F6",
+  "en": "F6"
+ },
+ "MoveForward": {
+  "es": "W",
+  "en": "W"
+ },
+ "MoveBackward": {
+  "es": "S",
+  "en": "S"
+ },
+ "MoveRight": {
+  "es": "D",
+  "en": "D"
+ },
+ "MoveLeft": {
+  "es": "A",
+  "en": "A"
+ },
+ "DiveUp": {
+  "es": "Espacio",
+  "en": "Space"
+ },
+ "DiveDown": {
+  "es": "C",
+  "en": "C"
+ },
+ "ReelingIn": {
+  "es": "Rueda ↑",
+  "en": "Scroll up"
+ },
+ "ReelingOut": {
+  "es": "Rueda ↓",
+  "en": "Scroll down"
+ }
+}
