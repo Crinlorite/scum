@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { cookingByCategory, cookName, slotTitle, optName, COOKING, type CookRecipe } from '../data/cooking';
-import { ITEMS } from '../data/items';
 import { LANGUAGES, type LangCode } from '../i18n/languages';
 
 interface Props { lang: LangCode; }
@@ -10,9 +9,6 @@ const { lang } = Astro.props;
 const tr = useTranslations(lang);
 const groups = cookingByCategory(lang);
 
-// Link a recipe to the item page it produces, when that item exists.
-const ITEM_SLUGS = new Set(ITEMS.map((i) => i.slug));
-const itemHref = (slug?: string | null) => (slug && ITEM_SLUGS.has(slug) ? localizedPath(`/items/${slug}`, lang) : null);
 const otherLangs = (r: CookRecipe) =>
   LANGUAGES.filter((l) => l.code !== lang && r.name?.[l.code]).map((l) => ({ native: l.native, code: l.code, value: r.name![l.code]! }));
 
@@ -46,7 +42,7 @@ function searchText(r: CookRecipe): string {
             <div class="card-grid">
               {g.recipes.map((r) => (
                 <article class="rcard" data-text={searchText(r)}>
-                  <h3>{itemHref(r.result?.slug) ? <a href={itemHref(r.result?.slug)!}>{cookName(r, lang)}</a> : cookName(r, lang)}</h3>
+                  <h3><a href={localizedPath(`/recetas/${r.slug}`, lang)}>{cookName(r, lang)}</a></h3>
                   <ul class="ing">
                     {(r.mainIngredients ?? []).map((s) => (
                       <li>{slotTitle(s, lang) || (s.options ?? []).map((o) => optName(o, lang)).filter(Boolean).join(' / ')}</li>

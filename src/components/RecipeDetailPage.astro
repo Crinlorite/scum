@@ -1,0 +1,107 @@
+---
+// Ficha de una receta (cocina o crafteo): resultado, ingredientes (con enlaces a
+// items donde hay slug), datos y nombre en todos los idiomas.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, localizedPath } from '../i18n/utils';
+import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
+import { cookBySlug, cookName, slotTitle, optName } from '../data/cooking';
+import { craftBySlug, craftName, ingredientText, skillLabel } from '../data/craftrecipes';
+import { iconUrl } from '../data/icons';
+
+interface Props { lang: LangCode; kind: 'cooking' | 'crafting'; slug: string; }
+const { lang, kind, slug } = Astro.props;
+const tr = useTranslations(lang);
+const isCook = kind === 'cooking';
+const r: any = isCook ? cookBySlug(slug) : craftBySlug(slug);
+const base = localizedPath(isCook ? '/recetas' : '/crafteo', lang);
+const backLabel = tr(isCook ? 'recipes.title' : 'crafting.title');
+const title = r ? (isCook ? cookName(r, lang) : craftName(r, lang)) : slug;
+const nameMap = r?.name as Partial<Record<LangCode, string>> | undefined;
+const resultSlug = r?.result?.slug as string | undefined;
+const icon = resultSlug ? iconUrl(resultSlug) : null;
+
+const L2 = (es: string, en: string) => (lang === 'es' ? es : en);
+const itemLink = (s?: string | null) => (s ? localizedPath(`/items/${s}`, lang) : null);
+const others = nameMap
+  ? LANGUAGES.filter((l) => l.code !== lang && nameMap[l.code]).map((l) => ({ native: l.native, code: l.code, value: nameMap[l.code]! }))
+  : [];
+---
+<BaseLayout lang={lang} title={title} description={`${title} · ${backLabel}`}>
+  <article class="rd">
+    <div class="container container-prose">
+      <a class="back" href={base}>← {backLabel}</a>
+      <div class="hero">
+        {icon && <img class="hero-icon" src={icon} alt={title} width="96" height="96" loading="lazy" />}
+        <div><span class="eyebrow">{backLabel}</span><h1>{title}</h1></div>
+      </div>
+
+      {resultSlug && (
+        <p class="result">{L2('Produce', 'Produces')}: <a href={itemLink(resultSlug)!}>{r.result?.name?.[lang] ?? r.result?.name?.en ?? resultSlug}</a>{r.productQuantity > 1 ? ` ×${r.productQuantity}` : ''}</p>
+      )}
+
+      <section class="block">
+        <h2>{L2('Ingredientes', 'Ingredients')}</h2>
+        {isCook ? (
+          <ul class="ing">
+            {(r?.mainIngredients ?? []).map((s: any) => (
+              <li>
+                {slotTitle(s, lang) && <span class="slot">{slotTitle(s, lang)}: </span>}
+                {(s.options ?? []).map((o: any, i: number) => (
+                  <>{i > 0 ? ' / ' : ''}{itemLink(o.slug) ? <a href={itemLink(o.slug)!}>{optName(o, lang)}</a> : optName(o, lang)}</>
+                ))}
+              </li>
+            ))}
+            {(r?.optionalIngredients ?? []).length > 0 && (
+              <li class="opt">{L2('Opcionales', 'Optional')}: {(r.optionalIngredients ?? []).map((s: any) => slotTitle(s, lang) || (s.options ?? []).map((o: any) => optName(o, lang)).join(' / ')).filter(Boolean).join(', ')}</li>
+            )}
+          </ul>
+        ) : (
+          <ul class="ing">
+            {(r?.ingredients ?? []).map((ing: any) => (<li>{ingredientText(ing, lang)}</li>))}
+          </ul>
+        )}
+      </section>
+
+      <dl class="stat-grid">
+        {isCook && typeof r?.cookingTime === 'number' && (<div><dt>{tr('recipes.time')}</dt><dd>{Math.round(r.cookingTime)} s</dd></div>)}
+        {isCook && r?.utility?.length > 0 && (<div><dt>{L2('Estación', 'Station')}</dt><dd>{r.utility.join(' / ')}</dd></div>)}
+        {!isCook && r?.skill && (<div><dt>{tr('crafting.skill')}</dt><dd>{skillLabel(r.skill, lang)}</dd></div>)}
+        {!isCook && typeof r?.duration === 'number' && (<div><dt>{tr('crafting.time')}</dt><dd>{Math.round(r.duration)} s</dd></div>)}
+      </dl>
+
+      {others.length > 0 && (
+        <section class="block other-langs">
+          <h2>{tr('items.otherLanguages')}</h2>
+          <ul>{others.map((o) => (<li><span class="ln" lang={o.code}>{o.native}</span><span class="lv" lang={o.code}>{o.value}</span></li>))}</ul>
+        </section>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .rd { padding: 2.5rem 0 4rem; }
+  .back { display: inline-block; margin-bottom: 1rem; color: var(--c-ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .back:hover { color: var(--c-rust); }
+  .hero { display: flex; align-items: center; gap: 1rem; }
+  .hero h1 { margin: 0.2rem 0 0; }
+  .hero-icon { flex: none; width: 96px; height: 96px; object-fit: contain; padding: 6px; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
+  .result { font-size: 1.1rem; margin: 1.25rem 0; }
+  .result a { color: var(--c-rust); text-decoration: none; }
+  .result a:hover { text-decoration: underline; }
+  .block { margin: 1.5rem 0; }
+  .block h2 { font-size: 1.05rem; margin: 0 0 0.6rem; }
+  .ing { margin: 0; padding-left: 1.1rem; line-height: 1.7; color: var(--c-ink); }
+  .ing .slot { color: var(--c-ink-muted); }
+  .ing .opt { color: var(--c-ink-soft); font-size: 0.9rem; }
+  .ing a { color: var(--c-rust); text-decoration: none; }
+  .ing a:hover { text-decoration: underline; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.6rem 1rem; margin: 1.25rem 0; }
+  .stat-grid > div { display: flex; flex-direction: column; }
+  .stat-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); }
+  .stat-grid dd { margin: 0; color: var(--c-ink); font-weight: 600; }
+  .other-langs ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; max-width: 32rem; }
+  .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--c-rule); }
+  .other-langs .ln { color: var(--c-ink-muted); }
+  .other-langs .lv { color: var(--c-ink); text-align: right; }
+</style>

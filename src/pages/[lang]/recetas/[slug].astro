@@ -1,0 +1,12 @@
+---
+import RecipeDetailPage from '../../../components/RecipeDetailPage.astro';
+import { COOKING } from '../../../data/cooking';
+import { LANGUAGES, DEFAULT_LANG, type LangCode } from '../../../i18n/languages';
+export function getStaticPaths() {
+  return LANGUAGES.filter((l) => l.code !== DEFAULT_LANG).flatMap((l) =>
+    COOKING.map((r) => ({ params: { lang: l.code, slug: r.slug } })));
+}
+const lang = Astro.params.lang as LangCode;
+const { slug } = Astro.params;
+---
+<RecipeDetailPage lang={lang} kind="cooking" slug={slug!} />
