@@ -2,16 +2,9 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { isSupportedLang, type LangCode } from './languages';
 
 export type WikiEntry = CollectionEntry<'wiki'>;
-export type WikiCategory = 'guides' | 'mechanics' | 'maps' | 'items' | 'bases' | 'server';
+export type WikiCategory = 'guides' | 'mechanics' | 'server';
 
-export const WIKI_CATEGORIES: readonly WikiCategory[] = [
-  'guides',
-  'mechanics',
-  'maps',
-  'items',
-  'bases',
-  'server',
-] as const;
+export const WIKI_CATEGORIES: readonly WikiCategory[] = ['guides', 'mechanics', 'server'] as const;
 
 interface Parsed {
   lang: LangCode;

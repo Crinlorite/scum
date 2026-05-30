@@ -1,5 +1,4 @@
-// Static info about the community server. No live ping yet — A2S query
-// is broken under Wine, so we don't even try. Update by hand for now.
+// Static info about the community server. No live ping yet; update by hand.
 export const SERVER_INFO = {
   name: 'Familia Ruiz',
   address: 'server.scumcodex.com',
