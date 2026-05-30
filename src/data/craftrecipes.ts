@@ -24,6 +24,7 @@ export const CRAFTING = data as unknown as CraftRecipe[];
 const loc = (m: L | undefined, lang: LangCode) =>
   (m && (m[lang] ?? m[FALLBACK_LANG] ?? m[DEFAULT_LANG])) ?? '';
 
+export const craftBySlug = (slug: string) => CRAFTING.find((r) => r.slug === slug);
 export const craftName = (r: CraftRecipe, lang: LangCode) => loc(r.name, lang) || r.slug;
 export const craftDesc = (r: CraftRecipe, lang: LangCode) => loc(r.description, lang);
 export function ingredientText(ing: CraftIngredient, lang: LangCode): string {

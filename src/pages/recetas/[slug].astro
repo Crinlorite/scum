@@ -1,0 +1,9 @@
+---
+import RecipeDetailPage from '../../components/RecipeDetailPage.astro';
+import { COOKING } from '../../data/cooking';
+export function getStaticPaths() {
+  return COOKING.map((r) => ({ params: { slug: r.slug } }));
+}
+const { slug } = Astro.params;
+---
+<RecipeDetailPage lang="es" kind="cooking" slug={slug!} />

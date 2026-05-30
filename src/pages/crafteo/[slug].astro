@@ -1,0 +1,9 @@
+---
+import RecipeDetailPage from '../../components/RecipeDetailPage.astro';
+import { CRAFTING } from '../../data/craftrecipes';
+export function getStaticPaths() {
+  return CRAFTING.map((r) => ({ params: { slug: r.slug } }));
+}
+const { slug } = Astro.params;
+---
+<RecipeDetailPage lang="es" kind="crafting" slug={slug!} />

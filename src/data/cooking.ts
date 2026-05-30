@@ -22,6 +22,7 @@ export const COOKING = data as unknown as CookRecipe[];
 const loc = (m: L | undefined, lang: LangCode) =>
   (m && (m[lang] ?? m[FALLBACK_LANG] ?? m[DEFAULT_LANG])) ?? '';
 
+export const cookBySlug = (slug: string) => COOKING.find((r) => r.slug === slug);
 export const cookName = (r: CookRecipe, lang: LangCode) => loc(r.name, lang) || r.slug;
 export const cookDesc = (r: CookRecipe, lang: LangCode) => loc(r.description, lang);
 export const slotTitle = (s: CookSlot, lang: LangCode) => loc(s.title, lang);
