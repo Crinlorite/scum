@@ -33,7 +33,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'hero.subtitle':
       'Mecánicas, mapas, loot y guías de SCUM en español. Sin pop-ups, sin trackers, sin redirecciones a wikis con 14 banners.',
     'hero.ctaPrimary': 'Abrir la wiki',
-    'hero.ctaSecondary': 'Ver el servidor',
+    'hero.ctaSecondary': 'Ver el mapa',
 
     'categories.title': 'Explora la wiki',
     'categories.subtitle': 'Empezamos con lo esencial y vamos creciendo con la comunidad.',
@@ -247,7 +247,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'hero.subtitle':
       'SCUM mechanics, maps, loot and guides. No pop-ups, no trackers, no redirects to wikis with 14 banners.',
     'hero.ctaPrimary': 'Open the wiki',
-    'hero.ctaSecondary': 'See the server',
+    'hero.ctaSecondary': 'View the map',
 
     'categories.title': 'Explore the wiki',
     'categories.subtitle': 'Starting with the essentials and growing with the community.',
