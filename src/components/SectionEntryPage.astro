@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
 import { SECTION_DETAIL, sectionEntry } from '../data/sections';
-import { iconUrl } from '../data/icons';
+import { iconUrl, skillIconUrl } from '../data/icons';
 
 interface Props { lang: LangCode; section: string; slug: string; }
 const { lang, section, slug } = Astro.props;
@@ -14,7 +14,7 @@ const def = SECTION_DETAIL[section];
 const entry = sectionEntry(section, slug, lang);
 const base = localizedPath(def?.base ?? '/', lang);
 const secTitle = def ? tr(def.titleKey as any) : '';
-const icon = iconUrl(slug);
+const icon = iconUrl(slug) || (section === 'skills' ? skillIconUrl(slug) : null);
 
 const META: Record<string, Partial<Record<LangCode, string>>> = {
   dmg: { es: 'Daño', en: 'Dmg' }, ammo: { es: 'Munición', en: 'Ammo' }, range: { es: 'Alcance', en: 'Range' },
