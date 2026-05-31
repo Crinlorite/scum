@@ -71,6 +71,35 @@ const kcal = d.stats?.food?.kcalPer100gDerived;
 
 const w = d.weapon;
 const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
+// Slots de attachments: el mountType del juego → categoría legible (ES/EN);
+// se descartan los mounts internos del arma que no son accesorios de jugador.
+const SLOT_LABELS: Record<string, { es: string; en: string }> = {
+  sight: { es: 'Mira / óptica', en: 'Sight / optic' }, suppressor: { es: 'Supresor', en: 'Suppressor' },
+  magazine: { es: 'Cargador', en: 'Magazine' }, flashlight: { es: 'Linterna', en: 'Flashlight' },
+  laser: { es: 'Láser', en: 'Laser' }, bayonet: { es: 'Bayoneta', en: 'Bayonet' },
+  stabilizer: { es: 'Estabilizador', en: 'Stabilizer' }, ghillie: { es: 'Ghillie', en: 'Ghillie' },
+  charm: { es: 'Amuleto', en: 'Charm' }, grip: { es: 'Empuñadura', en: 'Grip' }, rail: { es: 'Raíl', en: 'Rail' },
+};
+const slotKey = (mt?: string): string | null => {
+  const s = mt ?? '';
+  if (/sight|optic|scope/i.test(s)) return 'sight';
+  if (/silencer|suppressor|muzzle/i.test(s)) return 'suppressor';
+  if (/magazine/i.test(s)) return 'magazine';
+  if (/flashlight/i.test(s)) return 'flashlight';
+  if (/laser/i.test(s)) return 'laser';
+  if (/bayonet/i.test(s)) return 'bayonet';
+  if (/stabilizer/i.test(s)) return 'stabilizer';
+  if (/ghillie/i.test(s)) return 'ghillie';
+  if (/charm/i.test(s)) return 'charm';
+  if (/grip/i.test(s)) return 'grip';
+  if (/rail/i.test(s)) return 'rail';
+  return null;
+};
+const attachSlots: [string, number][] = w?.attachments?.length
+  ? Object.entries(w.attachments.reduce((m: Record<string, number>, a) => {
+      const k = slotKey(a.mountType); if (k) { const n = lang === 'es' ? SLOT_LABELS[k].es : SLOT_LABELS[k].en; m[n] = (m[n] ?? 0) + 1; } return m;
+    }, {}))
+  : [];
 ---
 <BaseLayout lang={lang} title={dispName} description={desc ?? `${dispName} · ${cat} · SCUM`}>
   <article class="item-page">
@@ -113,7 +142,16 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
               <div><dt>{tr('item.range')}</dt><dd>{w.maxRange} m</dd></div>)}
             {typeof w.rof === 'number' && w.rof > 0 && (
               <div><dt>{tr('item.rof')}</dt><dd>{w.rof}</dd></div>)}
+            {w.weaponCategory && (
+              <div><dt>{tr('item.weaponClass')}</dt><dd>{pretty(w.weaponCategory)}</dd></div>)}
+            {typeof w.chamberCapacity === 'number' && w.chamberCapacity > 0 && (
+              <div><dt>{tr('item.chamber')}</dt><dd>{w.chamberCapacity}</dd></div>)}
+            {typeof w.zeroRangeStep === 'number' && w.zeroRangeStep > 0 && (
+              <div><dt>{tr('item.zeroing')}</dt><dd>{w.zeroRangeStep} m</dd></div>)}
           </dl>
+          {attachSlots.length > 0 && (
+            <p class="attach"><strong>{tr('item.attachments')}:</strong> <span class="chips">{attachSlots.map(([n, c]) => (<span class="chip">{n}{c > 1 ? ` ×${c}` : ''}</span>))}</span></p>
+          )}
         </section>
       )}
 
@@ -216,6 +254,13 @@ const pretty = (s: string) => s.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
             {d.economy.traders && d.economy.traders.length > 0 && (<div><dt>{tr('item.traders')}</dt><dd>{d.economy.traders.map(pretty).join(', ')}</dd></div>)}
             {typeof d.economy.requiredFame === 'number' && d.economy.requiredFame > 0 && (<div><dt>{tr('item.fame')}</dt><dd>{d.economy.requiredFame}</dd></div>)}
           </dl>
+        </section>
+      )}
+
+      {d.packagedAs && (
+        <section class="block">
+          <h2>{tr('item.soldAsPack')}</h2>
+          <p class="cooking-list"><a class="chip" href={localizedPath(`/items/${d.packagedAs.slug}`, lang)}>{loc(d.packagedAs.name) || d.packagedAs.slug}</a>{typeof d.packagedAs.sellPrice === 'number' ? ` · ${tr('item.sellPrice')}: ${d.packagedAs.sellPrice.toLocaleString(lang)} ¥` : ''}</p>
         </section>
       )}
 

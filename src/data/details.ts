@@ -11,6 +11,7 @@ import questsData from './quests.json';
 import containersData from './containers.json';
 import clothingData from './clothing.json';
 import ammoData from './ammo.json';
+import itemsCatalog from './items.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -29,10 +30,13 @@ export interface WeaponRec {
   fireModes?: string[];
   maxRange?: number | null;
   rof?: number | null;
+  zeroRangeStep?: number | null;
+  chamberCapacity?: number | null;
   damagePerShot?: number | null;
   ammunition?: { labels?: string[] } | null;
   magazine?: { capacity?: number } | null;
   melee?: { damage?: number } | null;
+  attachments?: { bone?: string; mountType?: string }[];
 }
 export interface CraftRec {
   slug: string;
@@ -142,6 +146,17 @@ for (const c of CLOTHING) if (c.slug && !clothingBySlug.has(c.slug)) clothingByS
 const ammoBySlug = new Map<string, AmmoRec>();
 for (const a of AMMO) if (a.slug && !ammoBySlug.has(a.slug)) ammoBySlug.set(a.slug, a);
 
+// Nombres del catálogo, para enlaces salientes a otros items.
+const itemNameBySlug = new Map<string, Localized>();
+for (const i of (itemsCatalog as { slug: string; name: Localized }[])) if (i.slug) itemNameBySlug.set(i.slug, i.name);
+
+// Items que no se venden sueltos pero sí en paquete → enlace a su versión
+// "paquetificada" (que sí tiene precio de comerciante).
+const PACKAGED_AS: Record<string, string> = {
+  'lucky-stars-cigarette': 'lucky-star-cigarettes-pack',
+  'classics-cigarette': 'classics-cigarettes-pack',
+};
+
 const questsNeedingSlug = new Map<string, QuestLite[]>();
 const questsRewardingSlug = new Map<string, QuestLite[]>();
 for (const q of QUESTS) {
@@ -163,6 +178,7 @@ export interface ItemDetail {
   container?: ContainerRec;
   clothing?: ClothingRec;
   ammo?: AmmoRec;
+  packagedAs?: { slug: string; name?: Localized; sellPrice?: number | null };
   questsNeeding: QuestLite[];
   questsRewarding: QuestLite[];
 }
@@ -179,6 +195,7 @@ export function itemDetail(slug: string): ItemDetail {
     container: containerBySlug.get(slug),
     clothing: clothingBySlug.get(slug),
     ammo: ammoBySlug.get(slug),
+    packagedAs: PACKAGED_AS[slug] ? { slug: PACKAGED_AS[slug], name: itemNameBySlug.get(PACKAGED_AS[slug]), sellPrice: economyBySlug.get(PACKAGED_AS[slug])?.sellPrice ?? null } : undefined,
     questsNeeding: questsNeedingSlug.get(slug) ?? [],
     questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
@@ -186,5 +203,5 @@ export function itemDetail(slug: string): ItemDetail {
 
 export function hasDetail(d: ItemDetail): boolean {
   return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length || d.cookedHere.length ||
-    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.questsNeeding.length || d.questsRewarding.length);
+    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.packagedAs || d.questsNeeding.length || d.questsRewarding.length);
 }
