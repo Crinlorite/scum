@@ -147,6 +147,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // server autosave, so polling faster than that gains nothing — 5s is plenty.
     if (live) {
       const playerLayer = L.layerGroup().addTo(map);
+      // Marcadores persistentes por nombre: NO recrearlos en cada refresco, o la
+      // animación del anillo se reinicia 4×/seg y parpadea. Solo movemos su posición.
+      const markers = {};
       // Fuente de posición: RAM (en vivo de la memoria del server, ~1s) o DB (~17s).
       let source = localStorage.getItem('scum-map-src') || 'ram';
       const srcCtl = L.control({ position: 'topright' });
@@ -205,14 +208,28 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
           if (!r.ok) return;
           const data = await r.json();
           lastOk = Date.now(); dataTs = data.ts || 0; count++;
-          playerLayer.clearLayers();
           for (const p of (data.players || [])) {
-            const html = `<div class="pm-dot"></div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
-            L.marker(flip(p.px, p.py), {
-              icon: L.divIcon({ className: 'player-marker' + (p.alive ? '' : ' dead'), html, iconSize: [0, 0] }),
-              zIndexOffset: 1000,
-            }).addTo(playerLayer);
+            const ll = flip(p.px, p.py);
+            let mk = markers[p.name];
+            if (!mk) {
+              mk = L.marker(ll, {
+                icon: L.divIcon({ className: 'player-marker', html: '<div class="pm-dot"></div><span class="pm-name"></span>', iconSize: [0, 0] }),
+                zIndexOffset: 1000,
+              }).addTo(playerLayer);
+              markers[p.name] = mk;
+            } else {
+              mk.setLatLng(ll);
+            }
+            const el = mk.getElement();
+            if (el) {
+              el.classList.toggle('dead', !p.alive);
+              const nm = el.querySelector('.pm-name');
+              if (nm) nm.textContent = p.name + (p.alive ? '' : ' †');
+            }
           }
+          // Quitar marcadores de jugadores que ya no aparecen en el feed.
+          const present = new Set((data.players || []).map((p) => p.name));
+          for (const name of Object.keys(markers)) if (!present.has(name)) { playerLayer.removeLayer(markers[name]); delete markers[name]; }
           players = data.players || [];
           renderMe();
           centerMe(false);
@@ -247,8 +264,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   /* Marcador de jugador: círculo con borde blanco + anillo pulsante (sin dirección,
      el rumbo no es fiable). Destaca claramente de los POIs (puntos pequeños fijos). */
   :global(.player-marker .pm-dot) { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--c-rust-bright, #e0843f); border: 2px solid #fff; box-shadow: 0 0 7px 1px rgba(224,132,63,0.95), 0 0 0 1px #000; }
-  :global(.player-marker .pm-dot)::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--c-rust-bright, #e0843f); animation: pm-pulse 1.6s ease-out infinite; pointer-events: none; }
-  @keyframes pm-pulse { 0% { transform: scale(0.6); opacity: 0.85; } 100% { transform: scale(2.4); opacity: 0; } }
+  :global(.player-marker .pm-dot)::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--c-rust-bright, #e0843f); animation: pm-pulse 2.6s ease-in-out infinite; pointer-events: none; }
+  @keyframes pm-pulse { 0% { transform: scale(0.85); opacity: 0.6; } 70% { opacity: 0; } 100% { transform: scale(1.9); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { :global(.player-marker .pm-dot)::after { animation: none; opacity: 0; } }
   :global(.player-marker .pm-name) { position: absolute; left: 11px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
   :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
