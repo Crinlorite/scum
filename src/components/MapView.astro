@@ -147,6 +147,20 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // server autosave, so polling faster than that gains nothing — 5s is plenty.
     if (live) {
       const playerLayer = L.layerGroup().addTo(map);
+      // Fuente de posición: RAM (en vivo de la memoria del server, ~1s) o DB (~17s).
+      let source = localStorage.getItem('scum-map-src') || 'ram';
+      const srcCtl = L.control({ position: 'topright' });
+      srcCtl.onAdd = () => { const d = L.DomUtil.create('div', 'src-ctl'); L.DomEvent.disableClickPropagation(d); return d; };
+      srcCtl.addTo(map);
+      const renderSrc = () => {
+        const el = document.querySelector('.src-ctl'); if (!el) return;
+        el.innerHTML = '<div class="me-h">Posición:</div>'
+          + `<button type="button" class="me-b${source === 'ram' ? ' on' : ''}" data-s="ram">RAM · en vivo</button>`
+          + `<button type="button" class="me-b${source === 'db' ? ' on' : ''}" data-s="db">DB · ~17s</button>`;
+        el.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => {
+          source = b.getAttribute('data-s'); localStorage.setItem('scum-map-src', source); renderSrc(); refresh();
+        }));
+      };
       // "Centrarme en …": declaras quién eres y el mapa te recentra en cada refresco.
       let players = [];
       let me = localStorage.getItem('scum-map-me') || '';
@@ -183,11 +197,11 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
         if (!lastOk) { el.textContent = '⏳ conectando…'; return; }
         const ago = Math.round((Date.now() - lastOk) / 1000);
         const dataAgo = dataTs ? Math.round(Date.now() / 1000 - dataTs) : null;
-        el.innerHTML = `🟢 en vivo · consultado hace ${fmtAgo(ago)}` + (dataAgo != null ? ` · dato del servidor hace ${fmtAgo(dataAgo)}` : '');
+        el.innerHTML = `🟢 ${source === 'ram' ? 'RAM en vivo' : 'DB'} · consultado hace ${fmtAgo(ago)}` + (dataAgo != null ? ` · dato hace ${fmtAgo(dataAgo)}` : '');
       };
       const refresh = async () => {
         try {
-          const r = await fetch('/panel/live/positions.json', { cache: 'no-store' });
+          const r = await fetch(source === 'ram' ? '/panel/live/positions-ram.json' : '/panel/live/positions.json', { cache: 'no-store' });
           if (!r.ok) return;
           const data = await r.json();
           lastOk = Date.now(); dataTs = data.ts || 0; count++;
@@ -205,8 +219,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
           tick();
         } catch (e) { /* sin datos aún */ }
       };
+      renderSrc();
       refresh();
-      setInterval(refresh, 5000);
+      setInterval(refresh, 1000);
       setInterval(tick, 1000);
     }
   </script>
@@ -244,5 +259,10 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.me-ctl button:hover) { border-color: var(--c-rust); }
   :global(.me-ctl .me-b.on) { background: var(--c-rust); border-color: var(--c-rust); color: #fff; }
   :global(.me-ctl .me-off) { color: #c89; font-size: 0.78rem; }
+  :global(.src-ctl) { background: rgba(13,20,17,0.9); border: 1px solid rgba(232,227,216,0.15); border-radius: 6px; padding: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem; max-width: 12rem; margin-bottom: 0.4rem; }
+  :global(.src-ctl .me-h) { color: #b9c0b6; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  :global(.src-ctl button) { cursor: pointer; font-size: 0.85rem; padding: 0.3rem 0.5rem; border-radius: 5px; border: 1px solid rgba(232,227,216,0.2); background: transparent; color: #e8e3d8; text-align: left; }
+  :global(.src-ctl button:hover) { border-color: var(--c-rust); }
+  :global(.src-ctl .me-b.on) { background: var(--c-rust); border-color: var(--c-rust); color: #fff; }
 
 </style>
