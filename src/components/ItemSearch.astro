@@ -129,7 +129,8 @@ const tr = useTranslations(lang);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
-  .is-type { margin-left: 0.5rem; color: var(--c-steel); font-size: 0.78rem; opacity: 0.85; }
+  .is-type { color: var(--c-steel); font-size: 0.78rem; opacity: 0.85; }
+  .is-type::before { content: ' · '; white-space: pre; }
   .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
 
   /* En móvil el panel es una barra fija a ancho completo bajo el nav (no un
