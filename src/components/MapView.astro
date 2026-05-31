@@ -270,6 +270,8 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       // (private-pois.json en el bind-mount del host; se actualizan sin redeploy).
       const privLayer = L.layerGroup().addTo(map);
       const ICO = { flag: '🚩', base: '🏠', loot: '📦', vehicle: '🚗', stash: '🎒' };
+      const API = '/panel/api';
+      const postJSON = (path, body) => fetch(API + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then((r) => r.json());
       const loadPriv = async () => {
         try {
           const r = await fetch('/panel/live/private-pois.json', { cache: 'no-store' });
@@ -279,15 +281,55 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
           for (const p of (d.pois || [])) {
             const ico = ICO[p.kind] || '📍';
             const lbl = String(p.label || '').replace(/[<>&]/g, '');
-            L.marker(flip(p.px, p.py), {
+            const mk = L.marker(flip(p.px, p.py), {
               icon: L.divIcon({ className: 'priv-poi', html: `<span class="pp-ico">${ico}</span><span class="pp-lbl">${lbl}</span>`, iconSize: [0, 0] }),
               zIndexOffset: 500,
             }).addTo(privLayer);
+            mk.bindPopup(`<b>${ico} ${lbl}</b><br><button type="button" class="poi-del">🗑 Borrar</button>`);
+            mk.on('popupopen', (ev) => {
+              const b = ev.popup.getElement().querySelector('.poi-del');
+              if (b) b.addEventListener('click', () => postJSON('/del', { label: lbl }).then(() => { map.closePopup(); loadPriv(); }));
+            });
           }
         } catch (e) { /* sin datos aún */ }
       };
       loadPriv();
       setInterval(loadPriv, 30000);
+
+      // Añadir POI desde el panel: clic en el mapa, o pegar {X=.. Y=..} copiado del juego.
+      let addClick = false;
+      const addCtl = L.control({ position: 'topleft' });
+      addCtl.onAdd = () => {
+        const d = L.DomUtil.create('div', 'leaflet-bar poi-add');
+        d.innerHTML = '<button type="button" class="poi-toggle" title="Añadir POI">➕ POI</button>'
+          + '<div class="poi-form" hidden>'
+          + '<input class="poi-label" placeholder="Etiqueta (p.ej. Bandera B4)" maxlength="40">'
+          + '<select class="poi-kind"><option value="flag">🚩 Bandera</option><option value="base">🏠 Base</option><option value="loot">📦 Loot</option><option value="vehicle">🚗 Vehículo</option><option value="stash">🎒 Alijo</option><option value="poi">📍 Otro</option></select>'
+          + '<textarea class="poi-coord" rows="2" placeholder="Pega {X=.. Y=..} del juego (opcional)"></textarea>'
+          + '<div class="poi-row"><button type="button" class="poi-bycoord">Por coords</button><button type="button" class="poi-byclick">Clic en mapa</button></div>'
+          + '<div class="poi-msg"></div></div>';
+        L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+        return d;
+      };
+      addCtl.addTo(map);
+      const ab = document.querySelector('.poi-add');
+      if (ab) {
+        const form = ab.querySelector('.poi-form'), msg = ab.querySelector('.poi-msg');
+        const labelEl = ab.querySelector('.poi-label'), kindEl = ab.querySelector('.poi-kind'), coordEl = ab.querySelector('.poi-coord');
+        const done = (r) => { if (r && r.ok) { msg.textContent = '✓ añadido'; coordEl.value = ''; loadPriv(); } else { msg.textContent = '✗ ' + ((r && r.error) || 'error'); } };
+        ab.querySelector('.poi-toggle').addEventListener('click', () => { form.hidden = !form.hidden; });
+        ab.querySelector('.poi-bycoord').addEventListener('click', () => {
+          if (!coordEl.value.trim()) { msg.textContent = 'pega las coords'; return; }
+          msg.textContent = '…'; postJSON('/add', { label: labelEl.value, kind: kindEl.value, coord: coordEl.value }).then(done).catch(() => { msg.textContent = '✗ red'; });
+        });
+        ab.querySelector('.poi-byclick').addEventListener('click', () => { addClick = true; msg.textContent = 'haz clic en el mapa…'; map.getContainer().style.cursor = 'crosshair'; });
+        map.on('click', (e) => {
+          if (!addClick) return;
+          addClick = false; map.getContainer().style.cursor = '';
+          const px = SIZE - e.latlng.lng + OX, py = e.latlng.lat - OY;
+          msg.textContent = '…'; postJSON('/add', { label: labelEl.value, kind: kindEl.value, px, py }).then(done).catch(() => { msg.textContent = '✗ red'; });
+        });
+      }
     }
   </script>
 </BaseLayout>
@@ -326,6 +368,15 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.priv-poi) { position: relative; }
   :global(.priv-poi .pp-ico) { position: absolute; left: -8px; top: -10px; font-size: 15px; line-height: 1; filter: drop-shadow(0 0 2px #000); }
   :global(.priv-poi .pp-lbl) { position: absolute; left: 10px; top: -9px; white-space: nowrap; color: #e8e3d8; font-size: 0.72rem; font-weight: 600; text-shadow: 0 0 4px #000, 0 0 4px #000; }
+  /* Control "Añadir POI" (panel). :global porque se inyecta en un control de Leaflet. */
+  :global(.poi-add) { background: #1a1f1c; }
+  :global(.poi-add .poi-toggle) { display: block; padding: 0.3rem 0.55rem; background: #1a1f1c; color: #e8e3d8; border: 0; cursor: pointer; font-size: 0.85rem; }
+  :global(.poi-add .poi-form) { width: 210px; padding: 0.55rem; display: flex; flex-direction: column; gap: 0.35rem; background: #1a1f1c; border-top: 1px solid rgba(232,227,216,0.15); }
+  :global(.poi-add input), :global(.poi-add select), :global(.poi-add textarea) { width: 100%; box-sizing: border-box; font-size: 0.8rem; padding: 0.3rem; background: rgba(0,0,0,0.3); color: #e8e3d8; border: 1px solid rgba(232,227,216,0.2); border-radius: 4px; }
+  :global(.poi-add .poi-row) { display: flex; gap: 0.3rem; }
+  :global(.poi-add .poi-row button) { flex: 1; font-size: 0.74rem; padding: 0.34rem; cursor: pointer; background: var(--c-rust-bright, #e0843f); color: #1a1f1c; border: 0; border-radius: 4px; font-weight: 700; }
+  :global(.poi-add .poi-msg) { font-size: 0.72rem; color: #9aa0a6; min-height: 1em; }
+  :global(.poi-del) { cursor: pointer; background: #c83a3a; color: #fff; border: 0; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.8rem; }
   :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
   :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
