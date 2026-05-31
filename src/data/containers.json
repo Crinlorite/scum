@@ -54,11 +54,312 @@
   "maxWeightKg": 40.0
  },
  {
+  "slug": "big-christmas-gift",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-10",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-11",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-12",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-13",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-14",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-15",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-16",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-17",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-18",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-19",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-2",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-20",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-21",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-22",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-23",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-24",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-25",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-26",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-27",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-28",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-29",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-3",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-30",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-31",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-32",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-33",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-34",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-35",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-36",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-37",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-38",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-39",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-4",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-40",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-41",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-42",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-43",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-5",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-6",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-7",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-christmas-gift-8",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 5.0
+ },
+ {
   "slug": "big-christmas-gift-9",
   "rows": 6,
   "cols": 6,
   "slots": 36,
   "maxWeightKg": 5.0
+ },
+ {
+  "slug": "big-vehicle-storage-rack",
+  "rows": 32,
+  "cols": 16,
+  "slots": 512,
+  "maxWeightKg": 500.0
  },
  {
   "slug": "biker-leather-jacket",
@@ -115,6 +416,20 @@
   "maxWeightKg": 1.5
  },
  {
+  "slug": "classic-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "classic-shirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
   "slug": "combat-boots",
   "rows": 2,
   "cols": 4,
@@ -143,6 +458,19 @@
   "maxWeightKg": 2.0
  },
  {
+  "slug": "courier-backpack",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36
+ },
+ {
+  "slug": "cowboy-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
   "slug": "cursed-puppet-suit",
   "rows": 4,
   "cols": 6,
@@ -164,6 +492,20 @@
   "maxWeightKg": 1.5
  },
  {
+  "slug": "daredevil-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "daredevil-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 2.5
+ },
+ {
   "slug": "depleted-uranium-container",
   "rows": 8,
   "cols": 4,
@@ -176,11 +518,60 @@
   "slots": 1125
  },
  {
+  "slug": "eastern-metal-chest",
+  "rows": 75,
+  "cols": 20,
+  "slots": 1500,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "enlisted-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "enlisted-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "firefighter-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 4.0
+ },
+ {
+  "slug": "firefighter-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 2.5
+ },
+ {
   "slug": "ghillie-suit-bottom",
   "rows": 5,
   "cols": 4,
   "slots": 20,
   "maxWeightKg": 2.0
+ },
+ {
+  "slug": "high-top-shoes",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "high-top-shoes-2",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.5
  },
  {
   "slug": "hiking-backpack",
@@ -218,6 +609,20 @@
   "maxWeightKg": 0.6
  },
  {
+  "slug": "improved-wooden-chest",
+  "rows": 45,
+  "cols": 20,
+  "slots": 900,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "improved-wooden-chest-2",
+  "rows": 45,
+  "cols": 20,
+  "slots": 900,
+  "maxWeightKg": 500.0
+ },
+ {
   "slug": "improved-wooden-chest-3",
   "rows": 45,
   "cols": 20,
@@ -238,7 +643,35 @@
   "slots": 36
  },
  {
+  "slug": "improvised-ghillie-pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "improvised-leather-stab-proof-vest",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "improvised-metal-chest",
+  "rows": 75,
+  "cols": 20,
+  "slots": 1500,
+  "maxWeightKg": 500.0
+ },
+ {
   "slug": "improvised-metal-chest-2",
+  "rows": 75,
+  "cols": 20,
+  "slots": 1500,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "improvised-metal-chest-3",
   "rows": 75,
   "cols": 20,
   "slots": 1500,
@@ -262,7 +695,21 @@
   "maxWeightKg": 1.5
  },
  {
+  "slug": "improvised-wardrobe",
+  "rows": 95,
+  "cols": 20,
+  "slots": 1900,
+  "maxWeightKg": 1000.0
+ },
+ {
   "slug": "improvised-wardrobe-2",
+  "rows": 95,
+  "cols": 20,
+  "slots": 1900,
+  "maxWeightKg": 1000.0
+ },
+ {
+  "slug": "improvised-wardrobe-3",
   "rows": 95,
   "cols": 20,
   "slots": 1900,
@@ -317,11 +764,25 @@
   "maxWeightKg": 1070.0
  },
  {
+  "slug": "large-log-shed-2",
+  "rows": 120,
+  "cols": 16,
+  "slots": 1920,
+  "maxWeightKg": 1070.0
+ },
+ {
   "slug": "leather-belt-pistol-holster",
   "rows": 3,
   "cols": 4,
   "slots": 12,
   "maxWeightKg": 4.0
+ },
+ {
+  "slug": "long-sleeve-shirt",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
  },
  {
   "slug": "luis-moncada-pants",
@@ -335,6 +796,34 @@
   "rows": 4,
   "cols": 4,
   "slots": 16,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "medium-vehicle-storage-rack",
+  "rows": 16,
+  "cols": 16,
+  "slots": 256,
+  "maxWeightKg": 250.0
+ },
+ {
+  "slug": "melee-weapon-holster",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 4.0
+ },
+ {
+  "slug": "metal-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "metal-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
   "maxWeightKg": 1.5
  },
  {
@@ -380,6 +869,27 @@
   "maxWeightKg": 2.5
  },
  {
+  "slug": "outback-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "outback-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "outback-shirt",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
   "slug": "pajama-pants",
   "rows": 4,
   "cols": 4,
@@ -401,10 +911,37 @@
   "maxWeightKg": 1.0
  },
  {
+  "slug": "pants-2",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "pants-3",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
   "slug": "pilot-jacket",
   "rows": 6,
   "cols": 8,
   "slots": 48
+ },
+ {
+  "slug": "pin-up-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48
+ },
+ {
+  "slug": "pin-up-jeans",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
  },
  {
   "slug": "police-assault-backpack",
@@ -469,6 +1006,69 @@
   "slots": 256
  },
  {
+  "slug": "punk-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "punk-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "punk-jeans",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "qipao-dress",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "qipao-dress-2",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "qipao-dress-3",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "qipao-dress-4",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "qipao-dress-5",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "qipao-dress-6",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.8
+ },
+ {
   "slug": "raincoat",
   "rows": 4,
   "cols": 4,
@@ -476,11 +1076,102 @@
   "maxWeightKg": 1.5
  },
  {
+  "slug": "rastaman-backpack",
+  "rows": 10,
+  "cols": 8,
+  "slots": 80,
+  "maxWeightKg": 50.0
+ },
+ {
+  "slug": "rastaman-jacket",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 2.0
+ },
+ {
+  "slug": "rastaman-jeans",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 0.8
+ },
+ {
+  "slug": "raymond-cruz-boots",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 0.5
+ },
+ {
+  "slug": "raymond-cruz-pants",
+  "rows": 4,
+  "cols": 6,
+  "slots": 24,
+  "maxWeightKg": 1.5
+ },
+ {
+  "slug": "raymond-cruz-shirt",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
   "slug": "refrigerator",
   "rows": 30,
   "cols": 15,
   "slots": 450,
   "maxWeightKg": 500.0
+ },
+ {
+  "slug": "ruffle-skirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-3",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-4",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-5",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-6",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "ruffle-skirt-7",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
  },
  {
   "slug": "santa-jacket",
@@ -503,6 +1194,13 @@
   "slots": 64
  },
  {
+  "slug": "sexy-denim-shorts",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.5
+ },
+ {
   "slug": "shimoro-vest",
   "rows": 5,
   "cols": 5,
@@ -511,6 +1209,20 @@
  },
  {
   "slug": "shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "shirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "shirt-3",
   "rows": 2,
   "cols": 2,
   "slots": 4,
@@ -529,6 +1241,90 @@
   "cols": 6,
   "slots": 24,
   "maxWeightKg": 2.0
+ },
+ {
+  "slug": "skirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "skirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "skirt-3",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "skirt-4",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "sleeveless-camo-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-camo-shirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-camo-shirt-3",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-camo-shirt-4",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-camo-shirt-5",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-camo-shirt-6",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-shirt",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
+ },
+ {
+  "slug": "sleeveless-shirt-2",
+  "rows": 2,
+  "cols": 2,
+  "slots": 4,
+  "maxWeightKg": 0.6
  },
  {
   "slug": "small-battery-charger",
@@ -557,6 +1353,20 @@
   "maxWeightKg": 570.0
  },
  {
+  "slug": "small-log-shed-2",
+  "rows": 60,
+  "cols": 16,
+  "slots": 960,
+  "maxWeightKg": 570.0
+ },
+ {
+  "slug": "small-vehicle-storage-rack",
+  "rows": 8,
+  "cols": 8,
+  "slots": 64,
+  "maxWeightKg": 20.0
+ },
+ {
   "slug": "spitfire-jacket",
   "rows": 6,
   "cols": 8,
@@ -576,6 +1386,34 @@
   "cols": 6,
   "slots": 36,
   "maxWeightKg": 5.0
+ },
+ {
+  "slug": "stellar-santa-pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "stellar-santa-sweater",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "storage-shelf",
+  "rows": 125,
+  "cols": 20,
+  "slots": 2500,
+  "maxWeightKg": 1000.0
+ },
+ {
+  "slug": "storage-shelf-2",
+  "rows": 125,
+  "cols": 20,
+  "slots": 2500,
+  "maxWeightKg": 1000.0
  },
  {
   "slug": "storage-shelf-3",
@@ -662,6 +1500,34 @@
   "maxWeightKg": 0.6
  },
  {
+  "slug": "the-bird-camo-backpack",
+  "rows": 14,
+  "cols": 8,
+  "slots": 112,
+  "maxWeightKg": 50.0
+ },
+ {
+  "slug": "the-bird-camo-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "the-bird-camo-pants",
+  "rows": 6,
+  "cols": 6,
+  "slots": 36,
+  "maxWeightKg": 3.0
+ },
+ {
+  "slug": "tracksuit-top",
+  "rows": 4,
+  "cols": 4,
+  "slots": 16,
+  "maxWeightKg": 2.0
+ },
+ {
   "slug": "trucker-jacket",
   "rows": 6,
   "cols": 8,
@@ -676,11 +1542,25 @@
   "maxWeightKg": 2.0
  },
  {
+  "slug": "utility-belt",
+  "rows": 4,
+  "cols": 10,
+  "slots": 40,
+  "maxWeightKg": 5.0
+ },
+ {
   "slug": "vintage-hazmat-suit",
   "rows": 4,
   "cols": 6,
   "slots": 24,
   "maxWeightKg": 3.0
+ },
+ {
+  "slug": "vintage-jail-pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
  },
  {
   "slug": "waist-bag",
@@ -690,10 +1570,45 @@
   "maxWeightKg": 5.0
  },
  {
+  "slug": "woodcutter-s-shirt",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
+ },
+ {
+  "slug": "wooden-chest",
+  "rows": 30,
+  "cols": 20,
+  "slots": 600,
+  "maxWeightKg": 500.0
+ },
+ {
+  "slug": "wooden-chest-2",
+  "rows": 30,
+  "cols": 20,
+  "slots": 600,
+  "maxWeightKg": 500.0
+ },
+ {
   "slug": "wooden-chest-3",
   "rows": 30,
   "cols": 20,
   "slots": 600,
   "maxWeightKg": 500.0
+ },
+ {
+  "slug": "yellow-suit-jacket",
+  "rows": 6,
+  "cols": 8,
+  "slots": 48,
+  "maxWeightKg": 5.0
+ },
+ {
+  "slug": "yellow-suit-pants",
+  "rows": 2,
+  "cols": 4,
+  "slots": 8,
+  "maxWeightKg": 1.0
  }
 ]
