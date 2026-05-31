@@ -808,6 +808,7 @@
 "small-wooden-log-3"
 ],
 "CI_Group_Skin": [
+"animal-skin",
 "human-skin"
 ],
 "CI_Depleted_Uranium": [
@@ -887,6 +888,9 @@
 ],
 "CI_Barbed_Wire": [
 "barbed-wire"
+],
+"CI_Animal_Skin": [
+"animal-skin"
 ],
 "CI_Needle": [
 "needle"

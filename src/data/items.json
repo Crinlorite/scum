@@ -23813,7 +23813,7 @@
   }
  },
  {
-  "asset": "Mutant_Animal_Skin_ES_2",
+  "asset": "Animal_skin_ES",
   "category": "Equipment",
   "slug": "animal-skin",
   "nameKey": "B50E82D0479F595ABCF788AD5B39907C",
@@ -23831,16 +23831,16 @@
    "pl": "Skóra zwierzęca"
   },
   "description": {
-   "es": "Un trozo de piel procedente de un animal. Útil para confeccionar distintos objetos.",
-   "en": "A scrap of animal hide, useful for crafting a range of items.",
-   "de": "Ein Fellstück, das von einem Tier stammt. Lässt sich beim Herstellen verschiedener Gegenstände einsetzen.",
-   "ru": "Лоскут звериной кожи, из которого можно смастерить самые разные предметы.",
-   "zh": "一块取自野兽的皮，可用于制作各种物品。",
-   "fr": "Un morceau de peau provenant d'une bête, exploitable pour confectionner différents objets.",
-   "pt": "Um pedaço de pele de animal que serve para confeccionar vários itens.",
-   "zh-tw": "一塊取自動物的皮，能用於製作各式各樣的道具。",
-   "th": "เศษหนังจากสัตว์ ใช้ในการประดิษฐ์สิ่งของหลากหลายชนิดได้",
-   "pl": "Skrawek skóry zdartej ze zwierzęcia, przydatny przy tworzeniu rozmaitych przedmiotów."
+   "es": "Trozo de piel de animal. Material básico para fabricar prendas y equipo de cuero.",
+   "en": "A piece of animal hide. A basic material for crafting leather clothing and gear.",
+   "de": "Ein Stück Tierhaut. Grundmaterial zum Herstellen von Lederkleidung und Ausrüstung.",
+   "ru": "Кусок шкуры животного. Базовый материал для изготовления кожаной одежды и снаряжения.",
+   "zh": "一块兽皮。制作皮革衣物和装备的基础材料。",
+   "fr": "Un morceau de peau d’animal. Matériau de base pour fabriquer vêtements et équipement en cuir.",
+   "pt": "Um pedaço de pele de animal. Material básico para fabricar roupas e equipamento de couro.",
+   "zh-tw": "一塊獸皮。製作皮革衣物與裝備的基礎材料。",
+   "th": "หนังสัตว์ชิ้นหนึ่ง วัสดุพื้นฐานสำหรับคราฟต์เสื้อผ้าและอุปกรณ์หนัง",
+   "pl": "Kawałek zwierzęcej skóry. Podstawowy materiał do wytwarzania skórzanych ubrań i sprzętu."
   }
  },
  {
