@@ -332,5 +332,96 @@
   "caliber": 9.0,
   "penetration": 0.07,
   "ballisticCoef": 0.299
+ },
+ {
+  "slug": "dildo-wooden-arrow",
+  "damage": 60,
+  "muzzleVel": 70,
+  "caliber": 8.7,
+  "penetration": 0.0
+ },
+ {
+  "slug": "broadhead-carbon-arrow",
+  "damage": 135,
+  "muzzleVel": 88,
+  "caliber": 8.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "stone-tip-wooden-arrow",
+  "damage": 70,
+  "muzzleVel": 83,
+  "caliber": 10.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "wooden-arrow",
+  "damage": 60,
+  "muzzleVel": 63,
+  "caliber": 10.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "wooden-arrow-2",
+  "damage": 60,
+  "muzzleVel": 63,
+  "caliber": 10.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "explosive-metal-arrow",
+  "damage": 70,
+  "muzzleVel": 70,
+  "caliber": 8.7,
+  "penetration": 0.0
+ },
+ {
+  "slug": "broadhead-metal-arrow",
+  "damage": 120,
+  "muzzleVel": 88,
+  "caliber": 7.5,
+  "penetration": 0.0
+ },
+ {
+  "slug": "explosive-wooden-arrow",
+  "damage": 50,
+  "muzzleVel": 70,
+  "caliber": 8.7,
+  "penetration": 0.0
+ },
+ {
+  "slug": "metal-arrow",
+  "damage": 85,
+  "muzzleVel": 85,
+  "caliber": 7.5,
+  "penetration": 0.0
+ },
+ {
+  "slug": "explosive-carbon-arrow",
+  "damage": 80,
+  "muzzleVel": 70,
+  "caliber": 8.7,
+  "penetration": 0.0
+ },
+ {
+  "slug": "carbon-arrow",
+  "damage": 95,
+  "muzzleVel": 88,
+  "caliber": 5.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "fletched-wooden-arrow",
+  "damage": 65,
+  "muzzleVel": 80,
+  "caliber": 10.0,
+  "penetration": 0.0
+ },
+ {
+  "slug": "metal-tip-wooden-arrow",
+  "damage": 75,
+  "muzzleVel": 84,
+  "caliber": 10.0,
+  "penetration": 0.0
  }
 ]

@@ -42,6 +42,8 @@ const L: Record<string, Partial<Record<LangCode, string>>> = {
   camouflageBonus: { es: 'Camuflaje', en: 'Camouflage' },
   shelfLife: { es: 'Caducidad', en: 'Shelf life' },
   capacity: { es: 'Capacidad', en: 'Capacity' },
+  damageOverTime: { es: 'Desgaste por uso', en: 'Wear per use' },
+  canBecomeBadQuality: { es: 'Puede estropearse', en: 'Can spoil' },
   Water: { es: 'Agua', en: 'Water' }, Alcohol: { es: 'Alcohol', en: 'Alcohol' },
   Protein: { es: 'Proteína', en: 'Protein' }, TotalFat: { es: 'Grasa', en: 'Fat' },
   TotalCarbohydrate: { es: 'Carbohidratos', en: 'Carbs' }, Sugars: { es: 'Azúcares', en: 'Sugars' },
@@ -62,6 +64,11 @@ if (typeof st.gridSlots === 'number') pushStat('gridSlots', `${st.gridRows ?? ''
 if (typeof st.maxHealth === 'number') pushStat('maxHealth', String(st.maxHealth));
 if (typeof st.warmth === 'number') pushStat('warmth', String(st.warmth));
 if (typeof st.shelfLife === 'number') pushStat('shelfLife', String(st.shelfLife));
+if (typeof st.waterResistance === 'number') pushStat('waterResistance', String(st.waterResistance));
+if (typeof st.camouflageBonus === 'number') pushStat('camouflageBonus', `${Math.round(st.camouflageBonus * 100)}%`);
+if (typeof st.capacity === 'number') pushStat('capacity', String(st.capacity));
+if (typeof st.damageOverTime === 'number') pushStat('damageOverTime', String(st.damageOverTime));
+if (typeof st.canBecomeBadQuality === 'boolean') pushStat('canBecomeBadQuality', st.canBecomeBadQuality ? (lang === 'es' ? 'Sí' : 'Yes') : 'No');
 
 // Nutrition (curated macros present).
 const nutr = d.stats?.food?.nutrients ?? {};
