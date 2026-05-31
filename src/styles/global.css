@@ -148,6 +148,17 @@ hr {
   padding-inline: 1.25rem;
 }
 
+/* Anti-overflow horizontal en móvil: valores largos sin espacios (IDs de asset,
+   nombres BP_*, rutas) deben ROMPER en vez de ensanchar su columna y empujar la
+   página. min-width:0 permite que la pista de grid se encoja por debajo del contenido. */
+.stat-grid > div,
+.meta > div { min-width: 0; }
+.stat-grid dt,
+.stat-grid dd,
+.meta dt,
+.meta dd,
+.meta code { overflow-wrap: anywhere; }
+
 /* Buttons */
 .btn {
   display: inline-flex;
