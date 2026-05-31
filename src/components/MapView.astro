@@ -265,6 +265,29 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       refresh();
       setInterval(refresh, 250);
       setInterval(tick, 1000);
+
+      // POIs PRIVADOS (solo este panel, tras auth): banderas/marcas personales nuestras
+      // (private-pois.json en el bind-mount del host; se actualizan sin redeploy).
+      const privLayer = L.layerGroup().addTo(map);
+      const ICO = { flag: '🚩', base: '🏠', loot: '📦', vehicle: '🚗', stash: '🎒' };
+      const loadPriv = async () => {
+        try {
+          const r = await fetch('/panel/live/private-pois.json', { cache: 'no-store' });
+          if (!r.ok) return;
+          const d = await r.json();
+          privLayer.clearLayers();
+          for (const p of (d.pois || [])) {
+            const ico = ICO[p.kind] || '📍';
+            const lbl = String(p.label || '').replace(/[<>&]/g, '');
+            L.marker(flip(p.px, p.py), {
+              icon: L.divIcon({ className: 'priv-poi', html: `<span class="pp-ico">${ico}</span><span class="pp-lbl">${lbl}</span>`, iconSize: [0, 0] }),
+              zIndexOffset: 500,
+            }).addTo(privLayer);
+          }
+        } catch (e) { /* sin datos aún */ }
+      };
+      loadPriv();
+      setInterval(loadPriv, 30000);
     }
   </script>
 </BaseLayout>
@@ -299,6 +322,10 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker .pm-go.hide) { display: none; }
   :global(.player-marker.dead .pm-go)::before { border-bottom-color: #c83a3a; }
   :global(.player-marker .pm-name) { position: absolute; left: 13px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
+  /* POIs privados (banderas/marcas nuestras). Inyectados por JS -> :global. */
+  :global(.priv-poi) { position: relative; }
+  :global(.priv-poi .pp-ico) { position: absolute; left: -8px; top: -10px; font-size: 15px; line-height: 1; filter: drop-shadow(0 0 2px #000); }
+  :global(.priv-poi .pp-lbl) { position: absolute; left: 10px; top: -9px; white-space: nowrap; color: #e8e3d8; font-size: 0.72rem; font-weight: 600; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
   :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
