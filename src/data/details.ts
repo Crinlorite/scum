@@ -12,6 +12,7 @@ import containersData from './containers.json';
 import clothingData from './clothing.json';
 import ammoData from './ammo.json';
 import itemsCatalog from './items.json';
+import edibilityData from './edibility.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -179,6 +180,7 @@ export interface ItemDetail {
   clothing?: ClothingRec;
   ammo?: AmmoRec;
   packagedAs?: { slug: string; name?: Localized; sellPrice?: number | null };
+  edibility?: 'edible' | 'poisonous' | 'drink';
   questsNeeding: QuestLite[];
   questsRewarding: QuestLite[];
 }
@@ -196,6 +198,7 @@ export function itemDetail(slug: string): ItemDetail {
     clothing: clothingBySlug.get(slug),
     ammo: ammoBySlug.get(slug),
     packagedAs: PACKAGED_AS[slug] ? { slug: PACKAGED_AS[slug], name: itemNameBySlug.get(PACKAGED_AS[slug]), sellPrice: economyBySlug.get(PACKAGED_AS[slug])?.sellPrice ?? null } : undefined,
+    edibility: (edibilityData as Record<string, 'edible' | 'poisonous' | 'drink'>)[slug],
     questsNeeding: questsNeedingSlug.get(slug) ?? [],
     questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
