@@ -207,7 +207,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
           lastOk = Date.now(); dataTs = data.ts || 0; count++;
           playerLayer.clearLayers();
           for (const p of (data.players || [])) {
-            const html = `<div class="pm-arrow" style="transform:rotate(${p.heading || 0}deg)">▲</div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
+            const html = `<div class="pm-dot"></div><span class="pm-name">${p.name}${p.alive ? '' : ' †'}</span>`;
             L.marker(flip(p.px, p.py), {
               icon: L.divIcon({ className: 'player-marker' + (p.alive ? '' : ' dead'), html, iconSize: [0, 0] }),
               zIndexOffset: 1000,
@@ -244,9 +244,14 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.leaflet-popup-content) { font-size: 0.9rem; }
   :global(.leaflet-control-layers) { max-height: 70vh; overflow-y: auto; }
   :global(.player-marker) { position: relative; }
-  :global(.player-marker .pm-arrow) { position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; color: var(--c-rust-bright, #e0843f); font-size: 16px; line-height: 16px; text-align: center; text-shadow: 0 0 4px #000; }
-  :global(.player-marker .pm-name) { position: absolute; left: 10px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
-  :global(.player-marker.dead .pm-arrow) { color: #c83a3a; }
+  /* Marcador de jugador: círculo con borde blanco + anillo pulsante (sin dirección,
+     el rumbo no es fiable). Destaca claramente de los POIs (puntos pequeños fijos). */
+  :global(.player-marker .pm-dot) { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--c-rust-bright, #e0843f); border: 2px solid #fff; box-shadow: 0 0 7px 1px rgba(224,132,63,0.95), 0 0 0 1px #000; }
+  :global(.player-marker .pm-dot)::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--c-rust-bright, #e0843f); animation: pm-pulse 1.6s ease-out infinite; pointer-events: none; }
+  @keyframes pm-pulse { 0% { transform: scale(0.6); opacity: 0.85; } 100% { transform: scale(2.4); opacity: 0; } }
+  :global(.player-marker .pm-name) { position: absolute; left: 11px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
+  :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
+  :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
   :global(#scum-map.map-fullscreen) { position: fixed; inset: 0; width: 100vw; height: 100vh; max-height: none; z-index: 9999; border: 0; }
   :global(#scum-map:fullscreen) { width: 100vw; height: 100vh; max-height: none; }
