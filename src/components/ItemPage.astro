@@ -319,6 +319,73 @@ const attachSlots: [string, number][] = w?.attachments?.length
       )}
     </div>
   </article>
+
+  <script>
+    // Índice de navegación de la ficha + back-to-top. Se construye en cliente a
+    // partir de las secciones que existan (cada item tiene unas distintas). En
+    // escritorio ancho es una barra lateral fija; en pantallas estrechas un botón
+    // flotante (☰) que la abre como popover. Scrollspy resalta la sección actual.
+    (() => {
+      const prose = document.querySelector('.item-page .container-prose');
+      if (!prose) return;
+      const secs = Array.from(prose.querySelectorAll('section')).filter((s) => s.querySelector('h2'));
+      if (secs.length < 2) return;
+
+      const TXT: Record<string, string> = { es: 'En esta ficha', en: 'On this page', de: 'Auf dieser Seite', fr: 'Sur cette page', pt: 'Nesta página', ru: 'На странице', pl: 'Na tej stronie', zh: '本页内容', 'zh-tw': '本頁內容', th: 'ในหน้านี้' };
+      const lang = document.documentElement.lang || 'en';
+      const tocLabel = TXT[lang] || TXT[lang.split('-')[0]] || 'On this page';
+
+      const used = new Set();
+      const entries = secs.map((s, i) => {
+        const h2 = s.querySelector('h2');
+        const label = (h2 && h2.textContent || ('§ ' + (i + 1))).trim();
+        let id = label.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        if (!id || used.has(id)) id = 'sec-' + i;
+        used.add(id); s.id = id; s.classList.add('toc-target');
+        return { id, label, el: s };
+      });
+
+      const toc = document.createElement('nav');
+      toc.className = 'item-toc'; toc.setAttribute('aria-label', tocLabel);
+      toc.innerHTML = '<p class="item-toc-h">' + tocLabel + '</p><ul>' +
+        entries.map((e) => '<li><a href="#' + e.id + '" data-id="' + e.id + '">' + e.label + '</a></li>').join('') + '</ul>';
+      const fabToc = document.createElement('button');
+      fabToc.type = 'button'; fabToc.className = 'item-fab item-fab-toc'; fabToc.title = tocLabel; fabToc.setAttribute('aria-label', tocLabel); fabToc.textContent = '☰';
+      const fabTop = document.createElement('button');
+      fabTop.type = 'button'; fabTop.className = 'item-fab item-fab-top'; fabTop.title = 'Top'; fabTop.setAttribute('aria-label', 'Top'); fabTop.textContent = '↑';
+      document.body.append(toc, fabToc, fabTop);
+
+      const close = () => toc.classList.remove('open');
+      fabToc.addEventListener('click', (e) => { e.stopPropagation(); toc.classList.toggle('open'); });
+      fabTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      document.addEventListener('click', (e) => { if (toc.classList.contains('open') && !toc.contains(e.target as Node) && e.target !== fabToc) close(); });
+
+      const byId: Record<string, HTMLAnchorElement> = {};
+      toc.querySelectorAll('a').forEach((a) => {
+        const id = a.dataset.id || '';
+        byId[id] = a;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          close();
+        });
+      });
+
+      const spy = new IntersectionObserver((ents) => {
+        ents.forEach((en) => {
+          if (!en.isIntersecting) return;
+          toc.querySelectorAll('a.active').forEach((x) => x.classList.remove('active'));
+          const a = byId[en.target.id]; if (a) a.classList.add('active');
+        });
+      }, { rootMargin: '-70px 0px -65% 0px' });
+      entries.forEach((e) => spy.observe(e.el));
+
+      const onScroll = () => document.body.classList.toggle('scrolled', window.scrollY > 400);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 </BaseLayout>
 
 <style>
@@ -364,4 +431,40 @@ const attachSlots: [string, number][] = w?.attachments?.length
   .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--c-rule); }
   .lang-name { color: var(--c-ink-muted); font-size: 0.9rem; }
   .lang-value { color: var(--c-ink); text-align: right; }
+</style>
+
+<!-- Estilos del índice/FABs: los nodos se añaden al <body> (fuera del scope), por eso global. -->
+<style is:global>
+  .item-toc {
+    position: fixed; z-index: 50; width: 210px; max-height: 78vh; overflow-y: auto;
+    top: 50%; right: 18px; transform: translateY(-50%); display: none;
+    background: var(--c-bg-panel, #1a1f1c); border: 1px solid var(--c-rule, rgba(232, 227, 216, 0.14));
+    border-radius: 10px; padding: 0.7rem 0.5rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .item-toc-h { margin: 0 0 0.4rem; padding: 0 0.45rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-ink-muted, #9aa0a6); }
+  .item-toc ul { list-style: none; margin: 0; padding: 0; }
+  .item-toc a { display: block; padding: 0.32rem 0.45rem; border-radius: 6px; border-left: 2px solid transparent; color: var(--c-ink-soft, #b8b2a6); text-decoration: none; font-size: 0.85rem; line-height: 1.25; }
+  .item-toc a:hover { color: var(--c-ink, #e8e3d8); background: rgba(232, 227, 216, 0.05); }
+  .item-toc a.active { color: var(--c-rust, #e0843f); border-left-color: var(--c-rust, #e0843f); background: rgba(224, 132, 63, 0.08); }
+  /* El scroll a una sección ancla por debajo del header fijo del sitio. */
+  .toc-target { scroll-margin-top: 80px; }
+
+  .item-fab { position: fixed; right: 18px; z-index: 51; width: 44px; height: 44px; display: none; place-items: center; border-radius: 50%; cursor: pointer; font-size: 20px; line-height: 1; color: var(--c-ink, #e8e3d8); background: var(--c-bg-panel, #1a1f1c); border: 1px solid var(--c-rule, rgba(232, 227, 216, 0.15)); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
+  .item-fab:hover { color: var(--c-rust, #e0843f); border-color: var(--c-rust, #e0843f); }
+  .item-fab-toc { bottom: 72px; }
+  .item-fab-top { bottom: 18px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+  body.scrolled .item-fab-top { opacity: 1; pointer-events: auto; }
+
+  /* Escritorio ancho: índice lateral fijo siempre visible + solo back-to-top flotante. */
+  @media (min-width: 1200px) {
+    .item-toc { display: block; }
+    .item-fab-top { display: grid; }
+  }
+  /* Pantallas estrechas: índice oculto hasta tocar ☰ (popover abajo-derecha). */
+  @media (max-width: 1199px) {
+    .item-fab { display: grid; }
+    .item-toc { top: auto; bottom: 124px; transform: none; width: min(74vw, 270px); }
+    .item-toc.open { display: block; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
