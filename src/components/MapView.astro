@@ -93,7 +93,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
     // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
     // Afinable en vivo con ?ox=..&oy=.. (sin redeploy) para calibrar y luego fijar.
-    const CALIB = { x: 0, y: -1 };
+    const CALIB = { x: 0, y: 0 };
     const params = new URLSearchParams(location.search);
     const OX = (parseFloat(params.get('ox')) || 0) + CALIB.x; // + derecha / − izquierda
     const OY = (parseFloat(params.get('oy')) || 0) + CALIB.y; // + arriba  / − abajo
@@ -263,11 +263,11 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker) { position: relative; }
   /* Marcador de jugador: círculo con borde blanco + anillo pulsante (sin dirección,
      el rumbo no es fiable). Destaca claramente de los POIs (puntos pequeños fijos). */
-  :global(.player-marker .pm-dot) { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; border-radius: 50%; background: var(--c-rust-bright, #e0843f); border: 2px solid #fff; box-shadow: 0 0 7px 1px rgba(224,132,63,0.95), 0 0 0 1px #000; }
+  :global(.player-marker .pm-dot) { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--c-rust-bright, #e0843f); border: 2px solid #fff; box-shadow: 0 0 7px 1px rgba(224,132,63,0.95), 0 0 0 1px #000; }
   :global(.player-marker .pm-dot)::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--c-rust-bright, #e0843f); animation: pm-pulse 2.6s ease-in-out infinite; pointer-events: none; }
   @keyframes pm-pulse { 0% { transform: scale(0.85); opacity: 0.6; } 70% { opacity: 0; } 100% { transform: scale(1.9); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { :global(.player-marker .pm-dot)::after { animation: none; opacity: 0; } }
-  :global(.player-marker .pm-name) { position: absolute; left: 11px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
+  :global(.player-marker .pm-name) { position: absolute; left: 13px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
   :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
   :global(.live-status) { background: rgba(13,20,17,0.85); color: #e8e3d8; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232,227,216,0.15); }
