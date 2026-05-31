@@ -52,35 +52,43 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
     L.imageOverlay('/map/island.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    // Pantalla completa: en ordenador usamos la Fullscreen API nativa (ya iba bien);
-    // en móvil/iOS esa API no funciona para divs, así que ahí toggle por CSS.
+    // Pantalla completa, dos modos en escritorio:
+    //  ⤢ rellena la VENTANA del navegador (CSS, mantienes pestaña/barra)
+    //  ⛶ pantalla completa NATIVA del monitor (Fullscreen API)
+    // En móvil/iOS la API nativa no va para divs → solo el modo ⤢ (que ya ocupa todo).
     const el = document.getElementById('scum-map');
-    const useNative = !!el.requestFullscreen && !matchMedia('(max-width: 768px)').matches;
-    const isFs = () => useNative ? document.fullscreenElement === el : el.classList.contains('map-fullscreen');
-    const syncBtn = () => { const b = document.querySelector('.map-btn'); if (b) b.innerHTML = isFs() ? '✕' : '⛶'; };
-    const setFs = (on) => {
-      if (useNative) {
-        if (on) el.requestFullscreen(); else if (document.fullscreenElement === el) document.exitFullscreen();
-      } else {
-        el.classList.toggle('map-fullscreen', on);
-        document.body.classList.toggle('map-fs-lock', on);
-        syncBtn();
-        setTimeout(() => map.invalidateSize(), 80);
-      }
+    const isMobile = matchMedia('(max-width: 768px)').matches;
+    const canNative = !!el.requestFullscreen && !isMobile;
+    const inWindow = () => el.classList.contains('map-fullscreen');
+    const setWindow = (on) => {
+      el.classList.toggle('map-fullscreen', on);
+      document.body.classList.toggle('map-fs-lock', on);
+      const b = document.querySelector('.map-btn-win'); if (b) b.innerHTML = on ? '✕' : '⤢';
+      setTimeout(() => map.invalidateSize(), 80);
     };
     const fs = L.control({ position: 'topleft' });
     fs.onAdd = () => {
-      const b = L.DomUtil.create('button', 'map-btn');
-      b.type = 'button'; b.title = 'Pantalla completa'; b.innerHTML = '⛶';
-      L.DomEvent.disableClickPropagation(b);
-      L.DomEvent.on(b, 'click', (e) => { L.DomEvent.stop(e); setFs(!isFs()); });
-      return b;
+      const box = L.DomUtil.create('div', 'leaflet-bar map-fs-box');
+      const win = L.DomUtil.create('button', 'map-btn map-btn-win', box);
+      win.type = 'button'; win.title = 'Rellenar la ventana del navegador'; win.innerHTML = '⤢';
+      L.DomEvent.disableClickPropagation(win);
+      L.DomEvent.on(win, 'click', (e) => { L.DomEvent.stop(e); setWindow(!inWindow()); });
+      if (canNative) {
+        const nat = L.DomUtil.create('button', 'map-btn map-btn-nat', box);
+        nat.type = 'button'; nat.title = 'Pantalla completa del monitor'; nat.innerHTML = '⛶';
+        L.DomEvent.disableClickPropagation(nat);
+        L.DomEvent.on(nat, 'click', (e) => { L.DomEvent.stop(e); if (document.fullscreenElement === el) document.exitFullscreen(); else el.requestFullscreen(); });
+      }
+      return box;
     };
     fs.addTo(map);
-    // Nativo (ordenador): reaccionar al entrar/salir, incl. Esc o el botón del navegador.
-    document.addEventListener('fullscreenchange', () => { syncBtn(); setTimeout(() => map.invalidateSize(), 80); });
-    // CSS (móvil): Esc cierra el toggle.
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !useNative) setFs(false); });
+    // Nativo: actualizar icono + reajustar al entrar/salir (Esc o botón del navegador).
+    document.addEventListener('fullscreenchange', () => {
+      const b = document.querySelector('.map-btn-nat'); if (b) b.innerHTML = document.fullscreenElement === el ? '✕' : '⛶';
+      setTimeout(() => map.invalidateSize(), 80);
+    });
+    // Modo ventana (CSS): Esc lo cierra.
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && inWindow()) setWindow(false); });
 
     // Imagen rotada 180° (el export venía contrapuesto). Píxel original (x,y) →
     // Leaflet. CALIB = corrección fija del residual del transform (px de pantalla).
