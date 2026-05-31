@@ -51,24 +51,25 @@ const L: Record<string, Partial<Record<LangCode, string>>> = {
 };
 const lbl = (k: string) => L[k]?.[lang] ?? L[k]?.[FALLBACK_LANG] ?? k;
 
-// Curated stats to show (with value formatting). Weight: >1000 g shown in kg.
-const st = d.stats?.stats ?? {};
+// Curated stats (highlights). Claves normalizadas (snake_case). Peso g→kg.
+const st = (d.stats?.stats ?? {}) as Record<string, unknown>;
+const num = (v: unknown): number | null => (typeof v === 'number' ? v : null);
 const statRows: { k: string; v: string }[] = [];
 const pushStat = (k: string, v: string) => statRows.push({ k: lbl(k), v });
-if (typeof st.weight === 'number')
-  pushStat('weight', st.weight >= 1000
-    ? `${(st.weight / 1000).toLocaleString(lang, { maximumFractionDigits: 2 })} kg`
-    : `${Math.round(st.weight)} g`);
-if (st.rarity) pushStat('rarity', String(st.rarity));
-if (typeof st.gridSlots === 'number') pushStat('gridSlots', `${st.gridRows ?? ''}×${st.gridColumns ?? ''} (${st.gridSlots})`);
-if (typeof st.maxHealth === 'number') pushStat('maxHealth', String(st.maxHealth));
-if (typeof st.warmth === 'number') pushStat('warmth', String(st.warmth));
-if (typeof st.shelfLife === 'number') pushStat('shelfLife', String(st.shelfLife));
-if (typeof st.waterResistance === 'number') pushStat('waterResistance', String(st.waterResistance));
-if (typeof st.camouflageBonus === 'number') pushStat('camouflageBonus', `${Math.round(st.camouflageBonus * 100)}%`);
-if (typeof st.capacity === 'number') pushStat('capacity', String(st.capacity));
-if (typeof st.damageOverTime === 'number') pushStat('damageOverTime', String(st.damageOverTime));
-if (typeof st.canBecomeBadQuality === 'boolean') pushStat('canBecomeBadQuality', st.canBecomeBadQuality ? (lang === 'es' ? 'Sí' : 'Yes') : 'No');
+const wG = num(st.weight_g);
+if (wG != null) pushStat('weight', wG >= 1000
+  ? `${(wG / 1000).toLocaleString(lang, { maximumFractionDigits: 2 })} kg`
+  : `${Math.round(wG)} g`);
+if (typeof st.rarity === 'string') pushStat('rarity', st.rarity.replace(/([a-z])([A-Z])/g, '$1 $2'));
+if (num(st.grid_slots) != null) pushStat('gridSlots', `${st.grid_rows ?? ''}×${st.grid_columns ?? ''} (${st.grid_slots})`);
+if (num(st.max_health) != null) pushStat('maxHealth', String(st.max_health));
+if (num(st.warmth) != null) pushStat('warmth', String(st.warmth));
+if (num(st.shelf_life_h) != null) pushStat('shelfLife', `${st.shelf_life_h} h`);
+if (num(st.water_resistance) != null) pushStat('waterResistance', String(st.water_resistance));
+if (num(st.camouflage_bonus) != null) pushStat('camouflageBonus', String(st.camouflage_bonus));
+if (num(st.capacity) != null) pushStat('capacity', String(st.capacity));
+if (num(st.damage_over_time) != null) pushStat('damageOverTime', String(st.damage_over_time));
+if (typeof st.can_become_bad_quality === 'boolean') pushStat('canBecomeBadQuality', st.can_become_bad_quality ? (lang === 'es' ? 'Sí' : 'Yes') : 'No');
 
 // Nutrition (curated macros present).
 const nutr = d.stats?.food?.nutrients ?? {};
@@ -107,6 +108,60 @@ const attachSlots: [string, number][] = w?.attachments?.length
       const k = slotKey(a.mountType); if (k) { const n = lang === 'es' ? SLOT_LABELS[k].es : SLOT_LABELS[k].en; m[n] = (m[n] ?? 0) + 1; } return m;
     }, {}))
   : [];
+
+// "Datos completos": el resto de stats extraídas del dump (todo lo no mostrado ya
+// arriba ni en secciones dedicadas). Etiquetas curadas para los campos comunes;
+// para el resto, se humaniza la clave (snake_case → "Title Case (unidad)").
+const FULL_TITLE: Partial<Record<LangCode, string>> = { es: 'Datos completos', en: 'Full data', de: 'Alle Daten', fr: 'Données complètes', pt: 'Dados completos', ru: 'Все данные', pl: 'Pełne dane', zh: '完整数据', 'zh-tw': '完整資料', th: 'ข้อมูลทั้งหมด' };
+const FULL_LABELS: Record<string, Partial<Record<LangCode, string>>> = {
+  noise_level: { es: 'Nivel de ruido', en: 'Noise level' }, durability_decay: { es: 'Desgaste durabilidad', en: 'Durability decay' },
+  hardness: { es: 'Dureza', en: 'Hardness' }, sort_group: { es: 'Grupo', en: 'Group' },
+  blunt_melee_damage_reduction: { es: 'Reducción daño contundente', en: 'Blunt dmg reduction' },
+  sharp_melee_damage_reduction: { es: 'Reducción daño cortante', en: 'Sharp dmg reduction' },
+  armor: { es: 'Armadura', en: 'Armor' }, max_stack: { es: 'Pila máx.', en: 'Max stack' },
+  health: { es: 'Salud/Durabilidad', en: 'Health/Durability' }, is_repairable: { es: 'Reparable', en: 'Repairable' },
+  repair_skill: { es: 'Habilidad de reparación', en: 'Repair skill' }, is_detectable: { es: 'Detectable (detector)', en: 'Detectable' },
+  melee_damage: { es: 'Daño cuerpo a cuerpo', en: 'Melee damage' }, melee_stamina_cost: { es: 'Coste de stamina', en: 'Stamina cost' },
+  weapon_category: { es: 'Tipo de arma', en: 'Weapon class' }, max_range: { es: 'Alcance máx. (m)', en: 'Max range (m)' },
+  rof_rpm: { es: 'Cadencia (RPM)', en: 'Rate of fire (RPM)' }, chamber_capacity: { es: 'Recámara', en: 'Chamber' },
+  caliber: { es: 'Calibre', en: 'Caliber' }, bullet_damage: { es: 'Daño de bala', en: 'Bullet damage' },
+  initial_damage: { es: 'Daño inicial', en: 'Initial damage' }, penetration_factor: { es: 'Penetración', en: 'Penetration' },
+  ballistic_coefficient: { es: 'Coef. balístico', en: 'Ballistic coef.' }, firing_modes: { es: 'Modos de disparo', en: 'Firing modes' },
+  ammunition_types: { es: 'Munición', en: 'Ammunition' }, magazine_capacity: { es: 'Cargador', en: 'Magazine' },
+  liquid_capacity_l: { es: 'Capacidad líquido (L)', en: 'Liquid capacity (L)' }, color: { es: 'Color', en: 'Color' },
+  required_dlc: { es: 'DLC requerido', en: 'Required DLC' }, max_uses: { es: 'Usos máx.', en: 'Max uses' },
+  is_plantable: { es: 'Plantable', en: 'Plantable' }, plant_species: { es: 'Especie', en: 'Species' },
+  storage_slots: { es: 'Huecos almacenaje', en: 'Storage slots' }, storage_max_weight_kg: { es: 'Peso máx. almacenaje (kg)', en: 'Max storage weight (kg)' },
+  throw_damage: { es: 'Daño al lanzar', en: 'Throw damage' }, explosion_damage: { es: 'Daño de explosión', en: 'Explosion damage' },
+  medication_type: { es: 'Tipo de medicación', en: 'Medication type' }, alcoholic: { es: 'Alcohólico', en: 'Alcoholic' },
+};
+const CURATED_KEYS = new Set(['weight_g', 'rarity', 'grid_slots', 'grid_rows', 'grid_columns', 'max_health', 'warmth', 'shelf_life_h', 'water_resistance', 'camouflage_bonus', 'capacity', 'damage_over_time', 'can_become_bad_quality']);
+const NUTRIENT_KEYS = new Set(['water', 'alcohol', 'protein', 'total_fat', 'saturated_fat', 'total_carbohydrate', 'sugars', 'fiber', 'starch', 'density', 'calcium', 'iron', 'magnesium', 'phosphorus', 'potassium', 'sodium', 'zinc', 'copper', 'manganese', 'selenium', 'vitamin_a', 'vitamin_c', 'vitamin_d', 'vitamin_e', 'vitamin_k', 'vitamin_b1', 'vitamin_b2', 'vitamin_b3', 'vitamin_b4', 'vitamin_b5', 'vitamin_b6', 'vitamin_b9', 'vitamin_b12', 'max_mass_per_consume', 'disgust_amount_per_gram_of_raw_food', 'foreign_substances', 'active_substances']);
+const NOISE_KEYS = new Set(['name', 'caption', 'actor', 'resource', 'resource_name', 'resource_type', 'base_item', 'config_section', 'plant_species_asset', 'item_tags', 'spawn_types', 'item_spawn_types', 'spawn_type', 'item_spawn_group', 'spawn_locations', 'damage_region', 'bpc_match_count', 'melee_stats_source']);
+const UNIT_SUFFIX: [string, string][] = [['_kg', 'kg'], ['_cms', 'cm/s'], ['_ms', 'm/s'], ['_cm', 'cm'], ['_rpm', 'RPM'], ['_deg', '°'], ['_l', 'L'], ['_h', 'h'], ['_g', 'g'], ['_s', 's']];
+const humanize = (k: string): string => {
+  let key = k, unit = '';
+  for (const [suf, u] of UNIT_SUFFIX) if (key.endsWith(suf)) { key = key.slice(0, -suf.length); unit = ` (${u})`; break; }
+  return key.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) + unit;
+};
+const fmtNum = (n: number): string => Number.isInteger(n) ? String(n) : (Math.abs(n) < 1 ? String(+n.toPrecision(2)) : String(+n.toFixed(2)));
+const fmtVal = (v: unknown): string | null => {
+  if (v == null || v === '') return null;
+  if (typeof v === 'boolean') return v ? (lang === 'es' ? 'Sí' : 'Yes') : 'No';
+  if (typeof v === 'number') return fmtNum(v);
+  if (typeof v === 'string') return v.replace(/([a-z])([A-Z])/g, '$1 $2');
+  if (Array.isArray(v)) { const p = v.map((x) => (x && typeof x === 'object') ? Object.entries(x).map(([a, b]) => `${a}: ${b}`).join(' ') : String(x)).filter(Boolean); return p.length ? p.join(', ') : null; }
+  if (typeof v === 'object') { const p = Object.entries(v as Record<string, unknown>).map(([a, b]) => `${a}: ${typeof b === 'number' ? fmtNum(b) : b}`); return p.length ? p.join(', ') : null; }
+  return String(v);
+};
+const fullLabel = (k: string): string => FULL_LABELS[k]?.[lang] ?? FULL_LABELS[k]?.[FALLBACK_LANG] ?? humanize(k);
+const fullStatRows: { k: string; v: string }[] = [];
+for (const [k, v] of Object.entries(st)) {
+  if (CURATED_KEYS.has(k) || NUTRIENT_KEYS.has(k) || NOISE_KEYS.has(k)) continue;
+  const fv = fmtVal(v);
+  if (fv != null) fullStatRows.push({ k: fullLabel(k), v: fv });
+}
+fullStatRows.sort((a, b) => a.k.localeCompare(b.k));
 ---
 <BaseLayout lang={lang} title={dispName} description={desc ?? `${dispName} · ${cat} · SCUM`}>
   <article class="item-page">
@@ -295,6 +350,15 @@ const attachSlots: [string, number][] = w?.attachments?.length
         <section class="block">
           <h2>{tr('item.questReward')}</h2>
           <div class="chips">{d.questsRewarding.slice(0, 15).map((q) => { const t = loc(q.title); return t ? <a class="chip" href={qUrl(misionesBase, t)}>{t}</a> : null; })}</div>
+        </section>
+      )}
+
+      {fullStatRows.length > 0 && (
+        <section class="block full-stats">
+          <h2>{FULL_TITLE[lang] ?? FULL_TITLE[FALLBACK_LANG]}</h2>
+          <dl class="stat-grid">
+            {fullStatRows.map((r) => (<div><dt>{r.k}</dt><dd>{r.v}</dd></div>))}
+          </dl>
         </section>
       )}
 
