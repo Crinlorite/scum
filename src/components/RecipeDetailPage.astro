@@ -5,8 +5,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, type LangCode } from '../i18n/languages';
 import { cookBySlug, cookName, slotTitle, optName } from '../data/cooking';
-import { craftBySlug, craftName, ingredientText, skillLabel } from '../data/craftrecipes';
-import { recipesCookedAt } from '../data/details';
+import { craftBySlug, craftName, skillLabel } from '../data/craftrecipes';
+import { recipesCookedAt, groupMembers, itemNameOf } from '../data/details';
 import { iconUrl } from '../data/icons';
 
 interface Props { lang: LangCode; kind: 'cooking' | 'crafting'; slug: string; }
@@ -22,6 +22,19 @@ const resultSlug = r?.result?.slug as string | undefined;
 const icon = resultSlug ? iconUrl(resultSlug) : null;
 // If this entry is a cooking station (oven, pot, smoker…), list recipes made here.
 const cookedHere = recipesCookedAt(slug);
+
+// Ingredientes de crafteo: resuelve cada opción (tag) a los items reales que valen
+// (icono + nombre) y su cantidad (NoSkill = base sin habilidad).
+const ingRows = (ings: any[]) => (ings ?? []).map((ing: any) => {
+  const qty = ing?.amount?.NoSkill ?? null;
+  const seen = new Set<string>();
+  const items: { slug: string; name: string }[] = [];
+  for (const o of ing?.options ?? [])
+    for (const s of (o?.tag ? groupMembers(o.tag) : []))
+      if (!seen.has(s)) { seen.add(s); items.push({ slug: s, name: itemNameOf(s)?.[lang] ?? itemNameOf(s)?.en ?? s }); }
+  const labels = (ing?.options ?? []).map((o: any) => o?.name?.[lang] ?? o?.name?.en ?? o?.tag).filter(Boolean);
+  return { qty, items, labels };
+});
 
 const L2 = (es: string, en: string) => (lang === 'es' ? es : en);
 const itemLink = (s?: string | null) => (s ? localizedPath(`/items/${s}`, lang) : null);
@@ -59,8 +72,15 @@ const others = nameMap
             )}
           </ul>
         ) : (
-          <ul class="ing">
-            {(r?.ingredients ?? []).map((ing: any) => (<li>{ingredientText(ing, lang)}</li>))}
+          <ul class="ing craft-ing">
+            {ingRows(r?.ingredients).map((row) => (
+              <li>
+                {row.qty ? <span class="qty">×{row.qty}</span> : null}
+                {row.items.length
+                  ? row.items.map((it, i) => (<>{i > 0 ? <span class="alt">/</span> : null}<a class="ing-item" href={localizedPath(`/items/${it.slug}`, lang)}>{iconUrl(it.slug) ? <img src={iconUrl(it.slug)!} alt="" width="22" height="22" loading="lazy" /> : null}<span>{it.name}</span></a></>))
+                  : <span>{row.labels.join(' / ')}</span>}
+              </li>
+            ))}
           </ul>
         )}
       </section>
@@ -106,6 +126,12 @@ const others = nameMap
   .ing .opt { color: var(--c-ink-soft); font-size: 0.9rem; }
   .ing a { color: var(--c-rust); text-decoration: none; }
   .ing a:hover { text-decoration: underline; }
+  .craft-ing { list-style: none; padding-left: 0; }
+  .craft-ing li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; padding: 0.4rem 0; border-bottom: 1px solid var(--c-rule); }
+  .craft-ing .qty { font-family: var(--font-mono); font-weight: 700; color: var(--c-ink); min-width: 2.4rem; }
+  .craft-ing .ing-item { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--c-rust); }
+  .craft-ing .ing-item img { width: 22px; height: 22px; object-fit: contain; background: var(--c-paper); border-radius: 4px; }
+  .craft-ing .alt { color: var(--c-ink-muted); }
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.6rem 1rem; margin: 1.25rem 0; }
   .stat-grid > div { display: flex; flex-direction: column; }
   .stat-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-ink-muted); }
