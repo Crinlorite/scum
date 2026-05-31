@@ -124,6 +124,12 @@ const attachSlots: [string, number][] = w?.attachments?.length
         ? <p class="desc">{desc}</p>
         : <p class="desc muted">{tr('items.noDescription')}</p>}
 
+      {d.edibility && (
+        <p class={`edibility edibility-${d.edibility}`}>
+          {d.edibility === 'poisonous' ? `☠ ${tr('item.poisonous')}` : d.edibility === 'drink' ? `✓ ${tr('item.drinkable')}` : `✓ ${tr('item.edible')}`}
+        </p>
+      )}
+
       {statRows.length > 0 && (
         <section class="block">
           <h2>{tr('item.statsTitle')}</h2>
@@ -319,6 +325,9 @@ const attachSlots: [string, number][] = w?.attachments?.length
   .hero-icon { flex: none; width: 96px; height: 96px; object-fit: contain; padding: 6px; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); }
   .desc { font-size: 1.15rem; color: var(--c-ink); line-height: 1.6; }
   .desc.muted { color: var(--c-ink-muted); font-style: italic; }
+  .edibility { display: inline-block; margin: 0.2rem 0 0.6rem; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600; }
+  .edibility-edible, .edibility-drink { background: rgba(74, 122, 56, 0.18); color: #6fae4e; border: 1px solid rgba(111, 174, 78, 0.4); }
+  .edibility-poisonous { background: rgba(176, 58, 46, 0.18); color: #e06a5a; border: 1px solid rgba(224, 106, 90, 0.5); }
   .block { margin: 1.75rem 0; }
   .block h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
   .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.6rem 1rem; margin: 0; }
