@@ -67,7 +67,7 @@ const tr = useTranslations(lang);
       results.hidden = false;
       if (!hits.length) { results.innerHTML = `<li class="is-empty">${noResults}</li>`; return; }
       results.innerHTML = hits
-        .map((it) => `<li role="option"><a href="${it.u}">${escapeHtml(it.n)}${it.t ? `<span class="is-type">${escapeHtml(it.t)}</span>` : ''}</a></li>`)
+        .map((it) => `<li role="option"><a href="${it.u}">${it.t ? `<span class="is-type">${escapeHtml(it.t)}</span>` : ''}<span class="is-name">${escapeHtml(it.n)}</span></a></li>`)
         .join('');
     }
     function escapeHtml(s: string) {
@@ -96,7 +96,10 @@ const tr = useTranslations(lang);
   }
 </script>
 
-<style>
+<!-- Global: los resultados se inyectan por JS (innerHTML) y NO reciben el atributo de
+     scope de Astro, así que con <style> normal el CSS de .is-type/.is-results a nunca
+     se aplicaba (de ahí el tipo "pegado" sin badge). Las clases is-* son únicas. -->
+<style is:global>
   .item-search { position: relative; display: inline-flex; }
   .is-toggle {
     display: inline-grid; place-items: center;
@@ -124,13 +127,20 @@ const tr = useTranslations(lang);
   .is-results { list-style: none; margin: 0.4rem 0 0; padding: 0; max-height: 60vh; overflow-y: auto; }
   .is-results li { margin: 0; }
   .is-results a {
-    display: block; padding: 0.4rem 0.55rem; border-radius: 5px;
+    display: flex; align-items: center; gap: 0.45rem;
+    padding: 0.4rem 0.55rem; border-radius: 5px;
     color: var(--c-ash); text-decoration: none; font-size: 0.92rem;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .is-results a:hover { color: var(--c-bone); background: rgba(232, 227, 216, 0.06); }
-  .is-type { color: var(--c-steel); font-size: 0.78rem; opacity: 0.85; }
-  .is-type::before { content: ' · '; white-space: pre; }
+  /* Nombre: ocupa el resto y trunca con elipsis si es largo. */
+  .is-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Tipo: badge de categoría DELANTE del nombre (antes era un sufijo ' · X' pegado). */
+  .is-type {
+    flex: none; font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--c-steel); background: rgba(232, 227, 216, 0.06);
+    border: 1px solid rgba(232, 227, 216, 0.16); border-radius: 4px;
+    padding: 0.1rem 0.36rem; line-height: 1.35; white-space: nowrap;
+  }
   .is-empty { padding: 0.4rem 0.55rem; color: var(--c-steel); font-size: 0.9rem; font-style: italic; }
 
   /* En móvil el panel es una barra fija a ancho completo bajo el nav (no un
