@@ -13,6 +13,7 @@ import clothingData from './clothing.json';
 import ammoData from './ammo.json';
 import itemsCatalog from './items.json';
 import edibilityData from './edibility.json';
+import ingredientGroups from './ingredient_groups.json';
 import type { LangCode } from '../i18n/languages';
 
 type Localized = Partial<Record<LangCode, string>>;
@@ -45,7 +46,7 @@ export interface CraftRec {
   skill?: string | null;
   duration?: number | null;
   productQuantity?: number | null;
-  ingredients?: { options?: { name?: Localized }[] }[];
+  ingredients?: { options?: { name?: Localized; tag?: string; isGroup?: boolean }[] }[];
   result?: { slug?: string | null };
 }
 export interface CookRec {
@@ -158,6 +159,22 @@ const PACKAGED_AS: Record<string, string> = {
   'classics-cigarette': 'classics-cigarettes-pack',
 };
 
+// Grupos de ingredientes de crafteo: tag → items que lo satisfacen (extraído del
+// dump). Sirve para (a) resolver "Cualquier aguja"/"Sedal" a los items reales con
+// icono y (b) saber qué recetas usan un item dado.
+const GROUP_MEMBERS = ingredientGroups as Record<string, string[]>;
+export function groupMembers(tag: string): string[] { return GROUP_MEMBERS[tag] ?? []; }
+export function itemNameOf(slug: string): Localized | undefined { return itemNameBySlug.get(slug); }
+
+const craftingUsingSlug = new Map<string, CraftRec[]>();
+for (const c of CRAFTING) {
+  const slugs = new Set<string>();
+  for (const ing of c.ingredients ?? [])
+    for (const o of ing.options ?? [])
+      if (o.tag) for (const s of (GROUP_MEMBERS[o.tag] ?? [])) slugs.add(s);
+  for (const s of slugs) push(craftingUsingSlug, s, c);
+}
+
 const questsNeedingSlug = new Map<string, QuestLite[]>();
 const questsRewardingSlug = new Map<string, QuestLite[]>();
 for (const q of QUESTS) {
@@ -181,6 +198,7 @@ export interface ItemDetail {
   ammo?: AmmoRec;
   packagedAs?: { slug: string; name?: Localized; sellPrice?: number | null };
   edibility?: 'edible' | 'poisonous' | 'drink';
+  craftingUsing: CraftRec[];
   questsNeeding: QuestLite[];
   questsRewarding: QuestLite[];
 }
@@ -199,6 +217,7 @@ export function itemDetail(slug: string): ItemDetail {
     ammo: ammoBySlug.get(slug),
     packagedAs: PACKAGED_AS[slug] ? { slug: PACKAGED_AS[slug], name: itemNameBySlug.get(PACKAGED_AS[slug]), sellPrice: economyBySlug.get(PACKAGED_AS[slug])?.sellPrice ?? null } : undefined,
     edibility: (edibilityData as Record<string, 'edible' | 'poisonous' | 'drink'>)[slug],
+    craftingUsing: craftingUsingSlug.get(slug) ?? [],
     questsNeeding: questsNeedingSlug.get(slug) ?? [],
     questsRewarding: questsRewardingSlug.get(slug) ?? [],
   };
@@ -206,5 +225,5 @@ export function itemDetail(slug: string): ItemDetail {
 
 export function hasDetail(d: ItemDetail): boolean {
   return !!(d.stats || d.weapon || d.craftedBy.length || d.cookingUsing.length || d.cookedHere.length ||
-    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.packagedAs || d.questsNeeding.length || d.questsRewarding.length);
+    d.economy || d.loot?.spawns?.length || d.container || d.clothing || d.ammo || d.packagedAs || d.craftingUsing.length || d.questsNeeding.length || d.questsRewarding.length);
 }
