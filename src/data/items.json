@@ -15352,7 +15352,18 @@
   "name": {
    "en": "Base Chair"
   },
-  "description": {},
+  "description": {
+   "es": "Práctica para alcanzar la bombilla o para colgarse de algo.",
+   "en": "Handy for reaching a light bulb or for hanging things from.",
+   "de": "Praktisch, um an die Glühbirne zu kommen, oder als Hilfsmittel zum Erhängen.",
+   "ru": "Пригодится, чтобы дотянуться до лампочки или чтобы повеситься.",
+   "zh": "方便你够到灯泡，也可以拿来吊挂东西。",
+   "fr": "Pratique pour atteindre une ampoule ou pour s'y pendre.",
+   "pt": "Prática para alcançar uma lâmpada ou para pendurar coisas.",
+   "zh-tw": "方便你搆到燈泡，也能用來吊掛東西。",
+   "th": "สะดวกสำหรับการเอื้อมไปเปลี่ยนหลอดไฟหรือใช้แขวนสิ่งของ",
+   "pl": "Przydatne, by sięgnąć do żarówki lub żeby się na nim powiesić."
+  },
   "disambig": "CR Chair Improvised Wood Skin"
  },
  {
@@ -15437,7 +15448,18 @@
   "name": {
    "en": "Bench"
   },
-  "description": {},
+  "description": {
+   "es": "Un modesto banco, ideal para tropezar con él.",
+   "en": "A modest bench, perfect for stubbing your toe on.",
+   "de": "Eine schlichte Bank, über die man bestens stolpern kann.",
+   "ru": "Скромная скамья, об которую так легко споткнуться.",
+   "zh": "一张普普通通的长椅，刚好能把你绊个跟头。",
+   "fr": "Un modeste banc, parfait pour s'y prendre les pieds.",
+   "pt": "Um banco modesto, perfeito para você tropeçar nele.",
+   "zh-tw": "一張普普通通的長椅，剛好能把你絆倒。",
+   "th": "ม้านั่งเรียบง่าย เหมาะอย่างยิ่งสำหรับการสะดุดล้ม",
+   "pl": "Skromna ławka, idealna do tego, by się o nią potknąć."
+  },
   "disambig": "CR Bench Improvised Wood Skin"
  },
  {
@@ -15521,7 +15543,18 @@
    "th": "ป้ายเปล่า",
    "pl": "Pusty znak"
   },
-  "description": {},
+  "description": {
+   "es": "Un cartel en blanco listo para escribir en él.",
+   "en": "An empty sign ready to be written on.",
+   "de": "Ein leeres Schild, das beschriftet werden kann.",
+   "ru": "Пустая табличка, готовая к нанесению надписи.",
+   "zh": "一块空白告示牌，可在上面书写。",
+   "fr": "Un panneau vierge prêt à être inscrit.",
+   "pt": "Uma placa em branco pronta para escrever.",
+   "zh-tw": "一塊空白告示牌，可在上面書寫。",
+   "th": "ป้ายเปล่าพร้อมให้เขียนข้อความลงไป",
+   "pl": "Pusta tablica gotowa do zapisania."
+  },
   "disambig": "CR Blank Sign"
  },
  {
@@ -16348,7 +16381,18 @@
   "name": {
    "en": "Cabinet"
   },
-  "description": {},
+  "description": {
+   "es": "Una elegante cómoda. En toda la isla no queda un dedo meñique del pie que no tiemble al tenerla cerca.",
+   "en": "An elegant cabinet. The terror of every pinkie toe across the island.",
+   "de": "Ein eleganter Schrank. Der Schrecken aller kleinen Zehen auf der ganzen Insel.",
+   "ru": "Элегантный шкаф. О него ничего не стоит ушибить мизинец ноги.",
+   "zh": "一件精美的柜子，全岛的小脚趾都对它畏惧三分。",
+   "fr": "Une armoire raffinée. La hantise des petits orteils.",
+   "pt": "Um armário sofisticado. O pavor dos dedinhos do pé por toda a ilha.",
+   "zh-tw": "一件雅致的櫃子，全島的小腳趾都對它聞風喪膽。",
+   "th": "ตู้ดีไซน์หรู ที่นิ้วก้อยเท้าของทุกคนบนเกาะต่างพากันหวั่นเกรง",
+   "pl": "Wytworna szafka. Postrach wszystkich małych palców u stóp na całej wyspie."
+  },
   "disambig": "CR Cabinet Small Wood Skin"
  },
  {
@@ -16861,7 +16905,18 @@
    "th": "ต้นคริสต์มาส",
    "pl": "Choinka"
   },
-  "description": {},
+  "description": {
+   "es": "Un abeto de Douglas que suele emplearse como decoración navideña.",
+   "en": "A Douglas fir commonly used as Christmas decoration.",
+   "de": "Eine Douglasie, die meist als Weihnachtsdekoration verwendet wird.",
+   "ru": "Псевдотсуга (дугласова пихта), которую обычно используют как рождественское украшение.",
+   "zh": "一棵花旗松，通常用作圣诞装饰。",
+   "fr": "Un sapin de Douglas généralement utilisé comme décoration de Noël.",
+   "pt": "Um abeto-de-douglas geralmente usado como decoração de Natal.",
+   "zh-tw": "一棵花旗松，通常用作聖誕裝飾。",
+   "th": "ต้นดักลาสเฟอร์ที่มักใช้เป็นของประดับในเทศกาลคริสต์มาส",
+   "pl": "Daglezja zwykle używana jako dekoracja bożonarodzeniowa."
+  },
   "disambig": "CR Christmas Tree Decorated"
  },
  {
@@ -17612,7 +17667,18 @@
    "th": "หัวมนุษย์เสียบไม้แหลม",
    "pl": "Ludzka głowa na palu"
   },
-  "description": {},
+  "description": {
+   "es": "Ganadora del concurso de decoración de Halloween de 1460.",
+   "en": "Took first place in the 1460 Halloween decoration contest.",
+   "de": "Sieger des Halloween-Dekorationswettbewerbs von 1460.",
+   "ru": "Победитель конкурса хэллоуинских украшений 1460 года.",
+   "zh": "1460 年万圣节装饰大赛的冠军作品。",
+   "fr": "Lauréate du concours de décoration d'Halloween de 1460.",
+   "pt": "Vencedora do concurso de decoração de Halloween de 1460.",
+   "zh-tw": "1460 年萬聖節裝飾大賽的冠軍作品。",
+   "th": "ผู้ชนะการประกวดของตกแต่งฮาโลวีนประจำปี 1460",
+   "pl": "Zwycięzca konkursu na dekorację z okazji Halloween z 1460 roku."
+  },
   "disambig": "CR Human Head Spike"
  },
  {
@@ -17775,7 +17841,18 @@
    "th": "เตียงประดิษฐ์",
    "pl": "Improwizowane łóżko"
   },
-  "description": {},
+  "description": {
+   "es": "Cama improvisada pensada para un uso breve.",
+   "en": "A makeshift bed meant only for brief use.",
+   "de": "Ein behelfsmäßiges Bett für die kurzzeitige Nutzung.",
+   "ru": "Импровизированная кровать для кратковременного использования.",
+   "zh": "临时拼凑的床，仅供短时间使用。",
+   "fr": "Un lit de fortune destiné à une utilisation de courte durée.",
+   "pt": "Cama improvisada destinada a uso breve.",
+   "zh-tw": "臨時拼湊的床，僅供短時間使用。",
+   "th": "เตียงชั่วคราวที่เหมาะสำหรับการใช้งานในช่วงสั้น ๆ",
+   "pl": "Prowizoryczne łóżko przeznaczone do krótkotrwałego użytku."
+  },
   "disambig": "CR Improvised Bed"
  },
  {
@@ -17915,7 +17992,18 @@
   "name": {
    "en": "Improvised Metal Chest"
   },
-  "description": {},
+  "description": {
+   "es": "Cofre de metal improvisado, obra de un artesano experto, ideal para guardar objetos de forma segura.",
+   "en": "An improvised metal chest crafted by a skilled artisan, ideal for keeping items safely stored.",
+   "de": "Eine behelfsmäßige Metalltruhe aus der Hand eines geschickten Handwerkers, ideal zum sicheren Verstauen von Gegenständen.",
+   "ru": "Импровизированный металлический сундук работы умелого мастера, предназначенный для надёжного хранения предметов.",
+   "zh": "由能工巧匠打造的简易金属箱，可安全存放物品。",
+   "fr": "Un coffre métallique improvisé réalisé par un artisan chevronné, parfait pour ranger des objets en toute sécurité.",
+   "pt": "Baú de metal improvisado feito por um artesão habilidoso, ideal para guardar itens com segurança.",
+   "zh-tw": "由能工巧匠打造的簡易金屬箱，可安全存放物品。",
+   "th": "หีบโลหะแบบประดิษฐ์เองที่ทำขึ้นโดยช่างฝีมือผู้ชำนาญ เหมาะสำหรับเก็บสิ่งของอย่างปลอดภัย",
+   "pl": "Prowizoryczna metalowa skrzynia wykonana przez wprawnego rzemieślnika, idealna do bezpiecznego przechowywania przedmiotów."
+  },
   "disambig": "CR Metal Chest Skin"
  },
  {
@@ -17936,7 +18024,18 @@
    "th": "หีบเหล็กประดิษฐ์",
    "pl": "Improwizowana metalowa skrzynia"
   },
-  "description": {},
+  "description": {
+   "es": "Cofre de metal improvisado, obra de un artesano experto, ideal para guardar objetos de forma segura.",
+   "en": "An improvised metal chest crafted by a skilled artisan, ideal for keeping items safely stored.",
+   "de": "Eine behelfsmäßige Metalltruhe aus der Hand eines geschickten Handwerkers, ideal zum sicheren Verstauen von Gegenständen.",
+   "ru": "Импровизированный металлический сундук работы умелого мастера, предназначенный для надёжного хранения предметов.",
+   "zh": "由能工巧匠打造的简易金属箱，可安全存放物品。",
+   "fr": "Un coffre métallique improvisé réalisé par un artisan chevronné, parfait pour ranger des objets en toute sécurité.",
+   "pt": "Baú de metal improvisado feito por um artesão habilidoso, ideal para guardar itens com segurança.",
+   "zh-tw": "由能工巧匠打造的簡易金屬箱，可安全存放物品。",
+   "th": "หีบโลหะแบบประดิษฐ์เองที่ทำขึ้นโดยช่างฝีมือผู้ชำนาญ เหมาะสำหรับเก็บสิ่งของอย่างปลอดภัย",
+   "pl": "Prowizoryczna metalowa skrzynia wykonana przez wprawnego rzemieślnika, idealna do bezpiecznego przechowywania przedmiotów."
+  },
   "disambig": "CR Metal Chest"
  },
  {
@@ -19508,7 +19607,18 @@
    "th": "เพิงพัก",
    "pl": "Szałas"
   },
-  "description": {},
+  "description": {
+   "es": "Refugio improvisado pensado para uso a corto plazo.",
+   "en": "A makeshift shelter meant for short-term use.",
+   "de": "Behelfsmäßiger Unterschlupf für kurzfristige Nutzung.",
+   "ru": "Импровизированное укрытие для кратковременного использования.",
+   "zh": "供短期使用的简易避难所。",
+   "fr": "Abri de fortune destiné à un usage de courte durée.",
+   "pt": "Abrigo improvisado destinado a uso de curto prazo.",
+   "zh-tw": "供短期使用的簡易避難所。",
+   "th": "ที่พักชั่วคราวสำหรับใช้งานระยะสั้น",
+   "pl": "Prowizoryczne schronienie do krótkotrwałego użytku."
+  },
   "disambig": "CR Shelter"
  },
  {
@@ -20296,7 +20406,18 @@
    "th": "คบเพลิงตั้งพื้น",
    "pl": "Stojąca pochodnia"
   },
-  "description": {},
+  "description": {
+   "es": "Gran antorcha improvisada fija. Se emplea sobre todo para vigilar el perímetro de un campamento iluminando a posibles intrusos.",
+   "en": "A large fixed improvised torch, used mostly to watch a camp's perimeter by lighting up would-be intruders.",
+   "de": "Eine große, unbewegliche improvisierte Fackel, vor allem genutzt, um den Lagerrand zu bewachen, indem sie mögliche Eindringlinge beleuchtet.",
+   "ru": "Большой неподвижный самодельный факел, в основном для охраны периметра лагеря — освещает возможных нарушителей.",
+   "zh": "大型固定式简易火炬，主要用于守卫营地周界，照亮潜在的入侵者。",
+   "fr": "Une grande torche improvisée fixe, surtout utilisée pour surveiller le périmètre d'un camp en éclairant les intrus potentiels.",
+   "pt": "Uma grande tocha improvisada fixa, usada principalmente para vigiar o perímetro de um acampamento iluminando possíveis invasores.",
+   "zh-tw": "大型固定式簡易火炬，主要用於守衛營地周界，照亮潛在的入侵者。",
+   "th": "คบเพลิงประดิษฐ์ขนาดใหญ่แบบติดตั้งอยู่กับที่ ใช้เป็นหลักในการเฝ้าระวังแนวเขตของแคมป์โดยส่องสว่างให้เห็นผู้บุกรุกที่อาจเข้ามา",
+   "pl": "Duża, nieruchoma prowizoryczna pochodnia, używana głównie do strzeżenia obwodu obozu poprzez oświetlanie potencjalnych intruzów."
+  },
   "disambig": "CR Standing Torch"
  },
  {
@@ -28375,7 +28496,18 @@
    "th": "กระดาษ",
    "pl": "Papier"
   },
-  "description": {},
+  "description": {
+   "es": "Una hoja de papel que sirve para escribir, tambien como combustible para el fuego y para fabricar cartuchos de escopeta.",
+   "en": "A sheet of paper for writing on; it can also fuel a fire and be used to make shotgun shells.",
+   "de": "Ein Blatt Papier zum Beschreiben; es kann auch ein Feuer befeuern und zur Herstellung von Schrotpatronen dienen.",
+   "ru": "List bumagi dlya pisma; takzhe mozhet sluzhit toplivom dlya ognya i ispolzovatsya dlya izgotovleniya patronov dlya drobovika.",
+   "zh": "一张纸，可用于书写，也可作为生火的燃料和用来制作霰弹枪弹壳。",
+   "fr": "Une feuille de papier pour ecrire ; elle peut aussi alimenter un feu et servir a fabriquer des cartouches de fusil de chasse.",
+   "pt": "Uma folha de papel para escrever; tambem pode alimentar o fogo e ser usada para fazer cartuchos de espingarda.",
+   "zh-tw": "一張紙，可用於書寫，也可作為生火的燃料和用來製作霰彈槍彈殼。",
+   "th": "แผ่นกระดาษสำหรับเขียน อีกทั้งยังใช้เป็นเชื้อเพลิงจุดไฟและทำกระสุนปืนลูกซองได้",
+   "pl": "Kartka papieru do pisania; moze tez sluzyc jako podpalka oraz do wytwarzania amunicji do strzelby."
+  },
   "disambig": "Test Paper"
  },
  {
