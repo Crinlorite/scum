@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localizedPath } from '../i18n/utils';
 import { LANGUAGES, FALLBACK_LANG, type LangCode } from '../i18n/languages';
 import { itemName, displayName, itemDescription, categoryLabel, type ScumItem } from '../data/items';
-import { itemDetail } from '../data/details';
+import { itemDetail, vehiclePartsOf } from '../data/details';
 import { iconUrl } from '../data/icons';
 
 interface Props { lang: LangCode; item: ScumItem; }
@@ -162,6 +162,13 @@ for (const [k, v] of Object.entries(st)) {
   if (fv != null) fullStatRows.push({ k: fullLabel(k), v: fv });
 }
 fullStatRows.sort((a, b) => a.k.localeCompare(b.k));
+
+// Pieza de vehículo: a qué modelo pertenece + guía de montaje (todas las piezas del modelo).
+const vehName = (st as Record<string, unknown>).vehicle as string | undefined;
+const vehPart = (st as Record<string, unknown>).part_type as string | undefined;
+const vehParts = vehName ? vehiclePartsOf(vehName) : [];
+const prettyPart = (s?: string | null) => (s ? s.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : '');
+const partName = (p: { name: Partial<Record<LangCode, string>>; slug: string }) => p.name[lang] ?? p.name[FALLBACK_LANG] ?? Object.values(p.name)[0] ?? p.slug;
 ---
 <BaseLayout lang={lang} title={dispName} description={desc ?? `${dispName} · ${cat} · SCUM`}>
   <article class="item-page">
@@ -183,6 +190,10 @@ fullStatRows.sort((a, b) => a.k.localeCompare(b.k));
         <p class={`edibility edibility-${d.edibility}`}>
           {d.edibility === 'poisonous' ? `☠ ${tr('item.poisonous')}` : d.edibility === 'drink' ? `✓ ${tr('item.drinkable')}` : `✓ ${tr('item.edible')}`}
         </p>
+      )}
+
+      {vehName && (
+        <p class="veh-of">🚗 {lang === 'es' ? 'Pieza de vehículo' : 'Vehicle part'}: <strong>{vehName}</strong>{vehPart ? ` · ${prettyPart(vehPart)}` : ''}</p>
       )}
 
       {statRows.length > 0 && (
@@ -353,6 +364,21 @@ fullStatRows.sort((a, b) => a.k.localeCompare(b.k));
         </section>
       )}
 
+      {vehParts.length > 1 && (
+        <section class="block veh-build">
+          <h2>{lang === 'es' ? `Montaje del ${vehName}` : `Build the ${vehName}`} <span class="count">{vehParts.length} {lang === 'es' ? 'piezas' : 'parts'}</span></h2>
+          <p class="veh-intro">{lang === 'es' ? 'Todas las piezas que componen este vehículo (la pieza actual resaltada):' : 'All parts that make up this vehicle (current part highlighted):'}</p>
+          <div class="veh-grid">
+            {vehParts.map((p) => (
+              <a class={`veh-part${p.slug === item.slug ? ' current' : ''}`} href={localizedPath(`/items/${p.slug}`, lang)}>
+                {iconUrl(p.slug) ? <img src={iconUrl(p.slug)!} alt="" width="34" height="34" loading="lazy" /> : <span class="veh-noicon" aria-hidden="true">🔩</span>}
+                <span class="veh-pinfo"><span class="veh-pname">{partName(p)}</span>{p.partType ? <span class="veh-ptype">{prettyPart(p.partType)}</span> : null}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       {fullStatRows.length > 0 && (
         <section class="block full-stats">
           <h2>{FULL_TITLE[lang] ?? FULL_TITLE[FALLBACK_LANG]}</h2>
@@ -495,6 +521,20 @@ fullStatRows.sort((a, b) => a.k.localeCompare(b.k));
   .other-langs li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--c-rule); }
   .lang-name { color: var(--c-ink-muted); font-size: 0.9rem; }
   .lang-value { color: var(--c-ink); text-align: right; }
+  /* Pieza de vehículo + guía de montaje. */
+  .veh-of { display: inline-block; margin: 0.2rem 0 0.6rem; padding: 0.3rem 0.7rem; border-radius: 8px; background: var(--c-paper); border: 1px solid var(--c-rule); color: var(--c-ink); font-size: 0.95rem; }
+  .veh-of strong { color: var(--c-rust); }
+  .veh-build .count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--c-ink-muted); font-weight: 400; }
+  .veh-intro { color: var(--c-ink-soft); font-size: 0.9rem; margin: 0 0 0.7rem; }
+  .veh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.5rem; }
+  .veh-part { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.55rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); text-decoration: none; color: var(--c-ink); min-width: 0; }
+  .veh-part:hover { border-color: var(--c-rust); }
+  .veh-part.current { border-color: var(--c-rust); background: var(--c-paper-soft, rgba(224,132,63,0.08)); box-shadow: inset 0 0 0 1px var(--c-rust); }
+  .veh-part img { flex: none; width: 34px; height: 34px; object-fit: contain; }
+  .veh-part .veh-noicon { flex: none; width: 34px; height: 34px; display: grid; place-items: center; font-size: 18px; opacity: 0.55; }
+  .veh-pinfo { display: flex; flex-direction: column; min-width: 0; }
+  .veh-pname { font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .veh-ptype { font-size: 0.7rem; color: var(--c-ink-muted); }
 </style>
 
 <!-- Estilos del índice/FABs: los nodos se añaden al <body> (fuera del scope), por eso global. -->

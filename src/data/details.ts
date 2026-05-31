@@ -91,6 +91,24 @@ function push<K, V>(m: Map<K, V[]>, k: K, v: V) {
 const statsBySlug = new Map<string, ItemStatRec>();
 for (const s of STATS) if (s.slug && !statsBySlug.has(s.slug)) statsBySlug.set(s.slug, s);
 
+// Piezas de vehículo agrupadas por vehículo (guía "montar un vehículo desde 0").
+// Cada item de categoría Vehicle lleva stats.vehicle (a qué modelo pertenece) y
+// stats.part_type. Se agrupan para listar todas las piezas de un modelo.
+export interface VehiclePart { slug: string; name: Partial<Record<LangCode, string>>; partType: string | null }
+const VEHICLE_PARTS = new Map<string, VehiclePart[]>();
+for (const s of STATS) {
+  const st = s.stats as Record<string, unknown> | undefined;
+  const v = st?.vehicle;
+  if (typeof v === 'string' && v) {
+    const arr = VEHICLE_PARTS.get(v) ?? [];
+    arr.push({ slug: s.slug, name: (s as unknown as { name?: Partial<Record<LangCode, string>> }).name ?? {}, partType: (typeof st?.part_type === 'string' ? st.part_type : null) });
+    VEHICLE_PARTS.set(v, arr);
+  }
+}
+export function vehiclePartsOf(vehicle: string): VehiclePart[] {
+  return (VEHICLE_PARTS.get(vehicle) ?? []).slice().sort((a, b) => (a.partType ?? '').localeCompare(b.partType ?? '') || a.slug.localeCompare(b.slug));
+}
+
 const weaponBySlug = new Map<string, WeaponRec>();
 for (const w of WEAPONS) if (w.slug && !weaponBySlug.has(w.slug)) weaponBySlug.set(w.slug, w);
 
