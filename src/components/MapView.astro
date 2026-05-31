@@ -150,6 +150,11 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       // Marcadores persistentes por nombre: NO recrearlos en cada refresco, o la
       // animación del anillo se reinicia 4×/seg y parpadea. Solo movemos su posición.
       const markers = {};
+      // Rumbo de AVANCE (no hacia dónde mira, sino hacia dónde va): se deriva del
+      // desplazamiento entre muestras. travel[name] = {fx,fy: punto desde el que se
+      // mide, deg: rumbo en pantalla, t: ts del último avance}. La flecha solo se
+      // muestra mientras te mueves; quieto → solo círculo.
+      const travel = {};
       // Fuente de posición: RAM (en vivo de la memoria del server, ~1s) o DB (~17s).
       let source = localStorage.getItem('scum-map-src') || 'ram';
       const srcCtl = L.control({ position: 'topright' });
@@ -213,18 +218,32 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
             let mk = markers[p.name];
             if (!mk) {
               mk = L.marker(ll, {
-                icon: L.divIcon({ className: 'player-marker', html: '<div class="pm-dot"></div><span class="pm-name"></span>', iconSize: [0, 0] }),
+                icon: L.divIcon({ className: 'player-marker', html: '<div class="pm-dot"></div><div class="pm-go hide"></div><span class="pm-name"></span>', iconSize: [0, 0] }),
                 zIndexOffset: 1000,
               }).addTo(playerLayer);
               markers[p.name] = mk;
             } else {
               mk.setLatLng(ll);
             }
+            // Rumbo de avance: acumula hasta moverte >~0.1 px de mapa (estable, sin
+            // ruido) y calcula el ángulo en pantalla. flip() => latlng [py, SIZE-px],
+            // así que en pantalla derecha = −dpx y arriba = +dpy.
+            const tv = travel[p.name] || (travel[p.name] = { fx: p.px, fy: p.py, deg: null, t: 0 });
+            if (Math.hypot(p.px - tv.fx, p.py - tv.fy) > 0.1) {
+              tv.deg = Math.atan2(-(p.px - tv.fx), p.py - tv.fy) * 180 / Math.PI;
+              tv.fx = p.px; tv.fy = p.py; tv.t = Date.now();
+            }
+            const moving = tv.deg != null && tv.t && (Date.now() - tv.t < 1500);
             const el = mk.getElement();
             if (el) {
               el.classList.toggle('dead', !p.alive);
               const nm = el.querySelector('.pm-name');
               if (nm) nm.textContent = p.name + (p.alive ? '' : ' †');
+              const go = el.querySelector('.pm-go');
+              if (go) {
+                if (tv.deg != null) go.style.transform = 'rotate(' + tv.deg.toFixed(1) + 'deg)';
+                go.classList.toggle('hide', !moving);
+              }
             }
           }
           // Quitar marcadores de jugadores que ya no aparecen en el feed.
@@ -267,6 +286,12 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
   :global(.player-marker .pm-dot)::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--c-rust-bright, #e0843f); animation: pm-pulse 2.6s ease-in-out infinite; pointer-events: none; }
   @keyframes pm-pulse { 0% { transform: scale(0.85); opacity: 0.6; } 70% { opacity: 0; } 100% { transform: scale(1.9); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { :global(.player-marker .pm-dot)::after { animation: none; opacity: 0; } }
+  /* Flecha de AVANCE: triángulo que orbita el círculo apuntando a dónde te mueves
+     (transform-origin en el centro del marcador). Oculta cuando estás quieto. */
+  :global(.player-marker .pm-go) { position: absolute; left: 0; top: 0; transform-origin: 0 0; transition: transform 0.2s linear; pointer-events: none; }
+  :global(.player-marker .pm-go)::before { content: ''; position: absolute; left: -6px; top: -24px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid #fff; filter: drop-shadow(0 0 2px #000); }
+  :global(.player-marker .pm-go.hide) { display: none; }
+  :global(.player-marker.dead .pm-go)::before { border-bottom-color: #c83a3a; }
   :global(.player-marker .pm-name) { position: absolute; left: 13px; top: -10px; white-space: nowrap; color: #fff; font-weight: 700; font-size: 0.8rem; text-shadow: 0 0 4px #000, 0 0 4px #000; }
   :global(.player-marker.dead .pm-dot) { background: #c83a3a; box-shadow: 0 0 7px 1px rgba(200,58,58,0.95), 0 0 0 1px #000; }
   :global(.player-marker.dead .pm-dot)::after { border-color: #c83a3a; }
