@@ -251,6 +251,13 @@ const attachSlots: [string, number][] = w?.attachments?.length
         </section>
       )}
 
+      {d.craftingUsing.length > 0 && (
+        <section class="block">
+          <h2>{tr('item.usedInCrafting')}</h2>
+          <div class="chips">{d.craftingUsing.slice(0, 40).map((c) => { const t = loc(c.name); return t ? <a class="chip" href={localizedPath(`/crafteo/${c.slug}`, lang)}>{t}</a> : null; })}</div>
+        </section>
+      )}
+
       {d.loot?.spawns && d.loot.spawns.length > 0 && (
         <section class="block">
           <h2>{tr('item.whereFound')}</h2>

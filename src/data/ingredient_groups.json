@@ -1,0 +1,909 @@
+{
+"CI_Pants": [
+"hippie-pants",
+"pants",
+"pants-2",
+"pants-3"
+],
+"CI_Improvised_Wooden_Spear": [
+"improvised-wooden-spear"
+],
+"CI_Weapon_Hunter85": [
+"hunter85"
+],
+"CI_Weapon_M16": [
+"m16a4"
+],
+"CI_ImprovisedFlamethrower": [
+"improvised-flamethrower"
+],
+"CI_Weapon_M1_Garand": [
+"m1-rifle"
+],
+"CI_Weapon_M1887": [
+"m1887-sawed-off"
+],
+"CI_ImprovisedRifle": [
+"improvised-rifle"
+],
+"CI_Weapon_Deagle": [
+"deagle-50"
+],
+"CI_RPG": [
+"rpg7"
+],
+"CI_Weapon_SVD": [
+"svd"
+],
+"CI_Group_Blade": [
+"axe",
+"big-stone-axe",
+"cleaver",
+"danny-trejo-s-machete",
+"empossible-knife",
+"improvised-hatchet",
+"kar98-bayonet",
+"katana",
+"kitchen-knife",
+"kitchen-knife-2",
+"kitchen-knife-3",
+"kitchen-knife-4",
+"kunai",
+"la-hatcha-axe",
+"m1-bayonet",
+"m1891-bayonet",
+"m70-bayonet",
+"medieval-sword",
+"metal-axe",
+"metal-knife",
+"metal-saw",
+"metal-sword",
+"military-shovel",
+"military-survival-knife",
+"military-tomahawk",
+"mk5000",
+"n9-bayonet",
+"n9-bayonet-2",
+"p17-bayonet",
+"raymond-cruz-espada",
+"scalpel",
+"scout",
+"scout-2",
+"shuriken",
+"skinning-knife",
+"sks-bayonet",
+"small-axe",
+"stone-axe",
+"stone-knife",
+"tang-dao",
+"traynor-s-axe",
+"wooden-sword"
+],
+"CL_Light": [
+"as-val-vss-flashlight",
+"cruiser-brake-light",
+"cruiser-headlight",
+"desert-eagle-flashlight",
+"dirtbike-brake-light",
+"dirtbike-headlights",
+"improvised-flashlight",
+"laika-lights-front-left",
+"laika-lights-front-right",
+"laika-lights-rear-left",
+"laika-lights-rear-right",
+"m9-flashlight",
+"portable-work-light",
+"rager-lights-front-left",
+"rager-lights-front-right",
+"rager-lights-rear-left",
+"rager-lights-rear-right",
+"rager-lights-rear-top",
+"ris-brake-light-center",
+"ris-brake-light-left",
+"ris-brake-light-right",
+"ris-headlight-left",
+"ris-headlight-right",
+"sidecar-bike-brake-light",
+"sidecar-bike-headlight",
+"sidecar-bike-sidecar-brake-light",
+"sidecar-bike-sidecar-head-light",
+"tractor-brake-light-left",
+"tractor-brake-light-right",
+"tractor-headlight-left",
+"tractor-headlight-right",
+"ww-lights-front-left",
+"ww-lights-front-right",
+"ww-lights-rear-left",
+"ww-lights-rear-right"
+],
+"CI_Desert_Eagle_Flashlight": [
+"desert-eagle-flashlight"
+],
+"CI_Group_Axe": [
+"axe",
+"big-stone-axe",
+"improvised-hatchet",
+"la-hatcha-axe",
+"metal-axe",
+"military-shovel",
+"military-tomahawk",
+"small-axe",
+"stone-axe",
+"traynor-s-axe"
+],
+"CI_Group_BluntTool": [
+"baseball-bat",
+"baseball-bat-with-nails",
+"baton",
+"bent-pitchfork",
+"crowbar",
+"crutch",
+"facerolls-face-smasher",
+"improvised-hammer",
+"improvised-metal-shovel",
+"improvised-shovel",
+"metal-baseball-bat",
+"metal-pipe",
+"military-shovel",
+"pipe-wrench",
+"pitchfork",
+"shovel",
+"sledgehammer",
+"small-spade",
+"spade-shovel",
+"wire-baseball-bat",
+"wire-wooden-club",
+"wooden-club",
+"wooden-club-with-nails"
+],
+"CI_Group_Shovel": [
+"improvised-metal-shovel",
+"improvised-shovel",
+"military-shovel",
+"shovel",
+"small-spade",
+"spade-shovel"
+],
+"CI_Dildo": [
+"beamasaurus-dildo",
+"dildo"
+],
+"CI_Wooden_Club": [
+"wooden-club"
+],
+"CI_Metal_Pipe": [
+"metal-pipe"
+],
+"CI_Crutch": [
+"crutch"
+],
+"CI_Baseball_Bat": [
+"baseball-bat"
+],
+"CI_MotorcyclePants": [
+"motorcycle-pants"
+],
+"CI_MotorcycleBoots": [
+"motorcycle-boots"
+],
+"CI_RacingHelmet": [
+"racing-helmet"
+],
+"CI_MotorcycleJacket": [
+"motorcycle-jacket"
+],
+"CI_Bread": [
+"bread"
+],
+"CI_Group_Chips": [
+"chips-classic",
+"onion-rings",
+"potato-chips-salty",
+"spicy-nacho-chips"
+],
+"CI_Candy_Bob": [
+"candy-bob"
+],
+"CI_Group_Canned_Vegetables": [
+"black-olives",
+"green-peas",
+"sweet-corn",
+"tomato-pelati",
+"tomato-sauce"
+],
+"CI_Corn": [
+"sweet-corn"
+],
+"CI_Aloe_Vera": [
+"agave-leaf"
+],
+"CI_Cannabis_Bud": [
+"cannabis-bud"
+],
+"CI_Tobacco": [
+"tobacco"
+],
+"CI_Sardine": [
+"spotted-sardine"
+],
+"CI_Bleak": [
+"bleak"
+],
+"CI_Richards_Cheese": [
+"richard-s-cheese"
+],
+"CI_Cheese": [
+"cheese"
+],
+"CI_Group_Liquid": [
+"absinthe-father",
+"beer",
+"bubbles",
+"canteen",
+"caramel-soda",
+"caramel-soda-2",
+"carrot-juice",
+"coffee-cup",
+"cola",
+"gasoline-canister",
+"grapefruit-juice",
+"hip-flask",
+"improvised-water-container",
+"isopropyl-alcohol",
+"kicmovaca",
+"lime-juice",
+"lime-soda",
+"lime-soda-2",
+"majestic-bear-vodka",
+"milk",
+"orange-juice",
+"orange-juice-2",
+"red-ghoul-energy-drink",
+"scum-sunrise",
+"scumkin-spice-latter",
+"slav-reviver",
+"slavic-gent",
+"small-gasoline-canister",
+"soda",
+"soy-sauce",
+"tequila",
+"the-island-special",
+"water-bottle",
+"water-bucket",
+"whiskey",
+"wine"
+],
+"CI_Group_Meat": [
+"amur-fillet",
+"angler-fillet",
+"bass-fillet",
+"bear-steak",
+"bleak-fillet",
+"carp-fillet",
+"catfish-fillet",
+"chicken-drumstick",
+"chicken-meat",
+"chub-fillet",
+"dantex-fillet",
+"deer-steak",
+"doe-steak",
+"donkey-steak",
+"european-bass-fillet",
+"goat-steak",
+"horse-steak",
+"human-steak",
+"orata-fillet",
+"pike-fillet",
+"pork-steak",
+"puppet-meat",
+"rabbit-leg",
+"rabbit-meat",
+"ruffe-fillet",
+"sardine-fillet",
+"scorpionfish-fillet",
+"tuna-fillet",
+"wolf-steak"
+],
+"CI_Grasshopper": [
+"grasshopper"
+],
+"CI_Larve": [
+"larva"
+],
+"CI_Earthworm": [
+"earthworm"
+],
+"CI_Cricket": [
+"cricket"
+],
+"CI_Vegetable_Oil": [
+"vegetable-oil"
+],
+"CI_Goat_Head": [
+"goat-head"
+],
+"CI_Doe_Head": [
+"doe-head"
+],
+"CI_Wolf_Head": [
+"wolf-head"
+],
+"CI_Horse_Head": [
+"horse-head"
+],
+"CI_Donkey_Head": [
+"donkey-head"
+],
+"CI_Bear_Head": [
+"bear-head"
+],
+"CI_Boar_Head": [
+"boar-head"
+],
+"CI_Buck_Antlers": [
+"deer-antlers"
+],
+"CI_Buck_Head": [
+"buck-head"
+],
+"CI_Puppet_Head": [
+"puppet-head-2"
+],
+"CI_Human_Head": [
+"human-head"
+],
+"CI_Pumpkin": [
+"pumpkin"
+],
+"CI_Carrot": [
+"carrot"
+],
+"CI_Frag_Grenade": [
+"grenade"
+],
+"CI_Lockpick": [
+"lockpick"
+],
+"CI_Padlock": [
+"padlock"
+],
+"CI_Improvised_Lockpick": [
+"improvised-lockpick"
+],
+"CI_Group_Snowball": [
+"snowball",
+"yellow-snowball"
+],
+"CI_Group_Christmas_Ornament": [
+"christmas-ornament",
+"christmas-ornament-2",
+"christmas-ornament-3",
+"christmas-ornament-4",
+"christmas-ornament-5"
+],
+"CI_Douglas_Fir": [
+"douglas-fir"
+],
+"CI_Christmas_Tree_Folded": [
+"folded-douglas-fir"
+],
+"CI_Group_Glass": [
+"absinthe-father",
+"beer",
+"camera-lens",
+"carrot-juice",
+"glass",
+"grapefruit-juice",
+"improvised-magnifying-glass",
+"kicmovaca",
+"lime-juice",
+"magnifying-glass",
+"majestic-bear-vodka",
+"orange-juice",
+"scum-sunrise",
+"scumkin-spice-latter",
+"slav-reviver",
+"slavic-gent",
+"tequila",
+"whiskey",
+"wine"
+],
+"CI_Group_PET_Bottle": [
+"caramel-soda",
+"caramel-soda-2",
+"lime-soda",
+"lime-soda-2",
+"water-bottle"
+],
+"CI_Group_PET_Bottle_Collector": [
+"caramel-soda",
+"caramel-soda-2",
+"lime-soda",
+"lime-soda-2"
+],
+"CI_Group_Cans_Cups": [
+"bubbles",
+"cola",
+"orange-juice-2",
+"red-ghoul-energy-drink",
+"soda"
+],
+"CI_Group_Cans": [
+"bubbles",
+"cola",
+"orange-juice-2",
+"red-ghoul-energy-drink",
+"soda"
+],
+"CI_Water_Bottle": [
+"water-bottle"
+],
+"CI_HikingBoots": [
+"hiking-boots"
+],
+"CI_Sneakers": [
+"high-top-shoes-2"
+],
+"CI_MilitaryBoots": [
+"military-boots"
+],
+"CI_Cowboy_Boots": [
+"cowboy-boots"
+],
+"CI_MilitaryBackpack": [
+"backpack",
+"backpack-2"
+],
+"CI_MilitaryBackpack_01": [
+"antler-backpack",
+"police-assault-backpack"
+],
+"CI_Shirt": [
+"cotton-shirt",
+"military-shirt"
+],
+"CI_Hoodie": [
+"cotton-hoodie"
+],
+"CI_Sweater": [
+"sweater"
+],
+"CI_JogaPants": [
+"pajama-pants",
+"sweatpants"
+],
+"CL_MilitaryPants": [
+"tactical-military-pants"
+],
+"CI_PantsJeans": [
+"jeans",
+"jeans-2"
+],
+"CI_MotorcycleGloves": [
+"driving-gloves"
+],
+"CI_WoolGloves": [
+"wool-gloves"
+],
+"CI_Jeans_Jersey_Jacket": [
+"trucker-jacket-2"
+],
+"CI_Leather_Jacket": [
+"biker-leather-jacket"
+],
+"CI_Trucker_Jacket": [
+"trucker-jacket"
+],
+"CI_Raincoat": [
+"improvised-raincoat",
+"raincoat"
+],
+"CI_CamoJacket": [
+"camouflage-jacket",
+"jock-jacket"
+],
+"CI_PilotJacket": [
+"pilot-jacket"
+],
+"CI_SpitfireJacket": [
+"spitfire-jacket"
+],
+"CI_MotorcycleHelmet": [
+"rider-helmet"
+],
+"CI_KnifeSheath": [
+"melee-weapon-holster"
+],
+"CI_SlouchHat": [
+"slouch-camo-hat",
+"slouch-camo-hat-2",
+"slouch-camo-hat-3",
+"slouch-camo-hat-4",
+"slouch-camo-hat-5",
+"slouch-camo-hat-6",
+"slouch-hat",
+"slouch-hat-2"
+],
+"CI_GarrisonCap": [
+"garrison-cap",
+"garrison-cap-2",
+"garrison-cap-3",
+"garrison-cap-4",
+"garrison-cap-5"
+],
+"CI_BoonieHat": [
+"fishing-hat",
+"police-fishing-hat"
+],
+"CI_PilotHat": [
+"pilot-hat"
+],
+"CI_Baseball_Cap": [
+"baseball-cap"
+],
+"CI_Balaclava": [
+"balaclava",
+"balaclava-2"
+],
+"CI_Group_Cigarette": [
+"classics-cigarette",
+"lucky-stars-cigarette"
+],
+"CI_Group_FishingLine": [
+"nylon-line-medium-0-18-mm",
+"nylon-line-thick-0-25-mm-2",
+"nylon-line-thick-0-5-mm",
+"nylon-line-thin-0-12-mm-2"
+],
+"CI_Metal_Scrap": [
+"metal-scrap",
+"metal-scrap-2",
+"metal-scrap-3",
+"metal-scrap-4",
+"metal-scrap-5"
+],
+"CI_Group_Gasoline_Canister": [
+"gasoline-canister",
+"small-gasoline-canister"
+],
+"CI_Gasoline": [
+"gasoline-canister",
+"small-gasoline-canister"
+],
+"CI_Drill": [
+"drill"
+],
+"CI_Empty_Bag": [
+"empty-bag"
+],
+"CI_Glue": [
+"glue"
+],
+"CI_Rubber_Band": [
+"rubber-band"
+],
+"CI_Phone": [
+"mobile-phone"
+],
+"CI_Rebar_Cutter": [
+"rebar-cutter"
+],
+"CI_Group_ElectriciansTools_Kit": [
+"electrical-repair-kit",
+"electrician-s-tools"
+],
+"CI_Bolts": [
+"bolts"
+],
+"CI_Group_Fastener": [
+"bolts",
+"nails"
+],
+"CI_Wheel": [
+"improvised-wheel"
+],
+"CI_Batteries": [
+"batteries"
+],
+"CI_Lock_Protection_Basic": [
+"basic-lock-protection"
+],
+"CI_Cement_Bag": [
+"cement-bag"
+],
+"CI_Sentry50Cal": [
+"sentry-50cal-rifle"
+],
+"CI_Packed_C4": [
+"packed-c4"
+],
+"CI_Lock_Protection_Medium": [
+"medium-lock-protection"
+],
+"CI_Gravel_Bag": [
+"gravel-bag"
+],
+"CI_Safety_Pin": [
+"safety-pin"
+],
+"CI_SentryMinigun": [
+"sentry-minigun"
+],
+"CI_Gasoline_Canister": [
+"gasoline-canister"
+],
+"CI_C4_Keypad": [
+"c4-keypad-circuit-board"
+],
+"CI_C4_Timer": [
+"c4-timer-circuit-board"
+],
+"CI_C4_Detonator": [
+"c4-detonator"
+],
+"CI_Sand_Bag": [
+"sand-bag"
+],
+"CI_SentryAimingKit": [
+"sentry-aiming-kit"
+],
+"CI_Hose": [
+"hose"
+],
+"CI_Group_Toolbox": [
+"improvised-tool-box",
+"small-tool-box",
+"tool-box"
+],
+"CI_Improvised_Rope": [
+"improvised-rope"
+],
+"CI_Group_Rope": [
+"branch-rope",
+"improvised-rope",
+"rope-5m",
+"thread",
+"wire-10m"
+],
+"CI_Group_Bone": [
+"bone"
+],
+"CI_2H_Stone_Axe_Head": [
+"big-stone-axe-head"
+],
+"CI_Bobby_Pin": [
+"bobby-pin"
+],
+"CI_Flare": [
+"flare",
+"flare-2",
+"flare-3"
+],
+"CI_Oil_Filter": [
+"oil-filter"
+],
+"CI_Paper": [
+"paper"
+],
+"CI_Group_Machinery": [
+"drill-press",
+"drill-press-2",
+"improvised-workbench",
+"lathe-machine"
+],
+"CI_Stone_Small": [
+"small-stone"
+],
+"CI_Group_Stone": [
+"small-stone",
+"stone"
+],
+"CI_Thread": [
+"thread"
+],
+"CI_Thread_Destroy": [
+"thread"
+],
+"CI_Car_Battery": [
+"car-battery"
+],
+"CI_Car_Battery_Resource": [
+"car-battery"
+],
+"CI_Rope": [
+"rope-5m"
+],
+"CI_Gun_Powder": [
+"gun-powder"
+],
+"CI_Group_Radio_CDPlayer": [
+"cd-player",
+"radio"
+],
+"CI_Radio": [
+"radio"
+],
+"CI_Lighter": [
+"lighter"
+],
+"CI_Puppet_Eyeballs": [
+"puppet-eye"
+],
+"CI_Group_Detonators": [
+"laser-detonator",
+"motion-sensor-detonator"
+],
+"CI_Long_Stick": [
+"long-wooden-stick"
+],
+"CI_Group_Sticks": [
+"long-wooden-stick",
+"small-wooden-stick"
+],
+"CI_Group_Wooden_Stick_Large": [
+"long-wooden-stick"
+],
+"CI_Brick": [
+"brick"
+],
+"CI_Group_Needle": [
+"bone-needle",
+"needle"
+],
+"CI_Car_Battery_Cables": [
+"car-battery-cables"
+],
+"CI_Cooking_Pot": [
+"cooking-pot"
+],
+"CI_Group_Kitchen_Boards": [
+"kitchen-board",
+"kitchen-board-2"
+],
+"CI_Parking_Sensor": [
+"parking-sensor"
+],
+"CI_Group_Fireworks": [
+"fireworks-small"
+],
+"CI_Duct_Tape": [
+"duct-tape"
+],
+"CI_Duct_Tape_Destroy": [
+"duct-tape"
+],
+"CI_Diary": [
+"diary"
+],
+"CI_Rag_Stripes": [
+"rag-strips"
+],
+"CI_Group_Rag_Stripes": [
+"rag-strips"
+],
+"CI_Group_Rag_StripesForBundle": [
+"rag-strips"
+],
+"CI_Improvised_Plant_Rope": [
+"branch-rope"
+],
+"CI_Nails": [
+"nails"
+],
+"CI_Stone": [
+"stone"
+],
+"CI_1H_Stone_Axe_Head": [
+"small-stone-axe-head"
+],
+"CI_Feather": [
+"feather"
+],
+"CI_Short_Stick": [
+"small-wooden-stick"
+],
+"CI_Group_Logs_Small": [
+"small-wooden-log",
+"small-wooden-log-2",
+"small-wooden-log-3"
+],
+"CI_Group_Skin": [
+"human-skin"
+],
+"CI_Depleted_Uranium": [
+"depleted-uranium"
+],
+"CI_Rubber_Sheet": [
+"piece-of-rubber"
+],
+"CI_Human_Teeth": [
+"human-teeth"
+],
+"CI_Matches": [
+"matches"
+],
+"CI_BCUChip": [
+"bcu-chip"
+],
+"CI_Human_Ear": [
+"human-ears"
+],
+"CI_Group_Logs": [
+"wooden-log",
+"wooden-log-2"
+],
+"CI_Magnifying_Glass": [
+"improvised-magnifying-glass"
+],
+"CI_Group_Rags": [
+"rags"
+],
+"CI_Metal_Arrow_Tips": [
+"metal-tips"
+],
+"CI_Wire_Cutters": [
+"wire-cutters"
+],
+"CI_Group_Planks": [
+"bundle-of-wooden-planks",
+"wooden-plank"
+],
+"CI_Lead_Plate": [
+"lead-plate"
+],
+"CI_Plank": [
+"wooden-plank"
+],
+"CI_Brake_Oil": [
+"brake-oil"
+],
+"CI_Pen": [
+"pen"
+],
+"CI_Group_Sewing_Kit": [
+"improvised-sewing-kit",
+"sewing-kit"
+],
+"CI_Magnifying_Glass1": [
+"magnifying-glass"
+],
+"CI_Wire": [
+"wire-10m"
+],
+"CI_Wire_Destroy": [
+"wire-10m"
+],
+"CI_CD_Player": [
+"cd-player"
+],
+"CI_Blast_Cap": [
+"blast-cap"
+],
+"CI_Tinder": [
+"tinder"
+],
+"CI_Stone_Arrow_Tips": [
+"stone-tips"
+],
+"CI_Barbed_Wire": [
+"barbed-wire"
+],
+"CI_Needle": [
+"needle"
+],
+"CI_Cork": [
+"wine-cork"
+],
+"CI_Camera_Lens": [
+"camera-lens"
+],
+"CI_Trap_Ammo": [
+"50-bmg-ammo"
+],
+"CI_Metal_Arrow": [
+"metal-arrow"
+],
+"CI_Carbon_Arrow": [
+"carbon-arrow"
+]
+}
