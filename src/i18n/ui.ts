@@ -157,6 +157,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.hint': 'Sigue escribiendo…',
     'search.noResults': 'Sin resultados',
     'sec.quest.requires': 'Requiere',
+    'sec.vehicle.parts': 'Piezas',
     'sec.quest.rewards': 'Recompensa',
 
     'lang.label': 'Cambiar idioma',
@@ -371,6 +372,7 @@ export const UI: Partial<Record<LangCode, Dict>> = {
     'search.hint': 'Keep typing…',
     'search.noResults': 'No results',
     'sec.quest.requires': 'Requires',
+    'sec.vehicle.parts': 'Parts',
     'sec.quest.rewards': 'Reward',
 
     'lang.label': 'Change language',

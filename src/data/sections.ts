@@ -9,6 +9,7 @@ import adminData from './admin.json';
 import fameData from './fame.json';
 import huntingData from './hunting.json';
 import controlsData from './controls.json';
+import itemsData from './items.json';
 import { FALLBACK_LANG, DEFAULT_LANG, type LangCode } from '../i18n/languages';
 import { localizedPath, useTranslations } from '../i18n/utils';
 
@@ -95,13 +96,24 @@ const VTYPE: Record<string, L> = {
   airplane: { es: 'Aviones', en: 'Aircraft' }, atv: { es: 'Quads', en: 'ATVs' }, tractor: { es: 'Tractores', en: 'Tractors' },
   wheelbarrow: { es: 'Carretillas', en: 'Wheelbarrows' },
 };
+// Piezas que componen un vehículo: items de categoría "Vehicle" cuyo slug empieza
+// por el prefijo del vehículo (alias para los que difieren, p.ej. wolfswagen→ww).
+const VEHICLE_PART_ALIAS: Record<string, string> = { wolfswagen: 'ww' };
+const VEHICLE_PART_ITEMS = (itemsData as any[]).filter((i) => i.category === 'Vehicle' && i.slug);
 export function vehiclesSection(lang: LangCode): Section {
+  const tr = useTranslations(lang);
   const cat = labelFrom(VTYPE, lang);
   const entries: (SecEntry & { _c: string })[] = (vehiclesData as any[]).map((v) => {
     const meta: { k: string; v: string }[] = [];
     if (v.fuel?.type) meta.push({ k: 'fuel', v: String(v.fuel.type) });
     if (typeof v.seats === 'number') meta.push({ k: 'seats', v: String(v.seats) });
-    return { slug: v.slug, name: loc(v.name, lang) || v.slug, names: v.name, desc: loc(v.descName, lang) || loc(v.description, lang), meta, _c: v.type || 'other' };
+    const pre = (VEHICLE_PART_ALIAS[v.slug] ?? v.slug) + '-';
+    const partLinks = VEHICLE_PART_ITEMS
+      .filter((i) => i.slug.startsWith(pre))
+      .map((i) => ({ label: loc(i.name, lang) || i.slug, href: localizedPath(`/items/${i.slug}`, lang) }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+    const rels: SecRel[] = partLinks.length ? [{ label: tr('sec.vehicle.parts' as any), links: partLinks }] : [];
+    return { slug: v.slug, name: loc(v.name, lang) || v.slug, names: v.name, desc: loc(v.descName, lang) || loc(v.description, lang), meta, rels: rels.length ? rels : undefined, _c: v.type || 'other' };
   });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, cat) };
 }
