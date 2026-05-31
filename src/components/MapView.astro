@@ -155,16 +155,22 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       // mide, deg: rumbo en pantalla, t: ts del último avance}. La flecha solo se
       // muestra mientras te mueves; quieto → solo círculo.
       const travel = {};
-      // Fuente de posición: RAM (en vivo de la memoria del server, ~1s) o DB (~17s).
-      let source = localStorage.getItem('scum-map-src') || 'ram';
+      // Fuente de posición: RAM Precise (grafo de Unreal, sin DB, exacta) / RAM (Old)
+      // (híbrido DB+RAM) / DB (~17s).
+      const SRC = {
+        precise: { url: '/panel/live/positions-ram-precise.json', label: 'RAM Precise', tag: 'RAM Precise' },
+        ram: { url: '/panel/live/positions-ram.json', label: 'RAM (Old)', tag: 'RAM (Old)' },
+        db: { url: '/panel/live/positions.json', label: 'DB · ~17s', tag: 'DB' },
+      };
+      let source = localStorage.getItem('scum-map-src') || 'precise';
+      if (!SRC[source]) source = 'precise';
       const srcCtl = L.control({ position: 'topright' });
       srcCtl.onAdd = () => { const d = L.DomUtil.create('div', 'src-ctl'); L.DomEvent.disableClickPropagation(d); return d; };
       srcCtl.addTo(map);
       const renderSrc = () => {
         const el = document.querySelector('.src-ctl'); if (!el) return;
         el.innerHTML = '<div class="me-h">Posición:</div>'
-          + `<button type="button" class="me-b${source === 'ram' ? ' on' : ''}" data-s="ram">RAM · en vivo</button>`
-          + `<button type="button" class="me-b${source === 'db' ? ' on' : ''}" data-s="db">DB · ~17s</button>`;
+          + Object.entries(SRC).map(([k, v]) => `<button type="button" class="me-b${source === k ? ' on' : ''}" data-s="${k}">${v.label}</button>`).join('');
         el.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => {
           source = b.getAttribute('data-s'); localStorage.setItem('scum-map-src', source); renderSrc(); refresh();
         }));
@@ -205,11 +211,11 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
         if (!lastOk) { el.textContent = '⏳ conectando…'; return; }
         const ago = Math.round((Date.now() - lastOk) / 1000);
         const dataAgo = dataTs ? Math.round(Date.now() / 1000 - dataTs) : null;
-        el.innerHTML = `🟢 ${source === 'ram' ? 'RAM en vivo' : 'DB'} · consultado hace ${fmtAgo(ago)}` + (dataAgo != null ? ` · dato hace ${fmtAgo(dataAgo)}` : '');
+        el.innerHTML = `🟢 ${SRC[source].tag} · consultado hace ${fmtAgo(ago)}` + (dataAgo != null ? ` · dato hace ${fmtAgo(dataAgo)}` : '');
       };
       const refresh = async () => {
         try {
-          const r = await fetch(source === 'ram' ? '/panel/live/positions-ram.json' : '/panel/live/positions.json', { cache: 'no-store' });
+          const r = await fetch(SRC[source].url, { cache: 'no-store' });
           if (!r.ok) return;
           const data = await r.json();
           lastOk = Date.now(); dataTs = data.ts || 0; count++;
