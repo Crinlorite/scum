@@ -21,7 +21,7 @@ type Localized = Partial<Record<LangCode, string>>;
 export interface ItemStatRec {
   slug: string;
   category?: string;
-  stats?: Record<string, number | string | boolean>;
+  stats?: Record<string, unknown>;
   food?: { kcalPer100gDerived?: number; nutrients?: Record<string, number>; consumptionMethod?: string } | null;
 }
 export interface WeaponRec {
