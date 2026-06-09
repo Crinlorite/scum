@@ -26,6 +26,7 @@ function isActive(href: string): boolean {
       <ul>
         <li><a href={home} class={isActive(home) ? 'active' : ''}>{tr('nav.home')}</a></li>
         <li><a href={localizedPath('/wiki', lang)} class={isActive(localizedPath('/wiki', lang)) ? 'active' : ''}>{tr('nav.wiki')}</a></li>
+        <li><a href={localizedPath('/comandos', lang)} class={isActive(localizedPath('/comandos', lang)) ? 'active' : ''}>{tr('nav.commands')}</a></li>
         <li><a href={localizedPath('/mapa', lang)} class={isActive(localizedPath('/mapa', lang)) ? 'active' : ''}>{tr('nav.map')}</a></li>
         <li><a href={`${home}#server`}>{tr('nav.server')}</a></li>
         <li><a href={`${home}#contribute`}>{tr('nav.contribute')}</a></li>

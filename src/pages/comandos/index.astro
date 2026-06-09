@@ -1,0 +1,9 @@
+---
+// Página PÚBLICA de referencia de comandos de admin/servidor de SCUM.
+// Misma fuente que la del panel privado (adminSection + DataSection), pero
+// pública (sin noindex) y enlazada en el nav. Solo es REFERENCIA: ejecutar
+// estos comandos requiere ser admin del servidor.
+import DataSection from '../../components/DataSection.astro';
+import { adminSection } from '../../data/sections';
+---
+<DataSection lang="es" titleKey="sec.admin.title" introKey="sec.admin.intro" searchKey="sec.admin.search" noResKey="sec.noResults" section={adminSection('es')} />
