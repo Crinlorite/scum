@@ -17,5 +17,6 @@ export const PANEL_NAV: { s: string; t: string; href: string }[] = [
   { s: 'fauna', t: 'Fauna', href: '/panel/fauna' },
   { s: 'historico', t: 'Histórico', href: '/panel/historico' },
   { s: 'killfeed', t: 'Killfeed', href: '/panel/killfeed' },
+  { s: 'chat', t: 'Chat', href: '/panel/chat' },
   { s: 'rcon', t: 'RCON', href: '/panel/rcon' },
 ];
