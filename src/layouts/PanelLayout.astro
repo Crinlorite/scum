@@ -4,19 +4,10 @@
 // ponen su contenido en el <slot/> y sus acciones (refrescar) en slot "actions".
 import BaseLayout from './BaseLayout.astro';
 import '../styles/panel.css';
+import { PANEL_NAV } from '../data/panel-nav.ts';
 
 interface Props { title: string; slug: string; }
 const { title, slug } = Astro.props;
-
-const NAV = [
-  { s: 'mapa', t: 'Mapa', href: '/panel/mapa' },
-  { s: 'jugadores', t: 'Jugadores', href: '/panel/jugadores' },
-  { s: 'economia', t: 'Economía', href: '/panel/economia' },
-  { s: 'squads', t: 'Squads', href: '/panel/squads' },
-  { s: 'overview', t: 'Overview', href: '/panel/overview' },
-  { s: 'actividad', t: 'Actividad', href: '/panel/actividad' },
-  { s: 'rcon', t: 'RCON', href: '/panel/rcon' },
-];
 ---
 <BaseLayout lang="es" title={title} description="Panel de administración del servidor" noindex>
   <section class="pnl">
@@ -27,7 +18,7 @@ const NAV = [
       </div>
 
       <nav class="pnl-nav" aria-label="secciones del panel">
-        {NAV.map((n) => <a href={n.href} class={n.s === slug ? 'active' : ''}>{n.t}</a>)}
+        {PANEL_NAV.map((n) => <a href={n.href} class={n.s === slug ? 'active' : ''}>{n.t}</a>)}
       </nav>
 
       <div id="pnl-gate" class="pnl-gate" hidden>
