@@ -1,0 +1,152 @@
+---
+// Dashboard de vehículos. Usa el sistema compartido (PanelLayout + panel.css +
+// scripts/panel.ts). Lee /panel/api/vehiculos. Cada vehículo: tipo/clase, estado
+// (funcional + combustible + salud del chasis), ubicación (mundo + sector mapa) y,
+// al hacer clic, el desglose de salud por pieza. Sin dueño: el server no guarda
+// propietario (todos los vehículos son auto-spawneados; ver pnl-hint).
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Vehículos" slug="vehiculos">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kv" id="k-total">—</span><span class="kl">Vehículos</span><span class="ks" id="k-types"></span></div>
+    <div class="kpi"><span class="kv" id="k-func">—</span><span class="kl">Funcionales</span><span class="ks" id="k-broken"></span></div>
+    <div class="kpi"><span class="kv" id="k-fuel">—</span><span class="kl">Con combustible</span><span class="ks">de los que reportan depósito</span></div>
+    <div class="kpi"><span class="kv" id="k-fav">—</span><span class="kl">Tipo más común</span><span class="ks" id="k-fav-n"></span></div>
+  </div>
+
+  <p id="meta" class="pnl-meta"></p>
+  <div class="dt-scroll">
+    <table class="dt click">
+      <thead><tr><th>Vehículo</th><th>Estado</th><th>Combustible</th><th>Chasis</th><th>Piezas</th><th>Ubicación</th><th>Últi. uso</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Clic en un vehículo para ver la salud pieza a pieza. El servidor no registra dueño: todos son vehículos generados por el mundo (no comprados), así que no hay propietario que cruzar.</p>
+
+  <div id="modal" class="pnl-modal" hidden>
+    <div class="pnl-modal-back" data-close></div>
+    <div class="pnl-modal-card" role="dialog" aria-modal="true">
+      <button class="pnl-modal-x" data-close aria-label="Cerrar">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    import { esc, nf, fmtRel, fmtDateTime, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    let DATA = [];
+
+    const prettyPart = (p) => esc((p || '').replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2'));
+
+    // Salud absoluta (no hay máximo guardado). Mostramos el valor del chasis y, en
+    // el detalle, una barra relativa al máximo observado en ese vehículo (referencia
+    // visual, no porcentaje del juego).
+    function fuelBadge(v) {
+      if (v.fuel == null) return '<span class="muted">—</span>';
+      if (v.fuel <= 0) return '<span class="bdg warn">vacío</span>';
+      return '<span class="num b">' + nf.format(Math.round(v.fuel)) + '</span> <span class="muted">L</span>';
+    }
+    function loc(v) {
+      if (v.wx == null) return '<span class="muted">—</span>';
+      return '<span class="mono">X ' + nf.format(v.wx) + ' · Y ' + nf.format(v.wy) + '</span>';
+    }
+
+    function render(list) {
+      document.getElementById('rows').innerHTML = list.map((v) => {
+        const estado = v.functional
+          ? '<span class="bdg ok">funcional</span>'
+          : '<span class="bdg danger">averiado</span>';
+        const chasis = v.hp_main != null
+          ? '<span class="num">' + Math.round(v.hp_main) + '</span>'
+          : '<span class="muted">—</span>';
+        const alias = v.alias ? '<br><span class="muted">' + esc(v.alias) + '</span>' : '';
+        return `<tr data-id="${v.id}" tabindex="0">
+          <td><span class="name">${esc(v.type)}</span>${alias}</td>
+          <td>${estado}</td>
+          <td class="num">${fuelBadge(v)}</td>
+          <td class="num">${chasis}</td>
+          <td class="num">${v.parts_count || 0}</td>
+          <td>${loc(v)}</td>
+          <td><span class="muted">${esc(fmtRel(v.last_access))}</span></td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/vehiculos')).json();
+        DATA = (d.vehicles || []).slice().sort((a, b) =>
+          Number(b.functional) - Number(a.functional) || (b.last_access || 0) - (a.last_access || 0));
+        render(DATA);
+        const func = DATA.filter((v) => v.functional).length;
+        const fuel = DATA.filter((v) => v.fuel != null && v.fuel > 0).length;
+        const counts = {};
+        for (const v of DATA) counts[v.type] = (counts[v.type] || 0) + 1;
+        const fav = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+        document.getElementById('k-total').textContent = nf.format(DATA.length);
+        document.getElementById('k-types').textContent = Object.keys(counts).length + ' tipos distintos';
+        document.getElementById('k-func').textContent = nf.format(func);
+        document.getElementById('k-broken').textContent = nf.format(DATA.length - func) + ' averiados';
+        document.getElementById('k-fuel').textContent = nf.format(fuel);
+        document.getElementById('k-fav').textContent = fav ? esc(fav[0]) : '—';
+        document.getElementById('k-fav-n').textContent = fav ? fav[1] + ' unidades' : '';
+        document.getElementById('meta').textContent =
+          `${DATA.length} vehículos · ${func} funcionales · actualizado ${nowTime()}`;
+      } catch (e) {
+        document.getElementById('meta').textContent = 'Error al cargar.';
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    const modal = document.getElementById('modal');
+    const closeModal = () => { modal.hidden = true; };
+    modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function inspect(id) {
+      const v = DATA.find((x) => String(x.id) === String(id));
+      const body = document.getElementById('modal-body');
+      if (!v) { body.innerHTML = '<p class="muted">No encontrado.</p>'; modal.hidden = false; return; }
+      const maxH = Math.max(1, ...v.parts.map((p) => p.health || 0));
+      const parts = (v.parts || []).map((p) => {
+        const h = p.health;
+        const w = h != null ? Math.min(100, Math.max(0, (h / maxH) * 100)) : 0;
+        const low = h != null && h / maxH < 0.5 ? ' class="lowbar"' : '';
+        return `<li><span class="bn">${prettyPart(p.part)}</span>`
+          + `<span class="bb"><i${low} style="width:${w}%"></i></span>`
+          + `<span class="bs">${h != null ? Math.round(h) : '—'}</span></li>`;
+      }).join('') || '<li class="muted">Sin datos de piezas.</li>';
+      const estado = v.functional
+        ? '<span class="bdg ok">funcional</span>'
+        : '<span class="bdg danger">averiado</span>';
+      const fuel = v.fuel != null
+        ? `<b class="mono">${nf.format(Math.round(v.fuel))}</b> L`
+        : '<span class="muted">sin depósito</span>';
+      body.innerHTML = `
+        <h2 class="m-name">${esc(v.type)} ${estado}</h2>
+        <p class="m-sub">Entidad <b class="mono">#${v.id}</b> · Combustible ${fuel} · ${v.parts_count || 0} piezas`
+          + ` · Últi. uso ${esc(fmtDateTime(v.last_access))}</p>
+        <p class="pnl-meta">Clase <span class="mono">${esc(v.class || v.asset)}</span>`
+          + (v.wx != null ? ` · Mundo <span class="mono">X ${nf.format(v.wx)} Y ${nf.format(v.wy)}</span>` : '')
+          + (v.px != null ? ` · Mapa <span class="mono">${v.px}, ${v.py}</span>` : '') + `</p>
+        <h3 style="font-family:var(--font-display);text-transform:uppercase;letter-spacing:.05em;font-size:.78rem;color:var(--c-ink-muted);margin:.8rem 0 .6rem">Salud por pieza <span class="muted">(barra relativa al máximo del propio vehículo)</span></h3>
+        <ul class="bars">${parts}</ul>`;
+      modal.hidden = false;
+    }
+
+    document.getElementById('rows').addEventListener('click', (e) => {
+      const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.id) inspect(tr.dataset.id);
+    });
+    document.getElementById('rows').addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Enter') {
+        const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.id) inspect(tr.dataset.id);
+      }
+    });
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
