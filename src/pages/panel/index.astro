@@ -6,6 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const tools = [
   { href: '/panel/mapa', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla (se actualiza con el autosave del servidor).', ready: true },
   { href: '/panel/rcon', title: 'Consola RCON', desc: 'Ejecuta comandos de administración en el servidor en vivo. Solo administradores.', ready: true, admin: true },
+  { href: '/panel/jugadores', title: 'Jugadores', desc: 'Estado de los jugadores: vivo/muerto, fama, dinero, escuadrón, conexión.', ready: true, admin: true },
 ];
 ---
 <BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>
