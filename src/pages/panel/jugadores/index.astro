@@ -90,9 +90,16 @@ for (const it of itemsData as any[]) {
           const h = i.health != null ? Math.round(i.health) : null;
           return `<li>${icon}<span class="it-n">${label}</span>${h != null ? `<span class="it-h">${h}%</span>` : ''}</li>`;
         }).join('') || '<li class="muted">Sin items (offline o inventario vacío).</li>';
+        const bk = d.bank || {};
+        const extras = [
+          bk.cash != null ? `<b class="mono">${nf.format(bk.cash)}</b> $` : null,
+          bk.gold ? `${nf.format(bk.gold)} oro` : null,
+          d.squad ? `${esc(d.squad.name)}${d.squad.rank != null ? ' (' + d.squad.rank + ')' : ''}` : null,
+          d.bases ? `${d.bases} base${d.bases > 1 ? 's' : ''}` : null,
+        ].filter(Boolean).join(' · ');
         body.innerHTML = `
           <h2 class="m-name">${esc(d.char_name) || '—'} ${d.alive === false ? '<span class="bdg dead">muerto</span>' : '<span class="bdg alive">vivo</span>'}</h2>
-          <p class="m-sub">Fama <b class="mono">${d.fame != null ? Math.round(d.fame) : '—'}</b> · ${d.item_count || 0} items</p>
+          <p class="m-sub">Fama <b class="mono">${d.fame != null ? Math.round(d.fame) : '—'}</b> · ${d.item_count || 0} items${extras ? ' · ' + extras : ''}</p>
           <div class="m-cols">
             <div><h3>Skills <span class="muted">${(d.skills || []).length}</span></h3><ul class="bars">${skills}</ul></div>
             <div><h3>Inventario <span class="muted">${d.item_count || 0}</span></h3><ul class="ilist">${inv}</ul></div>
