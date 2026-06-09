@@ -164,12 +164,16 @@ const ADMIN_LVL: Record<string, L> = {
   '': { es: 'Otros', en: 'Other' },
 };
 export function adminSection(lang: LangCode): Section {
-  const entries: (SecEntry & { _c: string })[] = (adminData as any[]).map((c) => ({
-    name: c.verb,
-    desc: loc(c.desc, lang),
-    meta: c.args ? [{ k: 'args', v: String(c.args) }] : [],
-    _c: c.level || '',
-  }));
+  const usageLabel = lang === 'es' ? 'Uso' : 'Usage';
+  const entries: (SecEntry & { _c: string })[] = (adminData as any[]).map((c) => {
+    const args: any[] = c.args || [];
+    const syntax = '#' + c.verb + args.map((a) => ` <${a.name || 'arg'}>`).join('');
+    const meta: { k: string; v: string }[] = [{ k: usageLabel, v: syntax }];
+    for (const a of args) {
+      if (a.name) meta.push({ k: a.name, v: (a.description || '') + (a.type ? ` (${a.type})` : '') });
+    }
+    return { name: c.verb, desc: c.description || '', meta, _c: c.level || 'Admin' };
+  });
   return { total: entries.length, groups: group(entries, (e: any) => e._c, (k) => ADMIN_LVL[k]?.[lang] ?? ADMIN_LVL[k]?.[FALLBACK_LANG] ?? (k || 'Otros')) };
 }
 
