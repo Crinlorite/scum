@@ -7,6 +7,10 @@ const tools = [
   { href: '/panel/mapa', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla (se actualiza con el autosave del servidor).', ready: true },
   { href: '/panel/rcon', title: 'Consola RCON', desc: 'Ejecuta comandos de administración en el servidor en vivo. Solo administradores.', ready: true, admin: true },
   { href: '/panel/jugadores', title: 'Jugadores', desc: 'Estado de los jugadores: vivo/muerto, fama, dinero, escuadrón, conexión.', ready: true, admin: true },
+  { href: '/panel/economia', title: 'Economía', desc: 'Traders y sus fondos, outposts (cash y oro) y existencias: qué artículos sobran y cuáles escasean.', ready: true, admin: true },
+  { href: '/panel/squads', title: 'Escuadrones', desc: 'Escuadrones del servidor con su score y la lista de miembros por rango.', ready: true, admin: true },
+  { href: '/panel/overview', title: 'Overview del servidor', desc: 'Resumen en una pantalla: jugadores en línea, próximo reinicio, uptime del contenedor SCUM y RAM del host.', ready: true, admin: true },
+  { href: '/panel/actividad', title: 'Actividad', desc: 'Feed cronológico de conexiones, desconexiones y muertes del servidor.', ready: true, admin: true },
 ];
 ---
 <BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>

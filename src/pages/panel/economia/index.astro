@@ -1,0 +1,181 @@
+---
+// Dashboard de economia (panel admin). Lee /panel/api/economy (backend host, RO
+// sobre la DB viva, admin-only): traders y sus fondos/stock, outposts (cash+oro)
+// y ranking de articulos por existencias. Modelado en jugadores/index.astro.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout lang="es" title="Economia" description="Dashboard de economia del servidor" noindex>
+  <section class="econ">
+    <div class="container">
+      <header class="ph">
+        <div><span class="eyebrow">Panel · Admin</span><h1>Economia</h1></div>
+        <button id="refresh" type="button" class="refresh">↻ Actualizar</button>
+      </header>
+
+      <div id="gate" class="gate" hidden>
+        <h2>Solo administradores</h2>
+        <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+      </div>
+
+      <div id="wrap" hidden>
+        <p id="meta" class="meta"></p>
+
+        <div class="kpis" id="kpis"></div>
+
+        <div class="cols">
+          <div class="block">
+            <h2>Traders <span class="muted" id="ntraders"></span></h2>
+            <div class="table-scroll">
+              <table class="etable">
+                <thead><tr><th>Trader</th><th>Fondos</th><th>Articulos</th><th>Unidades</th><th>ID</th></tr></thead>
+                <tbody id="rows-traders"></tbody>
+              </table>
+            </div>
+            <p class="tiphint">Fondos = dinero del trader para comprarte cosas. Unidades = existencias reales (excluye el stock ilimitado del juego).</p>
+          </div>
+
+          <div class="block">
+            <h2>Outposts <span class="muted" id="noutposts"></span></h2>
+            <div class="table-scroll">
+              <table class="etable">
+                <thead><tr><th>Outpost</th><th>Cash</th><th>Banco</th><th>Compra oro</th><th>Venta oro</th></tr></thead>
+                <tbody id="rows-outposts"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="cols">
+          <div class="block">
+            <h2>Mas existencias</h2>
+            <ul class="bars" id="top"></ul>
+          </div>
+          <div class="block">
+            <h2>Menos existencias <span class="muted">en rotacion</span></h2>
+            <ul class="bars low" id="low"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const API = '/panel/api';
+    const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    const nf = new Intl.NumberFormat('es-ES');
+    const money = (n) => (n == null ? '—' : nf.format(Math.round(n)));
+
+    function kpi(label, value, sub) {
+      return `<div class="kpi"><span class="kv">${value}</span><span class="kl">${esc(label)}</span>${sub ? `<span class="ks">${esc(sub)}</span>` : ''}</div>`;
+    }
+
+    function renderTraders(traders) {
+      document.getElementById('rows-traders').innerHTML = traders.map((t) => {
+        // 3 tramos de fondos = los 3 niveles de outpost; etiqueta visual de color
+        const tier = t.funds >= 11000 ? 't3' : t.funds >= 10100 ? 't2' : 't1';
+        const units = t.units ? nf.format(t.units) : '<span class="muted">—</span>';
+        const om = t.omitted ? ` <span class="muted">(${t.omitted} fuera)</span>` : '';
+        return `<tr>
+          <td><span class="dot ${tier}"></span><span class="name">#${t.id}</span></td>
+          <td class="money"><b>${money(t.funds)}</b></td>
+          <td>${t.assets}${om}</td>
+          <td class="mono">${units}</td>
+          <td><span class="rid">${esc(t.runtime_id).slice(0, 8)}</span></td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderOutposts(outposts) {
+      document.getElementById('rows-outposts').innerHTML = outposts.map((o) => `<tr>
+        <td><span class="name">#${o.id}</span><br><span class="rid">${esc(o.runtime_id).slice(0, 8)}</span></td>
+        <td class="money"><b>${money(o.cash)}</b></td>
+        <td class="mono">${money(o.bank)}</td>
+        <td class="mono">${o.gold_buy != null ? nf.format(o.gold_buy) : '—'}</td>
+        <td class="mono">${o.gold_sell != null ? nf.format(o.gold_sell) : '—'}</td>
+      </tr>`).join('');
+    }
+
+    function bars(elId, list, cls) {
+      const max = list.reduce((m, a) => Math.max(m, a.stock), 0) || 1;
+      document.getElementById(elId).innerHTML = list.map((a) => `<li>
+        <span class="bn">${esc(a.name)}</span>
+        <span class="bb"><i class="${cls || ''}" style="width:${Math.max(2, (a.stock / max) * 100)}%"></i></span>
+        <span class="bs mono">${nf.format(a.stock)}</span>
+      </li>`).join('') || '<li class="muted">Sin datos.</li>';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const res = await fetch(API + '/economy');
+        if (res.status === 403) { document.getElementById('gate').hidden = false; document.getElementById('wrap').hidden = true; return; }
+        const d = await res.json();
+        const tt = d.totals || {};
+        document.getElementById('kpis').innerHTML = [
+          kpi('Fondos de traders', money(tt.funds), tt.traders + ' traders'),
+          kpi('Outposts', nf.format(tt.outposts || 0), 'puntos de comercio'),
+          kpi('Articulos en venta', nf.format(tt.tradeables || 0), 'lineas de stock'),
+          kpi('Unidades en stock', nf.format(tt.units || 0), 'sin stock ilimitado'),
+        ].join('');
+        renderTraders(d.traders || []);
+        renderOutposts(d.outposts || []);
+        bars('top', d.top || []);
+        bars('low', d.low || [], 'lowbar');
+        document.getElementById('ntraders').textContent = (d.traders || []).length;
+        document.getElementById('noutposts').textContent = (d.outposts || []).length;
+        document.getElementById('wrap').hidden = false;
+        document.getElementById('meta').textContent = `Actualizado ${new Date().toLocaleTimeString()}`;
+      } catch (e) {
+        document.getElementById('meta').textContent = 'Error al cargar.';
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    load();
+  </script>
+
+  <style>
+    .econ { padding: 2.5rem 0 4rem; }
+    .ph { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+    .ph h1 { margin: 0.2rem 0 0; }
+    .refresh { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; padding: 0.4rem 0.9rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink-soft); cursor: pointer; }
+    .refresh:hover { border-color: var(--c-rust); color: var(--c-ink); }
+    .gate { background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 1.5rem; }
+    .gate h2 { margin: 0 0 0.4rem; font-family: var(--font-display); }
+    .meta { color: var(--c-ink-muted); font-size: 0.82rem; font-family: var(--font-mono); margin: 0 0 1rem; }
+
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.8rem; margin-bottom: 1.6rem; }
+    .kpi { background: var(--c-paper); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.15rem; }
+    .kv { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 600; color: var(--c-ink); line-height: 1.1; }
+    .kl { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; color: var(--c-ink-soft); }
+    .ks { font-size: 0.74rem; color: var(--c-ink-muted); }
+
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: 1.6rem; }
+    @media (max-width: 820px) { .cols { grid-template-columns: 1fr; } }
+    .block h2 { font-family: var(--font-display); font-size: 1rem; margin: 0 0 0.6rem; display: flex; align-items: baseline; gap: 0.4rem; }
+
+    .table-scroll { overflow-x: auto; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); }
+    .etable { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .etable th { text-align: left; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: var(--c-ink-muted); padding: 0.6rem 0.8rem; background: var(--c-paper-soft); border-bottom: 1px solid var(--c-rule); white-space: nowrap; }
+    .etable td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--c-rule); vertical-align: top; white-space: nowrap; }
+    .etable tr:last-child td { border-bottom: 0; }
+    .name { font-weight: 600; font-family: var(--font-display); }
+    .muted { color: var(--c-ink-muted); font-size: 0.82rem; font-weight: 400; }
+    .mono { font-family: var(--font-mono); }
+    .money b { font-family: var(--font-mono); }
+    .rid { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-ink-muted); }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 999px; margin-right: 0.45rem; vertical-align: middle; background: var(--c-ink-muted); }
+    .dot.t1 { background: var(--c-ink-muted); } .dot.t2 { background: var(--c-olive); } .dot.t3 { background: var(--c-rust); }
+    .tiphint { color: var(--c-ink-muted); font-size: 0.74rem; margin-top: 0.5rem; }
+
+    .bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+    .bars li { display: grid; grid-template-columns: minmax(8rem, 1.4fr) 1fr auto; align-items: center; gap: 0.6rem; font-size: 0.84rem; padding: 0.2rem 0; border-bottom: 1px dotted var(--c-rule); }
+    .bn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .bb { background: var(--c-rule); border-radius: 999px; height: 8px; overflow: hidden; }
+    .bb i { display: block; height: 100%; background: var(--c-olive); }
+    .bb i.lowbar { background: var(--c-rust); }
+    .bs { text-align: right; color: var(--c-ink-soft); min-width: 3.5rem; }
+  </style>
+</BaseLayout>
