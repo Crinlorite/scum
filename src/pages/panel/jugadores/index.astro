@@ -2,6 +2,15 @@
 // Dashboard de jugadores + inspector (panel admin). Lee /panel/api/players y
 // /panel/api/player?steamid= (backend host, RO sobre la DB viva, admin-only).
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import itemsData from '../../../data/items.json';
+import iconsData from '../../../data/icons.json';
+// Lookup compacto clase(asset) -> {nombre, slug, tiene-icono} para cruzar el
+// inventario con el catálogo de la wiki (nombres + icono + link a /items).
+const iconSet = new Set(iconsData as string[]);
+const itemLookup: Record<string, { n: string; s: string; i: number }> = {};
+for (const it of itemsData as any[]) {
+  itemLookup[it.asset] = { n: (it.name && (it.name.es || it.name.en)) || it.asset, s: it.slug, i: iconSet.has(it.slug) ? 1 : 0 };
+}
 ---
 <BaseLayout lang="es" title="Jugadores" description="Dashboard de jugadores del servidor" noindex>
   <section class="players">
@@ -38,8 +47,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     </div>
   </div>
 
+  <script type="application/json" id="item-lookup" set:html={JSON.stringify(itemLookup)}></script>
+
   <script>
     const API = '/panel/api';
+    const ITEMS = JSON.parse(document.getElementById('item-lookup').textContent || '{}');
     const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
     const nf = new Intl.NumberFormat('es-ES');
     const prettySkill = (n) => esc((n || '').replace(/Skill$/, '').replace(/([a-z])([A-Z])/g, '$1 $2'));
@@ -105,8 +117,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         const skills = (d.skills || []).map((s) =>
           `<div class="skill"><span class="sk-n">${prettySkill(s.name)}</span><span class="sk-bar"><i style="width:${Math.min(100, (s.level || 0) / 3 * 100)}%"></i></span><span class="sk-l">${s.level}</span></div>`).join('') || '<p class="muted">Sin skills.</p>';
         const inv = (d.inventory || []).map((i) => {
+          const meta = ITEMS[i.class];
+          const name = meta ? esc(meta.n) : prettyItem(i.class);
+          const label = meta ? `<a href="/items/${meta.s}" target="_blank" rel="noopener">${name}</a>` : name;
+          const icon = meta && meta.i
+            ? `<img class="it-ico" src="/icons/${meta.s}.webp" alt="" width="22" height="22" loading="lazy">`
+            : '<span class="it-ico ph"></span>';
           const h = i.health != null ? Math.round(i.health) : null;
-          return `<li><span class="it-n">${prettyItem(i.class)}</span>${h != null ? `<span class="it-h">${h}%</span>` : ''}</li>`;
+          return `<li>${icon}<span class="it-n">${label}</span>${h != null ? `<span class="it-h">${h}%</span>` : ''}</li>`;
         }).join('') || '<li class="muted">Sin items (offline o inventario vacío).</li>';
         body.innerHTML = `
           <h2 class="m-name">${esc(d.char_name) || '—'} ${d.alive === false ? '<span class="b dead">muerto</span>' : '<span class="b alive">vivo</span>'}</h2>
@@ -169,7 +187,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     .sk-bar i { display: block; height: 100%; background: var(--c-rust); }
     .sk-l { font-family: var(--font-mono); text-align: right; color: var(--c-ink-soft); }
     .inv { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
-    .inv li { display: flex; justify-content: space-between; gap: 0.6rem; font-size: 0.84rem; padding: 0.2rem 0; border-bottom: 1px dotted var(--c-rule); }
-    .it-h { font-family: var(--font-mono); color: var(--c-ink-muted); font-size: 0.78rem; }
+    .inv li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.84rem; padding: 0.25rem 0; border-bottom: 1px dotted var(--c-rule); }
+    .it-ico { width: 22px; height: 22px; object-fit: contain; flex: none; } .it-ico.ph { opacity: 0; }
+    .it-n { flex: 1; } .it-n a { color: var(--c-link); text-decoration: none; } .it-n a:hover { text-decoration: underline; }
+    .it-h { font-family: var(--font-mono); color: var(--c-ink-muted); font-size: 0.78rem; flex: none; }
   </style>
 </BaseLayout>
