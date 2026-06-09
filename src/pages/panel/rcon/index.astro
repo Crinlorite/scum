@@ -1,51 +1,45 @@
 ---
-// Consola RCON privada (panel admin). Acceso por sesión Discord (nginx auth_request)
-// + el backend exige is_admin en /panel/api/rcon/*. La página además se auto-gatea
-// (lee /auth/me): los moderadores ven un aviso, no la consola.
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+// Consola RCON privada (panel admin). Usa el sistema compartido (PanelLayout +
+// panel.css + scripts/panel.ts). El gate de admin lo hace PanelLayout; el backend
+// además exige is_admin en /panel/api/rcon/*. Navegador de 138 comandos por tier
+// + runner (args + confirmación graduada) + terminal de salida.
+// Lee la lista desde data/admin.json. Endpoints: POST /panel/api/rcon/exec y
+// GET /panel/api/rcon/log.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
 import adminData from '../../../data/admin.json';
 ---
-<BaseLayout lang="es" title="Consola RCON" description="Consola de administración del servidor" noindex>
-  <section class="rcon">
-    <div class="container">
-      <header class="rcon-head">
-        <span class="eyebrow">Panel · Admin</span>
-        <h1>Consola RCON</h1>
-        <p class="intro">Ejecuta comandos de administración en el servidor en vivo. Cada acción queda registrada.</p>
-      </header>
+<PanelLayout title="Consola RCON" slug="rcon">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
 
-      <div id="rcon-gate" class="gate" hidden>
-        <h2>Solo administradores</h2>
-        <p>Esta consola requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+  <p class="pnl-meta">Ejecuta comandos de administración en el servidor en vivo. Cada acción queda registrada.</p>
+
+  <div class="rcon-grid">
+    <aside class="browser">
+      <input id="cmd-search" type="search" placeholder="Buscar entre 138 comandos…" autocomplete="off" />
+      <div id="cmd-list" class="cmd-list"></div>
+    </aside>
+    <div class="runner-col">
+      <div id="runner" class="runner empty"><p class="muted">← Elige un comando.</p></div>
+
+      <div class="term">
+        <div class="term-bar"><span class="term-dot"></span><span class="term-title">salida</span><button id="term-clear" type="button">limpiar</button></div>
+        <pre id="term-out" class="term-out" aria-live="polite"></pre>
       </div>
 
-      <div id="rcon-app" class="rcon-grid" hidden>
-        <aside class="browser">
-          <input id="cmd-search" type="search" placeholder="Buscar entre 138 comandos…" autocomplete="off" />
-          <div id="cmd-list" class="cmd-list"></div>
-        </aside>
-        <div class="runner-col">
-          <div id="runner" class="runner empty"><p class="hint">← Elige un comando.</p></div>
-          <div class="terminal">
-            <div class="term-bar"><span class="term-dot"></span><span class="term-title">salida</span><button id="term-clear" type="button">limpiar</button></div>
-            <pre id="term-out" class="term-out" aria-live="polite"></pre>
-          </div>
-          <details id="history" class="history">
-            <summary>Historial reciente</summary>
-            <div id="hist-list" class="hist-list"></div>
-          </details>
-        </div>
-      </div>
+      <details id="history" class="history">
+        <summary>Historial reciente</summary>
+        <div id="hist-list" class="hist-list"></div>
+      </details>
     </div>
-  </section>
+  </div>
 
   <script type="application/json" id="cmd-data" set:html={JSON.stringify(adminData)}></script>
 
   <script>
-    const DATA = JSON.parse(document.getElementById('cmd-data').textContent || '[]');
+    import { esc, fmtTime, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const DATA = JSON.parse(document.getElementById('cmd-data')!.textContent || '[]');
     const API = '/panel/api';
     const TIER_LABEL = { safe: 'Seguro', warn: 'Sensible', danger: 'Peligroso' };
-    const esc = (s) => (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
     function tier(c) {
       const v = c.verb || '';
@@ -70,7 +64,7 @@ import adminData from '../../../data/admin.json';
         if (!cmds.length) continue;
         const grp = document.createElement('div');
         grp.className = 'grp grp-' + t;
-        grp.innerHTML = `<div class="grp-h"><span class="dot"></span>${TIER_LABEL[t]}<span class="n">${cmds.length}</span></div>`;
+        grp.innerHTML = `<div class="grp-h"><span class="dot ${t === 'safe' ? 'g' : t === 'warn' ? 'u' : 'r'}"></span>${TIER_LABEL[t]}<span class="n">${cmds.length}</span></div>`;
         for (const c of cmds) {
           const b = document.createElement('button');
           b.type = 'button'; b.className = 'cmd'; b.textContent = c.verb;
@@ -96,14 +90,14 @@ import adminData from '../../../data/admin.json';
       r.innerHTML = `
         <div class="run-head">
           <h2>${esc(c.verb)}</h2>
-          <span class="badge b-${t}">${TIER_LABEL[t]}</span>
-          <span class="badge b-lvl">${esc(c.level)}</span>
+          <span class="bdg ${t === 'safe' ? 'ok' : t === 'warn' ? 'warn' : 'danger'}">${TIER_LABEL[t]}</span>
+          <span class="bdg lvl">${esc(c.level)}</span>
         </div>
         <p class="run-desc">${esc(c.description) || '<em>Sin descripción.</em>'}</p>
         ${args.length ? `<div class="args">${inputs}</div>` : '<p class="noargs">Sin argumentos.</p>'}
         <div class="preview"><code id="cmd-preview"></code></div>
         ${danger ? `<label class="confirm">Escribe <b>${esc(c.verb)}</b> para confirmar<input id="confirm-in" type="text" autocomplete="off" spellcheck="false" /></label>` : ''}
-        <button id="run-btn" class="run-btn ${danger ? 'is-danger' : ''}" type="button">Ejecutar${danger ? ' ⚠' : ''}</button>
+        <button id="run-btn" class="pnl-btn ${danger ? 'danger' : 'primary'}" type="button">Ejecutar${danger ? ' ⚠' : ''}</button>
       `;
       const ins = [...r.querySelectorAll('.arg-in')];
       const preview = r.querySelector('#cmd-preview');
@@ -134,70 +128,60 @@ import adminData from '../../../data/admin.json';
 
     function out(text, isErr) {
       const pre = document.getElementById('term-out');
-      const stamp = new Date().toLocaleTimeString();
-      pre.textContent = `[${stamp}] ${isErr ? '' : ''}${text}\n\n` + pre.textContent;
-      pre.classList.toggle('has-err', !!isErr);
+      pre.textContent = `[${nowTime()}] ${text}\n\n` + pre.textContent;
+      pre.classList.toggle('err', !!isErr);
     }
 
     async function loadHistory() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
       try {
         const res = await fetch(API + '/rcon/log');
         if (!res.ok) return;
         const j = await res.json();
         const el = document.getElementById('hist-list');
         el.innerHTML = (j.log || []).map((e) =>
-          `<div class="hist"><time>${new Date(e.ts * 1000).toLocaleTimeString()}</time><code>${esc(e.command)}</code><span class="hr">${esc((e.result || '').slice(0, 90))}</span></div>`
-        ).join('') || '<p class="hint">Sin comandos aún.</p>';
+          `<div class="hist"><time>${esc(fmtTime(e.ts * 1000))}</time><code>${esc(e.command)}</code><span class="hr">${esc((e.result || '').slice(0, 90))}</span></div>`
+        ).join('') || '<p class="muted">Sin comandos aún.</p>';
       } catch (e) {}
+      finally { btn.disabled = false; }
     }
 
-    async function init() {
-      let me = null;
-      try { const r = await fetch(API + '/auth/me'); if (r.ok) me = await r.json(); } catch (e) {}
-      if (!me || !me.is_admin) { document.getElementById('rcon-gate').hidden = false; return; }
-      document.getElementById('rcon-app').hidden = false;
+    function load() {
       renderList('');
       loadHistory();
-      document.getElementById('cmd-search').addEventListener('input', (e) => renderList(e.target.value));
+      document.getElementById('cmd-search').addEventListener('input', (e) => renderList((e.target as HTMLInputElement).value));
       document.getElementById('term-clear').addEventListener('click', () => { document.getElementById('term-out').textContent = ''; });
+      document.getElementById('refresh').addEventListener('click', loadHistory);
     }
-    init();
+
+    requireAdmin(load);
   </script>
 
   <style>
-    .rcon { padding: 2.5rem 0 4rem; }
-    .rcon-head { margin-bottom: 1.5rem; }
-    .rcon-head h1 { margin: 0.2rem 0; }
-    .intro { color: var(--c-ink-soft); margin: 0; }
-    .gate { background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 1.5rem; }
-    .gate h2 { margin: 0 0 0.4rem; font-family: var(--font-display); }
-
+    /* Layout único del navegador de comandos + runner (sin clase compartida). */
     .rcon-grid { display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 1.2rem; align-items: start; }
     @media (max-width: 760px) { .rcon-grid { grid-template-columns: 1fr; } }
 
-    /* browser */
+    /* navegador de comandos */
     .browser { position: sticky; top: 1rem; }
-    #cmd-search { width: 100%; padding: 0.6rem 0.8rem; font-family: var(--font-mono); font-size: 0.85rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink); }
+    #cmd-search { width: 100%; padding: 0.55rem 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink); }
     #cmd-search:focus { outline: none; border-color: var(--c-rust); }
     .cmd-list { margin-top: 0.8rem; max-height: 68vh; overflow-y: auto; }
     .grp { margin-bottom: 0.9rem; }
     .grp-h { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; color: var(--c-ink-muted); margin-bottom: 0.3rem; }
     .grp-h .n { margin-left: auto; opacity: 0.6; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-    .grp-safe .dot { background: var(--c-olive); } .grp-warn .dot { background: var(--c-rust); } .grp-danger .dot { background: #b3261e; }
     .cmd { display: block; width: 100%; text-align: left; padding: 0.3rem 0.5rem; font-family: var(--font-mono); font-size: 0.82rem; border: 0; background: none; color: var(--c-ink-soft); border-radius: 4px; cursor: pointer; }
     .cmd:hover { background: var(--c-paper-soft); color: var(--c-ink); }
     .cmd.on { background: var(--c-rust); color: #fff; }
 
     /* runner */
-    .runner { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: 1.2rem 1.3rem; border-top: 3px solid var(--c-rule); }
-    .runner.tier-safe { border-top-color: var(--c-olive); } .runner.tier-warn { border-top-color: var(--c-rust); } .runner.tier-danger { border-top-color: #b3261e; }
-    .runner.empty { display: grid; place-items: center; min-height: 120px; color: var(--c-ink-muted); }
+    .runner { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: 1.2rem 1.3rem; box-shadow: var(--shadow-card); border-top: 3px solid var(--c-rule); }
+    .runner.tier-safe { border-top-color: var(--c-olive); }
+    .runner.tier-warn { border-top-color: var(--c-rust); }
+    .runner.tier-danger { border-top-color: #b3261e; }
+    .runner.empty { display: grid; place-items: center; min-height: 120px; }
     .run-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
-    .run-head h2 { margin: 0; font-family: var(--font-mono); font-weight: 700; }
-    .badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 999px; border: 1px solid var(--c-rule); color: var(--c-ink-soft); }
-    .b-safe { color: var(--c-olive); border-color: var(--c-olive); } .b-warn { color: var(--c-rust); border-color: var(--c-rust); } .b-danger { color: #b3261e; border-color: #b3261e; }
-    .b-lvl { background: var(--c-paper-soft); }
+    .run-head h2 { margin: 0; font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem; }
     .run-desc { color: var(--c-ink-soft); font-size: 0.92rem; margin: 0.5rem 0 0.9rem; }
     .args { display: grid; gap: 0.6rem; margin-bottom: 0.9rem; }
     .arg { display: grid; gap: 0.2rem; }
@@ -206,31 +190,21 @@ import adminData from '../../../data/admin.json';
     .arg-in { padding: 0.45rem 0.6rem; font-family: var(--font-mono); font-size: 0.82rem; border: 1px solid var(--c-rule); border-radius: 4px; background: var(--c-paper); color: var(--c-ink); }
     .arg-in:focus { outline: none; border-color: var(--c-rust); }
     .noargs { color: var(--c-ink-muted); font-size: 0.85rem; margin: 0 0 0.9rem; }
-    .preview { background: var(--c-bg-dark); border-radius: var(--radius); padding: 0.5rem 0.7rem; margin-bottom: 0.9rem; overflow-x: auto; }
+    .preview { background: var(--c-bg-deep); border-radius: var(--radius); padding: 0.5rem 0.7rem; margin-bottom: 0.9rem; overflow-x: auto; }
     .preview code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--c-bone); white-space: pre; }
     .confirm { display: grid; gap: 0.25rem; font-size: 0.82rem; color: #b3261e; margin-bottom: 0.8rem; }
-    .confirm input { padding: 0.4rem 0.6rem; font-family: var(--font-mono); border: 1px solid #b3261e; border-radius: 4px; }
-    .run-btn { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; padding: 0.55rem 1.4rem; border: 0; border-radius: var(--radius); background: var(--c-rust); color: #fff; cursor: pointer; font-size: 0.9rem; }
-    .run-btn:hover { background: var(--c-rust-bright); }
-    .run-btn.is-danger { background: #b3261e; }
-    .run-btn:disabled { opacity: 0.6; cursor: wait; }
+    .confirm input { padding: 0.4rem 0.6rem; font-family: var(--font-mono); border: 1px solid #b3261e; border-radius: 4px; background: var(--c-paper); color: var(--c-ink); }
 
-    /* terminal */
-    .terminal { margin-top: 1.1rem; background: var(--c-bg-deep); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--c-bg-panel); }
-    .term-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.8rem; background: var(--c-bg-panel); }
-    .term-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c-rust); }
-    .term-title { font-family: var(--font-mono); font-size: 0.72rem; color: var(--c-steel); text-transform: uppercase; letter-spacing: 0.08em; }
-    .term-bar button { margin-left: auto; background: none; border: 0; color: var(--c-steel); font-size: 0.72rem; cursor: pointer; font-family: var(--font-mono); }
-    .term-bar button:hover { color: var(--c-bone); }
-    .term-out { margin: 0; padding: 0.9rem 1rem; min-height: 96px; max-height: 40vh; overflow-y: auto; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.5; color: var(--c-ash); white-space: pre-wrap; word-break: break-word; }
-    .term-out.has-err { color: #e8a99a; }
+    /* terminal: separación bajo el runner (clases .term/.term-bar/.term-out son compartidas) */
+    .term { margin-top: 1.1rem; }
 
-    /* history */
+    /* historial */
     .history { margin-top: 1.1rem; border-top: 1px dashed var(--c-rule); padding-top: 0.6rem; }
     .history summary { cursor: pointer; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; color: var(--c-ink-muted); }
     .hist-list { margin-top: 0.6rem; display: grid; gap: 0.35rem; }
     .hist { display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 0.7rem; font-family: var(--font-mono); font-size: 0.76rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--c-rule); }
-    .hist time { color: var(--c-ink-muted); } .hist code { color: var(--c-ink); } .hist .hr { grid-column: 2; color: var(--c-ink-soft); }
-    .hint { color: var(--c-ink-muted); font-size: 0.85rem; }
+    .hist time { color: var(--c-ink-muted); }
+    .hist code { color: var(--c-ink); }
+    .hist .hr { grid-column: 2; color: var(--c-ink-soft); }
   </style>
-</BaseLayout>
+</PanelLayout>
