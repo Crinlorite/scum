@@ -6,7 +6,7 @@
 // propietario (todos los vehículos son auto-spawneados; ver pnl-hint).
 import PanelLayout from '../../../layouts/PanelLayout.astro';
 ---
-<PanelLayout title="Vehículos" slug="vehiculos">
+<PanelLayout title="Vehículos" slug="vehiculos" adminOnly={false}>
   <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
 
   <div class="kpis">
@@ -34,7 +34,7 @@ import PanelLayout from '../../../layouts/PanelLayout.astro';
   </div>
 
   <script>
-    import { esc, nf, fmtRel, fmtDateTime, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    import { esc, nf, fmtRel, fmtDateTime, nowTime, requireSession } from '../../../scripts/panel.ts';
     const API = '/panel/api';
     let DATA = [];
 
@@ -147,6 +147,6 @@ import PanelLayout from '../../../layouts/PanelLayout.astro';
       }
     });
     document.getElementById('refresh').addEventListener('click', load);
-    requireAdmin(load);
+    requireSession(load);
   </script>
 </PanelLayout>
