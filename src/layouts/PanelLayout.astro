@@ -6,8 +6,8 @@ import BaseLayout from './BaseLayout.astro';
 import '../styles/panel.css';
 import { PANEL_NAV } from '../data/panel-nav.ts';
 
-interface Props { title: string; slug: string; }
-const { title, slug } = Astro.props;
+interface Props { title: string; slug: string; adminOnly?: boolean; }
+const { title, slug, adminOnly = true } = Astro.props;
 ---
 <BaseLayout lang="es" title={title} description="Panel de administración del servidor" noindex>
   <section class="pnl">
@@ -26,7 +26,7 @@ const { title, slug } = Astro.props;
         <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
       </div>
 
-      <div id="pnl-content"><slot /></div>
+      <div id="pnl-content" data-admin-only={adminOnly ? 'true' : 'false'}><slot /></div>
     </div>
   </section>
 
