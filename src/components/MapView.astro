@@ -37,7 +37,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
 ---
 <BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')} noindex={noindex}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <section class="map-wrap">
+  <section class:list={['map-wrap', { live }]}>
     {live ? (
       <div class="container">
         <div class="pnl-top"><div><span class="eyebrow">Panel · Admin</span><h1>Mapa en vivo</h1></div></div>
@@ -345,6 +345,7 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
 
 <style>
   .map-wrap { padding: 2.5rem 0 0; }
+  .map-wrap.live { padding-top: 1.6rem; }  /* igual que .pnl de los dashboards */
   .intro { color: var(--c-ink-soft); font-size: 1.05rem; margin-bottom: 1.25rem; }
   .count { font-family: var(--font-mono); font-size: 0.82rem; color: var(--c-ink-muted); }
   #scum-map {
