@@ -1,0 +1,96 @@
+---
+// Dashboard de rankings del servidor. Usa el sistema compartido (PanelLayout +
+// panel.css + scripts/panel.ts). Lee /panel/api/rankings.
+// Tres tablas de clasificacion: por fama, por niveles de skill (suma/media) y
+// el mejor jugador de cada skill (mayor nivel, desempate por experiencia).
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Rankings" slug="rankings">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="cols two">
+    <div class="block">
+      <h2>Top por fama <span class="muted" id="cf"></span></h2>
+      <ul class="bars" id="fame-rank"></ul>
+    </div>
+    <div class="block">
+      <h2>Top por niveles <span class="muted" id="cs"></span></h2>
+      <ul class="bars" id="skill-rank"></ul>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:1.1rem">
+    <h2>Mejor por skill <span class="muted" id="cbs"></span></h2>
+    <div class="dt-scroll">
+      <table class="dt">
+        <thead><tr><th>Skill</th><th>Líder</th><th>Nivel</th><th>Experiencia</th></tr></thead>
+        <tbody id="by-skill"></tbody>
+      </table>
+    </div>
+    <p class="pnl-hint">Nivel máximo de skill en SCUM = 3. Empate de nivel se resuelve por experiencia.</p>
+  </div>
+
+  <script>
+    import { esc, nf, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    const prettySkill = (n) => esc((n || '').replace(/Skill$/, '').replace(/([a-z])([A-Z])/g, '$1 $2'));
+    const SKILL_MAX = 3; // tope de nivel de skill en SCUM (barra a 100% en nivel 3)
+
+    function render(d) {
+      const fame = d.by_fame || [], skills = d.by_skills || [], bySkill = d.by_skill || [];
+
+      document.getElementById('kpis').innerHTML = `
+        <div class="kpi"><span class="kv">${nf.format(d.players || 0)}</span><span class="kl">Jugadores</span></div>
+        <div class="kpi"><span class="kv">${d.max_fame != null ? nf.format(Math.round(d.max_fame)) : '—'}</span><span class="kl">Fama máxima</span>${fame[0] ? `<span class="ks">${esc(fame[0].name)}</span>` : ''}</div>
+        <div class="kpi"><span class="kv">${nf.format(d.max_lvl_sum || 0)}</span><span class="kl">Mayor suma de niveles</span>${skills[0] ? `<span class="ks">${esc(skills[0].name)}</span>` : ''}</div>`;
+
+      const maxFame = d.max_fame || (fame[0] ? fame[0].fame : 0) || 1;
+      document.getElementById('fame-rank').innerHTML = fame.length ? fame.map((p) => {
+        const w = Math.max(2, Math.min(100, Math.round((p.fame || 0) / maxFame * 100)));
+        const dead = p.alive === false ? ' <span class="bdg dead">muerto</span>' : '';
+        return `<li><span class="bn">${esc(p.name) || '—'}${dead}</span><span class="bb"><i style="width:${w}%"></i></span><span class="bs">${nf.format(Math.round(p.fame || 0))}</span></li>`;
+      }).join('') : '<li class="muted">Sin datos.</li>';
+
+      const maxSum = d.max_lvl_sum || (skills[0] ? skills[0].lvl_sum : 0) || 1;
+      document.getElementById('skill-rank').innerHTML = skills.length ? skills.map((p) => {
+        const w = Math.max(2, Math.min(100, Math.round((p.lvl_sum || 0) / maxSum * 100)));
+        const dead = p.alive === false ? ' <span class="bdg dead">muerto</span>' : '';
+        return `<li><span class="bn">${esc(p.name) || '—'}${dead} <span class="muted">media ${p.lvl_avg ?? '—'} · máx ${p.max_lvl ?? 0}</span></span><span class="bb"><i style="width:${w}%"></i></span><span class="bs">${nf.format(p.lvl_sum || 0)}</span></li>`;
+      }).join('') : '<li class="muted">Sin datos.</li>';
+
+      document.getElementById('by-skill').innerHTML = bySkill.length ? bySkill.map((s) => {
+        const lvl = s.level || 0;
+        const w = Math.max(2, Math.min(100, Math.round(lvl / SKILL_MAX * 100)));
+        return `<tr>
+          <td><span class="name">${prettySkill(s.skill)}</span></td>
+          <td>${esc(s.name) || '—'}</td>
+          <td><span class="bb" style="display:inline-block;width:90px;vertical-align:middle"><i style="width:${w}%"></i></span> <span class="num b">${lvl}</span></td>
+          <td class="num">${nf.format(Math.round(s.exp || 0))}</td>
+        </tr>`;
+      }).join('') : '<tr><td colspan="4" class="muted">Sin datos.</td></tr>';
+
+      document.getElementById('cf').textContent = fame.length || '';
+      document.getElementById('cs').textContent = skills.length || '';
+      document.getElementById('cbs').textContent = bySkill.length || '';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const res = await fetch(API + '/rankings');
+        if (!res.ok) { document.getElementById('meta').textContent = 'Error al cargar (' + res.status + ').'; return; }
+        const d = await res.json();
+        render(d);
+        document.getElementById('meta').textContent = `${d.players || 0} jugadores · ${(d.by_skill || []).length} skills · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error de red.'; }
+      finally { btn.disabled = false; }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>

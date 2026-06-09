@@ -1,0 +1,141 @@
+---
+// Dashboard de bases y banderas. Usa el sistema compartido (PanelLayout +
+// panel.css + scripts/panel.ts). Lee /panel/api/bases (DB viva en RO).
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Bases y banderas" slug="bases">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="dt-scroll">
+    <table class="dt click">
+      <thead><tr><th>Base</th><th>Bandera</th><th>Dueño</th><th>Escuadrón</th><th>Elementos</th><th>Integridad</th><th>Raid</th><th>Ubicación</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Clic en una base para ver su detalle. Coordenadas en formato X/Y del mundo (útiles para el mapa). La protección de raid se infiere del estado de toma de la bandera (overtake) — el servidor no guarda registros de raid_protection.</p>
+
+  <div id="modal" class="pnl-modal" hidden>
+    <div class="pnl-modal-back" data-close></div>
+    <div class="pnl-modal-card" role="dialog" aria-modal="true">
+      <button class="pnl-modal-x" data-close aria-label="Cerrar">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    import { esc, nf, requireAdmin, nowTime } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    let CACHE = [];
+
+    const fmtCoord = (b) => (b.x == null || b.y == null) ? '<span class="muted">—</span>'
+      : `<span class="mono">X ${nf.format(Math.round(b.x))} · Y ${nf.format(Math.round(b.y))}</span>`;
+
+    const ownerCell = (b) => {
+      if (b.owner_name) return `<span class="name">${esc(b.owner_name)}</span>`;
+      if (b.owner_profile_id === -1) return '<span class="bdg warn">abandonada</span>';
+      return '<span class="muted">desconocido</span>';
+    };
+
+    const healthBar = (b) => {
+      if (b.avg_health == null) return '<span class="muted">—</span>';
+      const low = (b.min_health != null && b.min_health < 50);
+      return `<span class="bars" style="display:inline-grid;grid-template-columns:90px 3rem;gap:.5rem;vertical-align:middle">`
+        + `<span class="bb" style="height:7px"><i class="${low ? 'lowbar' : ''}" style="width:${Math.max(2, b.avg_health)}%"></i></span>`
+        + `<span class="bs">${b.avg_health}%</span></span>`;
+    };
+
+    const raidCell = (b) => {
+      if (!b.has_flag) return '<span class="muted">sin bandera</span>';
+      if (b.overtaking) return '<span class="bdg danger">en toma</span>';
+      return '<span class="bdg ok">protegida</span>';
+    };
+
+    function renderKpis(bases) {
+      const withFlag = bases.filter((b) => b.has_flag);
+      const elements = bases.reduce((s, b) => s + (b.element_count || 0), 0);
+      const raided = bases.filter((b) => b.overtaking).length;
+      const k = [
+        { v: bases.length, l: 'Bases', s: withFlag.length + ' con bandera' },
+        { v: withFlag.length, l: 'Banderas', s: 'puntos de control' },
+        { v: nf.format(elements), l: 'Elementos', s: 'piezas construidas' },
+        { v: raided, l: 'En toma', s: raided ? 'raid en curso' : 'sin raids' },
+      ];
+      document.getElementById('kpis').innerHTML = k.map((x) =>
+        `<div class="kpi"><span class="kv">${x.v}</span><span class="kl">${x.l}</span><span class="ks">${x.s}</span></div>`).join('');
+    }
+
+    function render(bases) {
+      document.getElementById('rows').innerHTML = bases.map((b, i) => {
+        const flag = b.has_flag ? '<span class="bdg lvl">bandera</span>' : '<span class="muted">—</span>';
+        const squad = b.squad ? esc(b.squad.name) : '<span class="muted">—</span>';
+        return `<tr data-i="${i}" tabindex="0">
+          <td><span class="name">${esc(b.name) || '—'}</span><br><span class="sid">#${b.id}</span></td>
+          <td>${flag}</td>
+          <td>${ownerCell(b)}${b.owner_steamid ? `<br><span class="sid">${esc(b.owner_steamid)}</span>` : ''}</td>
+          <td>${squad}</td>
+          <td class="num b">${nf.format(b.element_count || 0)}</td>
+          <td>${healthBar(b)}</td>
+          <td>${raidCell(b)}</td>
+          <td>${fmtCoord(b)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="8"><span class="muted">No hay bases registradas.</span></td></tr>';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/bases')).json();
+        const bases = (d.bases || []).sort((a, b) => (b.has_flag - a.has_flag) || (b.element_count || 0) - (a.element_count || 0));
+        CACHE = bases;
+        renderKpis(bases);
+        render(bases);
+        const flags = bases.filter((b) => b.has_flag).length;
+        document.getElementById('meta').textContent =
+          `${bases.length} bases · ${flags} banderas · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+
+    const modal = document.getElementById('modal');
+    const closeModal = () => { modal.hidden = true; };
+    modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function inspect(i) {
+      const b = CACHE[i]; if (!b) return;
+      const body = document.getElementById('modal-body');
+      const raid = b.has_flag
+        ? (b.overtaking ? '<span class="bdg danger">toma en curso</span>' : '<span class="bdg ok">protegida</span>')
+        : '<span class="muted">sin bandera</span>';
+      const owner = b.owner_name ? esc(b.owner_name)
+        : (b.owner_profile_id === -1 ? 'abandonada' : 'desconocido');
+      const rows = [
+        ['Dueño', owner],
+        ['SteamID', b.owner_steamid ? `<span class="mono">${esc(b.owner_steamid)}</span>` : '—'],
+        ['Escuadrón', b.squad ? esc(b.squad.name) : '—'],
+        ['Bandera', b.has_flag ? 'sí' : 'no'],
+        ['Raid', raid],
+        ['Elementos', `<b class="mono">${nf.format(b.element_count || 0)}</b>`],
+        ['Integridad media', b.avg_health != null ? b.avg_health + '%' : '—'],
+        ['Integridad mínima', b.min_health != null ? b.min_health + '%' : '—'],
+        ['Ubicación (mundo)', b.x != null ? `<span class="mono">X ${nf.format(Math.round(b.x))} · Y ${nf.format(Math.round(b.y))}</span>` : '—'],
+      ];
+      body.innerHTML = `
+        <h2 class="m-name">${esc(b.name) || '—'} ${raid}</h2>
+        <p class="m-sub">Base <b class="mono">#${b.id}</b> · ${nf.format(b.element_count || 0)} elementos</p>
+        <ul class="bars" style="grid-template-columns:1fr">
+          ${rows.map(([k, v]) => `<li style="grid-template-columns:9rem 1fr"><span class="bn">${k}</span><span>${v}</span></li>`).join('')}
+        </ul>`;
+      modal.hidden = false;
+    }
+
+    document.getElementById('rows').addEventListener('click', (e) => { const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.i != null) inspect(Number(tr.dataset.i)); });
+    document.getElementById('rows').addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Enter') { const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.i != null) inspect(Number(tr.dataset.i)); } });
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>

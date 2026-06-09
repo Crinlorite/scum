@@ -1,0 +1,85 @@
+---
+// Dashboard de muertes. Estado de muerte por prisionero (la DB solo guarda la
+// ÚLTIMA muerte de cada uno: prisoner.time_of_death + is_alive), cruzado con
+// user/user_profile para nombre+steamid. Usa el sistema compartido (PanelLayout
+// + panel.css + scripts/panel.ts). Lee /panel/api/muertes. Cero CSS ad-hoc.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Muertes" slug="muertes">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kv" id="k-total">—</span><span class="kl">Prisioneros</span><span class="ks">con personaje</span></div>
+    <div class="kpi"><span class="kv" id="k-dead">—</span><span class="kl">Muertos ahora</span><span class="ks" id="k-dead-s">esperando respawn</span></div>
+    <div class="kpi"><span class="kv" id="k-alive">—</span><span class="kl">Vivos</span><span class="ks">en pie</span></div>
+    <div class="kpi"><span class="kv" id="k-last">—</span><span class="kl">Última muerte</span><span class="ks" id="k-last-s">de cualquiera</span></div>
+  </div>
+
+  <p id="meta" class="pnl-meta"></p>
+  <div class="dt-scroll">
+    <table class="dt">
+      <thead><tr><th>Jugador</th><th>Estado</th><th>Última muerte</th><th>Cuándo</th><th>Fama</th><th>SteamID</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">La base de datos solo conserva la <b>última</b> muerte de cada prisionero (no hay histórico completo). Orden: muertes más recientes primero; los muertos ahora mismo arriba del todo. Horas en España.</p>
+
+  <script>
+    import { esc, nf, fmtDateTime, fmtRel, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    const ts = (s) => (s ? new Date(s).getTime() : 0);
+
+    function render(players) {
+      const rows = players.map((p) => {
+        const dead = p.alive === false;
+        const estado = dead
+          ? '<span class="bdg dead">muerto</span>'
+          : (p.alive === true ? '<span class="bdg alive">vivo</span>' : '<span class="muted">—</span>');
+        const when = p.last_death
+          ? `<span class="num">${esc(fmtDateTime(p.last_death))}</span>`
+          : '<span class="muted">nunca</span>';
+        const rel = p.last_death ? `<span class="muted">${esc(fmtRel(p.last_death))}</span>` : '<span class="muted">—</span>';
+        const fame = p.fame != null ? Math.round(p.fame) : '—';
+        return `<tr>
+          <td><span class="name">${esc(p.char_name) || '—'}</span>${p.steam_name && p.steam_name !== p.char_name ? `<br><span class="muted">${esc(p.steam_name)}</span>` : ''}</td>
+          <td>${estado}</td>
+          <td>${when}</td>
+          <td>${rel}</td>
+          <td class="num">${fame}</td>
+          <td class="sid">${esc(p.steamid)}</td>
+        </tr>`;
+      }).join('');
+      document.getElementById('rows').innerHTML = rows || '<tr><td colspan="6" class="muted">Sin datos: ningún prisionero con personaje creado.</td></tr>';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      const meta = document.getElementById('meta');
+      try {
+        const res = await fetch(API + '/muertes');
+        if (!res.ok) { meta.textContent = 'Error al cargar (' + res.status + ').'; render([]); return; }
+        const d = await res.json();
+        const players = (d.players || []).slice().sort((a, b) => {
+          const da = a.alive === false, db = b.alive === false;
+          if (da !== db) return da ? -1 : 1;          // muertos ahora, arriba
+          return ts(b.last_death) - ts(a.last_death);  // luego, muerte más reciente
+        });
+        render(players);
+        const dead = players.filter((p) => p.alive === false).length;
+        const alive = players.filter((p) => p.alive === true).length;
+        const withDeath = players.filter((p) => p.last_death).length;
+        const mostRecent = players.map((p) => p.last_death).filter(Boolean).sort().reverse()[0] || null;
+        document.getElementById('k-total').textContent = nf.format(players.length);
+        document.getElementById('k-dead').textContent = nf.format(dead);
+        document.getElementById('k-alive').textContent = nf.format(alive);
+        document.getElementById('k-last').textContent = mostRecent ? fmtRel(mostRecent) : '—';
+        document.getElementById('k-last-s').textContent = mostRecent ? fmtDateTime(mostRecent) : 'sin registros';
+        meta.textContent = `${players.length} prisioneros · ${withDeath} con muerte registrada · ${dead} muertos ahora · actualizado ${nowTime()}`;
+      } catch (e) { meta.textContent = 'Error de red.'; render([]); }
+      finally { btn.disabled = false; }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>

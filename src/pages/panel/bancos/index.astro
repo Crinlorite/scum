@@ -1,0 +1,64 @@
+---
+// Dashboard de bancos. Usa el sistema compartido (PanelLayout + panel.css +
+// scripts/panel.ts). Lee /panel/api/bancos: una fila por cuenta bancaria con
+// dinero y oro, cruzada con el nombre del jugador y su steamid.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Bancos" slug="bancos">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <div class="kpis">
+    <div class="kpi"><span class="kv" id="k-accounts">—</span><span class="kl">Cuentas</span><span class="ks" id="k-owners"></span></div>
+    <div class="kpi"><span class="kv" id="k-cash">—</span><span class="kl">Dinero en circulación</span><span class="ks">$</span></div>
+    <div class="kpi"><span class="kv" id="k-gold">—</span><span class="kl">Oro en circulación</span><span class="ks">lingotes</span></div>
+  </div>
+
+  <p id="meta" class="pnl-meta"></p>
+  <div class="dt-scroll">
+    <table class="dt">
+      <thead><tr><th>Jugador</th><th>Nº de cuenta</th><th>Dinero</th><th>Oro</th><th>SteamID</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Saldos de las cuentas bancarias registradas en el servidor (dinero y oro).</p>
+
+  <script>
+    import { esc, nf, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+
+    function render(accounts, totals) {
+      document.getElementById('k-accounts').textContent = nf.format(totals.accounts || 0);
+      document.getElementById('k-owners').textContent = (totals.owners || 0) + ' titulares';
+      document.getElementById('k-cash').textContent = nf.format(totals.cash || 0);
+      document.getElementById('k-gold').textContent = nf.format(totals.gold || 0);
+      document.getElementById('rows').innerHTML = accounts.map((a) => {
+        const name = a.char_name ? `<span class="name">${esc(a.char_name)}</span>` : '<span class="muted">sin titular</span>';
+        const cash = a.cash ? `<b>${nf.format(a.cash)}</b> <span class="muted">$</span>` : '<span class="muted">—</span>';
+        const gold = a.gold ? `${nf.format(a.gold)} <span class="muted">oro</span>` : '<span class="muted">—</span>';
+        const sid = a.steamid ? `<span class="sid">${esc(a.steamid)}</span>` : '<span class="muted">—</span>';
+        return `<tr>
+          <td>${name}</td>
+          <td class="num">${esc(a.account_number)}</td>
+          <td class="num">${cash}</td>
+          <td class="num">${gold}</td>
+          <td>${sid}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="5" class="muted">Sin cuentas bancarias registradas.</td></tr>';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/bancos')).json();
+        const accounts = (d.accounts || []).sort((a, b) => (b.cash || 0) - (a.cash || 0) || (b.gold || 0) - (a.gold || 0));
+        const totals = d.totals || {};
+        render(accounts, totals);
+        document.getElementById('meta').textContent = `${accounts.length} cuentas · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
