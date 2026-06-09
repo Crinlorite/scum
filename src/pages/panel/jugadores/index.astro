@@ -1,0 +1,118 @@
+---
+// Dashboard de jugadores (panel admin). Lee /panel/api/players (backend host, RO
+// sobre la DB viva, admin-only). Se auto-gatea por /auth/me.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout lang="es" title="Jugadores" description="Dashboard de jugadores del servidor" noindex>
+  <section class="players">
+    <div class="container">
+      <header class="ph">
+        <div>
+          <span class="eyebrow">Panel · Admin</span>
+          <h1>Jugadores</h1>
+        </div>
+        <button id="refresh" type="button" class="refresh">↻ Actualizar</button>
+      </header>
+
+      <div id="gate" class="gate" hidden>
+        <h2>Solo administradores</h2>
+        <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+      </div>
+
+      <div id="wrap" hidden>
+        <p id="meta" class="meta"></p>
+        <div class="table-scroll">
+          <table class="ptable">
+            <thead><tr>
+              <th>Jugador</th><th>Estado</th><th>Fama</th><th>Dinero</th><th>Escuadrón</th><th>Conexión</th><th>SteamID</th>
+            </tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const API = '/panel/api';
+    const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    const nf = new Intl.NumberFormat('es-ES');
+
+    function rel(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso); if (isNaN(d)) return '—';
+      const s = (Date.now() - d.getTime()) / 1000;
+      if (s < 60) return 'hace segundos';
+      if (s < 3600) return 'hace ' + Math.floor(s / 60) + ' min';
+      if (s < 86400) return 'hace ' + Math.floor(s / 3600) + ' h';
+      return 'hace ' + Math.floor(s / 86400) + ' d';
+    }
+    const online = (p) => p.last_login && p.last_logout && new Date(p.last_login) > new Date(p.last_logout);
+
+    function render(players) {
+      const rows = document.getElementById('rows');
+      rows.innerHTML = players.map((p) => {
+        const on = online(p);
+        const estado = p.alive === false
+          ? '<span class="b dead">muerto</span>'
+          : '<span class="b alive">vivo</span>';
+        const conn = on ? '<span class="b on">en línea</span>' : '<span class="muted">' + esc(rel(p.last_login)) + '</span>';
+        const money = [];
+        if (p.money && p.money.cash != null) money.push('<b>' + nf.format(p.money.cash) + '</b> <span class="muted">$</span>');
+        if (p.money && p.money.gold) money.push(nf.format(p.money.gold) + ' <span class="muted">oro</span>');
+        const squad = p.squad ? esc(p.squad) + ' <span class="muted">·' + (p.squad_rank ?? '') + '</span>' : '<span class="muted">—</span>';
+        return `<tr>
+          <td><span class="name">${esc(p.char_name) || '—'}</span>${p.banned ? ' <span class="b ban">ban</span>' : ''}${p.steam_name && p.steam_name !== p.char_name ? `<br><span class="muted">${esc(p.steam_name)}</span>` : ''}</td>
+          <td>${estado}</td>
+          <td>${p.fame != null ? Math.round(p.fame) : '—'}</td>
+          <td class="money">${money.join(' &nbsp; ') || '<span class="muted">—</span>'}</td>
+          <td>${squad}</td>
+          <td>${conn}</td>
+          <td class="sid">${esc(p.steamid)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const res = await fetch(API + '/players');
+        if (res.status === 403) { document.getElementById('gate').hidden = false; document.getElementById('wrap').hidden = true; return; }
+        const j = await res.json();
+        const players = (j.players || []).sort((a, b) => Number(online(b)) - Number(online(a)) || (b.fame || 0) - (a.fame || 0));
+        render(players);
+        document.getElementById('wrap').hidden = false;
+        document.getElementById('meta').textContent = `${players.length} jugadores · ${players.filter(online).length} en línea · actualizado ${new Date().toLocaleTimeString()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+    document.getElementById('refresh').addEventListener('click', load);
+    load();
+  </script>
+
+  <style>
+    .players { padding: 2.5rem 0 4rem; }
+    .ph { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+    .ph h1 { margin: 0.2rem 0 0; }
+    .refresh { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; padding: 0.4rem 0.9rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink-soft); cursor: pointer; }
+    .refresh:hover { border-color: var(--c-rust); color: var(--c-ink); }
+    .gate { background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 1.5rem; }
+    .gate h2 { margin: 0 0 0.4rem; font-family: var(--font-display); }
+    .meta { color: var(--c-ink-muted); font-size: 0.82rem; font-family: var(--font-mono); margin: 0 0 0.7rem; }
+    .table-scroll { overflow-x: auto; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); }
+    .ptable { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .ptable th { text-align: left; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; color: var(--c-ink-muted); padding: 0.7rem 0.9rem; background: var(--c-paper-soft); border-bottom: 1px solid var(--c-rule); }
+    .ptable td { padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--c-rule); vertical-align: top; }
+    .ptable tr:last-child td { border-bottom: 0; }
+    .ptable tr:hover td { background: var(--c-paper-soft); }
+    .name { font-weight: 600; font-family: var(--font-display); }
+    .muted { color: var(--c-ink-muted); font-size: 0.82rem; }
+    .money b { font-family: var(--font-mono); }
+    .sid { font-family: var(--font-mono); font-size: 0.76rem; color: var(--c-ink-muted); }
+    .b { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.1rem 0.4rem; border-radius: 999px; border: 1px solid; }
+    .b.alive { color: var(--c-olive); border-color: var(--c-olive); }
+    .b.dead { color: #b3261e; border-color: #b3261e; }
+    .b.on { color: #fff; background: var(--c-olive); border-color: var(--c-olive); }
+    .b.ban { color: #b3261e; border-color: #b3261e; }
+  </style>
+</BaseLayout>
