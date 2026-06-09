@@ -12,5 +12,9 @@ export const PANEL_NAV: { s: string; t: string; href: string }[] = [
   { s: 'bancos', t: 'Bancos', href: '/panel/bancos' },
   { s: 'muertes', t: 'Muertes', href: '/panel/muertes' },
   { s: 'rankings', t: 'Rankings', href: '/panel/rankings' },
+  { s: 'cultivos', t: 'Cultivos', href: '/panel/cultivos' },
+  { s: 'bunkers', t: 'Búnkers', href: '/panel/bunkers' },
+  { s: 'fauna', t: 'Fauna', href: '/panel/fauna' },
+  { s: 'historico', t: 'Histórico', href: '/panel/historico' },
   { s: 'rcon', t: 'RCON', href: '/panel/rcon' },
 ];

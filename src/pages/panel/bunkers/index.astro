@@ -1,0 +1,158 @@
+---
+// Dashboard de búnkers abandonados + registro de cerraduras. Usa el sistema
+// compartido (PanelLayout + panel.css + scripts/panel.ts). Lee /panel/api/bunkers
+// (DB viva en RO). Datos: tabla abandoned_bunker (15 búnkers con coords del mundo
+// y relojes de activación) + door_locking_registry_data (registro de UnlockData de
+// KillBoxes y plantas de búnker; sin coords ni código numérico).
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Búnkers" slug="bunkers">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="cols two">
+    <div class="block">
+      <h2>Búnkers abandonados <span class="muted" id="bk-n"></span></h2>
+      <div class="dt-scroll">
+        <table class="dt click">
+          <thead><tr><th>Búnker</th><th>Estado</th><th>Próxima activación</th><th>Ubicación (mundo)</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="block">
+      <h2>Registro de cerraduras <span class="muted" id="lk-n"></span></h2>
+      <div class="dt-scroll">
+        <table class="dt">
+          <thead><tr><th>Sector</th><th>Tipo</th><th>Entradas</th></tr></thead>
+          <tbody id="locks"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <p class="pnl-hint">Clic en un búnker para ver su detalle. Un búnker <b>activo</b> está abierto/raidable ahora; <b>sellado</b> muestra la cuenta atrás para reactivarse (el servidor no guarda un código de puerta numérico). El registro de cerraduras son las entradas de desbloqueo guardadas por sector de KillBox y por planta de búnker — sin coordenadas ni dueño en la DB.</p>
+
+  <div id="modal" class="pnl-modal" hidden>
+    <div class="pnl-modal-back" data-close></div>
+    <div class="pnl-modal-card" role="dialog" aria-modal="true">
+      <button class="pnl-modal-x" data-close aria-label="Cerrar">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    import { esc, nf, requireAdmin, nowTime } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    let CACHE = [];
+
+    // segundos -> texto legible (cuenta atrás de activación)
+    const fmtDur = (s) => {
+      if (s == null || s <= 0) return '—';
+      const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60);
+      if (h >= 24) return Math.floor(h / 24) + ' d ' + (h % 24) + ' h';
+      if (h >= 1) return h + ' h ' + (m ? m + ' min' : '');
+      return Math.max(1, m) + ' min';
+    };
+
+    const fmtCoord = (b) => (b.wx == null || b.wy == null) ? '<span class="muted">—</span>'
+      : `<span class="mono">X ${nf.format(b.wx)} · Y ${nf.format(b.wy)}</span>`;
+
+    const stateBadge = (b) => b.active
+      ? '<span class="bdg ok">activo</span>'
+      : '<span class="bdg warn">sellado</span>';
+
+    function renderKpis(d) {
+      const t = d.totals || {};
+      const k = [
+        { v: t.bunkers || 0, l: 'Búnkers', s: t.active + ' activos · ' + t.sealed + ' sellados' },
+        { v: t.active || 0, l: 'Activos', s: t.active ? 'abiertos ahora' : 'ninguno abierto' },
+        { v: t.sealed || 0, l: 'Sellados', s: t.sealed ? 'en cuenta atrás' : 'ninguno' },
+        { v: t.lock_entries || 0, l: 'Cerraduras', s: (t.killboxes || 0) + ' KillBox · ' + (t.bunker_floors || 0) + ' plantas' },
+      ];
+      document.getElementById('kpis').innerHTML = k.map((x) =>
+        `<div class="kpi"><span class="kv">${x.v}</span><span class="kl">${x.l}</span><span class="ks">${x.s}</span></div>`).join('');
+    }
+
+    function renderBunkers(bunkers) {
+      document.getElementById('bk-n').textContent = bunkers.length;
+      document.getElementById('rows').innerHTML = bunkers.map((b, i) => {
+        const next = b.active ? '<span class="muted">—</span>'
+          : `<span class="mono">${fmtDur(b.seconds_until_active)}</span>`;
+        return `<tr data-i="${i}" tabindex="0">
+          <td><span class="name">Búnker #${b.id}</span>${b.keycard_override ? ' <span class="bdg lvl">keycard</span>' : ''}</td>
+          <td>${stateBadge(b)}</td>
+          <td>${next}</td>
+          <td>${fmtCoord(b)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="4"><span class="muted">Sin búnkers registrados.</span></td></tr>';
+    }
+
+    function renderLocks(locks) {
+      document.getElementById('lk-n').textContent = locks.length;
+      document.getElementById('locks').innerHTML = locks.map((l) => {
+        const kind = l.kind === 'killbox' ? '<span class="bdg danger">KillBox</span>'
+          : l.kind === 'bunker_floor' ? '<span class="bdg lvl">planta búnker</span>'
+          : '<span class="muted">otro</span>';
+        return `<tr>
+          <td><span class="name">${esc(l.label)}</span></td>
+          <td>${kind}</td>
+          <td class="num b">${nf.format(l.count || 0)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="3"><span class="muted">Sin entradas de cerradura.</span></td></tr>';
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/bunkers')).json();
+        const bunkers = (d.bunkers || []).sort((a, b) => (a.active - b.active) || (a.id - b.id));
+        const locks = (d.locks || []);
+        CACHE = bunkers;
+        renderKpis(d);
+        renderBunkers(bunkers);
+        renderLocks(locks);
+        const t = d.totals || {};
+        document.getElementById('meta').textContent =
+          `${t.bunkers || 0} búnkers · ${t.active || 0} activos · ${t.lock_entries || 0} cerraduras · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+
+    const modal = document.getElementById('modal');
+    const closeModal = () => { modal.hidden = true; };
+    modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function inspect(i) {
+      const b = CACHE[i]; if (!b) return;
+      const body = document.getElementById('modal-body');
+      const state = stateBadge(b);
+      const rows = [
+        ['Estado', b.active ? 'activo (abierto)' : 'sellado (cerrado)'],
+        ['Próxima activación', b.active ? '—' : fmtDur(b.seconds_until_active)],
+        ['Tiempo en este estado', b.seconds_in_state ? fmtDur(b.seconds_in_state) : '—'],
+        ['Forzado con keycard', b.keycard_override ? 'sí' : 'no'],
+        ['Hora del juego', b.is_day ? 'día' : 'noche'],
+        ['Mapa', `<span class="mono">#${b.map_id}</span>`],
+        ['Ubicación (mundo)', b.wx != null ? `<span class="mono">X ${nf.format(b.wx)} · Y ${nf.format(b.wy)}</span>` : '—'],
+        ['Píxel del mapa', b.px != null ? `<span class="mono">${b.px} , ${b.py}</span>` : '—'],
+      ];
+      body.innerHTML = `
+        <h2 class="m-name">Búnker #${b.id} ${state}</h2>
+        <p class="m-sub">${b.active ? 'Abierto y raidable ahora mismo.' : 'Cerrado — cuenta atrás para reactivarse.'}</p>
+        <ul class="bars" style="grid-template-columns:1fr">
+          ${rows.map(([k, v]) => `<li style="grid-template-columns:11rem 1fr"><span class="bn">${k}</span><span>${v}</span></li>`).join('')}
+        </ul>`;
+      modal.hidden = false;
+    }
+
+    document.getElementById('rows').addEventListener('click', (e) => { const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.i != null) inspect(Number(tr.dataset.i)); });
+    document.getElementById('rows').addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Enter') { const tr = (e.target as HTMLElement).closest('tr'); if (tr && tr.dataset.i != null) inspect(Number(tr.dataset.i)); } });
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>

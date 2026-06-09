@@ -1,0 +1,145 @@
+---
+// Dashboard de cultivos (agricultura). Usa el sistema compartido (PanelLayout +
+// panel.css + scripts/panel.ts). Lee /panel/api/cultivos: huertos (garden) con
+// sus parcelas (garden_slot) — especie, estado/crecimiento, salud, riego — y
+// plagas/enfermedades (garden_slot_pest) si las hay. Coords del mundo
+// reproyectadas a px/py para el mapa.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Cultivos" slug="cultivos">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div id="gardens" class="cols"></div>
+
+  <p class="pnl-hint">Clic en un huerto para ver el detalle de cada parcela (especie, estado, riego y plagas).</p>
+
+  <div id="modal" class="pnl-modal" hidden>
+    <div class="pnl-modal-back" data-close></div>
+    <div class="pnl-modal-card" role="dialog" aria-modal="true">
+      <button class="pnl-modal-x" data-close aria-label="Cerrar">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    import { esc, nf, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    let GARDENS = [];
+
+    const STAGE_BDG = (s) => {
+      if (s.dead) return '<span class="bdg dead">muerta</span>';
+      if (s.stage === 4) return '<span class="bdg ok">cosechable</span>';
+      return '<span class="bdg lvl">' + esc(s.stage_name) + '</span>';
+    };
+    const threatBdg = (s) => {
+      const out = [];
+      for (const p of (s.pests || [])) out.push('<span class="bdg danger">plaga: ' + esc(p.species) + '</span>');
+      for (const d of (s.diseases || [])) out.push('<span class="bdg warn">enf: ' + esc(d.species) + '</span>');
+      return out.join(' ');
+    };
+
+    function renderKpis(t) {
+      const cards = [
+        { v: nf.format(t.gardens || 0), l: 'Huertos', s: (t.greenhouses || 0) + ' con invernadero' },
+        { v: nf.format(t.slots || 0), l: 'Parcelas', s: (t.dead || 0) + ' muertas' },
+        { v: nf.format(t.harvestable || 0), l: 'Cosechables', s: (t.growing || 0) + ' creciendo' },
+        { v: nf.format(t.infested || 0), l: 'Con plaga/enf.', s: t.infested ? 'requieren atención' : 'sin amenazas' },
+      ];
+      document.getElementById('kpis').innerHTML = cards.map((c) =>
+        `<div class="kpi"><span class="kv">${c.v}</span><span class="kl">${esc(c.l)}</span><span class="ks">${esc(c.s)}</span></div>`).join('');
+    }
+
+    function renderGardens(gardens) {
+      if (!gardens.length) {
+        document.getElementById('gardens').innerHTML =
+          '<div class="block"><p class="muted">No hay huertos plantados en el servidor ahora mismo.</p></div>';
+        return;
+      }
+      document.getElementById('gardens').innerHTML = gardens.map((g, gi) => {
+        const slots = g.slots || [];
+        const alive = slots.filter((s) => !s.dead);
+        const harvest = alive.filter((s) => s.stage === 4).length;
+        const infested = slots.filter((s) => (s.pests || []).length || (s.diseases || []).length).length;
+        const owner = g.owner_name ? esc(g.owner_name) : '<span class="muted">desconocido</span>';
+        const gh = g.has_greenhouse ? ' <span class="bdg on">invernadero</span>' : '';
+        const coord = (g.wx != null && g.wy != null)
+          ? `<span class="mono">X=${nf.format(g.wx)} Y=${nf.format(g.wy)}</span>`
+          : '<span class="muted">sin ubicación</span>';
+        const rows = slots.map((s) => {
+          const w = s.growth != null ? Math.max(0, Math.min(100, s.growth)) : 0;
+          const lowbar = s.stage < 4 ? ' lowbar' : '';
+          return `<li><span class="bn">${esc(s.species)} <span class="muted">${esc(s.stage_name)}</span></span>` +
+            `<span class="bb"><i class="${lowbar.trim()}" style="width:${w}%"></i></span>` +
+            `<span class="bs">${w.toFixed(0)}%</span></li>`;
+        }).join('');
+        return `<div class="block" data-gi="${gi}" tabindex="0" role="button" style="cursor:pointer">
+          <h2>Huerto #${esc(g.id)} <span class="muted">${g.slots_x ?? '?'}×${g.slots_y ?? '?'}</span>${gh}</h2>
+          <p class="pnl-meta" style="margin:0 0 0.7rem">Dueño ${owner} · ${coord} · ${slots.length} parcelas · ${harvest} cosechables${infested ? ' · <span class="bdg danger">' + infested + ' con amenaza</span>' : ''}</p>
+          <ul class="bars">${rows || '<li class="muted">Huerto vacío.</li>'}</ul>
+        </div>`;
+      }).join('');
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/cultivos')).json();
+        GARDENS = d.gardens || [];
+        renderKpis(d.totals || {});
+        renderGardens(GARDENS);
+        const t = d.totals || {};
+        document.getElementById('meta').textContent =
+          `${t.gardens || 0} huertos · ${t.slots || 0} parcelas · ${t.harvestable || 0} cosechables · actualizado ${nowTime()}`;
+      } catch (e) {
+        document.getElementById('meta').textContent = 'Error al cargar.';
+        document.getElementById('gardens').innerHTML = '<div class="block"><p class="muted">No se pudieron leer los cultivos.</p></div>';
+      } finally { btn.disabled = false; }
+    }
+
+    const modal = document.getElementById('modal');
+    const closeModal = () => { modal.hidden = true; };
+    modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function inspect(gi) {
+      const g = GARDENS[gi]; if (!g) return;
+      const body = document.getElementById('modal-body');
+      const owner = g.owner_name ? esc(g.owner_name) : '—';
+      const gh = g.has_greenhouse ? '<span class="bdg on">invernadero</span>' : '<span class="muted">a cielo abierto</span>';
+      const coord = (g.wx != null && g.wy != null) ? `X=${nf.format(g.wx)} Y=${nf.format(g.wy)}` : '—';
+      const slots = (g.slots || []).map((s) => {
+        const w = s.growth != null ? Math.max(0, Math.min(100, s.growth)) : 0;
+        const water = s.water != null ? `<span class="it-h">${(s.water).toFixed(2)} 💧</span>` : '';
+        const fert = [];
+        if (s.organic) fert.push('<span class="bdg lvl">orgánico</span>');
+        if (s.industrial) fert.push('<span class="bdg lvl">industrial</span>');
+        const weed = (s.weed && s.weed > 0) ? ` <span class="bdg warn">malas hierbas</span>` : '';
+        const threat = threatBdg(s);
+        return `<li>
+          <span class="it-n"><span class="name">${esc(s.species)}</span>
+            <span class="muted">(${s.x},${s.y})</span> ${STAGE_BDG(s)} ${threat}${weed} ${fert.join(' ')}</span>
+          ${water}</li>
+        <li style="border-bottom:0;padding-top:0">
+          <span class="bb" style="flex:1"><i class="${s.stage < 4 ? 'lowbar' : ''}" style="display:block;height:100%;width:${w}%"></i></span>
+          <span class="it-h">${w.toFixed(0)}% · salud ${s.health}%</span></li>`;
+      }).join('') || '<li class="muted">Huerto vacío.</li>';
+      const harvest = (g.slots || []).filter((s) => s.stage === 4 && !s.dead).length;
+      body.innerHTML = `
+        <h2 class="m-name">Huerto #${esc(g.id)} ${gh}</h2>
+        <p class="m-sub">Dueño <b>${owner}</b> · ${g.slots_x ?? '?'}×${g.slots_y ?? '?'} · <span class="mono">${coord}</span> · ${harvest} cosechables · salud huerto <b class="mono">${g.health != null ? g.health : '—'}</b></p>
+        <h3 style="font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.05em;font-size:0.78rem;color:var(--c-ink-muted);margin:0 0 0.6rem;border-bottom:1px solid var(--c-rule);padding-bottom:0.3rem">Parcelas <span class="muted">${(g.slots || []).length}</span></h3>
+        <ul class="ilist">${slots}</ul>`;
+      modal.hidden = false;
+    }
+
+    const open = (el) => { const c = (el as HTMLElement).closest('[data-gi]') as HTMLElement | null; if (c) inspect(Number(c.dataset.gi)); };
+    document.getElementById('gardens').addEventListener('click', (e) => open(e.target));
+    document.getElementById('gardens').addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Enter') open(e.target); });
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
