@@ -12,16 +12,10 @@ RUN npx astro build
 
 # ---- serve ----
 FROM nginx:alpine
-# Credenciales del panel privado (/panel/). Definir en Coolify como Build Args:
-#   PANEL_USER (def. "admin")  y  PANEL_PASS (sin default → panel cerrado si falta).
-ARG PANEL_USER=admin
-ARG PANEL_PASS=
-RUN apk add --no-cache apache2-utils curl \
-    && if [ -n "$PANEL_PASS" ]; then \
-         htpasswd -bBc /etc/nginx/.htpasswd "$PANEL_USER" "$PANEL_PASS"; \
-       else \
-         : > /etc/nginx/.htpasswd; \
-       fi
+# El panel /panel/ ya NO usa Basic Auth: el acceso lo controla el login con
+# Discord (auth_request → backend del host). Solo hace falta curl (healthcheck).
+# Las antiguas Build Args PANEL_USER/PANEL_PASS quedan obsoletas (se pueden quitar de Coolify).
+RUN apk add --no-cache curl
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 # Healthcheck: nginx sirviendo /healthz → Coolify muestra el contenedor "healthy".
