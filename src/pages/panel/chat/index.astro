@@ -1,0 +1,45 @@
+---
+// Visor de chat: mensajes del chat_*.log del host (Local/Squad/Global...).
+// Sistema compartido. Lee /panel/api/chat.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Chat" slug="chat">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+  <div class="kpis" id="kpis"></div>
+  <div class="dt-scroll">
+    <table class="dt">
+      <thead><tr><th>Cuándo</th><th>Autor</th><th>Canal</th><th>Mensaje</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Mensajes del chat del servidor (Local, Squad, Global…). Hora de España. Los comandos (que empiezan por /) salen atenuados.</p>
+
+  <script>
+    import { esc, fmtDateTime, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    const CH = { Local: 'lvl', Squad: 'ok', Global: 'warn', Admin: 'danger' };
+    const kpi = (v, l) => `<div class="kpi"><span class="kv">${v}</span><span class="kl">${esc(l)}</span></div>`;
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/chat')).json();
+        const c = d.counts || {};
+        const ks = [kpi(c.total || 0, 'Mensajes')];
+        for (const ch of Object.keys(c)) if (ch !== 'total') ks.push(kpi(c[ch], ch));
+        document.getElementById('kpis').innerHTML = ks.join('');
+        document.getElementById('rows').innerHTML = (d.messages || []).map((m) => `<tr>
+          <td>${esc(fmtDateTime(m.ts))}</td>
+          <td><span class="name">${esc(m.name)}</span></td>
+          <td><span class="bdg ${CH[m.channel] || 'lvl'}">${esc(m.channel)}</span></td>
+          <td${m.cmd ? ' class="muted mono"' : ''}>${esc(m.msg)}</td>
+        </tr>`).join('') || '<tr><td colspan="4" class="muted">Sin mensajes en los logs.</td></tr>';
+        document.getElementById('meta').textContent = `${(d.messages || []).length} mensajes · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
