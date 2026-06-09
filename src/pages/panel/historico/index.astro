@@ -1,0 +1,99 @@
+---
+// Dashboard de histórico: series temporales de los LOGS del host (lo que la DB
+// NO guarda): comercio (economy), eventos de fama (famepoints) y comandos de
+// admin. Usa el sistema compartido (PanelLayout + panel.css + scripts/panel.ts).
+// Lee /panel/api/historico. CERO CSS ad-hoc.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Histórico" slug="historico">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="pnl-actions" id="filters" style="margin-bottom:1.1rem">
+    <button type="button" class="pnl-btn primary" data-cat="">Todo</button>
+    <button type="button" class="pnl-btn" data-cat="trade">Comercio</button>
+    <button type="button" class="pnl-btn" data-cat="bank">Banco</button>
+    <button type="button" class="pnl-btn" data-cat="fame">Fama</button>
+    <button type="button" class="pnl-btn" data-cat="admin">Admin</button>
+  </div>
+
+  <div class="dt-scroll">
+    <table class="dt">
+      <thead><tr><th>Cuándo</th><th>Tipo</th><th>Jugador</th><th>Evento</th><th>Cantidad</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Reconstruido desde los logs del servidor (UTF-16LE). La base de datos no guarda este histórico; estos eventos se leen de economy_*.log, famepoints_*.log y admin_*.log.</p>
+
+  <script>
+    import { esc, nf, fmtDateTime, fmtRel, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+
+    const BDG = { trade: 'warn', bank: 'ok', fame: 'lvl', admin: 'danger' };
+    let ALL = [];
+    let cat = '';
+
+    function render() {
+      const rows = cat ? ALL.filter((e) => e.type === cat) : ALL;
+      const tbody = document.getElementById('rows');
+      if (!rows.length) {
+        tbody.innerHTML = '<tr><td colspan="5"><span class="muted">Sin eventos para este filtro.</span></td></tr>';
+        return;
+      }
+      tbody.innerHTML = rows.map((e) => {
+        const bclass = BDG[e.type] || 'lvl';
+        const amount = e.amount != null
+          ? `<span class="num b">${nf.format(e.amount)}</span>${e.type === 'fame' ? ' <span class="muted">pts</span>' : (e.type === 'admin' ? '' : ' <span class="muted">$</span>')}`
+          : '<span class="muted">—</span>';
+        return `<tr>
+          <td class="num"><span title="${esc(e.ts)}">${esc(fmtDateTime(e.ts))}</span><br><span class="muted">${esc(fmtRel(e.ts))}</span></td>
+          <td><span class="bdg ${bclass}">${esc(e.cat)}</span></td>
+          <td><span class="name">${esc(e.char_name) || '—'}</span><br><span class="sid">${esc(e.steamid)}</span></td>
+          <td>${esc(e.text)}</td>
+          <td class="num">${amount}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderKpis(d) {
+      const c = d.counts || {};
+      const kpi = (v, l, s) => `<div class="kpi"><span class="kv">${v}</span><span class="kl">${l}</span>${s ? `<span class="ks">${s}</span>` : ''}</div>`;
+      document.getElementById('kpis').innerHTML = [
+        kpi(nf.format(d.total || 0), 'Eventos', 'en los logs'),
+        kpi(nf.format(c.trade || 0), 'Comercio', 'compra/venta'),
+        kpi(nf.format(c.bank || 0), 'Banco', 'depósitos/retiros'),
+        kpi(nf.format(c.fame || 0), 'Fama', 'premios'),
+        kpi(nf.format(c.admin || 0), 'Admin', 'comandos'),
+      ].join('');
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/historico')).json();
+        ALL = (d.events || []);
+        renderKpis(d);
+        render();
+        const newest = ALL.length ? fmtDateTime(ALL[0].ts) : '—';
+        document.getElementById('meta').textContent =
+          `${ALL.length} eventos (más recientes) · último ${newest} · actualizado ${nowTime()}`;
+      } catch (e) {
+        document.getElementById('meta').textContent = 'Error al cargar.';
+        document.getElementById('rows').innerHTML = '<tr><td colspan="5"><span class="muted">No se pudo leer el histórico.</span></td></tr>';
+      } finally { btn.disabled = false; }
+    }
+
+    document.getElementById('filters').addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest('[data-cat]') as HTMLElement | null;
+      if (!b) return;
+      cat = b.dataset.cat || '';
+      document.querySelectorAll('#filters [data-cat]').forEach((x) => x.classList.toggle('primary', x === b));
+      render();
+    });
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
