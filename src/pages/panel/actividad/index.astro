@@ -1,0 +1,140 @@
+---
+// Feed de actividad del servidor (panel admin). Lee /panel/api/activity (backend
+// host, RO sobre la DB viva + logs login_*.log, admin-only). Eventos: login,
+// logout y muertes (sin causante: el kill.log no es fiable en este server).
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout lang="es" title="Actividad" description="Feed de actividad reciente del servidor" noindex>
+  <section class="activity">
+    <div class="container">
+      <header class="ph">
+        <div><span class="eyebrow">Panel · Admin</span><h1>Actividad</h1></div>
+        <div class="head-tools">
+          <select id="filter" class="filter" aria-label="Filtrar por tipo">
+            <option value="all">Todo</option>
+            <option value="login">Conexiones</option>
+            <option value="logout">Desconexiones</option>
+            <option value="death">Muertes</option>
+          </select>
+          <button id="refresh" type="button" class="refresh">↻ Actualizar</button>
+        </div>
+      </header>
+
+      <div id="gate" class="gate" hidden>
+        <h2>Solo administradores</h2>
+        <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+      </div>
+
+      <div id="wrap" hidden>
+        <p id="meta" class="meta"></p>
+        <ol id="feed" class="feed"></ol>
+        <p class="tiphint">Conexiones desde los logs del servidor; muertes desde la base de datos (sin causante: el registro de kills no es fiable en este servidor). Horas en UTC.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const API = '/panel/api';
+    const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+
+    const KIND = {
+      login:  { ic: '▸', cls: 'login',  txt: 'se conectó' },
+      logout: { ic: '◂', cls: 'logout', txt: 'se desconectó' },
+      death:  { ic: '✕', cls: 'death',  txt: 'murió' },
+    };
+
+    function rel(iso) {
+      if (!iso) return '';
+      const d = new Date(iso); if (isNaN(d)) return '';
+      const s = (Date.now() - d.getTime()) / 1000;
+      if (s < 0) return 'en el futuro';
+      if (s < 60) return 'hace segundos';
+      if (s < 3600) return 'hace ' + Math.floor(s / 60) + ' min';
+      if (s < 86400) return 'hace ' + Math.floor(s / 3600) + ' h';
+      return 'hace ' + Math.floor(s / 86400) + ' d';
+    }
+    function dayLabel(iso) {
+      const d = new Date(iso); if (isNaN(d)) return '—';
+      return d.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' });
+    }
+    function hhmm(iso) {
+      const d = new Date(iso); if (isNaN(d)) return '';
+      return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+    }
+
+    let ALL = [];
+
+    function render() {
+      const sel = document.getElementById('filter').value;
+      const evs = sel === 'all' ? ALL : ALL.filter((e) => e.type === sel);
+      const feed = document.getElementById('feed');
+      if (!evs.length) { feed.innerHTML = '<li class="empty muted">Sin eventos.</li>'; return; }
+      let lastDay = '';
+      feed.innerHTML = evs.map((e) => {
+        const k = KIND[e.type] || { ic: '·', cls: '', txt: e.type };
+        const day = e.ts.slice(0, 10);
+        let head = '';
+        if (day !== lastDay) { lastDay = day; head = `<li class="daysep">${esc(dayLabel(e.ts))}</li>`; }
+        const name = esc(e.char_name) || esc(e.steam_name) || '—';
+        const alias = e.steam_name && e.steam_name !== e.char_name ? ` <span class="muted">(${esc(e.steam_name)})</span>` : '';
+        return head + `<li class="ev ${k.cls}">
+          <span class="ic ${k.cls}" aria-hidden="true">${k.ic}</span>
+          <span class="body"><span class="who">${name}</span>${alias} <span class="verb">${k.txt}</span></span>
+          <time class="when" datetime="${esc(e.ts)}" title="${esc(e.ts)} UTC">${esc(hhmm(e.ts))} <span class="ago">· ${esc(rel(e.ts))}</span></time>
+        </li>`;
+      }).join('');
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const res = await fetch(API + '/activity');
+        if (res.status === 403) { document.getElementById('gate').hidden = false; document.getElementById('wrap').hidden = true; return; }
+        const j = await res.json();
+        ALL = (j.events || []).sort((a, b) => (a.ts < b.ts ? 1 : a.ts > b.ts ? -1 : 0));
+        document.getElementById('wrap').hidden = false;
+        const nd = ALL.filter((e) => e.type === 'death').length;
+        document.getElementById('meta').textContent =
+          `${ALL.length} eventos · ${nd} ${nd === 1 ? 'muerte' : 'muertes'} · actualizado ${new Date().toLocaleTimeString('es-ES')}`;
+        render();
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    document.getElementById('filter').addEventListener('change', render);
+    load();
+  </script>
+
+  <style>
+    .activity { padding: 2.5rem 0 4rem; }
+    .ph { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .ph h1 { margin: 0.2rem 0 0; }
+    .head-tools { display: flex; gap: 0.5rem; align-items: center; }
+    .filter, .refresh { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; padding: 0.4rem 0.9rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink-soft); cursor: pointer; }
+    .filter:hover, .refresh:hover { border-color: var(--c-rust); color: var(--c-ink); }
+    .gate { background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 1.5rem; }
+    .gate h2 { margin: 0 0 0.4rem; font-family: var(--font-display); }
+    .meta { color: var(--c-ink-muted); font-size: 0.82rem; font-family: var(--font-mono); margin: 0 0 0.9rem; }
+
+    .feed { list-style: none; margin: 0; padding: 0; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); overflow: hidden; }
+    .daysep { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; color: var(--c-ink-muted); background: var(--c-paper-soft); padding: 0.5rem 0.9rem; border-bottom: 1px solid var(--c-rule); border-top: 1px solid var(--c-rule); }
+    .daysep:first-child { border-top: 0; }
+    .ev { display: grid; grid-template-columns: 1.6rem 1fr auto; align-items: center; gap: 0.7rem; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--c-rule); font-size: 0.9rem; }
+    .ev:last-child { border-bottom: 0; }
+    .ic { font-family: var(--font-mono); width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 999px; font-size: 0.8rem; border: 1px solid; flex: none; }
+    .ic.login { color: var(--c-olive); border-color: var(--c-olive); }
+    .ic.logout { color: var(--c-ink-muted); border-color: var(--c-rule); }
+    .ic.death { color: #b3261e; border-color: #b3261e; }
+    .body { min-width: 0; }
+    .who { font-weight: 600; font-family: var(--font-display); }
+    .verb { color: var(--c-ink-soft); }
+    .ev.death .verb { color: #b3261e; font-weight: 600; }
+    .when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--c-ink-soft); text-align: right; white-space: nowrap; }
+    .ago { color: var(--c-ink-muted); }
+    .muted { color: var(--c-ink-muted); }
+    .empty { padding: 1.2rem 0.9rem; }
+    .tiphint { color: var(--c-ink-muted); font-size: 0.78rem; margin-top: 0.6rem; }
+    @media (max-width: 540px) { .ago { display: none; } }
+  </style>
+</BaseLayout>

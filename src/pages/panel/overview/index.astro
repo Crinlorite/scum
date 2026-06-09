@@ -1,0 +1,188 @@
+---
+// Overview del servidor (panel admin). Lee /panel/api/overview (backend host,
+// admin-only): jugadores online (feed RAM o DB viva RO), proximo reinicio
+// (systemd timer), uptime del contenedor SCUM y RAM del host.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout lang="es" title="Overview" description="Resumen del estado del servidor" noindex>
+  <section class="ov">
+    <div class="container">
+      <header class="ph">
+        <div><span class="eyebrow">Panel · Admin</span><h1>Overview</h1></div>
+        <button id="refresh" type="button" class="refresh">↻ Actualizar</button>
+      </header>
+
+      <div id="gate" class="gate" hidden>
+        <h2>Solo administradores</h2>
+        <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+      </div>
+
+      <div id="wrap" hidden>
+        <p id="meta" class="meta"></p>
+        <div class="cards">
+          <article class="card">
+            <h2>Jugadores en línea</h2>
+            <div class="big"><span id="online">—</span></div>
+            <p id="online-src" class="sub"></p>
+            <ul id="online-list" class="plist"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Próximo reinicio</h2>
+            <div class="big"><span id="restart-in">—</span></div>
+            <p id="restart-at" class="sub"></p>
+          </article>
+
+          <article class="card">
+            <h2>Servidor SCUM</h2>
+            <div class="big"><span id="up">—</span></div>
+            <p class="sub"><span id="cstate" class="b"></span> <span id="chealth" class="muted"></span></p>
+            <p id="cstart" class="sub"></p>
+          </article>
+
+          <article class="card">
+            <h2>RAM del host</h2>
+            <div class="big"><span id="ram-used">—</span> <span class="unit">GB</span></div>
+            <div class="bar"><i id="ram-bar"></i></div>
+            <p id="ram-sub" class="sub"></p>
+            <p id="swap-sub" class="sub"></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const API = '/panel/api';
+    const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    const nf = new Intl.NumberFormat('es-ES');
+    let timer = null;
+
+    function dur(s) {
+      if (s == null || s < 0) return '—';
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+      if (d > 0) return d + 'd ' + h + 'h';
+      if (h > 0) return h + 'h ' + m + 'm';
+      return m + 'm';
+    }
+    function fmtClock(epoch) {
+      if (!epoch) return '';
+      try { return new Date(epoch * 1000).toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' }); }
+      catch (e) { return ''; }
+    }
+
+    function paint(d) {
+      const now = d.now || Math.floor(Date.now() / 1000);
+
+      // online
+      document.getElementById('online').textContent = d.online == null ? '—' : d.online;
+      const srcTxt = d.online_source === 'ram' ? 'lectura en vivo (RAM)'
+        : d.online_source === 'db' ? 'sesiones en la base de datos'
+        : 'sin datos';
+      document.getElementById('online-src').textContent = srcTxt;
+      const lst = (d.players || []).map((p) => {
+        const dead = p.alive === false ? ' <span class="b dead">muerto</span>' : '';
+        return `<li>${esc(p.name) || '—'}${dead}</li>`;
+      }).join('') || '<li class="muted">Nadie conectado.</li>';
+      document.getElementById('online-list').innerHTML = lst;
+
+      // proximo reinicio
+      const ri = document.getElementById('restart-in');
+      if (d.next_restart) {
+        const left = d.next_restart - now;
+        ri.textContent = left > 0 ? 'en ' + dur(left) : 'inminente';
+        ri.className = left > 0 && left < 1800 ? 'soon' : '';
+        document.getElementById('restart-at').textContent = fmtClock(d.next_restart) + ' (02:00 UTC)';
+      } else {
+        ri.textContent = '—';
+        document.getElementById('restart-at').textContent = 'timer no disponible';
+      }
+
+      // contenedor
+      const c = d.container || {};
+      document.getElementById('up').textContent = c.uptime_s != null ? dur(c.uptime_s) : '—';
+      const cs = document.getElementById('cstate');
+      cs.textContent = c.status || '—';
+      cs.className = 'b ' + (c.status === 'running' ? 'ok' : 'bad');
+      const ch = document.getElementById('chealth');
+      ch.textContent = c.health ? '· ' + c.health : '';
+      ch.className = 'muted ' + (c.health === 'healthy' ? 'ok-t' : c.health ? 'bad-t' : '');
+      document.getElementById('cstart').textContent = c.started_at ? 'arrancado ' + fmtClock(now - (c.uptime_s || 0)) : '';
+
+      // RAM
+      const r = d.ram || {};
+      if (r.total_mb) {
+        document.getElementById('ram-used').textContent = (r.used_mb / 1024).toFixed(1);
+        const pct = r.used_pct != null ? r.used_pct : Math.round(r.used_mb * 100 / r.total_mb);
+        const bar = document.getElementById('ram-bar');
+        bar.style.width = Math.min(100, pct) + '%';
+        bar.className = pct >= 90 ? 'crit' : pct >= 75 ? 'warn' : '';
+        document.getElementById('ram-sub').textContent =
+          `${pct}% usado · ${(r.total_mb / 1024).toFixed(0)} GB totales · ${nf.format(r.available_mb)} MB disponibles`;
+        const sw = document.getElementById('swap-sub');
+        sw.textContent = r.swap_total_mb ? `Swap ${nf.format(r.swap_used_mb || 0)} / ${nf.format(r.swap_total_mb)} MB` : '';
+      } else {
+        document.getElementById('ram-used').textContent = '—';
+        document.getElementById('ram-sub').textContent = 'sin datos';
+      }
+    }
+
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const res = await fetch(API + '/overview');
+        if (res.status === 403) {
+          document.getElementById('gate').hidden = false;
+          document.getElementById('wrap').hidden = true;
+          if (timer) { clearInterval(timer); timer = null; }
+          return;
+        }
+        const d = await res.json();
+        paint(d);
+        document.getElementById('wrap').hidden = false;
+        document.getElementById('meta').textContent = 'Actualizado ' + new Date().toLocaleTimeString();
+      } catch (e) {
+        document.getElementById('meta').textContent = 'Error al cargar.';
+      } finally { btn.disabled = false; }
+    }
+
+    document.getElementById('refresh').addEventListener('click', load);
+    load();
+    timer = setInterval(load, 30000);  // auto-refresca cada 30 s
+  </script>
+
+  <style>
+    .ov { padding: 2.5rem 0 4rem; }
+    .ph { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+    .ph h1 { margin: 0.2rem 0 0; }
+    .refresh { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.78rem; padding: 0.4rem 0.9rem; border: 1px solid var(--c-rule); border-radius: var(--radius); background: var(--c-paper); color: var(--c-ink-soft); cursor: pointer; }
+    .refresh:hover { border-color: var(--c-rust); color: var(--c-ink); }
+    .gate { background: var(--c-paper-soft); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-rust); border-radius: var(--radius); padding: 1.5rem; }
+    .gate h2 { margin: 0 0 0.4rem; font-family: var(--font-display); }
+    .meta { color: var(--c-ink-muted); font-size: 0.82rem; font-family: var(--font-mono); margin: 0 0 0.9rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .card { background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: 1.2rem 1.3rem; }
+    .card h2 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.74rem; color: var(--c-ink-muted); margin: 0 0 0.6rem; border-bottom: 1px solid var(--c-rule); padding-bottom: 0.4rem; }
+    .big { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; color: var(--c-ink); }
+    .big .unit { font-size: 1rem; color: var(--c-ink-muted); }
+    .big .soon { color: var(--c-rust); }
+    .sub { color: var(--c-ink-soft); font-size: 0.82rem; margin: 0.5rem 0 0; }
+    .muted { color: var(--c-ink-muted); }
+    .ok-t { color: var(--c-olive); } .bad-t { color: #b3261e; }
+
+    .plist { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; gap: 0.2rem; font-size: 0.86rem; }
+    .plist li { padding: 0.2rem 0; border-bottom: 1px dotted var(--c-rule); }
+    .plist li:last-child { border-bottom: 0; }
+
+    .b { display: inline-block; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.1rem 0.4rem; border-radius: 999px; border: 1px solid; }
+    .b.ok { color: #fff; background: var(--c-olive); border-color: var(--c-olive); }
+    .b.bad { color: #fff; background: #b3261e; border-color: #b3261e; }
+    .b.dead { color: #b3261e; border-color: #b3261e; }
+
+    .bar { background: var(--c-rule); border-radius: 999px; height: 8px; overflow: hidden; margin-top: 0.7rem; }
+    .bar i { display: block; height: 100%; width: 0; background: var(--c-olive); transition: width 0.4s ease; }
+    .bar i.warn { background: var(--c-rust); }
+    .bar i.crit { background: #b3261e; }
+  </style>
+</BaseLayout>
