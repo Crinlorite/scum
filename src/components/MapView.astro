@@ -7,6 +7,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations } from '../i18n/utils';
 import poiData from '../data/poi.json';
 import type { LangCode } from '../i18n/languages';
+import { PANEL_NAV } from '../data/panel-nav.ts';
+import '../styles/panel.css';
 
 interface Props { lang: LangCode; live?: boolean; noindex?: boolean; }
 const { lang, live = false, noindex = false } = Astro.props;
@@ -41,6 +43,9 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
       <h1>{tr('map.title')}</h1>
       <p class="intro">{tr('map.intro')} <span class="count">{pois.length} POIs</span></p>
     </div>
+    {live && (
+      <div class="container"><nav class="pnl-nav" aria-label="secciones del panel">{PANEL_NAV.map((n) => <a href={n.href} class={n.s === 'mapa' ? 'active' : ''}>{n.t}</a>)}</nav></div>
+    )}
     <div id="scum-map" role="application" aria-label={tr('map.title')}></div>
   </section>
 
