@@ -1,0 +1,46 @@
+---
+// Shell común de los dashboards del panel admin: cabecera + sub-nav entre
+// secciones + gate de admin + estilos compartidos (panel.css). Las páginas
+// ponen su contenido en el <slot/> y sus acciones (refrescar) en slot "actions".
+import BaseLayout from './BaseLayout.astro';
+import '../styles/panel.css';
+
+interface Props { title: string; slug: string; }
+const { title, slug } = Astro.props;
+
+const NAV = [
+  { s: 'mapa', t: 'Mapa', href: '/panel/mapa' },
+  { s: 'jugadores', t: 'Jugadores', href: '/panel/jugadores' },
+  { s: 'economia', t: 'Economía', href: '/panel/economia' },
+  { s: 'squads', t: 'Squads', href: '/panel/squads' },
+  { s: 'overview', t: 'Overview', href: '/panel/overview' },
+  { s: 'actividad', t: 'Actividad', href: '/panel/actividad' },
+  { s: 'rcon', t: 'RCON', href: '/panel/rcon' },
+];
+---
+<BaseLayout lang="es" title={title} description="Panel de administración del servidor" noindex>
+  <section class="pnl">
+    <div class="container">
+      <div class="pnl-top">
+        <div><span class="eyebrow">Panel · Admin</span><h1>{title}</h1></div>
+        <div class="pnl-actions"><slot name="actions" /></div>
+      </div>
+
+      <nav class="pnl-nav" aria-label="secciones del panel">
+        {NAV.map((n) => <a href={n.href} class={n.s === slug ? 'active' : ''}>{n.t}</a>)}
+      </nav>
+
+      <div id="pnl-gate" class="pnl-gate" hidden>
+        <h2>Solo administradores</h2>
+        <p>Este panel requiere permiso de administrador. Si eres moderador, tienes el <a href="/panel/mapa">mapa en vivo</a>.</p>
+      </div>
+
+      <div id="pnl-content"><slot /></div>
+    </div>
+  </section>
+
+  <script>
+    import { gate } from '../scripts/panel.ts';
+    gate();
+  </script>
+</BaseLayout>
