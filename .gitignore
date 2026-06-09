@@ -22,3 +22,4 @@ tools/map/
 **/*.pak
 scum-locres*
 scum-textures*
+src/data/poi.bak.json

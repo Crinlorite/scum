@@ -1,1974 +1,1918 @@
 [
  {
-  "verb": "AddGardenPlantPest"
- },
- {
-  "verb": "CookRecipe"
- },
- {
-  "verb": "EnableAdminViolations"
- },
- {
-  "verb": "EnhancedPhotoMode"
- },
- {
-  "verb": "EquipParachute",
-  "desc": {
-   "es": "Equipa un paracaídas.",
-   "en": "Equips a parachute.",
-   "de": "Equips a parachute.",
-   "ru": "Даёт парашют.",
-   "zh": "装备降落伞。",
-   "fr": "Équipe un parachute.",
-   "pt": "Equipa um paraquedas.",
-   "zh-tw": "裝備降落傘。",
-   "th": "สวมใส่ร่มชูชีพ",
-   "pl": "Pozwala wyposażyć się w spadochron."
-  }
- },
- {
-  "verb": "GardenPlantRandomPlants"
- },
- {
-  "verb": "GrantElevatedStatus"
- },
- {
-  "verb": "RevokeElevatedStatus"
- },
- {
-  "verb": "SetBodyType"
- },
- {
-  "verb": "SetGardenNutrientsHigh"
- },
- {
-  "verb": "SetGardenPlantGrowthStage"
- },
- {
-  "verb": "SetGardenPlantingTime"
- },
- {
-  "verb": "ShowRespawnTimers",
-  "desc": {
-   "es": "Muestra el conteo de reapariciones de una opción de reaparición determinada.",
-   "en": "Shows respawn times for given respawn option.",
-   "de": "Shows respawn times for given respawn option.",
-   "ru": "Показывает сроки возрождения для данного варианта возрождения.",
-   "zh": "显示指定重生选项的重生时间。",
-   "fr": "Affiche les temps de réapparition pour une option de réapparition donnée.",
-   "pt": "Exibe tempos de renascimento para a opção escolhida.",
-   "zh-tw": "為指定復活選項顯示復活時間。",
-   "th": "แสดงเวลาเกิดใหม่สำหรับตัวเลือกเกิดใหม่ที่เลือก",
-   "pl": "Pokazuje czas odradzania dla wskazanej opcji odrodzenia."
-  }
- },
- {
-  "verb": "SpawnBrenner",
-  "desc": {
-   "es": "Genera el personaje de depuración de Brenner.",
-   "en": "Spawn debug Brenner character.",
-   "de": "Spawn debug Brenner character.",
-   "ru": "Создаёт персонажа «Бреннер» для отладки.",
-   "zh": "生成调试用布伦纳角色。",
-   "fr": "Spawn debug Brenner character.",
-   "pt": "Gera o personagem de depuração Brenner.",
-   "zh-tw": "生成除錯 Brenner 角色。",
-   "th": "สร้างตัวละครเบรนเนอร์สำหรับแก้บั๊ก",
-   "pl": "Generuje debugową postać Brennera."
-  }
- },
- {
-  "verb": "SpawnReflectionSphere",
-  "desc": {
-   "es": "Genera una esfera de reflejo con el fin de probar reflejos ambientales.",
-   "en": "Spawns a reflection sphere for testing ambient reflections.",
-   "de": "Spawns a reflection sphere for testing ambient reflections.",
-   "ru": "Создаёт зеркальную сферу для тестирования фоновых отражений.",
-   "zh": "生成一个反射球，用于测试环境反射。",
-   "fr": "Fait apparaître une sphère de réflexion pour tester les réflexions ambiantes.",
-   "pt": "Gera uma esfera reflexiva para testar reflexos do ambiente.",
-   "zh-tw": "生成反射球來測試環境反射。",
-   "th": "สร้างทรงกลมสะท้อนแสงเพื่อทดสอบการสะท้อนแสงรอบข้าง",
-   "pl": "Generuje sferę do testowania odbić otoczenia."
-  }
- },
- {
-  "verb": "ToggleZombieNavigationLogging",
-  "desc": {
-   "es": "Habilita o no el registro de errores/avisos de navegación de títeres.",
-   "en": "Toggles Zombie Navigation Error/Warning Logging",
-   "de": "Toggles Zombie Navigation Error/Warning Logging",
-   "ru": "Позволяет включить или выключить запись ошибок/предупреждений навигации марионеток в журнал.",
-   "zh": "切换僵尸导航错误/警告记录",
-   "fr": "Active ou désactive l'enregistrement des erreurs/alertes de navigation des zombies.",
-   "pt": "Ativa ou desativa o registro de avisos/erros na navegação de fantoches",
-   "zh-tw": "切換殭屍導航錯誤/警告紀錄",
-   "th": "สลับการบันทึกข้อผิดพลาด/คำเตือนการแสดงทิศทางของซอมบี้",
-   "pl": "Przełącza rejestrowanie błędów/ostrzeżeń nawigacji zombie"
-  }
- },
- {
-  "verb": "UpgradeBaseBuildingElementsWithinRadius",
-  "desc": {
-   "es": "Se mejoran todos los elementos de construcción de base presentes dentro del radio.",
-   "en": "Upgrade all Base Bulding Elements within radius",
-   "de": "Alle Stützpunkt-Elemente im Umkreis aufrüsten",
-   "ru": "Улучшить все элементы строительства базы в радиусе",
-   "zh": "升级范围内的所有基地建筑元素",
-   "fr": "Améliore tous les éléments de construction de base présents dans le rayon défini",
-   "pt": "Melhora todos os elementos de construção de base dentro do raio",
-   "zh-tw": "升級半徑範圍內的所有基地建設元素",
-   "th": "อัปเกรดองค์ประกอบสิ่งก่อสร้างฐานทั้งหมดภายในรัศมี",
-   "pl": "Ulepsz wszystkie elementy budynku bazy w promieniu."
-  }
+  "verb": "AddGardenPlantPest",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "WholeGarden",
+    "description": "Affect whole garden or one slot",
+    "type": "Bool"
+   },
+   {
+    "name": "species",
+    "description": "species",
+    "type": "String"
+   },
+   {
+    "name": "Aphids",
+    "description": "pest or disease species name, or just enter random",
+    "type": "String"
+   },
+   {
+    "name": "value",
+    "description": "(0.0 - 1.0]",
+    "type": "Numeric"
+   },
+   {
+    "name": "value",
+    "description": "(0.0 - 1.0]",
+    "type": "String"
+   },
+   {
+    "name": "remove",
+    "description": "removes pest species",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "Announce",
   "level": "Admin",
-  "desc": {
-   "es": "Envía el mensaje de información a todos los jugadores que estén conectados.",
-   "en": "Sends the announcement message to all currently connected players.",
-   "de": "Sends the announcement message to all currently connected players.",
-   "ru": "Рассылает объявление всем подключённым игрокам.",
-   "zh": "向所有当前连接的玩家发送公告信息。",
-   "fr": "Envoie le message d'annonce à tous les joueurs actuellement connectés.",
-   "pt": "Envia a mensagem de anúncio para todos os jogadores conectados.",
-   "zh-tw": "向所有目前在線上的玩家傳送公告訊息。",
-   "th": "ส่งข้อความประกาศไปยังผู้เล่นที่เชื่อมต่ออยู่ในปัจจุบันทั้งหมด",
-   "pl": "Wysyła ogłoszenie do wszystkich obecnie połączonych graczy."
-  }
+  "description": "Sends the announcement message to all currently connected players.",
+  "args": [
+   {
+    "name": "Message",
+    "description": "Announcement message",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "Ban",
   "level": "Admin",
-  "desc": {
-   "es": "Expulsa de la partida al jugador indicado y le impide conectarse a este servidor mientras dure el veto.",
-   "en": "Kicks the specified player from the game and prevents him or her from connecting to this server until unbanned.",
-   "de": "Kicks the specified player from the game and prevents him or her from connecting to this server until unbanned.",
-   "ru": "Исключает выбранного игрока из игры и не даёт ему снова подключиться к этому серверу до момента разблокировки.",
-   "zh": "将指定的玩家踢出游戏，并阻止其在解禁前连接到这个服务器。",
-   "fr": "Expulse le joueur spécifié du jeu et l'empêche de se connecter à ce serveur jusqu'à ce qu'il ne soit plus banni.",
-   "pt": "Expulsa o jogador especificado do jogo e evita que ele ou ela se conecte ao servidor até o banimento ser removido.",
-   "zh-tw": "將指定玩家踢出遊戲，並讓他無法再連線至此伺服器，直到解除封鎖。",
-   "th": "เตะผู้เล่นที่ต้องการออกจากเกมและห้ามผู้เล่นดังกล่าวไม่ให้เชื่อมต่อเซิร์ฟเวอร์นี้จนกว่าจะปลดแบน",
-   "pl": "Wyrzuca wskazanego gracza z gry i uniemożliwia mu połączenie się z tym serwerem do czasu odblokowania."
-  }
+  "description": "Kicks the specified player from the game and prevents him or her from connecting to this server until unbanned.",
+  "args": [
+   {
+    "name": "SteamID64",
+    "description": "Steam ID of player to ban",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "CancelVote",
   "level": "Admin",
-  "desc": {
-   "es": "Cancela la votación activa.",
-   "en": "Cancels active voting.",
-   "de": "Cancels active voting.",
-   "ru": "Отменяет активное голосование.",
-   "zh": "取消正在进行的投票。",
-   "fr": "Annule le vote en cours.",
-   "pt": "Cancela a votação em atividade.",
-   "zh-tw": "取消啟用的投票。",
-   "th": "ยกเลิกการโหวตที่ดำเนินอยู่",
-   "pl": "Anuluje aktywne głosowanie."
-  }
+  "description": "Cancels active voting.",
+  "args": []
  },
  {
   "verb": "ChangeCurrencyBalance",
   "level": "Admin",
-  "desc": {
-   "es": "Añade la suma de la divisa especificada a tu saldo o al del jugador que indiques.",
-   "en": "Adds specified currency amount to self or the specified player.",
-   "de": "Adds specified currency amount to self or the specified player.",
-   "ru": "Добавляет указанное количество валюты себе или указанному игроку.",
-   "zh": "给自己或指定的玩家增加指定的货币数额。",
-   "fr": "Octroie le montant spécifié au joueur spécifié ou à vous-même.",
-   "pt": "Adiciona a quantia de moeda especificada para você ou para o jogador indicado.",
-   "zh-tw": "為自己或指定玩家添加指定的貨幣數量。",
-   "th": "เพิ่มจำนวนสกุลเงินที่ต้องการแก่ตนเองหรือผู้เล่นที่กำหนด",
-   "pl": "Przyznaje sobie lub wskazanemu graczowi określoną ilość waluty."
-  }
+  "description": "Adds specified currency amount to self or the specified player.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "Player",
+    "description": "Player whose balance to change",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "ChangeCurrencyBalanceToAll",
   "level": "Admin",
-  "desc": {
-   "es": "Se adjudica la suma de la divisa determinada a todos los jugadores de la base de datos.",
-   "en": "Adds the specified currency amount to all players in the database.",
-   "de": "Gewährt allen Spielern in der Datenbank einen festgelegten Währungsbetrag.",
-   "ru": "Добавляет всем игрокам в базе данных количество валюты, равное указанному значению.",
-   "zh": "为数据库中的所有玩家添加指定的货币金额。",
-   "fr": "Ajoute le solde de tous les joueurs de la base de données selon la valeur spécifiée.",
-   "pt": "Adiciona a quantidade de moeda especificada para todos os jogadores na base de dados.",
-   "zh-tw": "為資料庫中的所有玩家添加指定的貨幣數量。",
-   "th": "เพิ่มจำนวนสกุลเงินที่ต้องการแก่ผู้เล่นทั้งหมดในฐานข้อมูล",
-   "pl": "Dodaje określoną ilość waluty dla wszystkich graczy w bazie danych."
-  }
+  "description": "Adds the specified currency amount to all players in the database.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "Currency to change",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
  },
  {
   "verb": "ChangeCurrencyBalanceToAllOnline",
   "level": "Admin",
-  "desc": {
-   "es": "Añade la suma de la divisa especificada a todos los jugadores en línea.",
-   "en": "Adds the specified currency amount to all online players.",
-   "de": "Adds the specified currency amount to all online players.",
-   "ru": "Добавляет указанное количество валюты всем игрокам в сети.",
-   "zh": "向所有在线玩家添加指定的货币金额。",
-   "fr": "Octroie le montant spécifié à tous les joueurs en ligne.",
-   "pt": "Adiciona a quantia de moeda especificada para todos os jogadores on-line.",
-   "zh-tw": "為所有線上玩家添加指定的貨幣數量。",
-   "th": "เพิ่มจำนวนสกุลเงินที่ต้องการแก้ผู้เล่นที่ออนไลน์ทั้งหมด",
-   "pl": "Przyznaje wszystkim graczom online określoną ilość waluty."
-  }
+  "description": "Adds the specified currency amount to all online players.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "Currency to change",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
  },
  {
   "verb": "ChangeFamePoints",
   "level": "Admin",
-  "desc": {
-   "es": "Cambia los puntos de fama del jugador especificado al valor que se indique.",
-   "en": "Changes fame points of the specified player for the specified value.",
-   "de": "Changes fame points of the specified player for the specified value.",
-   "ru": "Меняет число очков славы указанного игрока на указанное значение.",
-   "zh": "将指定玩家的声望值改为指定值。",
-   "fr": "Remplace la quantité de points de gloire du joueur spécifié par la valeur spécifiée.",
-   "pt": "Troca os pontos de fama do jogador especificado pelo valor indicado.",
-   "zh-tw": "將指定玩家的聲望點數變更至指定數值。",
-   "th": "เปลี่ยนค่าชื่อเสียงของผู้เล่นที่ต้องการเป็นค่าที่กำหนด",
-   "pl": "Zmienia liczbę punktów sławy wskazanego gracza na określoną wartość."
-  }
- },
- {
-  "verb": "ClearFakeName",
-  "level": "Admin",
-  "desc": {
-   "es": "Elimina un nombre falso del servidor.",
-   "en": "Clears a fake name on the server.",
-   "de": "Clears a fake name on the server.",
-   "ru": "Убирает псевдоним с сервера.",
-   "zh": "清除服务器上的一个假名。",
-   "fr": "Supprime un faux nom sur le serveur.",
-   "pt": "Retira um nome falso do servidor.",
-   "zh-tw": "清除伺服器上的假名。",
-   "th": "ล้างชื่อปลอมบนเซิร์ฟเวอร์",
-   "pl": "Usuwa fałszywą nazwę z serwera."
-  }
- },
- {
-  "verb": "DestroyAllBaseBuildingElementsForFlag",
-  "level": "Admin",
-  "desc": {
-   "es": "Activa un sistema de votación.",
-   "en": "Triggers a voting system.",
-   "de": "Triggers a voting system.",
-   "ru": "Запускает систему голосования.",
-   "zh": "触发投票系统。",
-   "fr": "Déclenche un vote.",
-   "pt": "Ativa um sistema de votação.",
-   "zh-tw": "觸發投票系統。",
-   "th": "เปิดการทำงานระบบโหวต",
-   "pl": "Aktywuje system głosowania."
-  }
- },
- {
-  "verb": "DestroyAllBaseBuildingElementsForPlayer",
-  "level": "Admin",
-  "desc": {
-   "es": "Se destruirán todos los elementos de construcción de base pertenecientes al jugador correspondiente a la ID.",
-   "en": "Destroys all base building elements for player with the provided id.",
-   "de": "Destroys all base building elements for player with the provided id.",
-   "ru": "Уничтожает все элементы строительства базы для игрока с указанным идентификатором.",
-   "zh": "摧毁指定ID的玩家的所有基地建筑元素。",
-   "fr": "Détruit tous les éléments de base pour le joueur avec l'ID donné.",
-   "pt": "Destrói todos os elementos de base para o jogador com a ID fornecida.",
-   "zh-tw": "摧毀指定 ID 玩家的所有基地建設元素。",
-   "th": "ทำลายองค์ประกอบสิ่งก่อสร้างฐานทั้งหมดสำหรับผู้เล่นที่มี ID ตามที่กำหนด",
-   "pl": "Niszczy wszystkie elementy budynku bazy dla gracz ze wskazanym identyfikatorem."
-  }
- },
- {
-  "verb": "DestroyAllBaseBuildingElementsForSquad",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los elementos del edificio de la basepara el equiò con el ID proporcionado.",
-   "en": "Destroys all base building elements for squad with the provided id.",
-   "de": "Zerstört alle Basisbauelemente des Teams mit der angegebenen ID.",
-   "ru": "Уничтожает все элементы строительства базы для отряда с указанным идентификатором.",
-   "zh": "为指定ID小队摧毁所有基地建筑元素",
-   "fr": "Détruit tous les éléments de construction de base de l'escouade dont l'identifiant est fourni.",
-   "pt": "Destrói todos os elementos de construção da base do esquadrão com o ID fornecido.",
-   "zh-tw": "摧毀指定ID小隊的所有基地建築。",
-   "th": "ทำลายองค์ประกอบอาคารฐานทั้งหมดสำหรับหมู่ด้วย ID ที่ให้",
-   "pl": "Niszczy wszystkie elementy budynku bazy dla drużyny ze wskazanym identyfikatorem."
-  }
- },
- {
-  "verb": "DestroyAllBaseBuildingWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los elementos del edificio de la base dentro de un radio determinado, alrededor de una ubicación o un jugador determinados si no se proporciona ninguno.",
-   "en": "Destroys all base building elements within a given radius around given location or player if none given.",
-   "de": "Zerstört alle Basisbauelemente innerhalb eines angegebenen Radius um die angegebene Position oder den Spieler, falls keine Position angegeben ist.",
-   "ru": "Уничтожает все элементы базы в указанном радиусе вокруг указанного места или игрока, если место не указано.",
-   "zh": "若无指定对象，则围绕给定位置或玩家在半径范围内摧毁所有基地建筑要素",
-   "fr": "Détruit tous les éléments de construction de base dans un rayon donné autour d'un emplacement donné ou d'un joueur si aucun n'est spécifié.",
-   "pt": "Destrói todos os elementos de construção da base dentro de um determinado raio em torno de um determinado local ou jogador, se nenhum for dado.",
-   "zh-tw": "摧毀指定位置或玩家周圍一定半徑內的所有基地建築（如果未指定位置，則摧毀玩家）。",
-   "th": "ทำลายองค์ประกอบของอาคารฐานทั้งหมดภายในรัศมีที่กำหนดโดยรอบตำแหน่งหรือผู้เล่นที่กำหนด หากไม่ได้กำหนดไว้",
-   "pl": "Niszczy wszystkie elementy budynku bazy w podanym promieniu wokół podanego punktu lub gracza jeśli nie podano"
-  }
- },
- {
-  "verb": "DestroyAllFlagsForPlayer",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todas las banderas en posesión del jugador.",
-   "en": "Destroys all flags owned by the player",
-   "de": "Destroys all flags owned by the player",
-   "ru": "Уничтожает все флаги, принадлежащие игроку.",
-   "zh": "摧毁该玩家拥有的所有旗帜",
-   "fr": "Détruit tous les drapeaux appartenant au joueur.",
-   "pt": "Destrói todas as bandeiras obtidas pelo jogador",
-   "zh-tw": "摧毀玩家擁有的所有旗子",
-   "th": "ทำลายธงที่เป็นของผู้เล่นคนนี้ทั้งหมด",
-   "pl": "Niszczy wszystkie flagi w posiadaniu gracza."
-  }
- },
- {
-  "verb": "DestroyAllItemsWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los objetos presentes en el radio determinado en torno al lugar indicado o, en su defecto, entorno al jugador.",
-   "en": "Destroys all items within a given radius around given location or player if none given.",
-   "de": "Destroys all items within a given radius around given location or player if none given.",
-   "ru": "Уничтожает все предметы в указанном радиусе вокруг указанного места или игрока, если место не указано.",
-   "zh": "销毁指定地点周围的所有物品，如果没有指定，则销毁玩家周围的所有物品。",
-   "fr": "Détruit tous les objets dans un rayon donné autour de l'emplacement donné ou du joueur à défaut.",
-   "pt": "Destrói todos os itens em um determinado raio em torno de um local ou jogador, caso nenhum tenha sido escolhido.",
-   "zh-tw": "在指定位置或玩家附近的指定半徑內摧毀所有道具。",
-   "th": "ทำลายสิ่งของทั้งหมดภายในรัศมีที่กำหนดในบริเวณตำแหน่งที่กำหนด หรือผู้เล่นหากไม่ได้กำหนดตำแหน่ง",
-   "pl": "Niszczy wszystkie przedmioty w określonym promieniu na wskazanym obszarze lub wokół gracza, jeśli nie wybrano obszaru."
-  }
- },
- {
-  "verb": "DestroyAllRazorsWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los sajadores presentes en el radio determinado en torno al lugar indicado o, en su defecto, entorno al jugador.",
-   "en": "Destroys all razors within a given radius around given location or player if none given.",
-   "de": "Destroys all razors within a given radius around given location or player if none given.",
-   "ru": "Уничтожает все клинки в указанном радиусе вокруг указанного места или игрока, если место не указано.",
-   "zh": "销毁指定地点周围的所有剃刀幽魂，如果没有指定，则销毁玩家周围的所有剃刀幽魂。",
-   "fr": "Détruit tous les razors dans un rayon donné autour de l'emplacement donné ou du joueur à défaut.",
-   "pt": "Destrói todas as navalhas em um determinado raio em torno de um local ou jogador, caso nenhum tenha sido escolhido.",
-   "zh-tw": "在指定位置或玩家附近的指定半徑內摧毀所有剃刀。",
-   "th": "ทำลายเรเซอร์ทั้งหมดภายในรัศมีที่กำหนดในบริเวณตำแหน่งที่กำหนด หรือผู้เล่นหากไม่ได้กำหนดตำแหน่ง",
-   "pl": "Niszczy wszystkie żyletki w określonym promieniu na wskazanym obszarze lub wokół gracza, jeśli nie wybrano obszaru."
-  }
- },
- {
-  "verb": "DestroyAllVehicles",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los vehículos.",
-   "en": "Destroys all vehicles.",
-   "de": "Destroys all vehicles.",
-   "ru": "Уничтожает все транспортные средства.",
-   "zh": "摧毁所有载具。",
-   "fr": "Détruit tous les véhicules.",
-   "pt": "Destrói todos os veículos.",
-   "zh-tw": "摧毀所有載具。",
-   "th": "ทำลายพาหนะทั้งหมด",
-   "pl": "Niszczy wszystkie pojazdy."
-  }
- },
- {
-  "verb": "DestroyArmedNPCsWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los PNJ armados presentes en el radio determinado en torno al lugar indicado o, en su defecto, en torno al jugador.",
-   "en": "Destroys all armedNPCs within a given radius around given location or player if none given.",
-   "de": "Destroys all armedNPCs within a given radius around given location or player if none given.",
-   "ru": "Уничтожает всех вооружённых персонажей в указанном радиусе вокруг указанной точки или игрока, если точка не указана.",
-   "zh": "销毁指定地点周围的所有武装NPC，如果没有指定，则销毁玩家周围的所有武装NPC。",
-   "fr": "Détruit tous les PNJ armés dans un rayon donné autour de l'emplacement donné ou du joueur à défaut.",
-   "pt": "Destrói todos os PNJs armados em determinado raio em torno de um local ou jogador, caso nenhum tenha sido escolhido.",
-   "zh-tw": "在指定位置或玩家附近的指定半徑內摧毀所有武裝 NPC。",
-   "th": "ทำลาย NPC ติดอาวุธทั้งหมดภายในรัศมีที่กำหนดในบริเวณตำแหน่งที่กำหนดหรือผู้เล่นหากไม่ได้กำหนดตำแหน่ง",
-   "pl": "Niszczy wszystkie uzbrojone postacie niezależne w określonym promieniu na wskazanym obszarze lub wokół gracza, jeśli nie wybrano obszaru."
-  }
- },
- {
-  "verb": "DestroyCorpsesWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los cadáveres presentes en el radio determinado en torno al lugar indicado o, en su defecto, entorno al jugador.",
-   "en": "Destroys all corpses within a given radius around given location or player if none given.",
-   "de": "Destroys all corpses within a given radius around given location or player if none given.",
-   "ru": "Уничтожает все трупы в указанном радиусе вокруг указанного места или игрока, если место не указано.",
-   "zh": "销毁指定地点周围的所有尸体，如果没有指定，则销毁玩家周围的所有尸体。",
-   "fr": "Détruit tous les cadavres dans un rayon donné autour de l'emplacement donné ou du joueur à défaut.",
-   "pt": "Destrói todos os corpos em um determinado raio em torno de um local ou jogador, caso nenhum tenha sido escolhido.",
-   "zh-tw": "在指定位置或玩家附近的指定半徑內摧毀所有屍體。",
-   "th": "ทำลายศพทั้งหมดภายในรัศมีที่กำหนดในบริเวณตำแหน่งที่กำหนดหรือผู้เล่นหากไม่ได้กำหนดตำแหน่ง",
-   "pl": "Niszczy wszystkie ciała w określonym promieniu na wskazanym obszarze lub wokół gracza, jeśli nie wybrano obszaru."
-  }
- },
- {
-  "verb": "DestroyEncountersAtPlayerLocation",
-  "level": "Admin",
-  "desc": {
-   "es": "Acaba con todos los encuentros en la ubicación del jugador que usa el comando.",
-   "en": "Destroys all encounters at invoking player's location.",
-   "de": "Destroys all encounters at invoking player's location.",
-   "ru": "Уничтожает всех врагов вокруг игрока, вызвавшего команду.",
-   "zh": "清除调用的玩家所在位置的全部遭遇。",
-   "fr": "Élimine toutes les confrontations à l'endroit où se trouve le joueur demandeur.",
-   "pt": "Destrói todos os confrontos no local do jogador escolhido.",
-   "zh-tw": "摧毀選定玩家位置的所有遭遇。",
-   "th": "ทำลายการเผชิญหน้าทั้งหมดที่ตำแหน่งของผู้เล่นที่ใช้คำสั่ง",
-   "pl": "Usuwa wszystkie spotkania w lokalizacji aktywującego komendę gracza."
-  }
- },
- {
-  "verb": "DestroyFlag",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye la bandera correspondiente al ID especificado.",
-   "en": "Destroys flag having the specified ID.",
-   "de": "Destroys flag having the specified ID.",
-   "ru": "Уничтожает флаг с указанным идентификатором.",
-   "zh": "销毁具有指定ID的旗帜。",
-   "fr": "Détruit le drapeau ayant l'ID spécifié.",
-   "pt": "Destrói a bandeira com o ID especificado.",
-   "zh-tw": "摧毀指定 ID 的旗子。",
-   "th": "ทำลายธงที่มี ID ที่กำหนด",
-   "pl": "Niszczy flagę o wskazanym identyfikatorze."
-  }
- },
- {
-  "verb": "DestroyVehicle",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye el vehículo correspondiente al ID o alias especificado.",
-   "en": "Destroys vehicle having the specified alias or ID.",
-   "de": "Destroys vehicle having the specified alias or ID.",
-   "ru": "Уничтожает транспортное средство с указанным названием или идентификатором.",
-   "zh": "销毁具有指定别名或ID的车辆。",
-   "fr": "Détruit le véhicule ayant l'alias ou l'ID spécifié.",
-   "pt": "Destrói o veículo com o pseudônimo ou ID especificado.",
-   "zh-tw": "摧毀指定別名或 ID 的載具。",
-   "th": "ทำลายพาหนะที่มีนามแฝงหรือ ID ที่กำหนด",
-   "pl": "Niszczy pojazd o wskazanym aliasie lub identyfikatorze."
-  }
- },
- {
-  "verb": "DestroyZombiesWithinRadius",
-  "level": "Admin",
-  "desc": {
-   "es": "Destruye todos los títeres presentes en el radio determinado en torno al lugar indicado o, en su defecto, en torno al jugador.",
-   "en": "Destroys all zombies within a given radius around given location or player if none given.",
-   "de": "Destroys all zombies within a given radius around given location or player if none given.",
-   "ru": "Уничтожает всех марионеток в указанном радиусе вокруг указанного места или игрока, если место не указано.",
-   "zh": "销毁指定地点周围的所有僵尸，如果没有指定，则销毁玩家周围的所有僵尸。",
-   "fr": "Détruit tous les pantins dans un rayon donné autour de l'emplacement donné ou du joueur à défaut.",
-   "pt": "Destrói todos os fantoches em um determinado raio em torno de um local ou jogador, caso nenhum tenha sido escolhido.",
-   "zh-tw": "在指定位置或玩家附近的指定半徑內摧毀所有殭屍。",
-   "th": "ทำลายซอมบี้ทั้งหมดภายในรัศมีที่กำหนดในบริเวณตำแหน่งที่กำหนดหรือผู้เล่นหากไม่ได้กำหนดตำแหน่ง",
-   "pl": "Niszczy wszystkie kukły w określonym promieniu na wskazanym obszarze lub wokół gracza, jeśli nie wybrano obszaru."
-  }
- },
- {
-  "verb": "DrawSentryHealthBar",
-  "level": "Admin",
-  "desc": {
-   "es": "Activa o desactiva la visualización del paradero de títeres.",
-   "en": "Enables or disables zmbie location visualization",
-   "de": "Enables or disables zmbie location visualization",
-   "ru": "Включает или выключает визуализацию положения марионеток.",
-   "zh": "启用或禁用僵尸位置可视化。",
-   "fr": "Active ou désactive l'affichage de l'emplacement des pantins.",
-   "pt": "Ativa ou desativa a visualização do local do fantoche",
-   "zh-tw": "開啟或關閉殭屍位置視覺化",
-   "th": "เปิดหรือปิดการแสดงภาพตำแหน่งของซอมบี้",
-   "pl": "Włącza lub wyłącza wizualizację lokalizacji kukły."
-  }
- },
- {
-  "verb": "DumpAllSquadsInfoList",
-  "level": "Admin",
-  "desc": {
-   "es": "Copia a tu portapapeles una lista de todos los escuadrones y sus miembros.",
-   "en": "Makes a list of all squads and its members on your clipboard.",
-   "de": "Makes a list of all squads and its members on your clipboard.",
-   "ru": "Копирует в буфер обмена список всех отрядов и их участников.",
-   "zh": "在你的剪贴板上制作一个所有小队及其成员的列表。",
-   "fr": "Copie une liste de toutes les escouades et de leurs membres dans votre presse-papiers.",
-   "pt": "Cria uma lista de todos os esquadrões e seus membros em sua área de transferência.",
-   "zh-tw": "在剪貼簿上列出所有隊伍和其隊員的列表。",
-   "th": "สร้างรายการของหมู่รบและสมาชิกทั้งหมดบนคลิปบอร์ดของคุณ",
-   "pl": "Kopiuje do schowka listę wszystkich drużyn i ich członków."
-  }
- },
- {
-  "verb": "EnableHuntingClueDebugArrow",
-  "level": "Admin",
-  "desc": {
-   "es": "Permite o anula la visibilidad de la flecha de depuración.",
-   "en": "Enables/disables debug arrow visibility.",
-   "de": "Enables/disables debug arrow visibility.",
-   "ru": "Включает или выключает видимость стрел для отладки.",
-   "zh": "启用/禁用调试指针可见性。",
-   "fr": "Active ou désactive la visibilité de la flèche de débug.",
-   "pt": "Ativa/desativa a visibilidade da depuração de flecha.",
-   "zh-tw": "開啟/關閉除錯箭矢可見度。",
-   "th": "เปิดหรือปิดการแก้บั๊กการมองเห็นลูกธนู",
-   "pl": "Włącza lub wyłącza widoczność debugu strzał."
-  }
- },
- {
-  "verb": "EndTournamentMode",
-  "level": "Admin",
-  "desc": {
-   "es": "Cancela el modo Torneo.",
-   "en": "Cancels tournament mode.",
-   "de": "Cancels tournament mode.",
-   "ru": "Отменяет режим турнира.",
-   "zh": "取消锦标赛模式。",
-   "fr": "Annule le mode tournoi.",
-   "pt": "Cancela o modo torneio.",
-   "zh-tw": "取消錦標賽模式。",
-   "th": "ยกเลิกโหมดทัวร์นาเมนต์",
-   "pl": "Anuluje tryb turnieju."
-  }
- },
- {
-  "verb": "ExportQuests",
-  "level": "Admin",
-  "desc": {
-   "es": "Exporta la configuración de encargo predeterminada.",
-   "en": "Exports default quest configuration",
-   "de": "Exports default quest configuration",
-   "ru": "Экспортирует конфигурацию задания по умолчанию",
-   "zh": "导出默认委托配置",
-   "fr": "Exports default quest configuration",
-   "pt": "Exporta a configuração padrão da demanda",
-   "zh-tw": "匯出預設任務配置",
-   "th": "ส่งออกการกำหนดค่าเควสต์ค่าตั้งต้น",
-   "pl": "Eksportuje domyślną konfigurację zadania"
-  }
- },
- {
-  "verb": "FindSquadMember",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todas las banderas colocadas, con sus respectivos dueños y ubicaciones. El primer argumento es el número de página que se mostrará. Si el segundo argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Find squad member by id and display its squad info. If second argument is 'true', this will copy the result to the clipboard.",
-   "de": "Find squad member by id and display its squad info. If second argument is 'true', this will copy the result to the clipboard.",
-   "ru": "Находит члена отряда по идентификатору и отображает информацию о его отряде. Если второе значение — true, результат копируется в буфер обмена.",
-   "zh": "通过ID查找小队成员并显示其小队信息。如果第二个参数是'true'，将会把结果复制到剪贴板。",
-   "fr": "Recherche un membre de l'escouade par son identifiant et affiche les infos relatives à son escouade. Si le deuxième argument est « true », le résultat est copié dans le presse-papiers.",
-   "pt": "Encontra um membro de um esquadrão pelo ID e exibe as informações do esquadrão. Se o segundo argumento for \"verdadeiro\", isto copiará o resultado para a área de transferência.",
-   "zh-tw": "透過 ID 尋找隊員並顯示隊伍資訊。若第二個引數為「True」，結果將會複製到剪貼簿。",
-   "th": "หาสมาชิกหมู่รบตาม ID และแสดงข้อมูลหมู่รบนั้นๆ หากอาร์กิวเมนต์ที่สองคือ \"true\" ระบบจะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Znajduje członka drużyny na podstawie identyfikatora i wyświetla informacje o jego drużynie. Jeśli drugi argument to „true”, rezultat zostanie skopiowany do schowka."
-  }
- },
- {
-  "verb": "ForceAnimalEncounter",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera un encuentro de animal en la ubicación del jugador.",
-   "en": "Spawns an animal encounter at player's location.",
-   "de": "Spawnt eine Tierbegegnung an der Position des Spielers.",
-   "ru": "У точки нахождения игрока появляется животное.",
-   "zh": "在玩家所在位置生成一次动物遭遇。",
-   "fr": "Fait apparaître une confrontation avec un animal à l'emplacement du joueur.",
-   "pt": "Gera um confronto com animal no local do jogador.",
-   "zh-tw": "在玩家位置生成一隻可遭遇的動物。",
-   "th": "สร้างการเผชิญหน้าสัตว์ป่าที่ตำแหน่งของผู้เล่น",
-   "pl": "Spawns an animal encounter at player's location."
-  }
- },
- {
-  "verb": "ForceBBEncounterOnNearbyOwnedBase",
-  "level": "Admin",
-  "desc": {
-   "es": "Fuerza un encuentro de construcción de base que se dará lo antes posible en una base en propiedad siempre y cuando no haya ya un encuentro activo.",
-   "en": "Chooses a random BB encounter and forces it to occur on a nearby owned base as soon as possible, provided there isn't an active encounter already present.",
-   "de": "Chooses a random BB encounter and forces it to occur on a nearby owned base as soon as possible, provided there isn't an active encounter already present.",
-   "ru": "Выбирает случайный бой на базе и запускает его в ближайшее возможное время на ближайшей принадлежащей игроку базе при условии, что там уже не идёт бой.",
-   "zh": "选择一个随机的基地建筑遭遇，强制使其尽快出现在附近的自有基地上，前提是该基地上当前没有正在发生的遭遇。",
-   "fr": "Choisit une confrontation de base aléatoire et la force à se produire sur une base possédée proche dès que possible, à condition qu'il n'y ait pas déjà de confrontation active.",
-   "pt": "Escolhe um confronto de base aleatório e o força a ocorrer em uma base próxima assim que possível, contanto que não haja outro confronto ativo já presente.",
-   "zh-tw": "選擇一個隨機的 BB 遭遇，並讓它盡快產生在附近一個有主的基地，前提是沒有已經存在的啟用遭遇。",
-   "th": "เลือกการเผชิญหน้าการสร้างฐานแบบสุ่มและบังคับให้เกิดขึ้นใกล้กับฐานของตัวเองโดยเร็วที่สุดเท่าที่จะเป็นไปได้ ซึ่งจะเกิดขึ้นเมื่อไม่มีการเผชิญหน้าเกิดขึ้นอยู่แล้วในปัจจุบัน",
-   "pl": "Wybiera losowe spotkanie w bazie i wymusza wystąpienie go w pobliskiej posiadanej bazie najszybciej, jak to możliwe, o ile nie jest już aktywne żadne inne."
-  }
- },
- {
-  "verb": "ForceDropshipEncounter",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera un encuentro de despliegue aéreo en la ubicación del jugador.",
-   "en": "Spawns a dropship encounter at player's location.",
-   "de": "Spawns a dropship encounter at player's location.",
-   "ru": "У точки нахождения игрока появляется вражеский челнок.",
-   "zh": "在玩家所在位置生成一次运输机遭遇。",
-   "fr": "Fait apparaître une confrontation avec une IA ennemie où se trouve le joueur.",
-   "pt": "Gera um evento de entrega de carga no local do jogador.",
-   "zh-tw": "在玩家位置生成一個空投遭遇。",
-   "th": "สร้างการเผชิญหน้าดรอปชิปที่ตำแหน่งของผู้เล่น",
-   "pl": "Wywołuje spotkanie z transportowcem w lokalizacji gracza."
-  }
- },
- {
-  "verb": "GetMeshInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Copia la información de la malla utilizada para encargos personalizados en el portapapeles de la malla que se está mirando.",
-   "en": "Copies mesh info used for custom quests into clipboard of a mesh being looked at",
-   "de": "Copies mesh info used for custom quests into clipboard of a mesh being looked at",
-   "ru": "Копирует информацию о сетке для пользовательских заданий в буфер сетки, на которую направлена камера",
-   "zh": "将自定义委托的网格信息黏贴至正在查看的网格的剪贴板",
-   "fr": "Copies mesh info used for custom quests into clipboard of a mesh being looked at",
-   "pt": "Copia informações de malha usadas para demandas personalizadas para a área de transferência de uma malha que está sendo examinada",
-   "zh-tw": "將正在查看的網格上，複製用於自訂任務的網格資訊至剪貼簿",
-   "th": "คัดลอกข้อมูล Mesh ที่ใช้สำหรับเควสต์กำหนดเองลงไปในคลิปบอร์ดของ Mesh ที่กำลังถูกมองอยู่",
-   "pl": "Kopiuje do schowka informacje o siatce używane do niestandardowych zadań pobrane z siatki, na którą patrzysz."
-  }
- },
- {
-  "verb": "GetSteamID",
-  "level": "Admin",
-  "desc": {
-   "es": "Obtiene el ID de Steam del jugador correspondiente al nombre indicado.",
-   "en": "Gets the Steam ID of player with selected player name.",
-   "de": "Gets the Steam ID of player with selected player name.",
-   "ru": "Показывает Steam ID игрока с выбранным именем.",
-   "zh": "获取选定名称玩家的Steam ID。",
-   "fr": "Permet d'obtenir l'ID Steam du joueur dont le nom est sélectionné.",
-   "pt": "Obtém o ID Steam do jogador com o nome do jogador selecionado.",
-   "zh-tw": "取得具有選定玩家名稱的玩家 Steam ID。",
-   "th": "รับ Steam ID ของผู้เล่นที่มีชื่อผู้เล่นที่เลือก",
-   "pl": "Pobiera identyfikator Steam gracza o wskazanej nazwie."
-  }
- },
- {
-  "verb": "GetSteamIDByRank",
-  "level": "Admin",
-  "desc": {
-   "es": "Obtiene el ID de Steam del jugador que se encuentra en el puesto indicado de la clasificación de eventos.",
-   "en": "Gets Steam ID of player with selected rank on the Events rankings.",
-   "de": "Gets Steam ID of player with selected rank on the Events rankings.",
-   "ru": "Показывает Steam ID игрока с выбранным рангом в рейтингах событий.",
-   "zh": "获取在活动排名中拥有选定排名的玩家的Steam ID。",
-   "fr": "Permet d'obtenir l'ID Steam du joueur dont le rang est sélectionné dans le classement des épreuves.",
-   "pt": "Obtém o ID Steam do jogador com a posição selecionada na classificação dos eventos.",
-   "zh-tw": "取得活動排名在選定排名的玩家 Steam ID。",
-   "th": "ขอ Steam ID ของผู้เล่นที่มีอันดับที่เลือกในการจัดอันดับในอีเวนต์",
-   "pl": "Pobiera identyfikator Steam gracza o wskazanym miejscu w rankingu wydarzeń."
-  }
- },
- {
-  "verb": "Kick",
-  "level": "Admin",
-  "desc": {
-   "es": "Expulsa de la partida al jugador indicado.",
-   "en": "Kicks the specified player from the game.",
-   "de": "Kicks the specified player from the game.",
-   "ru": "Исключает выбранного игрока из игры.",
-   "zh": "将指定的玩家踢出游戏。",
-   "fr": "Expulse le joueur spécifié du jeu.",
-   "pt": "Expulsa o jogador especificado do jogo.",
-   "zh-tw": "將指定玩家踢出遊戲。",
-   "th": "ไล่ผู้เล่นที่กำหนดออกจากเกม",
-   "pl": "Wyrzuca wskazanego gracza z gry."
-  }
- },
- {
-  "verb": "ListActiveAbandonedBunkers",
-  "level": "Admin"
- },
- {
-  "verb": "ListActiveHunts",
-  "level": "Admin",
-  "desc": {
-   "es": "Se enumeran todas las cacerías activas y su información correspondiente.",
-   "en": "Lists all active hunts and their info.",
-   "de": "Lists all active hunts and their info.",
-   "ru": "Выводит список всех активных охот и информацию о них.",
-   "zh": "列出所有活跃的狩猎活动及其信息。",
-   "fr": "Liste toutes les chasses actives et leurs informations.",
-   "pt": "Lista todas as caçadas ativas e suas informações.",
-   "zh-tw": "列出所有啟用的狩獵和資訊。",
-   "th": "แสดงรายการการล่าที่ดำเนินอยู่ทั้งหมดและข้อมูลของการล่านั้นๆ",
-   "pl": "Wyświetla listę wszystkich aktywnych polowań oraz informacje o nich."
-  }
- },
- {
-  "verb": "ListActiveSecretBunkers",
-  "level": "Admin"
- },
- {
-  "verb": "ListAnimals",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de animales disponibles para generarlos, filtrada si lo deseas, mediante el comando SpawnAnimal.",
-   "en": "Prints the optionally filtered list of all animals available for spawning via the SpawnAnimal command.",
-   "de": "Prints the optionally filtered list of all animals available for spawning via the SpawnAnimal command.",
-   "ru": "Выдаёт список всех животных, которых можно создать командой SpawnAnimal, с возможностью отфильтровать результаты.",
-   "zh": "打印所有可通过SpawnAnimal命令生成的动物的可选过滤列表。",
-   "fr": "Affiche la liste, éventuellement filtrée, de tous les animaux pouvant être générés via la commande SpawnAnimal.",
-   "pt": "Exibe a lista opcionalmente filtrada de todos os animais disponíveis para serem gerados pelo comando SpawnAnimal.",
-   "zh-tw": "透過 SpawnAnimal 指令來印出所有可用動物的可選篩選列表。",
-   "th": "พิมพ์รายการที่กรองตามตัวเลือกของสัตว์ทั้งหมดที่เกิดได้ผ่านคำสั่ง SpawnAnimal",
-   "pl": "Wyświetla (opcjonalnie przefiltrowaną) listę wszystkich zwierząt możliwych do umieszczenia w świecie gry przy użyciu komendy SpawnAnimal."
-  }
- },
- {
-  "verb": "ListFlags",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todas las banderas colocadas, con sus respectivos dueños y ubicaciones. El primer argumento es el número de página que se mostrará. Si el segundo argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all placed flags with their owners and locations. First argument is the page number to list. If second argument is 'true', this will copy the results to the clipboard.",
-   "de": "Prints the list of all placed flags with their owners and locations. First argument is the page number to list. If second argument is 'true', this will copy the results to the clipboard.",
-   "ru": "Выдаёт список всех размещённых флагов с указанием владельцев и местоположений. Первое значение — номер страницы списка. Если второе значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有放置的旗帜及其所有者和位置的列表。第一个参数是要列出的页数。如果第二个参数是'true'，将会把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les drapeaux installés avec leur propriétaire et leur emplacement. Le premier argument est le numéro de la page à lister. Si le deuxième argument est « true », les résultats sont copiés dans le presse-papiers.",
-   "pt": "Exibe a lista de todas as bandeiras colocadas com seus donos e locais. O primeiro argumento é o número da página que será listada. Se o segundo argumento for \"verdadeiro\", isto copiará o resultado para a área de transferência.",
-   "zh-tw": "印出所有放置旗子和其擁有者與位置的列表。第一個引數是欲列出的頁碼。若第二個引數為「True」，結果將會複製到剪貼簿。",
-   "th": "พิมพ์รายการของธงที่ปักแล้วทั้งหมดพร้อมกับเจ้าของและตำแหน่ง อาร์กิวเมนต์แรกคือเลขหน้าที่จะแสดงรายการ หากอาร์กิวเมนต์ที่สองเป็น \"true\" ระบบจะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich umieszczonych flag wraz z ich właścicielami oraz lokacjami. Pierwszy argument to numer strony, jeśli zaś drugim będzie „true”, rezultaty zostaną skopiowane do schowka."
-  }
- },
- {
-  "verb": "ListItems",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de objetos disponibles para generarlos, filtrada si lo deseas, mediante el comando SpawnItem.",
-   "en": "Prints the optionally filtered list of all items available for spawning via the SpawnItem command.",
-   "de": "Prints the optionally filtered list of all items available for spawning via the SpawnItem command.",
-   "ru": "Выдаёт список всех предметов, которые можно создать командой SpawnItem, с возможностью отфильтровать результаты.",
-   "zh": "打印所有可通过SpawnItem命令生成的物品的可选过滤列表。",
-   "fr": "Affiche la liste, éventuellement filtrée, de tous les objets pouvant être générés via la commande SpawnItem.",
-   "pt": "Exibe a lista opcionalmente filtrada de todos os itens disponíveis para serem gerados pelo comando SpawnItem.",
-   "zh-tw": "透過 SpawnItem 指令來印出所有可用道具的可選篩選列表。",
-   "th": "พิมพ์รายการที่กรองตามตัวเลือกของสิ่งของทั้งหมดที่เกิดได้ผ่านคำสั่ง SpawnItem",
-   "pl": "Wyświetla (opcjonalnie przefiltrowaną) listę wszystkich przedmiotów możliwych do umieszczenia w świecie gry przy użyciu komendy SpawnItem."
-  }
- },
- {
-  "verb": "ListPlayers",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de todos los jugadores conectados a este servidor. Si el argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all players currently connected to this server. Argument 'true' will copy the result to the clipboard.",
-   "de": "Prints the list of all players currently connected to this server. Argument 'true' will copy the result to the clipboard.",
-   "ru": "Выдаёт список всех игроков на этом сервере. Если значение — true, результат копируется в буфер обмена.",
-   "zh": "打印当前连接到该服务器的所有玩家的列表。参数'true'将把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les joueurs actuellement connectés à ce serveur. L'argument « true » copie le résultat dans le presse-papiers.",
-   "pt": "Exibe a lista de todos os jogadores atualmente conectados a este servidor. Se o argumento for \"verdadeiro\", copiará o resultado para a área de transferência.",
-   "zh-tw": "列出當前連線至此伺服器的所有玩家。引數為「True」會將結果複製到剪貼簿。",
-   "th": "พิมพ์รายการของผู้เล่นทั้งหมดที่เชื่อมต่อกับเซิร์ฟเวอร์นี้ในขณะนี้ทั้งหมด อาร์กิวเมนต์ที่เป็น \"true\" จะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich obecnie wyciszonych graczy. Argument „true” spowoduje skopiowanie rezultatów do schowka."
-  }
- },
- {
-  "verb": "ListSilencedPlayers",
-  "level": "Admin",
-  "desc": {
-   "es": "Se enumera a todos los jugadores silenciados. Si el argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Lists all currently silenced players. Argument 'true' will copy the result to the clipboard.",
-   "de": "Lists all currently silenced players. Argument 'true' will copy the result to the clipboard.",
-   "ru": "Приводит список всех заглушённых игроков. Если значение — true, результат копируется в буфер обмена.",
-   "zh": "当前被禁止发言的玩家列表参数'true'将把结果复制到剪贴板。",
-   "fr": "Liste tous les joueurs en mode muet. L'argument « true » copie le résultat dans le presse-papiers.",
-   "pt": "Lista todos os jogadores atualmente silenciados. Se o argumento for \"verdadeiro\", copiará o resultado para a área de transferência.",
-   "zh-tw": "列出當前消音的所有玩家。引數為「True」會將結果複製到剪貼簿。",
-   "th": "แสดงรายการผู้เล่นที่ถูกใบ้ในขณะนี้ทั้งหมด อาร์กิวเมนต์ที่เป็น \"true\" จะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich obecnie wyciszonych graczy. Argument „true” spowoduje skopiowanie rezultatów do schowka."
-  }
- },
- {
-  "verb": "ListSpawnedAnimals",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todos los animales generados ahora mismo. Si el argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all currently spawned animals. Argument 'true' will copy the result to the clipboard.",
-   "de": "Prints the list of all currently spawned animals. Argument 'true' will copy the result to the clipboard.",
-   "ru": "Выдаёт список всех созданных животных. Если значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有当前生成的动物的列表。参数'true'将把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les animaux actuellement présents. L'argument « true » copie le résultat dans le presse-papiers.",
-   "pt": "Exibe a lista de todos os animais atualmente gerados. Se o argumento for \"verdadeiro\", copiará o resultado para a área de transferência.",
-   "zh-tw": "列出當前已生成的所有動物。引數為「True」會將結果複製到剪貼簿。",
-   "th": "พิมพ์รายการของสัตว์ที่เกิดแล้วในขณะนี้ทั้งหมด อาร์กิวเมนต์ที่เป็น \"true\" จะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich obecnie wygenerowanych zwierząt. Argument „true” spowoduje skopiowanie rezultatów do schowka."
-  }
- },
- {
-  "verb": "ListSpawnedArmedNPCs",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todos los PNJ armados generados ahora mismo. Si el argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all currently spawned armed NPCs. Argument 'true' will copy the result to the clipboard.",
-   "de": "Prints the list of all currently spawned armed NPCs. Argument 'true' will copy the result to the clipboard.",
-   "ru": "Выдаёт список всех созданных вооружённых персонажей. Если значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有当前生成的武装NPC的列表。参数 'true' 将把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les PNJ armés actuellement présents. L'argument « true » copie le résultat dans le presse-papiers.",
-   "pt": "Exibe a lista de todos os PNJs armados atualmente gerados. Se o argumento for \"verdadeiro\", copiará o resultado para a área de transferência.",
-   "zh-tw": "列出當前已生成的所有武裝 NPC。引數為「True」會將結果複製到剪貼簿。",
-   "th": "แสดงรายการ NPC ที่เกิดทั้งหมดและติดอาวุธอยู่ในปัจจุบัน โดยใส่ค่า ‘true’ จะเป็นการคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich obecnie wygenerowanych uzbrojonych postaci niezależnych. Argument „true” spowoduje skopiowanie rezultatów do schowka."
-  }
- },
- {
-  "verb": "ListSpawnedVehicles",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todos los vehículos generados ahora mismo. Si el argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all currently spawned vehicles. Argument 'true' will copy the result to the clipboard.",
-   "de": "Prints the list of all currently spawned vehicles. Argument 'true' will copy the result to the clipboard.",
-   "ru": "Выдаёт список всех созданных транспортных средств. Если значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有当前生成的载具的列表。参数'true'将把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les véhicules actuellement présents. L'argument « true » copie le résultat dans le presse-papiers.",
-   "pt": "Exibe a lista de todos os veículos atualmente gerados. Se o argumento for \"verdadeiro\", copiará o resultado para a área de transferência.",
-   "zh-tw": "列出當前已生成的所有載具。引數為「True」會將結果複製到剪貼簿。",
-   "th": "พิมพ์รายการของพาหนะที่เกิดแล้วในขณะนี้ทั้งหมด อาร์กิวเมนต์ที่เป็น \"true\" จะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich obecnie wygenerowanych pojazdów. Argument „true” spowoduje skopiowanie rezultatów do schowka."
-  }
- },
- {
-  "verb": "ListSquadMembers",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de todos los miembros del escuadrón. El argumento es el nombre o ID del escuadrón. Si el segundo argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of all squad members. Argument is squad name or squad id. If second argument is 'true', this will copy the result to the clipboard.",
-   "de": "Prints the list of all squad members. Argument is squad name or squad id. If second argument is 'true', this will copy the result to the clipboard.",
-   "ru": "Выдаёт список всех членов отряда. Значение соответствует названию или идентификатору отряда. Если второе значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有小队成员的列表。参数是小队名称或小队ID。如果第二个参数是'true'，将会把结果复制到剪贴板。",
-   "fr": "Affiche la liste de tous les membres de l'escouade. L'argument est le nom ou l'ID de l'escouade. Si le deuxième argument est « true », le résultat est copié dans le presse-papiers.",
-   "pt": "Exibe a lista de todos os membros do esquadrão. O argumento é o nome do esquadrão ou ID do esquadrão. Se o segundo argumento for \"verdadeiro\", isto copiará o resultado para a área de transferência.",
-   "zh-tw": "印出所有隊伍成員的列表。引數為隊伍名稱或隊伍 ID。若第二個引數為「True」，結果將會複製到剪貼簿。",
-   "th": "พิมพ์รายการของสมาชิกหมู่รบทั้งหมด อาร์กิวเมนต์คือชื่อหมู่รบหรือ ID หมู่รบ หากอาร์กิวเมนต์ที่สองเป็น \"true\" ระบบจะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich członków drużyny. Pierwszy argument to nazwa lub identyfikator drużyny, jeśli zaś drugim będzie „true”, rezultaty zostaną skopiowane do schowka."
-  }
- },
- {
-  "verb": "ListSquads",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra una lista de todos los escuadrones. El primer argumento es el número de página que se mostrará. Si el segundo argumento es «true», se copiará el resultado en el portapapeles.",
-   "en": "Prints the list of squads. First argument is the page to list. If second argument is 'true', this will copy the result to the clipboard.",
-   "de": "Prints the list of squads. First argument is the page to list. If second argument is 'true', this will copy the result to the clipboard.",
-   "ru": "Выдаёт список отрядов. Первое значение — номер страницы списка. Если второе значение — true, результат копируется в буфер обмена.",
-   "zh": "打印所有小队的列表。第一个参数是要列出的页。如果第二个参数是'true'，将会把结果复制到剪贴板。",
-   "fr": "Affiche la liste des escouades. Le premier argument est la page à lister. Si le deuxième argument est « true », le résultat est copié dans le presse-papiers.",
-   "pt": "Exibe a lista dos esquadrões. O primeiro argumento é a página que será listada. Se o segundo argumento for \"verdadeiro\", isto copiará o resultado para a área de transferência.",
-   "zh-tw": "印出隊伍列表。第一個引數是欲列出的頁面。若第二個引數為「True」，結果將會複製到剪貼簿。",
-   "th": "พิมพ์รายการของหมู่รบ อาร์กิวเมนต์แรกคือหน้าที่จะแสดงรายการ หากอาร์กิวเมนต์ที่สองเป็น \"true\" ระบบจะคัดลอกผลลัพธ์ไปยังคลิปบอร์ด",
-   "pl": "Wyświetla listę wszystkich drużyn. Pierwszy argument to numer strony, jeśli zaś drugim będzie „true”, rezultaty zostaną skopiowane do schowka."
-  }
- },
- {
-  "verb": "ListVehicles",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de vehículos disponibles para generarlos, filtrada si lo deseas, mediante el comando SpawnVehicle.",
-   "en": "Prints the optionally filtered list of all vehicles available for spawning via the SpawnVehicle command.",
-   "de": "Prints the optionally filtered list of all vehicles available for spawning via the SpawnVehicle command.",
-   "ru": "Выдаёт список всех транспортных средств, которые можно создать командой SpawnVehicle, с возможностью отфильтровать результаты.",
-   "zh": "打印所有可通过SpawnVehicle命令生成的载具的可选过滤列表。",
-   "fr": "Affiche la liste, éventuellement filtrée, de tous les véhicules pouvant être générés via la commande SpawnVehicle.",
-   "pt": "Exibe a lista opcionalmente filtrada de todos os veículos disponíveis para serem gerados pelo comando SpawnVehicle.",
-   "zh-tw": "透過 SpawnVehicle 指令來印出所有可用載具的可選篩選列表。",
-   "th": "พิมพ์รายการที่กรองตามตัวเลือกของพาหนะทั้งหมดที่เกิดได้ผ่านคำสั่ง SpawnVehicle",
-   "pl": "Wyświetla (opcjonalnie przefiltrowaną) listę wszystkich pojazdów możliwych do umieszczenia w świecie gry przy użyciu komendy SpawnVehicle."
-  }
- },
- {
-  "verb": "ListZombies",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la lista de títeres disponibles para generarlos, filtrada si lo deseas, mediante el comando SpawnZombie.",
-   "en": "Prints the optionally filtered list of all zombies available for spawning via the SpawnZombie command.",
-   "de": "Prints the optionally filtered list of all zombies available for spawning via the SpawnZombie command.",
-   "ru": "Выдаёт список всех марионеток, которых можно создать командой SpawnZombie, с возможностью отфильтровать результаты.",
-   "zh": "打印所有可通过SpawnZombie命令生成的僵尸的可选过滤列表。",
-   "fr": "Affiche la liste, éventuellement filtrée, de tous les pantins pouvant être générés via la commande SpawnZombie.",
-   "pt": "Exibe a lista opcionalmente filtrada de todos os fantoches disponíveis para serem gerados pelo comando SpawnZombie.",
-   "zh-tw": "透過 SpawnZombie 指令來印出所有可用殭屍的可選篩選列表。",
-   "th": "พิมพ์รายการที่กรองตามตัวเลือกของซอมบี้ทั้งหมดที่เกิดได้ผ่านคำสั่ง SpawnZombie",
-   "pl": "Wyświetla (opcjonalnie przefiltrowaną) listę wszystkich kukieł możliwych do umieszczenia w świecie gry przy użyciu komendy SpawnZombie."
-  }
- },
- {
-  "verb": "Location",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la localización del jugador indicado. En caso de no indicar ningún jugador, muestra tu ubicación. Se copiará el resultado en el portapapeles si lo deseas.",
-   "en": "Prints the location of the specified player or your location if the player is omitted. Copies the result to the clipboard if desired.",
-   "de": "Prints the location of the specified player or your location if the player is omitted. Copies the result to the clipboard if desired.",
-   "ru": "Выдаёт положение указанного игрока или ваше положение, если игрок не указан. При необходимости результат копируется в буфер обмена.",
-   "zh": "打印指定玩家的位置，如果省略玩家，则打印你的位置。如果需要，将结果复制到剪贴板。",
-   "fr": "Affiche l'emplacement du joueur spécifié ou votre emplacement si aucun joueur spécifié. Copie le résultat dans le presse-papiers si vous le souhaitez.",
-   "pt": "Exibe o local do jogador especificado ou o seu, se não houver jogador. Copia o resultado para a área de transferência, caso tenha interesse.",
-   "zh-tw": "印出指定玩家的位置，若省略玩家則會印出你的位置。若需要的話可以將結果複製到剪貼簿。",
-   "th": "พิมพ์ตำแหน่งของผู้เล่นที่กำหนดหรือตำแหน่งของคุณหากไม่มีผู้เล่นคนดังกล่าว คัดลอกผลลัพธ์ไปยังคลิปบอร์ดหากต้องการ",
-   "pl": "Wyświetla lokalizację wskazanego gracza lub twoją, jeśli użytkownik nie zostanie wskazany. W razie potrzeby rezultaty są kopiowane do schowka."
-  }
- },
- {
-  "verb": "MapTeleport",
-  "level": "Admin",
-  "desc": {
-   "es": "El siguiente clic en el mapa teletransportará al usuario a la ubicación en cuestión.",
-   "en": "Next click on the map will teleport the user to the clicked location",
-   "de": "Der nächste Klick auf die Karte teleportiert den Benutzer an den angeklickten Ort.",
-   "ru": "Следующее нажатие на карту телепортирует пользователя в выбранное место.",
-   "zh": "接下来点击地图，用户将被传送到点击的位置",
-   "fr": "Le prochain clic sur la carte téléportera l'utilisateur à l'endroit du clic.",
-   "pt": "O próximo clique no mapa teletransportará o usuário para o local selecionado",
-   "zh-tw": "接著點擊地圖會將用戶傳送至點擊的位置",
-   "th": "การคลิกที่แผนครั้งถัดไปจะเป็นการเทเลพอร์ตผู้ใช้ไปยังตำแหน่งที่คลิก",
-   "pl": "Użytkownik zostanie przeniesiony do następnego miejsca klikniętego na mapie"
-  }
- },
- {
-  "verb": "NightBrightness",
-  "level": "Admin",
-  "desc": {
-   "es": "Configura el nivel de luminosidad nocturna.",
-   "en": "Sets night brightness level.",
-   "de": "Sets night brightness level.",
-   "ru": "Устанавливает уровень яркости ночи.",
-   "zh": "设置夜间亮度。",
-   "fr": "Définit le niveau de luminosité nocturne.",
-   "pt": "Define o nível de brilho à noite.",
-   "zh-tw": "設定夜晚亮度等級。",
-   "th": "ตั้งค่าระดับความสว่างตอนกลางคืน",
-   "pl": "Ustawia poziom jasności nocy."
-  }
- },
- {
-  "verb": "PlayerInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Se detalla información del jugador.",
-   "en": "Lists information about the player",
-   "de": "Lists information about the player",
-   "ru": "Показывает список данных об игроке.",
-   "zh": "列出玩家信息",
-   "fr": "Liste les informations du joueur.",
-   "pt": "Lista informações sobre o jogador",
-   "zh-tw": "列出玩家資訊",
-   "th": "แสดงรายการข้อมูลเกี่ยวกับผู้เล่น",
-   "pl": "Wyświetla informacje o graczu."
-  }
- },
- {
-  "verb": "RandomizePriceDeltas",
-  "level": "Admin",
-  "desc": {
-   "es": "Configura al azar los deltas o multiplicadores de precios.",
-   "en": "Randomizes price deltas.",
-   "de": "Randomizes price deltas.",
-   "ru": "Случайным образом меняет все диапазоны цен.",
-   "zh": "随机化价格偏移。",
-   "fr": "Randomise les deltas de prix.",
-   "pt": "Torna aleatória a variação de preços.",
-   "zh-tw": "隨機決定價格的 Delta 值。",
-   "th": "สุ่มเดลต้าราคา",
-   "pl": "Ustawia losowe delty cen."
-  }
- },
- {
-  "verb": "ReloadCustomMapConfig",
-  "level": "Admin",
-  "desc": {
-   "es": "Fuerza desde Configuración la recarga de los ajustes de confines del mapa personalizado.",
-   "en": "Forces reload of custom map border settings from config.",
-   "de": "Forces reload of custom map border settings from config.",
-   "ru": "Принудительно перезагружает карту с настройками границ из файла конфигурации.",
-   "zh": "强制从配置中重新加载自定义地图边界设置。",
-   "fr": "Force le rechargement des paramètres de bordures de cartes personnalisées à partir de la config.",
-   "pt": "Força o recarregamento das opções personalizadas de fronteira de mapa a partir da configuração.",
-   "zh-tw": "強制從設置中重新載入自訂地圖邊框設定。",
-   "th": "บังคับรีโหลดการตั้งค่าขอบแผนที่แบบกำหนดเองจากการกำหนดค่า",
-   "pl": "Wymusza przeładowanie niestandardowych ustawień granic mapy z pliku konfiguracyjnego."
-  }
- },
- {
-  "verb": "RenameVehicle",
-  "level": "Admin",
-  "desc": {
-   "es": "Cambia el nombre del vehículo correspondiente al ID o alias especificado.",
-   "en": "Renames vehicle having the specified alias or ID.",
-   "de": "Renames vehicle having the specified alias or ID.",
-   "ru": "Переименовывает транспортное средство с указанным названием или идентификатором.",
-   "zh": "重命名具有指定别名或ID的车辆。",
-   "fr": "Renomme le véhicule ayant l'alias ou l'ID spécifié.",
-   "pt": "Renomeia o veículo com o pseudônimo ou ID especificado.",
-   "zh-tw": "重新命名指定別名或 ID 的載具。",
-   "th": "เปลี่ยนชื่อพาหนะที่มีนามแฝงหรือ ID ที่กำหนด",
-   "pl": "Zmienia nazwę pojazdu o wskazanym aliasie lub identyfikatorze."
-  }
- },
- {
-  "verb": "ResetEconomy",
-  "level": "Admin",
-  "desc": {
-   "es": "Restablece los fondos y la cantidad de objetos en el inventario del comerciante. Se recomienda usar RandomizePriceDeltas antes de utilizar este comando.",
-   "en": "Resets trader funds and amount of stocked items. Recommended to use RandomizePriceDeltas before using this command.",
-   "de": "Resets trader funds and amount of stocked items. Recommended to use RandomizePriceDeltas before using this command.",
-   "ru": "Сбрасывает количество средств и товаров у торговцев. Перед вызовом этой команды рекомендуется вызвать команду RandomizePriceDeltas.",
-   "zh": "重置交易商资金和库存物品的数量。建议在使用此命令前，先使用RandomizePriceDeltas。",
-   "fr": "Réinitialise les fonds du négociant et la quantité d'objets en stock. Il est recommandé d'utiliser RandomizePriceDeltas avant d'utiliser cette commande.",
-   "pt": "Redefine a verba e a quantidade de itens disponíveis de um comerciante. É recomendado usar RandomizePriceDeltas antes deste comando.",
-   "zh-tw": "重設商人資金和庫存道具數量。建議在使用此指令前先使用 RandomizePriceDeltas。",
-   "th": "รีเซ็ตเงินของคนขายของและจำนวนสิ่งของในสต็อก แนะนำให้ใช้ RandomizePriceDeltas ก่อนใช้คำสั่งนี้",
-   "pl": "Resetuje fundusze kupców oraz liczbę towarów na stanie. Zalecane jest użycie RandomizePriceDeltas przed tą komendą."
-  }
- },
- {
-  "verb": "ResetPlayerBalances",
-  "level": "Admin",
-  "desc": {
-   "es": "Se restablecen todos los saldos (efectivo, oro y fama) del jugador que se indique.",
-   "en": "Resets all balances (cash, gold and fame) for a player.",
-   "de": "Resets all balances (cash, gold and fame) for a player.",
-   "ru": "Сбрасывает для игрока количество денег, золота и славы.",
-   "zh": "重置指定玩家的所有余额（现金、黄金与声望）。",
-   "fr": "Réinitialise tous les soldes (cash, or et gloire) d'un joueur.",
-   "pt": "Redefine todos os saldos (dinheiro, ouro e fama) para um jogador.",
-   "zh-tw": "重設玩家的所有餘額（現金、黃金和聲望）。",
-   "th": "รีเซ็ตยอดทั้งหมด (เงินสด ทองคำ และชื่อเสียง) สำหรับผู้เล่นหนึ่งคน",
-   "pl": "Resetuje wszystkie wartości (gotówka, złoto i sława) dla gracza."
-  }
- },
- {
-  "verb": "ResetSquadInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Restablece el nombre y la información del escuadrón. El argumento es el nombre o ID del escuadrón.",
-   "en": "Resets squad name and information. Argument is squad name or ID.",
-   "de": "Resets squad name and information. Argument is squad name or ID.",
-   "ru": "Сбрасывает название отряда и информацию о нём. Значение — название отряда или его идентификатор.",
-   "zh": "重置小队名称和信息。参数是小队名称或ID。",
-   "fr": "Réinitialise le nom et les informations de l'escouade. L'argument est le nom ou l'ID de l'escouade.",
-   "pt": "Redefine o nome e as informações do esquadrão. O argumento é o nome ou ID do esquadrão.",
-   "zh-tw": "重設隊伍名稱和資訊。引數為隊伍名稱或 ID。",
-   "th": "รีเซ็ตชื่อและข้อมูลของหมู่รบ อาร์กิวเมนต์คือชื่อหมู่รบหรือ ID",
-   "pl": "Resetuje nazwę oraz informacje o drużynie. Argumentem jest nazwa lub identyfikator drużyny."
-  }
- },
- {
-  "verb": "ScheduleCargoDrop",
-  "level": "Admin",
-  "desc": {
-   "es": "Programa la aparición de un cargamento cerca de un recluso.",
-   "en": "Schedules a cargo drop near a prisoner.",
-   "de": "Plant den Abwurf einer Ladung in der Nähe eines Gefangenen.",
-   "ru": "Назначает сброс груза рядом с заключённым.",
-   "zh": "在一名囚犯附近安排一次投放物资。",
-   "fr": "Prévoit un largage de container à proximité d'un détenu.",
-   "pt": "Programa a liberação de carga próximo a prisioneiro.",
-   "zh-tw": "安排在一名囚犯附近投放物資。",
-   "th": "กำหนดเวลาปล่อยที่เก็บสินค้าใกล้กับนักโทษ",
-   "pl": "Pozwala zaplanować zrzut ładunku w okolicy więźnia."
-  }
- },
- {
-  "verb": "ScheduleWorldEvent",
-  "level": "Admin",
-  "desc": {
-   "es": "Programa un acontecimiento del mundo del tipo indicado en la ubicación designada.",
-   "en": "Schedules a world event of the specified type at the specified location.",
-   "de": "Schedules a world event of the specified type at the specified location.",
-   "ru": "Назначает глобальное событие указанного типа в указанном месте.",
-   "zh": "在指定地点安排一个指定类型的世界活动。",
-   "fr": "Planifie une épreuve du type spécifié à l'emplacement spécifié.",
-   "pt": "Programa um evento mundial do tipo especificado no local indicado.",
-   "zh-tw": "在指定位置安排指定類型世界活動。",
-   "th": "กำหนดเวลาอีเวนต์โลกในประเภทที่กำหนดที่ตำแหน่งที่กำหนด",
-   "pl": "Planuje wydarzenie światowe określonego typu we wskazanej lokalizacji."
-  }
- },
- {
-  "verb": "SetCurrencyBalance",
-  "level": "Admin",
-  "desc": {
-   "es": "Tu saldo o el del jugador indicado pasa a ser la suma de la divisa que determines.",
-   "en": "Sets specified currency amount to self or the specified player.",
-   "de": "Sets specified currency amount to self or the specified player.",
-   "ru": "Устанавливает для себя или указанного игрока количество валюты, равное указанному значению.",
-   "zh": "为自己或指定的玩家设置指定的货币金额。",
-   "fr": "Définit le solde du joueur spécifié ou le vôtre selon la valeur spécifiée.",
-   "pt": "Define a quantia de moeda especificada para você ou para o jogador indicado.",
-   "zh-tw": "為自己或指定玩家設定指定的貨幣數量。",
-   "th": "ตั้งค่าจำนวนสกุลเงินที่ต้องการแก่ตนเองหรือผู้เล่นที่กำหนด",
-   "pl": "Ustawia ilość waluty wskazanego gracza lub własną na określoną wartość."
-  }
- },
- {
-  "verb": "SetCurrencyBalanceToAll",
-  "level": "Admin",
-  "desc": {
-   "es": "El saldo de todos los jugadores de la base de datos pasa a ser la suma de la divisa que determines.",
-   "en": "Sets the specified currency amount to all players in the database.",
-   "de": "Sets the specified currency amount to all players in the database.",
-   "ru": "Устанавливает для всех игроков в базе данных количество валюты, равное указанному значению.",
-   "zh": "向数据库中的所有玩家设置指定的货币金额。",
-   "fr": "Définit le solde de tous les joueurs de la base de données selon la valeur spécifiée.",
-   "pt": "Define a quantia de moeda especificada para todos os jogadores na base de dados.",
-   "zh-tw": "為資料庫中的所有玩家設定指定的貨幣數量。",
-   "th": "ตั้งค่าจำนวนสกุลเงินที่ต้องการแก่ผู้เล่นทั้งหมดในฐานข้อมูล",
-   "pl": "Ustawia ilość waluty wszystkich graczy w bazie danych na określoną wartość."
-  }
- },
- {
-  "verb": "SetCurrencyBalanceToAllOnline",
-  "level": "Admin",
-  "desc": {
-   "es": "El saldo de todos los jugadores en línea pasa a ser la suma de la divisa que determines.",
-   "en": "Sets the specified currency amount to all online players.",
-   "de": "Sets the specified currency amount to all online players.",
-   "ru": "Устанавливает для всех игроков в сети количество валюты, равное указанному значению.",
-   "zh": "向所有在线玩家设置指定的货币金额。",
-   "fr": "Définit le solde de tous les joueurs en ligne selon la valeur spécifiée.",
-   "pt": "Define a quantia de moeda especificada para todos os jogadores on-line.",
-   "zh-tw": "為所有線上玩家設定指定的貨幣數量。",
-   "th": "ตั้งค่าจำนวนสกุลเงินที่ต้องการแก่ผู้เล่นที่ออนไลน์ทั้งหมด",
-   "pl": "Ustawia ilość waluty graczy online na określoną wartość."
-  }
- },
- {
-  "verb": "SetFakeName",
-  "level": "Admin",
-  "desc": {
-   "es": "Establece un nombre falso del servidor.",
-   "en": "Sets a fake name on the server.",
-   "de": "Sets a fake name on the server.",
-   "ru": "Устанавливает для сервера псевдоним.",
-   "zh": "在服务器上设置一个假名。",
-   "fr": "Définit un faux nom sur le serveur.",
-   "pt": "Define um nome falso no servidor.",
-   "zh-tw": "在伺服器上設定一個假名。",
-   "th": "ตั้งชื่อปลอมในเซิร์ฟเวอร์",
-   "pl": "Ustawia fałszywą nazwę na serwerze."
-  }
- },
- {
-  "verb": "SetFamePoints",
-  "level": "Admin",
-  "desc": {
-   "es": "Determina con este valor los puntos de fama que tendrá el jugador indicado.",
-   "en": "Sets fame points of the specified player to the specified value.",
-   "de": "Sets fame points of the specified player to the specified value.",
-   "ru": "Устанавливает число очков славы указанного игрока, равное указанному значению.",
-   "zh": "将指定玩家的声望值设置为指定值。",
-   "fr": "Définit les points de gloire du joueur spécifié selon la valeur spécifiée.",
-   "pt": "Define os pontos de fama do jogador especificado para o valor indicado.",
-   "zh-tw": "將指定玩家的聲望點數設定成指定數值。",
-   "th": "ตั้งค่าชื่อเสียงของผู้เล่นที่กำหนดให้เป็นค่าที่กำหนด",
-   "pl": "Ustawia liczbę punktów sławy określonego gracza na wskazaną wartość."
-  }
- },
- {
-  "verb": "SetFamePointsToAll",
-  "level": "Admin",
-  "desc": {
-   "es": "Todos los jugadores, conectados o no, tendrán los puntos de fama especificados con este valor.",
-   "en": "Sets fame points of all online and offline players to the specified value.",
-   "de": "Sets fame points of all online and offline players to the specified value.",
-   "ru": "Устанавливает число очков славы для всех игроков в сети и не в сети, равное указанному значению.",
-   "zh": "将所有在线和离线玩家的声望值设置为指定值。",
-   "fr": "Définit les points de gloire de tous les joueurs en ligne et hors ligne selon la valeur spécifiée.",
-   "pt": "Define os pontos de fama de todos os jogadores, on-line e off-line, para o valor especificado.",
-   "zh-tw": "將所有線上和離線玩家的聲望點數設定成指定數值。",
-   "th": "ตั้งค่าชื่อเสียงของผู้เล่นที่ออนไลน์และออฟไลน์ทั้งหมดให้เป็นค่าที่กำหนด",
-   "pl": "Ustawia liczbę punktów sławy wszystkich graczy online i offline na wskazaną wartość."
-  }
- },
- {
-  "verb": "SetFamePointsToAllOnline",
-  "level": "Admin",
-  "desc": {
-   "es": "Todos los jugadores conectados tendrán los puntos de fama especificados con este valor.",
-   "en": "Sets fame points of all online players to the specified value.",
-   "de": "Sets fame points of all online players to the specified value.",
-   "ru": "Устанавливает число очков славы для всех игроков в сети, равное указанному значению.",
-   "zh": "将所有在线玩家的声望值设置为指定值。",
-   "fr": "Définit les points de gloire de tous les joueurs en ligne selon la valeur spécifiée.",
-   "pt": "Define os pontos de fama de todos os jogadores on-line para o valor especificado.",
-   "zh-tw": "將所有線上玩家的聲望點數設定成指定數值。",
-   "th": "ตั้งค่าชื่อเสียงของผู้เล่นที่ออนไลน์ทั้งหมดให้เป็นค่าที่กำหนด",
-   "pl": "Ustawia liczbę punktów sławy wszystkich graczy online na wskazaną wartość."
-  }
- },
- {
-  "verb": "SetHealthToItemInHands",
-  "level": "Admin",
-  "desc": {
-   "es": "Determina la salud del objeto que llevas en las manos.",
-   "en": "Sets health to current item in hands.",
-   "de": "Sets health to current item in hands.",
-   "ru": "Устанавливает прочность для находящегося в руках предмета.",
-   "zh": "为手中的当前物品设置生命值。",
-   "fr": "Définit la santé de l'objet entre vos mains.",
-   "pt": "Define a saúde do item em mãos.",
-   "zh-tw": "將生命設定成當前在手中的道具。",
-   "th": "ตั้งค่าพลังชีวิตแก่สิ่งของปัจจุบันที่อยู่ในมือ",
-   "pl": "Ustawia zdrowie trzymanego w rękach przedmiotu."
-  }
- },
- {
-  "verb": "SetShouldPrintExamineSpawnerPresets",
-  "level": "Admin",
-  "desc": {
-   "es": "Permite o no que se muestren los ajustes predeterminados de la generación de Examinar.",
-   "en": "Enables or disables printing of examine spawner presets",
-   "de": "Enables or disables printing of examine spawner presets",
-   "ru": "Включает или выключает предустановки исследуемых генераторов.",
-   "zh": "启用或禁用检查生成器预置的打印功能",
-   "fr": "Active ou désactive l'écriture des préréglages du générateur d'objets à examiner.",
-   "pt": "Ativa ou desativa a exibição de predefinições de verificação de geradores",
-   "zh-tw": "開啟或關閉檢查生成器預組的列印",
-   "th": "เปิดหรือปิดการพิมพ์พรีเซ็ตการตรวจสอบจุดเกิด",
-   "pl": "Włącza lub wyłącza wyświetlanie ustawień generatorów obiektów do zbadania."
-  }
- },
- {
-  "verb": "SetTime",
-  "level": "Admin",
-  "desc": {
-   "es": "Establece la hora del día según el valor indicado.",
-   "en": "Sets time of day to the specified value.",
-   "de": "Sets time of day to the specified value.",
-   "ru": "Меняет время суток на указанное значение.",
-   "zh": "将当天时间设置为指定值。",
-   "fr": "Définit l'heure selon la valeur spécifiée.",
-   "pt": "Define o horário do dia para o valor especificado.",
-   "zh-tw": "將當天時間設定成指定數值。",
-   "th": "ตั้งค่าเวลาของวันเป็นค่าที่กำหนด",
-   "pl": "Ustawia porę dnia na wskazaną wartość."
-  }
- },
- {
-  "verb": "SetWeather",
-  "level": "Admin",
-  "desc": {
-   "es": "Establece las condiciones atmosféricas según el valor indicado.",
-   "en": "Sets weather to the specified value.",
-   "de": "Sets weather to the specified value.",
-   "ru": "Меняет погоду на указанное значение.",
-   "zh": "将天气设置为指定值。",
-   "fr": "Définit la météo selon la valeur spécifiée.",
-   "pt": "Define o clima para o valor especificado.",
-   "zh-tw": "將天氣設定成指定數值。",
-   "th": "ตั้งค่าสภาพอากาศเป็นค่าที่กำหนด",
-   "pl": "Ustawia pogodę na wskazaną wartość."
-  }
- },
- {
-  "verb": "ShowFlagInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra en el mapa a los dueños de banderas.",
-   "en": "Shows flag owners on map.",
-   "de": "Shows flag owners on map.",
-   "ru": "Показывает владельцев флагов на карте.",
-   "zh": "在地图上显示旗帜所有者。",
-   "fr": "Affiche les propriétaires des drapeaux sur la carte.",
-   "pt": "Exibe quem tem bandeiras no mapa.",
-   "zh-tw": "顯示地圖上的旗子擁有者。",
-   "th": "แสดงเจ้าของธงบนแผนที่",
-   "pl": "Pokazuje posiadaczy flag na mapie."
-  }
- },
- {
-  "verb": "ShowFlagLocations",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la ubicación de todas las banderas en el mapa.",
-   "en": "Shows all flag locations on map.",
-   "de": "Shows all flag locations on map.",
-   "ru": "Показывает местоположения всех флагов на карте.",
-   "zh": "在地图上显示所有旗帜的位置。",
-   "fr": "Affiche les emplacements de tous les drapeaux sur la carte.",
-   "pt": "Exibe todas as localizações de bandeiras no mapa.",
-   "zh-tw": "顯示地圖上的所有旗子位置。",
-   "th": "แสดงตำแหน่งของธงทั้งหมดบนแผนที่",
-   "pl": "Pokazuje lokalizacje wszystkich flag na mapie."
-  }
- },
- {
-  "verb": "ShowNameplates",
-  "level": "Admin",
-  "desc": {
-   "es": "Se muestran los nombres de todos los demás jugadores.",
-   "en": "Shows all other player nameplates.",
-   "de": "Shows all other player nameplates.",
-   "ru": "Показывает имена всех других игроков.",
-   "zh": "显示所有其他玩家的名牌",
-   "fr": "Affiche les noms de tous les autres joueurs.",
-   "pt": "Exibe todas as outras placas de identificação de jogadores.",
-   "zh-tw": "顯示所有其他玩家的銘牌。",
-   "th": "แสดงป้ายชื่อของผู้เล่นอื่นทั้งหมด",
-   "pl": "Pokazuje nazwy wszystkich innych graczy."
-  }
- },
- {
-  "verb": "ShowOtherPlayerInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Permite que se muestren datos de los demás jugadores, como su nombre y ubicación.",
-   "en": "Enables display of other players’ information (Name, Location etc.).",
-   "de": "Enables display of other players’ information (Name, Location etc.).",
-   "ru": "Включает отображение информации о других игроках (имя, расположение и т. д.)",
-   "zh": "启用显示其他玩家的信息（姓名、位置等）。",
-   "fr": "Permet d'afficher les informations relatives aux autres joueurs (nom, emplacement, etc.).",
-   "pt": "Ativa a exibição de informações de outros jogadores (nome, local etc.).",
-   "zh-tw": "允許顯示其他玩家的資訊（名稱與位置等）。",
-   "th": "เปิดการแสดงผลข้อมูลของผู้เล่นอื่น (ชื่อ ตำแหน่ง และอื่นๆ)",
-   "pl": "Włącza wyświetlanie informacji o innych graczach (nazw, lokacji itd.)."
-  }
- },
- {
-  "verb": "ShowOtherPlayerLocations",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra u oculta la ubicación de los demás jugadores en el mapa.",
-   "en": "Enables or disables displaying of other player locations on the map.",
-   "de": "Enables or disables displaying of other player locations on the map.",
-   "ru": "Включает или выключает отображение расположения других игроков на карте.",
-   "zh": "启用或禁用地图上其他玩家位置的显示。",
-   "fr": "Active ou désactive l'affichage de l'emplacement des autres joueurs sur la carte.",
-   "pt": "Ativa ou desativa a exibição da localização de outros jogadores no mapa.",
-   "zh-tw": "是否顯示其他玩家在地圖上的位置。",
-   "th": "เปิดหรือปิดการแสดงผลตำแหน่งของผู้เล่นอื่นบนแผนที่",
-   "pl": "Włącza lub wyłącza wyświetlanie lokalizacji innych graczy na mapie."
-  }
- },
- {
-  "verb": "ShowVehicleInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra en el mapa información de todos los vehículos.",
-   "en": "Shows info for all vehicles on the map.",
-   "de": "Shows info for all vehicles on the map.",
-   "ru": "Показывает информацию для всех транспортных средств на карте.",
-   "zh": "显示地图上所有载具的信息。",
-   "fr": "Affiche les informations relatives à tous les véhicules sur la carte.",
-   "pt": "Exibe informações de todos os veículos no mapa.",
-   "zh-tw": "顯示地圖上的所有載具資訊。",
-   "th": "แสดงข้อมูลสำหรับพาหนะทั้งหมดบนแผนที่",
-   "pl": "Pokazuje informacje o wszystkich pojazdach na mapie."
-  }
- },
- {
-  "verb": "ShowVehicleLocations",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra la ubicación de todos los vehículos en el mapa.",
-   "en": "Shows all vehicle locations on map.",
-   "de": "Shows all vehicle locations on map.",
-   "ru": "Показывает местоположения всех транспортных средств на карте.",
-   "zh": "在地图上显示所有载具的位置。",
-   "fr": "Affiche l'emplacement de tous les véhicules sur la carte.",
-   "pt": "Exibe todas as localizações de veículos no mapa.",
-   "zh-tw": "顯示地圖上的所有載具位置。",
-   "th": "แสดงตำแหน่งพาหนะทั้งหมดบนแผนที่",
-   "pl": "Pokazuje lokalizacje wszystkich pojazdów na mapie."
-  }
- },
- {
-  "verb": "Silence",
-  "level": "Admin",
-  "desc": {
-   "es": "El jugador silenciado no podrá enviar mensajes a los demás jugadores.",
-   "en": "Prevents the silenced player from sending messages to other players.",
-   "de": "Prevents the silenced player from sending messages to other players.",
-   "ru": "Не даёт заглушённому игроку отправлять сообщения другим игрокам.",
-   "zh": "防止被禁止发言的玩家向其他玩家发送信息。",
-   "fr": "Empêche le joueur en mode muet d'envoyer des messages aux autres joueurs.",
-   "pt": "Evita que o jogador silenciado mande mensagens para outros jogadores.",
-   "zh-tw": "禁止被消音的玩家向其他玩家傳送訊息。",
-   "th": "ห้ามผู้เล่นที่โดนใบ้ส่งข้อความหาผู้เล่นอื่น",
-   "pl": "Uniemożliwia wyciszonemu graczowi wysyłanie wiadomości do innych użytkowników."
-  }
- },
- {
-  "verb": "SpawnAnimal",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera la cantidad indicada del tipo de animal en cuestión (el valor numérico predeterminado es 1).",
-   "en": "Spawns a specified amount of the given animal type (Default count value is 1).",
-   "de": "Spawns a specified amount of the given animal type (Default count value is 1).",
-   "ru": "Создаёт указанное число животных указанного типа (по умолчанию 1).",
-   "zh": "生成指定数量的特定动物类型（默认计数为1）。",
-   "fr": "Fait apparaître un certain nombre d'animaux du type donné (le compte par défaut est 1).",
-   "pt": "Gera uma quantidade específica do tipo de animal escolhido (contagem padrão é 1).",
-   "zh-tw": "生成指定數量的指定動物類型（預設數量為 1）。",
-   "th": "สร้างสัตว์ประเภทที่เลือกในจำนวนที่กำหนด (ค่าจำนวนเริ่มต้นคือ 1)",
-   "pl": "Generuje określoną liczbę zwierząt wskazanego typu (wartość domyślna to 1)."
-  }
- },
- {
-  "verb": "SpawnArmedNPC",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera la cantidad indicada del tipo de PNJ armado en cuestión (el valor numérico predeterminado es 1).",
-   "en": "Spawns a specified amount of the given armed NPC type (Default count value is 1).",
-   "de": "Spawns a specified amount of the given armed NPC type (Default count value is 1).",
-   "ru": "Создаёт указанное число вооружённых персонажей заданного типа (по умолчанию 1).",
-   "zh": "生成指定数量的特定武装NPC类型（默认计数为1）。",
-   "fr": "Spawns a specified amount of the given armed NPC type (Default count value is 1).",
-   "pt": "Gera uma quantidade específica do tipo de PNJ armado escolhido (contagem padrão é 1).",
-   "zh-tw": "生成指定數量的指定武裝 NPC 類型（預設數量為 1）。",
-   "th": "สร้างประเภท NPC ติดอาวุธที่เลือกในจำนวนที่กำหนด (ค่าเริ่มต้นคือ 1)",
-   "pl": "Generuje określoną liczbę uzbrojonych postaci niezależnych wskazanego typu (wartość domyślna to 1)."
-  }
- },
- {
-  "verb": "SpawnInventoryFullOf",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera un inventario repleto de N conjuntos de objetos.",
-   "en": "Spawns an inventory full of N sets of items",
-   "de": "Spawns an inventory full of N sets of items",
-   "ru": "Создаёт список вещей с N наборами предметов.",
-   "zh": "生成一个充满N组物品的物品栏",
-   "fr": "Fait apparaître un inventaire comprenant N ensembles d'objets.",
-   "pt": "Gera um inventário cheio de N conjuntos de itens",
-   "zh-tw": "生成滿是 N 組道具的物品欄",
-   "th": "สร้างคลังที่เต็มไปด้วยสิ่งของ N เซ็ต",
-   "pl": "Generuje ekwipunek z zestawami przedmiotów."
-  }
- },
- {
-  "verb": "SpawnItem",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera uno o más objetos frente al jugador que usa el comando.",
-   "en": "Spawns one or more items in front of invoking player.",
-   "de": "Spawns one or more items in front of invoking player.",
-   "ru": "Создаёт один или более предметов перед игроком, вызвавшим команду.",
-   "zh": "在调用的玩家面前生成一个或多个物品。",
-   "fr": "Fait apparaître un ou plusieurs objets devant le joueur demandeur.",
-   "pt": "Gera um ou mais itens na frente do jogador escolhido.",
-   "zh-tw": "在選定玩家面前生成一個或多個道具。",
-   "th": "สร้างสิ่งของอย่างน้อยหนึ่งชิ้นด้านหน้าผู้เล่นที่ใช้คำสั่ง",
-   "pl": "Generuje jeden lub więcej przedmiotów przed używającym komendy graczem."
-  }
- },
- {
-  "verb": "SpawnItem2",
-  "level": "Admin",
-  "desc": {
-   "es": "Se genera un objeto frente al jugador que usa el comando. Para ver sugerencias de objetos, prueba a escribir distintas palabras en inglés. Por ejemplo: #spawnitem2 weapon suppressor ak.",
-   "en": "Spawns item in front of invoking player. Can use multiple words for finding item suggestions, e.g. #spawnitem2 weapon suppressor ak.",
-   "de": "Spawns item in front of invoking player. Can use multiple words for finding item suggestions, e.g. #spawnitem2 weapon suppressor ak.",
-   "ru": "Создаёт предмет перед игроком, вызвавшим команду. Для поиска предмета можно использовать несколько слов: например, #spawnitem2 weapon suppressor ak",
-   "zh": "在调用的玩家面前生成物品。寻找物品建议时可以使用多个词语，例如：#spawnitem2武器压制器ak。",
-   "fr": "Fait apparaître l'objet devant le joueur demandeur. Possibilité d'utiliser plusieurs mots pour avoir des suggestions d'objets, par exemple #spawnitem2 weapon suppressor ak.",
-   "pt": "Gera um item na frente do jogador escolhido. Podem ser usadas várias palavras para encontrar sugestões de itens, como #spawnitem2 weapon suppressor ak.",
-   "zh-tw": "在選定玩家面前生成道具。可以使用複數詞語來尋找道具建議，例如 #spawnitem2 武器 消音器 AK。",
-   "th": "สร้างสิ่งของด้านหน้าผู้เล่นที่ใช้คำสั่ง สามารถใช้หลายคำเพื่อหาการแนะนำสิ่งของได้ เช่น #spawnitem2 weapon suppressor ak",
-   "pl": "Generuje przedmiot przed używającym komendy graczem. Można użyć wielu słów do znalezienia sugestii przedmiotów, np. #spawnitem2 weapon suppressor ak."
-  }
- },
- {
-  "verb": "SpawnRandomAnimal",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera la cantidad indicada de animales al azar (el valor predeterminado es 1).",
-   "en": "Spawns a specified amount of random animals (default value is 1).",
-   "de": "Spawns a specified amount of random animals (default value is 1).",
-   "ru": "Создаёт указанное число случайных животных (по умолчанию 1).",
-   "zh": "生成指定数量的随机动物（默认值为1）。",
-   "fr": "Fait apparaître un certain nombre d'animaux aléatoires (la valeur par défaut est 1).",
-   "pt": "Gera uma quantidade específica de animais aleatórios (o valor padrão é 1).",
-   "zh-tw": "生成指定數量的隨機動物（預設數值為 1）。",
-   "th": "สร้างสัตว์แบบสุ่มในจำนวนที่กำหนด (ค่าเริ่มต้นคือ 1)",
-   "pl": "Generuje określoną liczbę losowych zwierząt (wartość domyślna to 1)."
-  }
- },
- {
-  "verb": "SpawnRandomZombie",
-  "level": "Admin",
-  "desc": {
-   "en": "Spawns a specified amount of random zombie types (default value is 1)."
-  }
- },
- {
-  "verb": "SpawnRandomZombie2",
-  "level": "Admin",
-  "desc": {
-   "en": "Spawns a specified amount of random zombie types (default value is 1)."
-  }
- },
- {
-  "verb": "SpawnRazor",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera el personaje de depuración del sajador.",
-   "en": "Spawns debug Razor character.",
-   "de": "Spawns debug Razor character.",
-   "ru": "Создаёт Клинка для отладки.",
-   "zh": "生成调试用Razor角色。",
-   "fr": "Spawns debug Razor character.",
-   "pt": "Gera o personagem de depuração Razor.",
-   "zh-tw": "生成除錯 Razor 角色。",
-   "th": "สร้างตัวละครเรเซอร์สำหรับแก้บั๊ก",
-   "pl": "Generuje debugową postać Razora."
-  }
- },
- {
-  "verb": "SpawnVehicle",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera un vehículo frente al jugador que usa el comando.",
-   "en": "Spawns vehicle in front of invoking player.",
-   "de": "Spawns vehicle in front of invoking player.",
-   "ru": "Создаёт транспортное средство перед игроком, вызвавшим команду.",
-   "zh": "在调用的玩家面前生成车辆。",
-   "fr": "Fait apparaître un véhicule devant le joueur demandeur.",
-   "pt": "Gera um veículo na frente do jogador escolhido.",
-   "zh-tw": "在選定玩家面前生成載具。",
-   "th": "สร้างพาหนะด้านหน้าผู้เล่นที่ใช้คำสั่ง",
-   "pl": "Generuje pojazd przed używającym komendy graczem."
-  }
- },
- {
-  "verb": "SpawnZombie",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera la cantidad indicada del tipo de títere en cuestión (el valor numérico predeterminado es 1).",
-   "en": "Spawns a specified amount of the given zombie type (Default count value is 1).",
-   "de": "Spawns a specified amount of the given zombie type (Default count value is 1).",
-   "ru": "Создаёт указанное число марионеток указанного типа (по умолчанию 1).",
-   "zh": "生成指定数量的特定僵尸类型（默认值为1）。",
-   "fr": "Fait apparaître un certain nombre de pantins du type donné (le compte par défaut est 1).",
-   "pt": "Gera uma quantidade específica do tipo de fantoche escolhido (contagem padrão é 1).",
-   "zh-tw": "生成指定數量的指定殭屍類型（預設數量為 1）。",
-   "th": "สร้างประเภทซอมบี้ที่เลือกในจำนวนที่กำหนด (ค่าเริ่มต้นคือ 1)",
-   "pl": "Generuje określoną liczbę kukieł wskazanego typu (wartość domyślna to 1)."
-  }
- },
- {
-  "verb": "SquadInfo",
-  "level": "Admin",
-  "desc": {
-   "es": "Activa un sistema de votación.",
-   "en": "Triggers a voting system.",
-   "de": "Triggers a voting system.",
-   "ru": "Запускает систему голосования.",
-   "zh": "触发投票系统。",
-   "fr": "Déclenche un vote.",
-   "pt": "Ativa um sistema de votação.",
-   "zh-tw": "觸發投票系統。",
-   "th": "เปิดการทำงานระบบโหวต",
-   "pl": "Aktywuje system głosowania."
-  }
- },
- {
-  "verb": "StartTournamentMode",
-  "level": "Admin",
-  "desc": {
-   "es": "Inicia el modo Torneo.",
-   "en": "Initiates tournament mode.",
-   "de": "Initiates tournament mode.",
-   "ru": "Начинает режим турнира.",
-   "zh": "启动锦标赛模式。",
-   "fr": "Lance le mode tournoi.",
-   "pt": "Inicia o modo torneio.",
-   "zh-tw": "啟動錦標賽模式。",
-   "th": "เริ่มโหมดทัวร์นาเมนต์",
-   "pl": "Aktywuje tryb turnieju."
-  }
- },
- {
-  "verb": "Teleport",
-  "level": "Admin",
-  "desc": {
-   "es": "Teletransporta al jugador especificado a la ubicación designada. Si no especificas ningún jugador, te teletransportas tú.",
-   "en": "Teleports the specified player to the specified location. If player is unspecified, teleports you.",
-   "de": "Teleports the specified player to the specified location. If player is unspecified, teleports you.",
-   "ru": "Телепортирует выбранного игрока в выбранное место. Если игрок не выбран, телепортирует вас.",
-   "zh": "将指定玩家传送到指定的位置。如果未指定玩家，则会将您传送。",
-   "fr": "Téléporte le joueur spécifié à l'endroit spécifié. Si le joueur n'est pas spécifié, c'est vous qui vous téléportez.",
-   "pt": "Teletransporta o jogador especificado para o local indicado. Se o jogador não for especificado, teletransporta você.",
-   "zh-tw": "將指定玩家傳送至指定位置。若無指定玩家則會傳送你自己。",
-   "th": "เทเลพอร์ตผู้เล่นที่กำหนดไปยังตำแหน่งที่กำหนด หากไม่ได้กำหนดผู้เล่น จะเป็นการเทเลพอร์ตคุณแทน",
-   "pl": "Teleportuje wskazanego gracza w określone miejsce. Jeśli gracz nie zostanie wskazany, teleportuje ciebie."
-  }
- },
- {
-  "verb": "TeleportTo",
-  "level": "Admin",
-  "desc": {
-   "es": "Teletransporta al jugador que especifiques a la ubicación de otro jugador. Si no especificas qué jugador se teletransportará, te teletransportas tú.",
-   "en": "Teleports the specified player to another player. If player to teleport is unspecified, teleports you.",
-   "de": "Teleports the specified player to another player. If player to teleport is unspecified, teleports you.",
-   "ru": "Телепортирует выбранного игрока к другому игроку. Если телепортируемый игрок не выбран, телепортирует вас.",
-   "zh": "将指定的玩家传送到另一个玩家处。如果未指定要传送的玩家，则会将您传送。",
-   "fr": "Téléporte le joueur spécifié vers un autre joueur. Si le joueur à téléporter n'est pas spécifié, c'est vous qui vous téléportez.",
-   "pt": "Teletransporta o jogador especificado até outro jogador. Se o jogador não for indicado, teletransporta você.",
-   "zh-tw": "將指定玩家傳送至其他玩家。若無指定傳送目標則會傳送你自己。",
-   "th": "เทเลพอร์ตผู้เล่นที่กำหนดไปยังผู้เล่นอีกคนหนึ่ง หากไม่ได้กำหนดผู้เล่นที่จะเทเลพอร์ต จะเป็นการเทเลพอร์ตคุณแทน",
-   "pl": "Teleportuje wskazanego gracza do innego użytkownika. Jeśli gracz do przeniesienia nie zostanie wskazany, teleportuje ciebie."
-  }
- },
- {
-  "verb": "TeleportTo3pm",
-  "level": "Admin",
-  "desc": {
-   "es": "Teletransporta al jugador que especifiques a una ubicación al azar. Si no especificas ningún jugador, te teletransportas tú.",
-   "en": "Teleports the specified player to a random location. If player is unspecified, teleports you.",
-   "de": "Teleports the specified player to a random location. If player is unspecified, teleports you.",
-   "ru": "Телепортирует выбранного игрока в случайное место. Если игрок не выбран, телепортирует вас.",
-   "zh": "将指定的玩家传送到一个随机位置。如果未指定玩家，则会将您传送。",
-   "fr": "Téléporte le joueur spécifié vers un emplacement aléatoire. Si le joueur n'est pas spécifié, c'est vous qui vous téléportez.",
-   "pt": "Teletransporta o jogador especificado para um local aleatório. Se o jogador não for indicado, teletransporta você.",
-   "zh-tw": "將指定玩家傳送至隨機位置。若無指定玩家則會傳送你自己。",
-   "th": "เทเลพอร์ตผู้เล่นที่กำหนดไปยังตำแหน่งแบบสุ่ม หากไม่ได้กำหนดผู้เล่น จะเป็นการเทเลพอร์ตคุณแทน",
-   "pl": "Teleportuje wskazanego gracza w losowe miejsce. Jeśli gracz nie zostanie wskazany, teleportuje ciebie."
-  }
- },
- {
-  "verb": "TeleportToMe",
-  "level": "Admin",
-  "desc": {
-   "es": "Teletransporta frente a ti al jugador que especifiques.",
-   "en": "Teleports the specified player in front of you.",
-   "de": "Teleports the specified player in front of you.",
-   "ru": "Телепортирует указанного игрока к вам.",
-   "zh": "将指定的玩家传送到您面前。",
-   "fr": "Téléporte le joueur spécifié devant vous.",
-   "pt": "Teletransporta o jogador especificado na sua frente.",
-   "zh-tw": "傳送你面前的指定玩家。",
-   "th": "เทเลพอร์ตผู้เล่นที่กำหนดมาที่ด้านหน้าคุณ",
-   "pl": "Teleportuje wskazanego gracza przed ciebie."
-  }
- },
- {
-  "verb": "TeleportToVehicle",
-  "level": "Admin",
-  "desc": {
-   "es": "Teletransporta al jugador especificado al vehículo con el alias o ID que indiques. Si no especificas ningún jugador, te teletransportas tú.",
-   "en": "Teleports the specified player to vehicle having the specified alias or ID. If player is unspecified, teleports you.",
-   "de": "Teleports the specified player to vehicle having the specified alias or ID. If player is unspecified, teleports you.",
-   "ru": "Телепортирует выбранного игрока к транспортному средству с выбранным названием или идентификатором. Если игрок не выбран, телепортирует вас.",
-   "zh": "将指定的玩家传送到具有指定别名或ID的载具处。如果未指定玩家，则会将您传送。",
-   "fr": "Téléporte le joueur spécifié vers le véhicule ayant l'alias ou l'ID spécifié. Si le joueur n'est pas spécifié, c'est vous qui vous téléportez.",
-   "pt": "Teletransporta o jogador especificado para o veículo com o pseudônimo ou ID especificado. Se o jogador não for indicado, teletransporta você.",
-   "zh-tw": "將指定玩家傳送至指定別名或 ID 的載具。若無指定玩家則會傳送你自己。",
-   "th": "เทเลพอร์ตผู้เล่นที่กำหนดไปยังพาหนะที่มีนามแฝงหรือ ID ที่กำหนด หากไม่ได้กำหนดผู้เล่น จะเป็นการเทเลพอร์ตคุณแทน",
-   "pl": "Teleportuje wskazanego gracza do pojazdu o określonym aliasie lub identyfikatorze. Jeśli gracz nie zostanie wskazany, teleportuje ciebie."
-  }
- },
- {
-  "verb": "ToggleAmbientSound",
-  "level": "Admin",
-  "desc": {
-   "es": "Activa o desactiva los sonidos de ambiente al manejar drones.",
-   "en": "Enable or disable ambient sounds in drone mode",
-   "de": "Enable or disable ambient sounds in drone mode",
-   "ru": "Включает или выключает окружающие звуки в режиме дрона.",
-   "zh": "启用/禁用无人机模式下的环境音效",
-   "fr": "Active ou désactive les sons ambiants en mode drone.",
-   "pt": "Ativar ou desativar sons ambiente no modo drone",
-   "zh-tw": "啟用或禁用無人機模式的環境音效",
-   "th": "เปิดหรือปิดใช้งานเสียงบรรยากาศขณะอยู่ในโหมดโดรน",
-   "pl": "Włącza lub wyłącza dźwięki otoczenia w trybie drona"
-  }
- },
- {
-  "verb": "ToggleFog",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra u oculta la niebla del entorno al manejar drones.",
-   "en": "Enable or disable fog in drone mode",
-   "de": "Enable or disable fog in drone mode",
-   "ru": "Включает или выключает туман в режиме дрона.",
-   "zh": "启用/禁用无人机模式下的迷雾效果",
-   "fr": "Active ou désactive le brouillard en mode drone.",
-   "pt": "Ativar ou desativar a névoa no modo drone",
-   "zh-tw": "啟用或禁用無人機模式的霧氣",
-   "th": "เปิดหรือปิดใช้งานหมอกขณะอยู่ในโหมดโดรน",
-   "pl": "Włącza lub wyłącza mgłę w trybie drona"
-  }
- },
- {
-  "verb": "Unban",
-  "level": "Admin",
-  "desc": {
-   "es": "Levanta al veto al jugador en cuestión, que podrá conectarse de nuevo a este servidor.",
-   "en": "Lifts the ban on the specified player so he or she can connect to this server again.",
-   "de": "Lifts the ban on the specified player so he or she can connect to this server again.",
-   "ru": "Снимает блокировку с указанного игрока, чтобы он смог снова подключиться к этому серверу.",
-   "zh": "解除对指定玩家的禁令，使其可以再次连接到这个服务器。",
-   "fr": "Lève le bannissement du joueur spécifié afin qu'il puisse à nouveau se connecter à ce serveur.",
-   "pt": "Remove o banimento do jogador especificado para que ele ou ela se conecte ao servidor novamente.",
-   "zh-tw": "將指定玩家解除封鎖，讓他可以再次連線至此伺服器。",
-   "th": "ปลดแบนผู้เล่นที่กำหนดเพื่อให้ผู้เล่นคนนั้นสามารถเชื่อมต่อกับเซิร์ฟเวอร์นี้ได้อีกครั้ง",
-   "pl": "Odblokowuje wskazanego gracza, dzięki czemu może on ponownie połączyć się z tym serwerem."
-  }
- },
- {
-  "verb": "Unsilence",
-  "level": "Admin",
-  "desc": {
-   "es": "Permite que el jugador indicado pueda volver a escribir en el chat.",
-   "en": "Re-enables chat messaging for the specified player.",
-   "de": "Re-enables chat messaging for the specified player.",
-   "ru": "Возвращает возможность пользоваться чатом для указанного игрока.",
-   "zh": "重新启用指定玩家的聊天信息。",
-   "fr": "Réautorise le joueur spécifié à envoyer des messages dans le chat.",
-   "pt": "Reativa as mensagens do chat para o jogador especificado.",
-   "zh-tw": "為指定玩家重新開啟聊天訊息。",
-   "th": "เปิดการส่งข้อความแชตของผู้เล่นที่กำหนดอีกครั้ง",
-   "pl": "Reaktywuje możliwość korzystania z czatu przez wskazanego gracza."
-  }
- },
- {
-  "verb": "VisualizeBulletTrajectories",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra u oculta la vista previa de la trayectoria de los proyectiles.",
-   "en": "Enables or disables bullet trajectory visualization.",
-   "de": "Enables or disables bullet trajectory visualization.",
-   "ru": "Включает или выключает визуализацию траекторий пуль.",
-   "zh": "启用或禁用子弹轨迹可视化。",
-   "fr": "Active ou désactive l'affichage de la trajectoire de la balle.",
-   "pt": "Ativa ou desativa a visualização da trajetória da bala.",
-   "zh-tw": "開啟或關閉子彈軌跡視覺化。",
-   "th": "เปิดหรือปิดการแสดงภาพวิถีกระสุน",
-   "pl": "Włącza lub wyłącza wizualizację trajektorii nabojów."
-  }
- },
- {
-  "verb": "VisualizePath",
-  "level": "Admin",
-  "desc": {
-   "es": "Genera un camino entre las ubicaciones de inicio y fin. Recuerda que debes escribir «start» y «end» antes de las respectivas ubicaciones.",
-   "en": "Draws a path from start to end location. Note that keywords \"start\" and \"end\" need to be put in before the locations.",
-   "de": "Draws a path from start to end location. Note that keywords \"start\" and \"end\" need to be put in before the locations.",
-   "ru": "Строит путь от начальной до конечной точки. Обратите внимание: перед названиями точек нужно ввести ключевые слова start и end.",
-   "zh": "规划一条从开始到结束地点的路线。请注意，你需要在每个位置之前使用关键词“开始”以及“结束”。",
-   "fr": "Dessine un chemin du point de départ au point d'arrivée. Notez que les mots clés « début » et « fin » doivent être placés avant les emplacements.",
-   "pt": "Desenha um caminho do local de início ao local de destino. Observe que as palavras-chave \"início\" e \"destino\" precisam ser colocadas antes dos locais.",
-   "zh-tw": "從起點繪製路徑到終點。請注意，關鍵字「開始」和「結束」需要放在位置之前。",
-   "th": "วาดเส้นทางจากตำแหน่งเริ่มต้นไปยังตำแหน่งปลายทาง หมายเหตุ: ต้องใส่คำสำคัญ “start” และ “end” ไว้ก่อนตำแหน่งเหล่านั้น",
-   "pl": "Rysuje ścieżkę od lokalizacji początkowej do końcowej. Słowa kluczowe „początek” i „koniec” muszą zostać umieszczone przed lokalizacjami."
-  }
- },
- {
-  "verb": "VisualizePlayerAiming",
-  "level": "Admin",
-  "desc": {
-   "es": "Muestra u oculta la visualización de apuntado del jugador.",
-   "en": "Enables or disables player aim visualization.",
-   "de": "Enables or disables player aim visualization.",
-   "ru": "Включает или выключает визуализацию прицела игроков.",
-   "zh": "启用或禁用玩家瞄准可视化。",
-   "fr": "Active ou désactive l'affichage de la trajectoire de visée des joueurs.",
-   "pt": "Ativa ou desativa a visualização da mira do jogador.",
-   "zh-tw": "開啟或關閉玩家瞄準視覺化。",
-   "th": "เปิดหรือปิดการแสดงภาพการเล็งของผู้เล่น",
-   "pl": "Włącza lub wyłącza wizualizację celowania gracza."
-  }
- },
- {
-  "verb": "VisualizeVehicleTrajectory",
-  "level": "Admin"
- },
- {
-  "verb": "Vote",
-  "level": "Admin",
-  "desc": {
-   "es": "Activa un sistema de votación.",
-   "en": "Triggers a voting system.",
-   "de": "Triggers a voting system.",
-   "ru": "Запускает систему голосования.",
-   "zh": "触发投票系统。",
-   "fr": "Déclenche un vote.",
-   "pt": "Ativa um sistema de votação.",
-   "zh-tw": "觸發投票系統。",
-   "th": "เปิดการทำงานระบบโหวต",
-   "pl": "Aktywuje system głosowania."
-  }
- },
- {
-  "verb": "SetGender",
-  "level": "Elevated",
-  "desc": {
-   "es": "Determina el género de tu recluso/a.",
-   "en": "Set the gender of prisoner",
-   "de": "Das Geschlecht der Gefangenen festlegen.",
-   "ru": "Задать пол заключённого",
-   "zh": "设置囚犯性别",
-   "fr": "Définir le sexe du détenu",
-   "pt": "Define o gênero do prisioneiro",
-   "zh-tw": "設定囚犯的性別",
-   "th": "ตั้งค่าเพศของนักโทษ",
-   "pl": "Ustal płeć więźnia"
-  }
- },
- {
-  "verb": "SetSuperJump",
-  "level": "Elevated",
-  "desc": {
-   "es": "Habilita o desactiva el supersalto.",
-   "en": "Enables or disables super jump.",
-   "de": "Enables or disables super jump.",
-   "ru": "Включает или выключает суперпрыжки.",
-   "zh": "启用或禁用超级跳跃。",
-   "fr": "Active ou désactive le super saut.",
-   "pt": "Ativa ou desativa o superpulo.",
-   "zh-tw": "開啟或關閉超級跳躍。",
-   "th": "เปิดหรือปิดซูเปอร์จัมป์",
-   "pl": "Włącza lub wyłącza superskok."
-  }
- },
- {
-  "verb": "ToggleFamePointDebugVisualization",
-  "level": "Elevated",
-  "desc": {
-   "es": "Muestra u oculta una vista detallada de los puntos de fama con fines de depuración.",
-   "en": "Toggles accurate debug visualization of Fame Points.",
-   "de": "Toggles accurate debug visualization of Fame Points.",
-   "ru": "Позволяет включить или выключить точную отладочную визуализацию очков славы.",
-   "zh": "切换声望值的精确调试可视化。",
-   "fr": "Active ou désactive l'affichage du débug des points de gloire.",
-   "pt": "Alterna a visualização de depuração precisa de pontos de fama",
-   "zh-tw": "切換聲望點數的精準除錯視覺化。",
-   "th": "สลับการแสดงภาพของค่าชื้อเสียงสำหรับการแก้บั๊กที่แม่นยำ",
-   "pl": "Przełącza precyzyjną wizualizację debugową punktów sławy."
-  }
+  "description": "Changes fame points of the specified player for the specified value.",
+  "args": [
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "",
+    "description": "Player",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "CheckServerTime",
   "level": "Regular",
-  "desc": {
-   "es": "Muestra la hora local del servidor.",
-   "en": "Prints the server's local time.",
-   "de": "Gibt die Ortszeit des Servers aus.",
-   "ru": "Отображает локальное время сервера.",
-   "zh": "打印服务器的本地时间。",
-   "fr": "Affiche l'heure locale du serveur.",
-   "pt": "Exibe o horário local do servidor.",
-   "zh-tw": "列出伺服器的本地時間。",
-   "th": "พิมพ์เวลาท้องถิ่นของเซิร์ฟเวอร์",
-   "pl": "Wyświetla lokalny czas serwera."
-  }
+  "description": "Prints the server's local time.",
+  "args": []
+ },
+ {
+  "verb": "ClearFakeName",
+  "level": "Admin",
+  "description": "Clears a fake name on the server.",
+  "args": []
+ },
+ {
+  "verb": "CookRecipe",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllBaseBuildingElementsForFlag",
+  "level": "Admin",
+  "description": "Destroys all base building elements for squad with the provided id.",
+  "args": [
+   {
+    "name": "Flag ID",
+    "description": "Flag for which to destroy all base building elements",
+    "type": "String"
+   },
+   {
+    "name": "Please",
+    "description": "Please",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllBaseBuildingElementsForPlayer",
+  "level": "Admin",
+  "description": "Destroys all base building elements for player with the provided id.",
+  "args": [
+   {
+    "name": "Player ID",
+    "description": "Player for which to destroy all base building elements",
+    "type": "String"
+   },
+   {
+    "name": "Please",
+    "description": "Please",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllBaseBuildingElementsForSquad",
+  "level": "Admin",
+  "description": "Destroys all base building elements for squad with the provided id.",
+  "args": [
+   {
+    "name": "Squad ID",
+    "description": "Squad for which to destroy all base building elements",
+    "type": "String"
+   },
+   {
+    "name": "Please",
+    "description": "Please",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllBaseBuildingWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all base building elements within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Radius [m]",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy base building elements",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllFlagsForPlayer",
+  "level": "Admin",
+  "description": "Destroys all flags owned by the player",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player whose flags to destroy",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllItemsWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all items within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Item",
+    "description": "Type of item to destroy",
+    "type": ""
+   },
+   {
+    "name": "Radius [m]",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy items",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllRazorsWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all razors within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Radius [m]",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy razors",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyAllVehicles",
+  "level": "Admin",
+  "description": "Destroys all vehicles.",
+  "args": [
+   {
+    "name": "Please",
+    "description": "Pretty please?",
+    "type": "String"
+   },
+   {
+    "name": "PrimaryAssetId",
+    "description": "PrimaryAssetId of the vehicle",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyArmedNPCsWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all armedNPCs within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Radius",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy armed NPCs.",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyCorpsesWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all corpses within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Radius [m]",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "",
+    "description": "Should destroy clothes on corpses?",
+    "type": "Bool"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy corpses",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyEncountersAtPlayerLocation",
+  "level": "Admin",
+  "description": "Destroys all encounters at invoking player's location.",
+  "args": []
+ },
+ {
+  "verb": "DestroyFlag",
+  "level": "Admin",
+  "description": "Destroys flag having the specified ID.",
+  "args": [
+   {
+    "name": "Flag",
+    "description": "Flag ID to destroy",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyVehicle",
+  "level": "Admin",
+  "description": "Destroys vehicle having the specified alias or ID.",
+  "args": [
+   {
+    "name": "Vehicle",
+    "description": "Vehicle to destroy",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "DestroyZombiesWithinRadius",
+  "level": "Admin",
+  "description": "Destroys all zombies within a given radius around given location or player if none given.",
+  "args": [
+   {
+    "name": "Radius",
+    "description": "Radius in meters",
+    "type": "Numeric"
+   },
+   {
+    "name": "Location",
+    "description": "Location or transform around which to destroy zombies",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "DrawSentryHealthBar",
+  "level": "Admin",
+  "description": "Enables or disables zmbie location visualization",
+  "args": [
+   {
+    "name": "",
+    "description": "Should draw sentry health bar.",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "DumpAllSquadsInfoList",
+  "level": "Admin",
+  "description": "Makes a list of all squads and its members on your clipboard.",
+  "args": []
+ },
+ {
+  "verb": "EnableAdminViolations",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "Enable",
+    "description": "Should Admin violations be logged or not",
+    "type": "Bool"
+   }
+  ]
  },
  {
   "verb": "EnableGameplayMetadataLogging",
-  "level": "Regular"
+  "level": "Regular",
+  "description": "",
+  "args": [
+   {
+    "name": "Enable Or Not",
+    "description": "1 or 0",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "EnableHuntingClueDebugArrow",
+  "level": "Admin",
+  "description": "Enables/disables debug arrow visibility.",
+  "args": [
+   {
+    "name": "IsVisible",
+    "description": "Enables/disables debug arrow visibility.",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "EndTournamentMode",
+  "level": "Admin",
+  "description": "Cancels tournament mode.",
+  "args": []
+ },
+ {
+  "verb": "EnhancedPhotoMode",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "EquipParachute",
+  "level": "Admin",
+  "description": "Equips a parachute.",
+  "args": []
+ },
+ {
+  "verb": "ExportQuests",
+  "level": "Admin",
+  "description": "Exports default quest configuration",
+  "args": []
+ },
+ {
+  "verb": "FindSquadMember",
+  "level": "Admin",
+  "description": "Find squad member by id and display its squad info. If second argument is 'true', this will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "Player or SteamID64",
+    "description": "Steam ID of wanted player",
+    "type": "String"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ForceAnimalEncounter",
+  "level": "Admin",
+  "description": "Spawns an animal encounter at player's location.",
+  "args": []
+ },
+ {
+  "verb": "ForceBBEncounterOnNearbyOwnedBase",
+  "level": "Admin",
+  "description": "Chooses a random BB encounter and forces it to occur on a nearby owned base as soon as possible, provided there isn't an active encounter already present.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ForceDropshipEncounter",
+  "level": "Admin",
+  "description": "Spawns a dropship encounter at player's location.",
+  "args": []
+ },
+ {
+  "verb": "GardenPlantRandomPlants",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "GetMeshInfo",
+  "level": "Admin",
+  "description": "Copies mesh info used for custom quests into clipboard of a mesh being looked at",
+  "args": []
+ },
+ {
+  "verb": "GetSteamID",
+  "level": "Admin",
+  "description": "Gets the Steam ID of player with selected player name.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "GetSteamIDByRank",
+  "level": "Admin",
+  "description": "Gets Steam ID of player with selected rank on the Events rankings.",
+  "args": [
+   {
+    "name": "Rank",
+    "description": "Player rank",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "GrantElevatedStatus",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "SteamID64",
+    "description": "Steam ID of player",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "Kick",
+  "level": "Admin",
+  "description": "Kicks the specified player from the game.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ListActiveAbandonedBunkers",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "ListActiveHunts",
+  "level": "Admin",
+  "description": "Lists all active hunts and their info.",
+  "args": [
+   {
+    "name": "ShouldCopy",
+    "description": "Whether the list should be copied to the clipboard.",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListActiveSecretBunkers",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "ListAnimals",
+  "level": "Admin",
+  "description": "Prints the optionally filtered list of all animals available for spawning via the SpawnAnimal command.",
+  "args": [
+   {
+    "name": "Filter",
+    "description": "",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "ListFeatureFlags",
   "level": "Regular",
-  "desc": {
-   "en": "Lists the current state of all feature flags"
-  }
+  "description": "Lists the current state of all feature flags",
+  "args": []
+ },
+ {
+  "verb": "ListFlags",
+  "level": "Admin",
+  "description": "Prints the list of all placed flags with their owners and locations. First argument is the page number to list. If second argument is 'true', this will copy the results to the clipboard.",
+  "args": [
+   {
+    "name": "Page Number",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListItems",
+  "level": "Admin",
+  "description": "Prints the optionally filtered list of all items available for spawning via the SpawnItem command.",
+  "args": [
+   {
+    "name": "Filter",
+    "description": "",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "ListMutedPlayers",
   "level": "Regular",
-  "desc": {
-   "es": "Se enumera a todos los jugadores silenciados.",
-   "en": "Lists all currently muted players.",
-   "de": "Lists all currently muted players.",
-   "ru": "Выводит список всех заглушенных игроков.",
-   "zh": "当前被静音的玩家列表。",
-   "fr": "Liste tous les joueurs en mode muet.",
-   "pt": "Lista todos os jogadores atualmente silenciados.",
-   "zh-tw": "列出當前靜音的所有玩家。",
-   "th": "แสดงรายการผู้เล่นที่ถูกปิดเสียงอยู่ในขณะนี้ทั้งหมด",
-   "pl": "Wyświetla listę wszystkich obecnie wyciszonych graczy."
-  }
+  "description": "Lists all currently muted players.",
+  "args": []
+ },
+ {
+  "verb": "ListPlayers",
+  "level": "Admin",
+  "description": "Prints the list of all players currently connected to this server. Argument 'true' will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListSilencedPlayers",
+  "level": "Admin",
+  "description": "Lists all currently silenced players. Argument 'true' will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "Should Copy",
+    "description": "Should copy to clipboard",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListSpawnedAnimals",
+  "level": "Admin",
+  "description": "Prints the list of all currently spawned animals. Argument 'true' will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListSpawnedArmedNPCs",
+  "level": "Admin",
+  "description": "Prints the list of all currently spawned armed NPCs. Argument 'true' will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListSpawnedVehicles",
+  "level": "Admin",
+  "description": "Prints the list of all currently spawned vehicles. Argument 'true' will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "Should Copy",
+    "description": "Should copy to clipboard",
+    "type": "Bool"
+   },
+   {
+    "name": "Category",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Category",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Category",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Category",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Category",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ListSquadMembers",
+  "level": "Admin",
+  "description": "Prints the list of all squad members. Argument is squad name or squad id. If second argument is 'true', this will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "Squad",
+    "description": "From which squad to list players",
+    "type": "String"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListSquads",
+  "level": "Admin",
+  "description": "Prints the list of squads. First argument is the page to list. If second argument is 'true', this will copy the result to the clipboard.",
+  "args": [
+   {
+    "name": "Page Number",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ListVehicles",
+  "level": "Admin",
+  "description": "Prints the optionally filtered list of all vehicles available for spawning via the SpawnVehicle command.",
+  "args": [
+   {
+    "name": "Filter",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ListZombies",
+  "level": "Admin",
+  "description": "Prints the optionally filtered list of all zombies available for spawning via the SpawnZombie command.",
+  "args": [
+   {
+    "name": "Filter",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "Location",
+  "level": "Admin",
+  "description": "Prints the location of the specified player or your location if the player is omitted. Copies the result to the clipboard if desired.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Whose location to show",
+    "type": "String"
+   },
+   {
+    "name": "",
+    "description": "",
+    "type": ""
+   }
+  ]
+ },
+ {
+  "verb": "MapTeleport",
+  "level": "Admin",
+  "description": "Next click on the map will teleport the user to the clicked location",
+  "args": []
  },
  {
   "verb": "Mute",
   "level": "Regular",
-  "desc": {
-   "es": "Oculta los mensajes del jugador silenciado.",
-   "en": "Hides messages from the muted player.",
-   "de": "Hides messages from the muted player.",
-   "ru": "Скрывает сообщения от заглушенного игрока.",
-   "zh": "隐藏来自被静音玩家的信息。",
-   "fr": "Masque les messages du joueur en mode muet.",
-   "pt": "Oculta mensagens do jogador silenciado.",
-   "zh-tw": "向靜音的玩家隱藏訊息。",
-   "th": "ซ่อนข้อความจากผู้เล่นที่ถูกปิดเสียง",
-   "pl": "Ukrywa wiadomości wyciszonego gracza."
-  }
+  "description": "Hides messages from the muted player.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to mute",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "NightBrightness",
+  "level": "Admin",
+  "description": "Sets night brightness level.",
+  "args": [
+   {
+    "name": "Amount [0-1]",
+    "description": "Amount to set between 0 and 1",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "PlayerInfo",
+  "level": "Admin",
+  "description": "Lists information about the player",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": ""
+   },
+   {
+    "name": "Show skills",
+    "description": "Show skill info",
+    "type": "Bool"
+   }
+  ]
  },
  {
   "verb": "PrintGlobalRaidProtectionRaidTimes",
   "level": "Regular",
-  "desc": {
-   "es": "Muestra las horas de protección global contra asaltos según estén configuradas en el servidor.",
-   "en": "Prints the global raid protection raid times as configured on the server.",
-   "de": "Gibt die globalen Raid-Schutzzeiten aus, wie sie auf dem Server konfiguriert sind.",
-   "ru": "Отображает глобальное время защиты от набегов, настроенное на сервере.",
-   "zh": "打印服务器上配置的全局突袭保护的突袭时间。",
-   "fr": "Affiche les périodes de protection contre les raids telles qu'elles sont configurées sur le serveur.",
-   "pt": "Exibe os períodos globais de proteção contra invasões configurados no servidor.",
-   "zh-tw": "印出伺服器配置的全域保護突襲時間。",
-   "th": "พิมพ์เวลาการคุ้มครองจากการจู่โจมทั่วโลกตามที่กำหนดบนเซิร์ฟเวอร์",
-   "pl": "Wyświetla czasy globalnych najazdów zgodnie z konfiguracją serwera."
-  }
+  "description": "Prints the global raid protection raid times as configured on the server.",
+  "args": []
+ },
+ {
+  "verb": "RandomizePriceDeltas",
+  "level": "Admin",
+  "description": "Randomizes price deltas.",
+  "args": []
+ },
+ {
+  "verb": "ReloadCustomMapConfig",
+  "level": "Admin",
+  "description": "Forces reload of custom map border settings from config.",
+  "args": []
+ },
+ {
+  "verb": "RenameVehicle",
+  "level": "Admin",
+  "description": "Renames vehicle having the specified alias or ID.",
+  "args": [
+   {
+    "name": "Vehicle",
+    "description": "Which vehicle to rename",
+    "type": "String"
+   },
+   {
+    "name": "Name",
+    "description": "New Name",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ResetEconomy",
+  "level": "Admin",
+  "description": "Resets trader funds and amount of stocked items. Recommended to use RandomizePriceDeltas before using this command.",
+  "args": []
+ },
+ {
+  "verb": "ResetPlayerBalances",
+  "level": "Admin",
+  "description": "Resets all balances (cash, gold and fame) for a player.",
+  "args": [
+   {
+    "name": "Player ID",
+    "description": "Player for which to reset all balances (cash, gold and fame)",
+    "type": "String"
+   },
+   {
+    "name": "Please",
+    "description": "Please",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ResetSquadInfo",
+  "level": "Admin",
+  "description": "Resets squad name and information. Argument is squad name or ID.",
+  "args": [
+   {
+    "name": "Squad",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "RevokeElevatedStatus",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "SteamID64",
+    "description": "Steam ID of player",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ScheduleCargoDrop",
+  "level": "Admin",
+  "description": "Schedules a cargo drop near a prisoner.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player whose location to use",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ScheduleWorldEvent",
+  "level": "Admin",
+  "description": "Schedules a world event of the specified type at the specified location.",
+  "args": [
+   {
+    "name": "World Event",
+    "description": "World event to schedule",
+    "type": "String"
+   },
+   {
+    "name": "X",
+    "description": "X coordinate",
+    "type": "Numeric"
+   },
+   {
+    "name": "Y",
+    "description": "Y coordinate",
+    "type": "Numeric"
+   },
+   {
+    "name": "Z",
+    "description": "Z coordinate",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetBodyType",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "SetCurrencyBalance",
+  "level": "Admin",
+  "description": "Sets specified currency amount to self or the specified player.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "Which currency balance to set",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "Player",
+    "description": "Which player to set for",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SetCurrencyBalanceToAll",
+  "level": "Admin",
+  "description": "Sets the specified currency amount to all players in the database.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "Which currency balance to set",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetCurrencyBalanceToAllOnline",
+  "level": "Admin",
+  "description": "Sets the specified currency amount to all online players.",
+  "args": [
+   {
+    "name": "Currency Type",
+    "description": "Which currency balance to set",
+    "type": "String"
+   },
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetFakeName",
+  "level": "Admin",
+  "description": "Sets a fake name on the server.",
+  "args": [
+   {
+    "name": "Fake Name",
+    "description": "Fake name to set",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SetFamePoints",
+  "level": "Admin",
+  "description": "Sets fame points of the specified player to the specified value.",
+  "args": [
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   },
+   {
+    "name": "",
+    "description": "Player",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SetFamePointsToAll",
+  "level": "Admin",
+  "description": "Sets fame points of all online and offline players to the specified value.",
+  "args": [
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetFamePointsToAllOnline",
+  "level": "Admin",
+  "description": "Sets fame points of all online players to the specified value.",
+  "args": [
+   {
+    "name": "Amount",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
  },
  {
   "verb": "SetFeatureFlag",
-  "level": "Regular"
+  "level": "Regular",
+  "description": "",
+  "args": [
+   {
+    "name": "Name",
+    "description": "Feature Flag Name",
+    "type": "String"
+   },
+   {
+    "name": "Value",
+    "description": "Feature Flag Value",
+    "type": "Bool"
+   }
+  ]
  },
  {
-  "verb": "Unmute",
-  "level": "Regular",
-  "desc": {
-   "es": "Permite que el jugador indicado pueda volver a escribir en el chat.",
-   "en": "Re-enables chat messaging for the specified player.",
-   "de": "Re-enables chat messaging for the specified player.",
-   "ru": "Возвращает возможность пользоваться чатом для указанного игрока.",
-   "zh": "重新启用指定玩家的聊天信息。",
-   "fr": "Réautorise le joueur spécifié à envoyer des messages dans le chat.",
-   "pt": "Reativa as mensagens do chat para o jogador especificado.",
-   "zh-tw": "為指定玩家重新開啟聊天訊息。",
-   "th": "เปิดการส่งข้อความแชตของผู้เล่นที่กำหนดอีกครั้ง",
-   "pl": "Reaktywuje możliwość korzystania z czatu przez wskazanego gracza."
-  }
+  "verb": "SetGardenNutrientsHigh",
+  "level": "Admin",
+  "description": "",
+  "args": []
+ },
+ {
+  "verb": "SetGardenPlantGrowthStage",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "WholeGarden",
+    "description": "Affect whole garden or one slot",
+    "type": "Bool"
+   },
+   {
+    "name": "Stage",
+    "description": "Plant growth stage",
+    "type": "String"
+   },
+   {
+    "name": "Growth",
+    "description": "Plant stage progress [0.0 - 1.0)",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetGardenPlantingTime",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "Enabled",
+    "description": "Enabled",
+    "type": "Bool"
+   },
+   {
+    "name": "Duration",
+    "description": "Duration",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetGender",
+  "level": "Elevated",
+  "description": "Set the gender of prisoner",
+  "args": [
+   {
+    "name": "gender",
+    "description": "male|female",
+    "type": "String"
+   }
+  ]
  },
  {
   "verb": "SetGodMode",
   "level": "SuperAdmin",
-  "desc": {
-   "es": "Habilita o desactiva el modo dios.",
-   "en": "Enables or disables god mode.",
-   "de": "Enables or disables god mode.",
-   "ru": "Включает или выключает режим бога.",
-   "zh": "启用或禁用上帝模式。",
-   "fr": "Active ou désactive le mode dieu.",
-   "pt": "Ativa ou desativa o modo divino.",
-   "zh-tw": "開啟或關閉上帝模式。",
-   "th": "เปิดหรือปิดโหมดพระเจ้า",
-   "pl": "Włącza lub wyłącza tryb boga."
-  }
+  "description": "Enables or disables god mode.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "SetHealthToItemInHands",
+  "level": "Admin",
+  "description": "Sets health to current item in hands.",
+  "args": [
+   {
+    "name": "Health [0-1]",
+    "description": "Health between 0 and 1.0",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetShouldPrintExamineSpawnerPresets",
+  "level": "Admin",
+  "description": "Enables or disables printing of examine spawner presets",
+  "args": [
+   {
+    "name": "Value",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "SetSuperJump",
+  "level": "Elevated",
+  "description": "Enables or disables super jump.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "SetTime",
+  "level": "Admin",
+  "description": "Sets time of day to the specified value.",
+  "args": [
+   {
+    "name": "Time",
+    "description": "Time of day [0-24]",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SetWeather",
+  "level": "Admin",
+  "description": "Sets weather to the specified value.",
+  "args": [
+   {
+    "name": "Weather",
+    "description": "Weather to set to (0-1)",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "ShowFlagInfo",
+  "level": "Admin",
+  "description": "Shows flag owners on map.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowFlagLocations",
+  "level": "Admin",
+  "description": "Shows all flag locations on map.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowNameplates",
+  "level": "Admin",
+  "description": "Shows all other player nameplates.",
+  "args": [
+   {
+    "name": "",
+    "description": "Show all other players' nameplates",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowOtherPlayerInfo",
+  "level": "Admin",
+  "description": "Enables display of other players’ information (Name, Location etc.).",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowOtherPlayerLocations",
+  "level": "Admin",
+  "description": "Enables or disables displaying of other player locations on the map.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowRespawnTimers",
+  "level": "Admin",
+  "description": "Shows respawn times for given respawn option.",
+  "args": [
+   {
+    "name": "RespawnOption",
+    "description": "Which respawn option to show the times for",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ShowVehicleInfo",
+  "level": "Admin",
+  "description": "Shows info for all vehicles on the map.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ShowVehicleLocations",
+  "level": "Admin",
+  "description": "Shows all vehicle locations on map.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
  },
  {
   "verb": "ShutdownServer",
   "level": "SuperAdmin",
-  "desc": {
-   "es": "Desactiva el servidor.",
-   "en": "Shuts down the server",
-   "de": "Fährt den Server runter.",
-   "ru": "Останавливает сервер.",
-   "zh": "关闭服务器",
-   "fr": "Arrête le serveur.",
-   "pt": "Desliga o servidor",
-   "zh-tw": "關閉伺服器。",
-   "th": "ปิดเซิร์ฟเวอร์",
-   "pl": "Shuts down the server"
-  }
+  "description": "Shuts down the server",
+  "args": []
+ },
+ {
+  "verb": "Silence",
+  "level": "Admin",
+  "description": "Prevents the silenced player from sending messages to other players.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to silence",
+    "type": "String"
+   },
+   {
+    "name": "Duration [hours]",
+    "description": "Duration (hours), 0 or no argument = Indefinitely",
+    "type": "Numeric"
+   },
+   {
+    "name": "Channel",
+    "description": "Channel in which to silence",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnAnimal",
+  "level": "Admin",
+  "description": "Spawns a specified amount of the given animal type (Default count value is 1).",
+  "args": [
+   {
+    "name": "Animal",
+    "description": "Animal to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Count",
+    "description": "Number of animals to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Animal Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property Value",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnArmedNPC",
+  "level": "Admin",
+  "description": "Spawns a specified amount of the given armed NPC type (Default count value is 1).",
+  "args": [
+   {
+    "name": "Armed NPC",
+    "description": "Which armed NPC to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Count",
+    "description": "Number of armed NPCs to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Property",
+    "description": "Property of the Armed NPC",
+    "type": "String"
+   },
+   {
+    "name": "Property value",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnBrenner",
+  "level": "Admin",
+  "description": "Spawn debug Brenner character.",
+  "args": []
+ },
+ {
+  "verb": "SpawnInventoryFullOf",
+  "level": "Admin",
+  "description": "Spawns an inventory full of N sets of items",
+  "args": [
+   {
+    "name": "Inventory",
+    "description": "Inventory to place the items in",
+    "type": ""
+   },
+   {
+    "name": "SetCount",
+    "description": "Number of sets to spawn, 0 spawns as many as can fit",
+    "type": "Numeric"
+   },
+   {
+    "name": "Items",
+    "description": "Items to spawn into the inventory",
+    "type": ""
+   }
+  ]
+ },
+ {
+  "verb": "SpawnItem",
+  "level": "Admin",
+  "description": "Spawns one or more items in front of invoking player.",
+  "args": [
+   {
+    "name": "Item",
+    "description": "Item to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Count",
+    "description": "Number of items to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Item Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property Value",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnItem2",
+  "level": "Admin",
+  "description": "Spawns item in front of invoking player. Can use multiple words for finding item suggestions, e.g. #spawnitem2 weapon suppressor ak.",
+  "args": [
+   {
+    "name": "Item",
+    "description": "Item to spawn",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnRandomAnimal",
+  "level": "Admin",
+  "description": "Spawns a specified amount of random animals (default value is 1).",
+  "args": [
+   {
+    "name": "Count",
+    "description": "Number of animals to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Animal Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Value",
+    "description": "Property value",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnRandomZombie",
+  "level": "Admin",
+  "description": "Spawns a specified amount of random zombie types (default value is 1).",
+  "args": [
+   {
+    "name": "Count",
+    "description": "Number of zombies to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Zombie Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property Value",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnRandomZombie2",
+  "level": "Admin",
+  "description": "Spawns a specified amount of random zombie types (default value is 1). Excludes loot puppet, suicide puppet, hospital puppets and nuclear puppets.",
+  "args": [
+   {
+    "name": "Count",
+    "description": "Number of zombies to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Zombie Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property Value",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnRazor",
+  "level": "Admin",
+  "description": "Spawns debug Razor character.",
+  "args": [
+   {
+    "name": "Location",
+    "description": "Override spawn location.",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnReflectionSphere",
+  "level": "Admin",
+  "description": "Spawns a reflection sphere for testing ambient reflections.",
+  "args": []
+ },
+ {
+  "verb": "SpawnVehicle",
+  "level": "Admin",
+  "description": "Spawns vehicle in front of invoking player.",
+  "args": [
+   {
+    "name": "Vehicle",
+    "description": "Vehicle to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Count",
+    "description": "Number of vehicles to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Vehicle Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property value",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Vehicle Property",
+    "description": "",
+    "type": "String"
+   },
+   {
+    "name": "Property value",
+    "description": "",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "SpawnZombie",
+  "level": "Admin",
+  "description": "Spawns a specified amount of the given zombie type (Default count value is 1).",
+  "args": [
+   {
+    "name": "Zombie",
+    "description": "Which zombie to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Count",
+    "description": "Number of zombies to spawn",
+    "type": "Numeric"
+   },
+   {
+    "name": "Property",
+    "description": "Property of the zombie",
+    "type": "String"
+   },
+   {
+    "name": "Property value",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "SquadInfo",
+  "level": "Admin",
+  "description": "Show squad info for the squad of the provided player",
+  "args": [
+   {
+    "name": "Player ID",
+    "description": "Player for whos squad info to show",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "StartTournamentMode",
+  "level": "Admin",
+  "description": "Initiates tournament mode.",
+  "args": [
+   {
+    "name": "Center X",
+    "description": "X coordinate of the center",
+    "type": "Numeric"
+   },
+   {
+    "name": "Center Y",
+    "description": "Y coordinate of the center",
+    "type": "Numeric"
+   },
+   {
+    "name": "Delay",
+    "description": "Delay to start",
+    "type": "Numeric"
+   },
+   {
+    "name": "Duration",
+    "description": "Duration of the tournament mode",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "Teleport",
+  "level": "Admin",
+  "description": "Teleports the specified player to the specified location. If player is unspecified, teleports you.",
+  "args": [
+   {
+    "name": "X",
+    "description": "X coordinate",
+    "type": "Numeric"
+   },
+   {
+    "name": "Y",
+    "description": "Y coordinate",
+    "type": "Numeric"
+   },
+   {
+    "name": "Z",
+    "description": "Z coordinate",
+    "type": "Numeric"
+   },
+   {
+    "name": "Player",
+    "description": "Player to teleport",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "TeleportTo",
+  "level": "Admin",
+  "description": "Teleports the specified player to another player. If player to teleport is unspecified, teleports you.",
+  "args": [
+   {
+    "name": "Player Target",
+    "description": "Player to teleport to",
+    "type": "String"
+   },
+   {
+    "name": "Teleportee",
+    "description": "Which player to teleport",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "TeleportTo3pm",
+  "level": "Admin",
+  "description": "Teleports the specified player to a random location. If player is unspecified, teleports you.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to teleport",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "TeleportToMe",
+  "level": "Admin",
+  "description": "Teleports the specified player in front of you.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to teleport",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "TeleportToVehicle",
+  "level": "Admin",
+  "description": "Teleports the specified player to vehicle having the specified alias or ID. If player is unspecified, teleports you.",
+  "args": [
+   {
+    "name": "Vehicle",
+    "description": "Vehicle to teleport to",
+    "type": "String"
+   },
+   {
+    "name": "Teleportee",
+    "description": "Which player to teleport",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "ToggleAmbientSound",
+  "level": "Admin",
+  "description": "Enable or disable ambient sounds in drone mode",
+  "args": []
+ },
+ {
+  "verb": "ToggleFamePointDebugVisualization",
+  "level": "Elevated",
+  "description": "Toggles accurate debug visualization of Fame Points.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "ToggleFog",
+  "level": "Admin",
+  "description": "Enable or disable fog in drone mode",
+  "args": []
+ },
+ {
+  "verb": "ToggleZombieNavigationLogging",
+  "level": "Admin",
+  "description": "Toggles Zombie Navigation Error/Warning Logging",
+  "args": []
+ },
+ {
+  "verb": "Unban",
+  "level": "Admin",
+  "description": "Lifts the ban on the specified player so he or she can connect to this server again.",
+  "args": [
+   {
+    "name": "Player SteamID64",
+    "description": "Player Steam ID to unban",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "Unmute",
+  "level": "Regular",
+  "description": "Re-enables chat messaging for the specified player.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to unmute",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "Unsilence",
+  "level": "Admin",
+  "description": "Re-enables chat messaging for the specified player.",
+  "args": [
+   {
+    "name": "Player",
+    "description": "Player to unsilence",
+    "type": "String"
+   },
+   {
+    "name": "Channel",
+    "description": "Channel in which to unsilence",
+    "type": "String"
+   }
+  ]
+ },
+ {
+  "verb": "UpgradeBaseBuildingElementsWithinRadius",
+  "level": "Admin",
+  "description": "Upgrade all Base Bulding Elements within radius",
+  "args": [
+   {
+    "name": "Radius",
+    "description": "Radius within the upgrade will happen",
+    "type": ""
+   }
+  ]
+ },
+ {
+  "verb": "VisualizeBulletTrajectories",
+  "level": "Admin",
+  "description": "Enables or disables bullet trajectory visualization.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "VisualizePath",
+  "level": "Admin",
+  "description": "Draws a path from start to end location. Note that keywords \"start\" and \"end\" need to be put in before the locations.",
+  "args": [
+   {
+    "name": "start",
+    "description": "start",
+    "type": "String"
+   },
+   {
+    "name": "startLocation",
+    "description": "Transform or vector of the start location",
+    "type": "TransformOrLocation"
+   },
+   {
+    "name": "end",
+    "description": "end",
+    "type": "String"
+   },
+   {
+    "name": "endLocation",
+    "description": "Transform or vector of the end location",
+    "type": "TransformOrLocation"
+   }
+  ]
+ },
+ {
+  "verb": "VisualizePlayerAiming",
+  "level": "Admin",
+  "description": "Enables or disables player aim visualization.",
+  "args": [
+   {
+    "name": "",
+    "description": "",
+    "type": "Bool"
+   }
+  ]
+ },
+ {
+  "verb": "VisualizeVehicleTrajectory",
+  "level": "Admin",
+  "description": "",
+  "args": [
+   {
+    "name": "Vehicle",
+    "description": "Vehicle to spawn",
+    "type": "String"
+   },
+   {
+    "name": "Sampling Interval",
+    "description": "",
+    "type": "Numeric"
+   }
+  ]
+ },
+ {
+  "verb": "Vote",
+  "level": "Admin",
+  "description": "Triggers a voting system.",
+  "args": [
+   {
+    "name": "Vote Topic",
+    "description": "Topic on which to vote",
+    "type": "String"
+   }
+  ]
  }
 ]
