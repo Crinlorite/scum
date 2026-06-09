@@ -38,13 +38,17 @@ const typeLabels = Object.fromEntries(Object.entries(TYPE_META).map(([k, v]) => 
 <BaseLayout lang={lang} title={tr('map.title')} description={tr('map.intro')} noindex={noindex}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <section class="map-wrap">
-    <div class="container container-prose">
-      <span class="eyebrow">{tr('map.title')}</span>
-      <h1>{tr('map.title')}</h1>
-      <p class="intro">{tr('map.intro')} <span class="count">{pois.length} POIs</span></p>
-    </div>
-    {live && (
-      <div class="container"><nav class="pnl-nav" aria-label="secciones del panel">{PANEL_NAV.map((n) => <a href={n.href} class={n.s === 'mapa' ? 'active' : ''}>{n.t}</a>)}</nav></div>
+    {live ? (
+      <div class="container">
+        <div class="pnl-top"><div><span class="eyebrow">Panel · Admin</span><h1>Mapa en vivo</h1></div></div>
+        <nav class="pnl-nav" aria-label="secciones del panel">{PANEL_NAV.map((n) => <a href={n.href} class={n.s === 'mapa' ? 'active' : ''}>{n.t}</a>)}</nav>
+      </div>
+    ) : (
+      <div class="container container-prose">
+        <span class="eyebrow">{tr('map.title')}</span>
+        <h1>{tr('map.title')}</h1>
+        <p class="intro">{tr('map.intro')} <span class="count">{pois.length} POIs</span></p>
+      </div>
     )}
     <div id="scum-map" role="application" aria-label={tr('map.title')}></div>
   </section>
