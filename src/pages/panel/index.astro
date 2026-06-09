@@ -5,6 +5,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const tools = [
   { href: '/panel/mapa', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla (se actualiza con el autosave del servidor).', ready: true },
+  { href: '/panel/rcon', title: 'Consola RCON', desc: 'Ejecuta comandos de administración en el servidor en vivo. Solo administradores.', ready: true, admin: true },
 ];
 ---
 <BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>
@@ -16,12 +17,19 @@ const tools = [
       <div class="grid">
         {tools.map((t) => (
           t.ready
-            ? <a class="tool" href={t.href}><h2>{t.title}</h2><p>{t.desc}</p></a>
+            ? <a class="tool" href={t.href} data-admin={t.admin ? 'true' : undefined}><h2>{t.title}{t.admin && <span class="badge">admin</span>}</h2><p>{t.desc}</p></a>
             : <div class="tool soon"><h2>{t.title} <span class="badge">pronto</span></h2><p>{t.desc}</p></div>
         ))}
       </div>
     </div>
   </section>
+
+  <script>
+    // Oculta las herramientas admin-only a quien no sea admin (el backend ya las gatea igual).
+    fetch('/panel/api/auth/me').then((r) => (r.ok ? r.json() : null)).then((me) => {
+      if (!me || !me.is_admin) document.querySelectorAll('[data-admin]').forEach((el) => el.remove());
+    }).catch(() => {});
+  </script>
 </BaseLayout>
 
 <style>
