@@ -1,0 +1,43 @@
+---
+// Killfeed real: muertes del kill_*.log del host (victima, asesino NPC/PvP, arma,
+// distancia). Usa el sistema compartido. Lee /panel/api/killfeed.
+import PanelLayout from '../../../layouts/PanelLayout.astro';
+---
+<PanelLayout title="Killfeed" slug="killfeed">
+  <button slot="actions" id="refresh" type="button" class="pnl-btn">↻ Actualizar</button>
+
+  <p id="meta" class="pnl-meta"></p>
+  <div class="kpis" id="kpis"></div>
+  <div class="dt-scroll">
+    <table class="dt">
+      <thead><tr><th>Cuándo</th><th>Víctima</th><th>Asesino</th><th>Arma</th><th>Dist.</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="pnl-hint">Muertes registradas en el kill log del servidor (víctima, asesino, arma, modo y distancia). Hora de España.</p>
+
+  <script>
+    import { esc, fmtDateTime, nowTime, requireAdmin } from '../../../scripts/panel.ts';
+    const API = '/panel/api';
+    const kpi = (v, l, s) => `<div class="kpi"><span class="kv">${v}</span><span class="kl">${esc(l)}</span>${s ? `<span class="ks">${esc(s)}</span>` : ''}</div>`;
+    async function load() {
+      const btn = document.getElementById('refresh'); btn.disabled = true;
+      try {
+        const d = await (await fetch(API + '/killfeed')).json();
+        const c = d.counts || {};
+        document.getElementById('kpis').innerHTML = [kpi(c.total || 0, 'Muertes'), kpi(c.npc || 0, 'Por NPC'), kpi(c.pvp || 0, 'PvP entre jugadores')].join('');
+        document.getElementById('rows').innerHTML = (d.kills || []).map((k) => `<tr>
+          <td>${esc(fmtDateTime(k.ts))}</td>
+          <td><span class="name">${esc(k.victim)}</span></td>
+          <td>${esc(k.killer)} <span class="bdg ${k.killer_type === 'PvP' ? 'warn' : 'lvl'}">${esc(k.killer_type)}</span></td>
+          <td>${esc(k.weapon)} <span class="muted">· ${esc(k.mode)}</span></td>
+          <td class="num">${k.distance != null ? k.distance + ' m' : '—'}</td>
+        </tr>`).join('') || '<tr><td colspan="5" class="muted">Sin muertes registradas en los logs.</td></tr>';
+        document.getElementById('meta').textContent = `${(d.kills || []).length} muertes · actualizado ${nowTime()}`;
+      } catch (e) { document.getElementById('meta').textContent = 'Error al cargar.'; }
+      finally { btn.disabled = false; }
+    }
+    document.getElementById('refresh').addEventListener('click', load);
+    requireAdmin(load);
+  </script>
+</PanelLayout>
