@@ -31,17 +31,23 @@ export const fmtRel = (iso: unknown): string => {
 export const me: Promise<{ discord_id: string; username: string; is_admin: boolean } | null> =
   fetch('/panel/api/auth/me').then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
-// Gate compartido: si no es admin, oculta #pnl-content y muestra #pnl-gate.
+// Gate compartido. Por defecto la página es admin-only; si #pnl-content tiene
+// data-admin-only="false", basta con tener sesión (mod O admin), como el mapa.
 export function gate(): void {
   me.then((m) => {
-    if (!m || !m.is_admin) {
-      const g = document.getElementById('pnl-gate'); const c = document.getElementById('pnl-content');
-      if (g) g.hidden = false; if (c) c.hidden = true;
-    }
+    const c = document.getElementById('pnl-content');
+    const adminOnly = !c || c.dataset.adminOnly !== 'false';
+    if (m && (m.is_admin || !adminOnly)) return;  // admin siempre; mod si la página no es admin-only
+    const g = document.getElementById('pnl-gate'); if (g) g.hidden = false; if (c) c.hidden = true;
   });
 }
 
 // Ejecuta load() solo si es admin (la página no pide datos si está gateada).
 export function requireAdmin(load: () => void): void {
   me.then((m) => { if (m && m.is_admin) load(); });
+}
+
+// Ejecuta load() para cualquier sesión válida (mod o admin) — páginas mod-access.
+export function requireSession(load: () => void): void {
+  me.then((m) => { if (m) load(); });
 }
