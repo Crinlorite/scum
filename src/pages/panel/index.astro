@@ -1,50 +1,43 @@
 ---
-// Private panel home (login con Discord vía nginx). Hub de herramientas: el mapa
-// en vivo ahora; RCON y dashboards después. La referencia de comandos es pública
-// en /comandos (ya no vive aquí).
+// Hub del panel admin (centro de control). Estilo compartido (panel.css). Oculta
+// las herramientas admin-only a los no-admin (el backend las gatea igual).
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/panel.css';
 const tools = [
-  { href: '/panel/mapa', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla (se actualiza con el autosave del servidor).', ready: true },
-  { href: '/panel/rcon', title: 'Consola RCON', desc: 'Ejecuta comandos de administración en el servidor en vivo. Solo administradores.', ready: true, admin: true },
-  { href: '/panel/jugadores', title: 'Jugadores', desc: 'Estado de los jugadores: vivo/muerto, fama, dinero, escuadrón, conexión.', ready: true, admin: true },
-  { href: '/panel/economia', title: 'Economía', desc: 'Traders y sus fondos, outposts (cash y oro) y existencias: qué artículos sobran y cuáles escasean.', ready: true, admin: true },
-  { href: '/panel/squads', title: 'Escuadrones', desc: 'Escuadrones del servidor con su score y la lista de miembros por rango.', ready: true, admin: true },
-  { href: '/panel/overview', title: 'Overview del servidor', desc: 'Resumen en una pantalla: jugadores en línea, próximo reinicio, uptime del contenedor SCUM y RAM del host.', ready: true, admin: true },
-  { href: '/panel/actividad', title: 'Actividad', desc: 'Feed cronológico de conexiones, desconexiones y muertes del servidor.', ready: true, admin: true },
+  { href: '/panel/mapa', ico: '◎', title: 'Mapa en vivo', desc: 'Vuestra posición sobre el mapa de la isla, en tiempo real.', admin: false },
+  { href: '/panel/jugadores', ico: 'JG', title: 'Jugadores', desc: 'Vivo/muerto, fama, dinero, escuadrón, conexión + inspector de skills e inventario.', admin: true },
+  { href: '/panel/economia', ico: '€', title: 'Economía', desc: 'Traders y fondos, outposts (cash/oro) y existencias del mercado.', admin: true },
+  { href: '/panel/squads', ico: 'SQ', title: 'Escuadrones', desc: 'Escuadrones del servidor, score y miembros por rango.', admin: true },
+  { href: '/panel/overview', ico: 'OV', title: 'Overview', desc: 'Online, próximo reinicio, uptime del server y RAM del host.', admin: true },
+  { href: '/panel/actividad', ico: 'AC', title: 'Actividad', desc: 'Feed de conexiones, desconexiones y muertes.', admin: true },
+  { href: '/panel/rcon', ico: '>_', title: 'Consola RCON', desc: 'Ejecuta comandos de administración en el servidor en vivo.', admin: true },
 ];
 ---
-<BaseLayout lang="es" title="Panel privado" description="Herramientas de administración del servidor" noindex>
-  <section class="panel">
-    <div class="container container-prose">
-      <span class="eyebrow">Privado</span>
-      <h1>Panel del servidor</h1>
-      <p class="intro">Herramientas de administración. Esta zona está protegida y no aparece en la wiki pública.</p>
-      <div class="grid">
+<BaseLayout lang="es" title="Panel del servidor" description="Centro de control del servidor" noindex>
+  <section class="pnl">
+    <div class="container">
+      <div class="pnl-top"><div><span class="eyebrow">Privado</span><h1>Centro de control</h1></div></div>
+      <p id="who" class="pnl-meta">Zona protegida — no aparece en la wiki pública.</p>
+      <div class="hub">
         {tools.map((t) => (
-          t.ready
-            ? <a class="tool" href={t.href} data-admin={t.admin ? 'true' : undefined}><h2>{t.title}{t.admin && <span class="badge">admin</span>}</h2><p>{t.desc}</p></a>
-            : <div class="tool soon"><h2>{t.title} <span class="badge">pronto</span></h2><p>{t.desc}</p></div>
+          <a class="hubcard" href={t.href} data-admin={t.admin ? 'true' : undefined}>
+            <span class="hc-ico">{t.ico}</span>
+            <span>
+              <span class="hc-t">{t.title}{t.admin && <span class="bdg lvl">admin</span>}</span>
+              <span class="hc-d">{t.desc}</span>
+            </span>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
   <script>
-    // Oculta las herramientas admin-only a quien no sea admin (el backend ya las gatea igual).
-    fetch('/panel/api/auth/me').then((r) => (r.ok ? r.json() : null)).then((me) => {
-      if (!me || !me.is_admin) document.querySelectorAll('[data-admin]').forEach((el) => el.remove());
-    }).catch(() => {});
+    import { me } from '../../scripts/panel.ts';
+    me.then((m) => {
+      const who = document.getElementById('who');
+      if (m && who) who.textContent = `Conectado como ${m.username || m.discord_id}${m.is_admin ? ' · administrador' : ' · moderador'}`;
+      if (!m || !m.is_admin) document.querySelectorAll('[data-admin]').forEach((el) => el.remove());
+    });
   </script>
 </BaseLayout>
-
-<style>
-  .panel { padding: 3rem 0 4rem; }
-  .intro { color: var(--c-ink-soft); font-size: 1.1rem; margin-bottom: 1.5rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.9rem; }
-  .tool { display: block; padding: 1rem 1.1rem; background: var(--c-paper); border: 1px solid var(--c-rule); border-radius: var(--radius); text-decoration: none; color: var(--c-ink); transition: border-color 120ms ease; }
-  .tool:hover { border-color: var(--c-rust); }
-  .tool h2 { margin: 0 0 0.4rem; font-size: 1.05rem; }
-  .tool p { margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
-  .tool.soon { opacity: 0.6; }
-  .badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-rust-bright); border: 1px solid var(--c-rust); border-radius: 999px; padding: 0.05rem 0.4rem; vertical-align: middle; }
-</style>
