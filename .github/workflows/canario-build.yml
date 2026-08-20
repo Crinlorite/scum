@@ -1,0 +1,23 @@
+# Canario de compilación — NO despliega nada.
+#
+# Motivo (20-ago-2026): una imagen que lleva meses funcionando puede dejar de
+# COMPILAR sin que nadie se entere, porque la base o el registro se mueven bajo
+# los pies. El susto no es que la app envejezca: es descubrir que no puedes
+# reconstruirla justo el día que necesitas parchearla con prisa.
+#
+# Esto solo construye y avisa si falla. Desplegar sigue siendo decisión humana.
+name: Canario de compilación
+
+on:
+  schedule:
+    - cron: '30 5 1 * *'   # día 1 de cada mes
+  workflow_dispatch:      # y cuando a mano haga falta
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir la imagen (sin publicar ni desplegar)
+        run: docker build --pull -t canario:prueba .
