@@ -1,11 +1,11 @@
-# Scum Codex (scumcodex.com)
+# Scum Codex (scumcodex.crintech.pro)
 
 Wiki y fuente de información de **SCUM**, sin anuncios, sin tracking, multilingüe.
 
 - Idioma por defecto: **español** (sin prefijo de URL); secundario **inglés** (`/en/...`).
 - **10 idiomas** oficiales del juego: es, en, de, ru, zh, fr, pt, zh-tw, th, pl.
 - Stack: **Astro 5** + MDX + content collections. JS de cliente mínimo (buscador y mapa).
-- Repo: `github.com/Crinlorite/scum` · Despliegue: estático en **Coolify** (nginx), dominio `scumcodex.com`.
+- Repo: `github.com/Crinlorite/scum` · Despliegue: estático en **Coolify** (nginx), dominio `scumcodex.crintech.pro` (antes `scumcodex.com`, que redirige con 301).
 
 ## Contenido
 
@@ -45,6 +45,6 @@ npm run build    # astro build → dist/
 
 ## Despliegue
 
-Coolify (build pack Dockerfile, nginx) sirviendo `dist/`, puerto 80, dominio `scumcodex.com`
+Coolify (build pack Dockerfile, nginx) sirviendo `dist/`, puerto 80, dominio `scumcodex.crintech.pro` (antes `scumcodex.com`, que redirige con 301)
 (cert Let's Encrypt). El panel privado `/panel/` va tras HTTP Basic Auth (Build Args
 `PANEL_USER`/`PANEL_PASS`). Sin anuncios ni analítica de terceros.
